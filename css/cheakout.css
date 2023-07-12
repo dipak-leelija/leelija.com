@@ -1,0 +1,80 @@
+/* .paypal-powered-by {
+    display: none !important;
+} */
+
+.billing-details .form-control {
+    border-radius: inherit;
+    /* height: 55px!important; */
+    /* padding: 10px; */
+    margin: 10px 0
+}
+
+.form-select:focus,
+.form-control:focus {
+    outline: 0.5px solid #0673BA;
+    /* outline: none; */
+    box-shadow: none;
+    border: none;
+}
+
+.form-select {
+    border-radius: inherit;
+    margin: 10px 0;
+    border: 1px solid #0673BA5c;
+    box-shadow: none;
+}
+
+.coutrow {
+    margin: 0.5rem 0rem 2rem;
+    padding: 1rem 1rem 0rem;
+    box-shadow: rgb(0 0 0 / 15%) 0px 2px 8px;
+}
+
+.ckoutcol {
+    padding: 0rem 1rem 1rem;
+    border: none;
+}
+
+.sub-title1 {
+    text-align: start;
+    font-size: 1.1rem;
+}
+
+.ckoutdiv {
+    column-count: 2;
+    line-height: 2.5;
+    display: block;
+}
+
+.sub-title2 {
+    color: black;
+    text-align: start;
+    font-size: 1.5rem;
+}
+
+.payment-sec {
+    border-radius: 0.4rem;
+    padding: 2rem 2rem;
+}
+
+.paytm-btn-container button {
+    border: 1px solid #0673BA;
+    border-radius: 0.2rem;
+    width: 100%;
+    background: #fff;
+    padding: 0.7rem 0rem;
+}
+
+.paytm-btn-container button:hover {
+    background-color: rgb(236, 235, 252);
+}
+
+.paytm-btn-container button img {
+    width: 4.3rem;
+}
+@media (min-width:150px) and (max-width:767px){
+    .payment-sec {
+        border-radius: 0.4rem;
+        padding: 0rem;
+    }
+}

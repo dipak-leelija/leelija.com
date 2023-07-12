@@ -1,0 +1,499 @@
+/* ---------------------------------------------------------- */
+/* starting of Casino Backlinks main banner  */
+/* ------------------------------------------------------------ */
+.casino-banner-section {
+    background-image: url('../images/blogger-outreach-bg-main.png');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.casino-sizing-div {
+    padding: 9rem 16rem;
+    text-align: center;
+}
+
+.casino-sizing-div h1 {
+    color: #0c1734;
+    margin: 0 0 14px;
+    font-family: Helvetica, Poppins;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.15625em;
+}
+
+.casino-sizing-div span {
+    color: #F7A546;
+}
+
+.casino-sizing-div h1 :hover {
+    color: black !important;
+    transition: all .6s ease;
+    -webkit-transition: .6s;
+}
+
+.casino-sizing-div p {
+    color: #4d515c;
+    font-family: Helvetica, Poppins;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.6em;
+    margin: 0 0 22px;
+}
+
+.managed-link-btn {
+    font-family: "Poppins", Poppins;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 0;
+    word-spacing: 0em;
+    fill: #FFF;
+    color: #FFF;
+    background-image: linear-gradient(120deg, #FDA33B 0%, #FA8273 100%);
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #F7A546 !important;
+    border-radius: 50px 50px 50px 50px;
+    padding: 17px 40px 17px 40px;
+}
+
+.managed-link-btn:hover {
+    color: white;
+    background-image: linear-gradient(120deg, #FA8273 0%, #FDA33B 100%);
+}
+
+.casino-btn-div {
+    justify-content: center;
+}
+
+.blogger-btn {
+    font-family: "Poppins", Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 0;
+    word-spacing: 0em;
+    fill: #FFF;
+    color: #FFF;
+    background-color: #F7A546;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #F7A546 !important;
+    border-radius: 100px 100px 100px 100px;
+    padding: 16px 55px 16px 55px;
+}
+
+/* --------------------------------------------------------------------------------------- */
+/*      ending of Casino Backlinks main banner  */
+/* ________________________________________________________________________________________ */
+/* Challenges Of Casino Backlinks- section start */
+/* ------------------------------------------------------------------------------------------------ */
+.challenges-casino-section {
+    margin: 5rem;
+}
+
+.challenges-casino-section h1 {
+    font-size: 2rem;
+}
+
+.challenges-casino-section h1 span {
+    color: #f98b0b;
+}
+
+.real-bo-secondcol-div1 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: .5rem 0;
+}
+
+@media (min-width:350px) and (max-width:425px) {
+    .challenges-casino-section h1 {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* -------------------------------------------------------------------------------------------- */
+/* Challenges Of Casino Backlinks-section end */
+/* ------------------------------------------------------------------------------------------ */
+/* ________________________________________________________________________________________________________ */
+/* Link Building For Casino Sites- */
+/* ________________________________________________________________________________________________________ */
+.linkbuilding-casino p {
+    line-height: 1.8;
+    font-size: 1em;
+    color: #222244;
+    font-weight: 100;
+    margin: 0;
+}
+
+/* ________________________________________________________________________________________________________ */
+/* Link Building For Casino Sites- */
+/* ________________________________________________________________________________________________________ */
+/* * _______________________________________________________________________________________________________ */
+/* Pricing blogger outreach section start */
+/* _____________________________________________________________________________________________________ */
+.pricing-bo-h1 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: darkblue;
+    font-family: "Poppins", Poppins;
+}
+
+.pricing-bo-p1 {
+    font-family: "Poppins", Poppins;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.price-table {
+    background: #F9F9F9;
+    padding: 20px 5rem;
+    margin: 5rem 0;
+}
+
+/* _____________________________________________________________________________________________________ */
+/* Pricing blogger outreach section ends */
+/* --------------------------------------------------------------------------------------------------- */
+/* _____________________________________________________________________________________________________ */
+/*  How Does It Work?section start */
+/* ________________________________________________________________________________________________________ */
+
+.how-itsworks-casino-section {
+    background-image: url('../images/blogger-outreach-bg-main.png');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.how-itsworks-main-div-casino {
+    padding: 6rem;
+}
+
+.how-itsworks-main-div-casino h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.how-itsworks-main-div-casino strong {
+    color: #23a7a9;
+}
+
+.how-itsworks-main-div-casino p {
+    font-family: "Poppins", Poppins;
+    text-align: center;
+    color: #3f4450;
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 1rem 0 3rem;
+}
+
+.how-itsworks-main-div-casino h3 {
+    color: #3f4450;
+    font-family: Roboto, Poppins;
+    font-size: 24px;
+    font-weight: 400;
+    text-shadow: 0 0 0 rgb(0 0 0 / 30%);
+    margin: 1rem 0;
+}
+
+/* --------------------------------------------------------------------------------------- */
+/* How Does It Work?-section  end */
+/* -------------------------------------------------------------------------------- */
+/* _______________________________________________________________________________________ */
+/* Benefits Of Online Gaming And Casino Link Building- */
+/* -------------------------------------------------------------- */
+.benifits-online-gaming-casino-section {
+    padding: 5rem 4rem;
+}
+
+.benifits-online-gaming-casino-section h3 {
+    color: #1c244b;
+    font-family: Poppins, Poppins;
+    font-size: 33px;
+    font-weight: 600;
+}
+
+.benifits-online-gaming-casino-section h4 {
+    text-align: left;
+    color: #1c244b;
+    font-family: Poppins, Poppins;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 2em;
+    text-decoration: underline;
+}
+
+.benifits-online-gaming-casino-section p {
+    text-align: left;
+    color: #1c244b;
+    font-family: Poppins, Poppins;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 2em;
+}
+
+/* If My Casino Website Really Needs Link-Building Services? */
+
+.casino-building-services-maindiv {
+    padding: 7rem 7rem 0;
+}
+
+.casino-building-services-maindiv h1 {
+    text-align: center;
+    color: #3f4450;
+    font-size: 2rem;
+    font-family: Roboto, Poppins;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.casino-building-services-maindiv span {
+    font-weight: 600;
+    color: #23a7a9;
+}
+
+.casino-building-services-maindiv p {
+    text-align: center;
+    color: #1c244b;
+    font-family: Poppins, Poppins;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* ---------------------------------------------------------------- */
+/* Benefits Of Online Gaming And Casino Link Building- */
+/* __________________________________________________________________________________________________ */
+/* ---------------------------------------------------------------- */
+/* Why Choose Leelija WebSolution For Casino Link Building Services? */
+/* __________________________________________________________________________________________________ */
+.why-choose-leelija-casino-section {
+    padding: 3rem 4rem;
+}
+
+.why-choose-leelija-casino-section h3 {
+    color: #1c244b;
+    font-family: Poppins, Poppins;
+    font-size: 33px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.why-choose-leelija-casino-section ul {
+    text-align: left;
+    color: #1c244b;
+    font-family: Poppins, Poppins;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 2em;
+    padding-left: 3rem;
+}
+
+.why-choose-leelija-casino-section li {
+    list-style-type: disclosure-closed;
+    color: #000;
+}
+
+/* ---------------------------------------------------------------- */
+/* Why Choose Leelija WebSolution For Casino Link Building Services? ends */
+/* __________________________________________________________________________________________________ */
+/* MEDIA QUERY STARTS  */
+/* ____________________________________________________ */
+
+@media (max-width:1199px) {
+    .casino-sizing-div {
+        padding: 7rem 11rem;
+        text-align: center;
+    }
+
+    .challenges-casino-section h1 {
+        font-size: 1.9rem !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 3.2rem !important;
+    }
+}
+
+@media (max-width:991px) {
+    .casino-sizing-div {
+        padding: 4rem;
+        text-align: center;
+    }
+
+    .challenges-casino-section {
+        margin: 5rem 1rem !important;
+    }
+
+    .price-table {
+        padding: 20px 2rem !important;
+        margin: 2rem 0 !important;
+    }
+
+    .how-itsworks-main-div-casino {
+        padding: 6rem 4rem;
+    }
+
+    .benifits-online-gaming-casino-section {
+        padding: 5rem 3rem;
+    }
+
+    .why-choose-leelija-casino-section {
+        padding: 0rem 3rem;
+    }
+}
+
+@media (max-width:767px) {
+
+    .casino-sizing-div h1 {
+        font-size: 3rem;
+    }
+
+    .managed-link-btn {
+        padding: 11px 34px 9px 34px;
+    }
+
+    .blogger-btn {
+        padding: 11px 34px 9px 34px;
+    }
+
+    .buttonsinfo {
+        margin-bottom: 3rem;
+    }
+
+    .challenges-casino-section h1 {
+        text-align: center;
+    }
+
+    .benifits-online-gaming-casino-section h3 {
+        text-align: center;
+    }
+
+    .why-choose-leelija-casino-section h3 {
+        text-align: center;
+    }
+
+    .casino-building-services-maindiv {
+        padding: 7rem 0rem 0;
+        /* background: azure; */
+    }
+}
+
+@media (max-width:600px) {
+    .casino-sizing-div {
+        padding: 4rem 2rem;
+        text-align: center;
+    }
+
+    .casino-sizing-div h1 {
+        font-size: 2.5rem;
+    }
+
+    .price-table {
+        padding: 20px 0rem !important;
+        margin: 2rem 0 !important;
+    }
+
+    .pricing-bo-p1 {
+        padding: .8rem;
+    }
+
+    .how-itsworks-main-div-casino {
+        padding: 6rem 1rem;
+    }
+
+    .benifits-online-gaming-casino-section {
+        padding: 5rem 1rem;
+    }
+
+    .why-choose-leelija-casino-section {
+        padding: 0rem 1rem 2rem;
+    }
+}
+
+@media (min-width:536px) and (max-width:767px) {
+    .pricing-bo-h1 {
+        font-size: 2.6rem !important;
+    }
+}
+
+@media (min-width:336px) and (max-width:535px) {
+    .pricing-bo-h1 {
+        font-size: 2.2rem !important;
+    }
+}
+
+@media (min-width:312px) and (max-width:335px) {
+    .pricing-bo-h1 {
+        font-size: 1.9rem !important;
+    }
+}
+
+@media (min-width:200px) and (max-width:312px) {
+    .managed-link-btn {
+        padding: 11px 19px 11px 25px !important;
+    }
+
+    .challenges-casino-section h1 {
+        font-size: 1.93rem !important;
+        font-weight: 500;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 1.7rem !important;
+    }
+
+    .benifits-online-gaming-casino-section h3 {
+        font-size: 23px;
+    }
+
+    .why-choose-leelija-casino-section h3 {
+        font-size: 23px;
+    }
+}
+
+@media (min-width:313px) and (max-width:399px) {
+    .benifits-online-gaming-casino-section h3 {
+        font-size: 25.5px;
+    }
+
+    .why-choose-leelija-casino-section h3 {
+        font-size: 25.5px;
+    }
+}
+
+@media (min-width:250px) and (max-width:450px) {
+    .casino-sizing-div {
+        padding: 4rem 1rem;
+        text-align: center;
+    }
+
+    .casino-sizing-div h1 {
+        font-size: 1.9rem;
+    }
+
+    .real-bo-secondcol-div1 {
+        display: inline-block !important;
+        text-align: center;
+        align-items: center;
+        padding: .5rem;
+        margin: 1rem 0;
+    }
+
+    .trustworthy-img-div {
+        text-align: start;
+        margin: 1rem 0;
+    }
+
+    .casino-building-services-maindiv h1 {
+        font-size: calc(1.375rem + 1.5vw);
+    }
+}

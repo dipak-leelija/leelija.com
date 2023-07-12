@@ -1,0 +1,2 @@
+[16-Sep-2022 06:21:19 UTC] PHP Warning:  Undefined array key "orderId" in /home/ws6gs9ua9bm3/public_html/payments/gpwishlistOrder/paymentStatus.php on line 116
+[16-Sep-2022 06:21:19 UTC] PHP Warning:  Undefined array key "trxn_id" in /home/ws6gs9ua9bm3/public_html/payments/gpwishlistOrder/paymentStatus.php on line 116

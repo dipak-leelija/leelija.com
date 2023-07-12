@@ -1,0 +1,663 @@
+/* ----------------------------------------------------------------------- */
+/* blogger outreach main banner start */
+/* -------------------------------------------------------------------- */
+.blogger_outreach_banner {
+    background-image: url('../images/blogger-outreach-bg-main.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blog-1main-row {
+    padding: 5rem 0;
+}
+
+.bo-main-cntr {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+.bo-wrap {
+    align-content: center;
+    align-items: center;
+}
+
+.bo-wrap span {
+    color: #0673ba;
+}
+
+.blogout-main-h1 {
+    font-family: "Poppins", Poppins;
+    font-size: 3.8rem;
+    font-weight: 600;
+    line-height: 1.2em;
+    color: #1C244B;
+    word-spacing: 0.1em;
+    stroke: #000;
+}
+
+.blogout-main-p {
+    font-weight: 300;
+    text-align: left;
+    font-size: 1.7rem;
+    color: #324A6D;
+    line-height: 1.5em;
+    /* font-family: 'Orienta', sans-serif; */
+    font-family: "Poppins", Poppins;
+
+}
+
+.blogger-btn {
+    font-family: "Poppins", Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 0;
+    word-spacing: 0em;
+    fill: #FFF;
+    color: #FFF;
+    background-color: #F7A546;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #F7A546 !important;
+    border-radius: 100px 100px 100px 100px;
+    padding: 16px 55px 16px 55px;
+}
+
+/* blogger outreach main banner end */
+/* ________________________________________________________________________________________ */
+
+/* blogger outreach real-bo-section  start */
+
+.real-bo-section {
+    margin: 5rem;
+}
+
+
+.real-bo-text-h1 {
+    font-size: 2.48rem;
+}
+
+.real-bo-text-h1 span {
+    color: chocolate;
+}
+
+.real-bo-secondcol-div1 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: .5rem;
+}
+
+.real-bo-ul1 {
+
+    margin: 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.real-bo-li1 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.real-bo-ul1 b {
+    color: palevioletred;
+}
+
+.real-bo-btn {
+    font-family: "Poppins", Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 0;
+    word-spacing: 0em;
+    fill: #FFF;
+    color: #FFF;
+    background-color: #467FF7;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #467FF7 !important;
+    border-radius: 100px 100px 100px 100px;
+    padding: 16px 55px 16px 55px;
+}
+
+/* second-half */
+
+
+.real-bo-second-col-img {
+    width: 585px;
+    height: 356px;
+    object-fit: cover;
+}
+
+.real-bo-text-p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5em;
+    /* font-family: 'Orienta', sans-serif; */
+    font-family: "Poppins", Poppins;
+    text-align: center;
+    align-items: center;
+}
+
+@media (min-width:350px) and (max-width:425px) {
+    .real-bo-text-h1 {
+        font-size: 1.5rem !important;
+    }
+
+}
+
+@media (min-width:250px) and (max-width:425px) {
+
+    .amazing-bo-text-h1 {
+        font-size: 1.7rem !important;
+    }
+}
+
+/* blogger outreach real-bo-section end */
+/* ________________________________________________________________________________________________________ */
+
+/* blogger outreach AMAZING-bo-section end */
+
+.amazing-bo-first-col-img {
+    width: 525px;
+    height: 356px;
+    object-fit: cover;
+}
+
+.getyour-linkbtn {
+    display: flex;
+    justify-content: right;
+}
+
+.amazing-bo-text-h1 {
+    font-size: 2rem;
+    /* color: chocolate; */
+}
+
+.amazing-bo-text-h1 span {
+    color: chocolate;
+}
+
+/* amazing blogger outreach section end */
+/* ____________________________________________________________________________________________________________ */
+/* Pricing blogger outreach section start */
+.pricing-bo-h1 {
+    font-size: 3.6rem;
+    font-weight: 600;
+    color: darkblue;
+    font-family: "Poppins", Poppins;
+}
+
+.pricing-bo-p1 {
+    font-family: "Poppins", Poppins;
+    font-size: 1.1rem;
+    font-weight: 300;
+
+}
+
+.price-table {
+    background: #F9F9F9;
+    padding: 20px 5rem;
+    margin: 5rem 0;
+    /* background: #F9F9F9;
+    padding: 20px 0;
+    margin: 5rem; */
+}
+
+/* _____________________________________________________________________________________________________ */
+/* does bo-works for you starts */
+.works-for-you-bo-section {
+    padding: 3rem;
+}
+
+.works-bo-h2 {
+    font-weight: 600;
+    color: darkblue;
+    font-family: "Poppins", Poppins;
+}
+
+.works-bo-h2 span {
+    color: coral;
+}
+
+.works-bo-p1 {
+    font-size: 1.1rem;
+}
+
+.works-f-u-main-card-div {
+    margin-top: 4rem;
+}
+
+.works-for-u-card {
+    padding: 1.5rem;
+    border-radius: unset;
+    background: #fff;
+    margin: 20px;
+    box-shadow: 0 0 10px 0 #ccc;
+    border: none;
+    min-height: 460px;
+}
+
+.works-f-u-main-card-div p {
+    font-size: .95rem;
+}
+
+/* does bo-works for you ends */
+
+/* how it works  blogger outreach starts */
+.how-its-wrok-bo-main-div {
+    padding: 1rem;
+}
+
+.how-it-work-f-u-card {
+
+    padding: 1.5rem;
+    border-radius: unset;
+    background: #fff;
+    margin: 20px 5px;
+    box-shadow: 0 0 10px 0 #ccc;
+    border: none;
+    min-height: 405px;
+}
+
+/* how it works  blogger outreach starts */
+/* __________________________________________________________________________________________________ */
+/*  Examples of Blogs We Outreach To-blogger-outreach starts */
+.examples-of-blogs-main-div {
+    padding: 4rem;
+    background-image: url('../images/blogger-outreach-bg-main.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.examples-of-blogs-main-div h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: darkblue;
+    font-family: "Poppins", Poppins;
+    margin-bottom: 3rem;
+}
+
+.slider {
+    height: inherit !important;
+}
+
+.examples-of-blogs-main-div span {
+    color: coral;
+}
+
+.examples-img-div-short {
+    width: -webkit-fill-available;
+    /* width: 290px; */
+    height: 189px;
+    object-fit: cover;
+}
+
+.examples-img-div-long {
+    object-fit: cover;
+    width: -webkit-fill-available;
+    /* width: 290px; */
+    height: 220px;
+}
+
+/* __________________________________________________________________________________________________ */
+/*  Examples of Blogs We Outreach To-blogger-outreach ends */
+.what-others-say-testimonial {
+    color: #F7A546;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: "Poppins", Poppins;
+}
+
+.sliderbar {
+    margin-top: 3rem;
+}
+
+.what-others-say-bo-slider-h1 {
+    font-size: 2.8rem;
+    color: brown;
+    font-family: "Poppins", Poppins;
+}
+
+.what-others-say-bo-slider-h1 span {
+    color: darkblue;
+}
+
+.carousel {
+    background: #f1fbff;
+    border-radius: 16px;
+    padding: 5.5rem 1rem;
+    margin-top: 2rem;
+}
+
+.ci-blogger-outingreach {
+    z-index: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto;
+    vertical-align: baseline !important;
+}
+
+.para1 {
+    color: #222244;
+    font-weight: 100;
+    text-transform: capitalize;
+    font-size: 15px !important;
+    width: 100% !important;
+}
+
+.what-others-say-bo-ci-h4 {
+    font-family: "Poppins", Poppins;
+    font-size: 1rem;
+}
+/* carousels ends */
+
+.faq-head-section{
+    color: darkblue;
+}
+.faq-head-section span{
+    color: #F7A546;
+}
+/* __________________________________________________________________________________________________ */
+
+
+/* ____________________________________________________ */
+
+/* MEDIA QUERY STARTS  */
+/* ____________________________________________________ */
+
+@media (max-width:1199px) {
+
+
+    .blogout-main-h1 {
+        font-size: 2.8rem;
+        font-weight: 600;
+
+    }
+
+    .blogout-main-p {
+        font-weight: 300;
+        font-size: 1.5rem;
+
+    }
+
+    .real-bo-text-h1 {
+        font-size: 1.9rem !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 3.2rem !important;
+    }
+}
+
+@media (max-width:991px) {
+
+    .blogout-main-h1 {
+        font-size: 2.3rem;
+        font-weight: 500;
+
+    }
+
+    .blogout-main-p {
+        font-weight: 300;
+        font-size: 1.3rem;
+
+    }
+
+    .real-bo-section {
+        margin: 5rem 1rem !important;
+    }
+
+   
+    .price-table {
+        padding: 20px 2rem !important;
+        margin: 2rem 0 !important;
+        /* margin: 2rem !important; */
+    }
+}
+
+@media (max-width:767px) {
+    .blog-1main-row {
+        padding: 2rem 0;
+    }
+
+    .getyour-linkbtn {
+        display: flex;
+        justify-content: center !important;
+    }
+
+    .blogout-main-h1 {
+        text-align: center;
+
+    }
+
+    .blogout-main-p {
+        text-align: center;
+        justify-content: center;
+
+    }
+
+    .real-bo-btn {
+        padding: 11px 34px 9px 34px !important;
+    }
+
+    .blogger-btn {
+
+        padding: 11px 34px 9px 34px;
+    }
+
+    .buttonsinfo {
+        margin-bottom: 3rem;
+    }
+
+    .real-bo-text-h1 {
+        text-align: center;
+    }
+
+    .amazing-bo-text-h1 {
+        text-align: center;
+    }
+}
+
+@media (min-width:768px) and (max-width:1100px) {
+    .works-for-u-card {
+        padding: 1rem !important;
+        margin: 20px 0px !important;
+        min-height: 490px !important;
+    }
+
+    .how-it-work-f-u-card {
+        padding: 1rem !important;
+        margin: 20px 0px !important;
+    }
+
+    .how-its-wrok-bo-main-div {
+        padding: 0rem !important;
+    }
+
+    .works-f-u-main-card-div {
+        margin-top: 0rem !important;
+    }
+
+    .examples-of-blogs-main-div {
+        padding: 4rem 1rem !important;
+
+    }
+}
+
+@media (min-width:706px) and (max-width:767px) {
+    .examples-of-blogs-main-div h2 {
+        font-size: 1.9rem !important;
+
+    }
+}
+
+@media (max-width:600px) {
+    h3.stat-title {
+        font-size: 2em !important;
+    }
+
+    .price-table {
+        padding: 20px 0rem !important;
+        margin: 2rem 0 !important;
+        /* margin: 0rem !important; */
+    }
+
+    .blogout-main-h1 {
+        font-size: 2rem;
+
+    }
+
+    .bo-wrap {
+        padding: 0 1rem;
+        align-content: center;
+        align-items: center;
+    }
+
+    .pricing-bo-p1 {
+        padding: .8rem;
+    }
+
+}
+
+@media (min-width:536px) and (max-width:767px) {
+
+    .pricing-bo-h1 {
+        font-size: 2.6rem !important;
+    }
+}
+
+@media (min-width:336px) and (max-width:535px) {
+
+    .pricing-bo-h1 {
+        font-size: 2.2rem !important;
+    }
+}
+
+@media (min-width:312px) and (max-width:335px) {
+
+    .pricing-bo-h1 {
+        font-size: 1.9rem !important;
+    }
+}
+
+@media (min-width:200px) and (max-width:312px) {
+    .blogout-main-h1 {
+        font-size: 1.4rem;
+    }
+    .real-bo-text-h1 {
+        font-size: 1.53rem !important;
+        font-weight: 500;
+    }
+   
+    .blogout-main-p {
+        font-size: 1.2rem !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 1.7rem !important;
+    }
+
+    .how-fonts-h4 {
+        font-size: 1.19rem;
+        font-weight: 700 !important;
+    }
+}
+
+@media (min-width:313px) and (max-width:399px) {
+    .blogout-main-h1 {
+        font-size: 1.7rem;
+    }
+
+}
+
+@media (min-width:250px) and (max-width:450px) {
+    .examples-of-blogs-main-div {
+        padding: 4rem 1rem !important;
+
+    }
+
+    .examples-of-blogs-main-div h2 {
+        font-size: 1.6rem !important;
+
+    }
+
+    .how-its-wrok-bo-main-div {
+        padding: 0rem !important;
+    }
+
+    .works-f-u-main-card-div {
+        margin-top: 1rem !important;
+    }
+
+    .works-for-you-bo-section {
+        padding: 1rem !important;
+    }
+
+    .works-for-u-card {
+        margin: 20px 0 !important;
+    }
+
+    .how-it-work-f-u-card {
+        margin: 20px 0px !important;
+    }
+
+    .what-others-say-bo-slider-h1 {
+        font-size: 1.9rem !important;
+    }
+
+    .what-others-say-bo-slider-h1 span {
+        color: brown !important;
+    }
+
+    .sliderbar {
+        margin-top: 1rem !important;
+    }
+}
+@media (min-width:768px) and (max-width:800px) {
+    .how-it-work-f-u-card {
+        min-height:605px !important;
+    }
+
+    .works-for-u-card {
+        min-height: 652px !important;
+    }
+}
+@media (min-width:801px) and (max-width:849px) {
+    .how-it-work-f-u-card {
+        min-height: 581px !important;
+    }
+    .works-for-u-card {
+        min-height: 573px !important;
+    }
+
+}
+@media (min-width:850px) and (max-width:1030px) {
+    .how-it-work-f-u-card {
+        min-height: 517px !important;
+    }
+
+
+}
+@media (min-width:1250px) and (max-width:1290px) {
+    .how-it-work-f-u-card {
+        min-height: 425px !important;
+    }
+
+
+}

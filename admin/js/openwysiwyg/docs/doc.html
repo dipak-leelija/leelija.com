@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<title>openWYSIWYG</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+	<table border="0" cellpadding="2" cellspacing="0" style="width:100%;">
+		<tbody>
+		<tr style="vertical-align: top;">
+			<td>
+				<a href="http://www.openwebware.com" target="_blank">
+					<img src="images/logo.gif" border="0">
+				</a>
+			</td>
+			<td style="text-align:right;">
+				<font class="naviblock">
+					<a href="doc.html" class="navi" title="Documentation">DOCUMENTATION</a> | <a href="addons.html" class="navi" title="Addons">ADDONS</a> | <a href="../example.html" class="navi" title="Examples">EXAMPLES</a>
+				</font>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<br>
+				<table border="0" cellpadding="2" cellspacing="0" style="width:100%;">
+				<tbody>
+					<tr>
+						<td class="headline">
+							<h1>Documentation</h1>
+						</td>
+					</tr>
+					<tr>
+						<td class="info">
+							Copyright (c) 2006 openWebWare.com
+						</td>
+					</tr>
+					<tr>
+						<td style="">
+							<br>
+							<h2>Setup the openWYSIWYG editor</h2>
+							<p>
+								Include the javascript files like the following:
+								<br>
+								<div class="codeblock">
+									<span class="blue">&lt;script language=</span><span class="green">"JavaScript"</span> <span class="blue">type=</span><span class="green">"text/javascript"</span> <span class="blue">src=</span><span class="green">"<span class="red">scripts</span>/wysiwyg.js"</span><span class="blue">&gt;&lt;/script&gt;</span>
+									<br>
+									<span class="blue">&lt;script language=</span><span class="green">"JavaScript"</span> <span class="blue">type=</span><span class="green">"text/javascript"</span> <span class="blue">src=</span><span class="green">"<span class="red">scripts</span>/wysiwyg-settings.js"</span><span class="blue">&gt;&lt;/script&gt;<span class="green"> // optional</span></span>
+								</div>
+								<br>
+								Note: You might need to change the src path (red), depending on where you put the files.
+							</p>
+							<p>Now you have to attach the openWYSIWYG editor to all or to defined textareas of your page.<br>
+								<div class="codeblock">
+									<span class="blue"></span><span class="blue">&#060;script language=</span><span class="green">"javascript1.2"</span><span class="blue">&gt;<br>&nbsp;&nbsp; </span><span class="darkblue"><span class="green">// attach the editor to all textareas of your page.</span></span><br>
+									&nbsp;&nbsp;&nbsp;<span class="darkblue">WYSIWYG.<strong>attach</strong>('all'); <br>&nbsp;&nbsp; <br></span><span class="darkblue">&nbsp;&nbsp; <span class="green">// attach the editor to the textarea with the identifier 'textarea1'.</span></span><br><span class="darkblue">&nbsp;&nbsp; WYSIWYG.<strong>attach</strong>('textarea1');<br></span><span class="darkblue"></span>
+									<span class="blue">&#060;/script&#062;</span>
+								</div>
+								<br>
+								Now try it out! 
+								<br><br>
+								If you don't see any images on the toolbar then you have to change the image path.<br>
+								Have a look at the customize section.
+								<br><br>
+								If you need to display contents of textarea's with HTML output support, but without the editing possibilities, you can use a function called display.
+								<div class="codeblock">
+									<span class="blue"></span><span class="blue">&#060;script language=</span><span class="green">"javascript1.2"</span><span class="blue">&gt;<br>&nbsp;&nbsp; </span><span class="darkblue"><span class="green">// display iframes instead of textareas. It apply's to all textareas of your page.</span></span><br>
+									&nbsp;&nbsp;&nbsp;<span class="darkblue">WYSIWYG.<strong>display</strong>('all'); <br>&nbsp;&nbsp; <br></span><span class="darkblue">&nbsp;&nbsp; <span class="green">// display an iframe instead of the textarea with the identifier 'textarea1'</span></span><br><span class="darkblue">&nbsp;&nbsp; WYSIWYG.<strong>display</strong>('textarea1');<br></span><span class="darkblue"></span>
+									<span class="blue">&#060;/script&#062;</span>
+								</div>
+							</p>
+							<br><br>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h2>
+								Customize the openWYSIWYG
+							</h2>								
+							This section describe how you can customize the openWYSIWYG editor.<br><br>
+							<h3>The Settings object:</h3><br>
+							You can create a new instance of the settings object. 
+							This object will be used to customize your editor.
+							<div class="codeblock">
+								<span class="darkblue">var <span class="red">mysettings</span> = new WYSIWYG.Settings();</span>
+							</div>
+							<br>Now attach the editor to all or to defined textareas of your page.<br> 
+							<div class="codeblock">
+							<span class="darkblue">WYSIWYG.<b>attach</b>(</span><span class="green">'all'</span><span class="darkblue">, <span class="red">mysettings</span><span class="darkblue">);</span><br>
+							</div>
+							<br><br>
+							<h3>Properties of the Settings object:</h3>
+							<br>
+							Here is a list of all properties you can change to customize the look and feel of your editor.
+							<br>
+							<table border="0" cellpadding="2" cellspacing="0" class="codeblock" style="width:91%">
+								<colgroup>
+									<col width="35%">
+									<col width="65%">
+								</colgroup>
+								<tbody>
+								<tr>	
+									<td><span class="red">mysettings</span>.<b>ImagesDir</b> = "&lt;path&gt;";</td>
+									<td><span class="green">The path where your images are located (default: 'images/')</span></td>
+								</tr>
+								<tr>
+									<td><span class="red">mysettings</span>.<b>PopupsDir</b> = "&lt;path&gt;"; </td>
+									<td><span class="green">The path where your popup htmls are located (default: 'popups/')</span></td>
+								</tr>
+								<tr>
+									<td><span class="red">mysettings</span>.<b>CSSFile</b> = "&lt;path&gt;"; </td>
+									<td><span class="green">The path + file where your stylesheet file is located (default: 'styles/wysiwyg.css')</span></td>
+								</tr>
+								<tr>
+									<td><span class="red">mysettings</span>.<b>Width</b> = "&lt;width&gt;"; </td>
+									<td><span class="green">The width of the editor window (valid units are px and %) (default: '500px')</span></td>
+								</tr>
+								<tr>
+									<td><span class="red">mysettings</span>.<b>Height</b> = "&lt;height&gt;"; </td>
+									<td><span class="green">The height of the editor window (valid units are px and %) (default: '200px')</span></td>
+								</tr>
+								<tr>
+									<td><span class="red">mysettings</span>.<b>DefaultStyle</b> = "&lt;stylesheet&gt;"; </td>
+									<td><span class="green">The default stylesheet of the editor window <br>(default: 'font-family: Arial; font-size: 12px; background-color: #FFFFFF')</span></td>
+								</tr>
+								<tr>
+									<td><span class="red">mysettings</span>.<b>DisabledStyle</b> = "&lt;stylesheet&gt;"; </td>
+									<td><spa

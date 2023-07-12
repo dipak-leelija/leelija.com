@@ -1,0 +1,514 @@
+/* --------------------------------------------------------------------------------------------- */
+/*Country Specific main banner start */
+/* --------------------------------------------------------------------------------------------- */
+.country-specific-main-banner {
+    background-image: url('../images/blogger-outreach-bg-main.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 8rem 5rem;
+}
+
+.country-specific-banner-h1 {
+    color: #324a6d;
+    font-family: Helvetica, Poppins;
+    font-size: 46px;
+    font-weight: 600;
+    line-height: 1.2em;
+    word-spacing: 0.1em;
+    -webkit-text-stroke-width: 0px;
+    stroke-width: 0;
+    -webkit-text-stroke-color: #000;
+    stroke: #000;
+}
+
+.country-specific-banner-p {
+    font-weight: 400;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #324A6D;
+    line-height: 1.5em;
+    font-family: "Poppins", Poppins;
+}
+
+.blogger-btn {
+    font-family: "Poppins", Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 0;
+    word-spacing: 0em;
+    fill: #FFF;
+    color: #FFF;
+    background-color: #F7A546;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #F7A546 !important;
+    border-radius: 100px 100px 100px 100px;
+    padding: 16px 55px 16px 55px;
+}
+
+@media (max-width:1050px) {
+    .country-specific-main-banner {
+        padding: 8rem 1rem;
+    }
+}
+
+/* ________________________________________________________________________________________ */
+/* Country Specific main banner end */
+/* __________________________________________________________________________________________________ */
+/* --------------------------------------------------------------------------------------------- */
+/*Reach your audience globally and boost your website’s  start */
+/* --------------------------------------------------------------------------------------------- */
+.reach-your-audience-globally-section {
+    margin: 5rem;
+}
+
+.reach-your-audience-globally-section h1 {
+    color: #1c244b;
+    font-family: Poppins, Poppins;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    word-spacing: 0.1em;
+    -webkit-text-stroke-width: 0px;
+    stroke-width: 0;
+    -webkit-text-stroke-color: #000;
+    stroke: #000;
+}
+
+.reach-your-audience-globally-section p {
+    text-align: left;
+    color: #324a6d;
+    font-family: Poppins, Poppins;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: none;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1.5em;
+    letter-spacing: 0;
+    word-spacing: 0em;
+}
+
+@media (min-width:350px) and (max-width:425px) {
+    .reach-your-audience-globally-section h1 {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/*Reach your audience globally and boost your website’s ends */
+/* --------------------------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------- */
+/*  Why Country-Specific Link Buildings? starts */
+/* --------------------------------------------------------------------------------------------- */
+.why-country-specific-link-section {
+    padding: 3rem 6rem;
+}
+
+.why-country-specific-link-section h2 {
+    color: #1c244b;
+    font-family: Poppins, Poppins;
+    font-weight: 500;
+    -webkit-text-stroke-color: #000;
+    stroke: #000;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.why-country-specific-link-card-div {
+    text-align: center;
+}
+
+.img-country-div {
+    margin: auto;
+    min-height: 331px;
+    width: 79%;
+}
+.img-country-div img{
+    transition-duration: .3s;
+}
+.img-country-div:hover img{
+    border-radius: 0;
+
+    transform: scale(1.1);
+
+}
+
+.why-country-specific-link-card-div h4 {
+    margin-bottom: 17px;
+    color: #1c244b;
+    font-family: Poppins, Poppins;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.why-country-specific-link-card-div span {
+    color: #fb8c00;
+
+}
+
+.why-country-specific-link-card-div p {
+    color: #1c244b;
+    font-family: Poppins, Poppins;
+    font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/*  Why Country-Specific Link Buildings? ends */
+/* --------------------------------------------------------------------------------------------- */
+
+/* _______________________________________________________________________________________________________ */
+/* Pricing blogger outreach section start */
+/* _____________________________________________________________________________________________________ */
+.pricing-bo-h1 {
+    font-size: 3.6rem;
+    font-weight: 600;
+    color: darkblue;
+    font-family: "Poppins", Poppins;
+}
+
+.pricing-bo-p1 {
+    font-family: "Poppins", Poppins;
+    font-size: 1.1rem;
+    font-weight: 300;
+
+}
+
+.price-table {
+    background: #F9F9F9;
+    padding: 20px 5rem;
+    margin: 5rem 0;
+    /* background: #F9F9F9;
+    padding: 20px 0;
+    margin: 5rem; */
+}
+
+/* _____________________________________________________________________________________________________ */
+/* Pricing blogger outreach section ends */
+/* _____________________________________________________________________________________________________ */
+/* _____________________________________________________________________________________________________ */
+/*  How Does It Work?section start */
+/* ________________________________________________________________________________________________________ */
+
+.how-itsworks-casino-section {
+    background-image: url('../images/blogger-outreach-bg-main.png');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.how-itsworks-main-div-casino {
+    padding: 6rem;
+}
+
+.how-itsworks-main-div-casino h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.how-itsworks-main-div-casino strong {
+    color: #23a7a9;
+}
+
+.how-itsworks-main-div-casino p {
+    font-family: "Poppins", Poppins;
+    text-align: center;
+    color: #3f4450;
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 1rem 0 3rem;
+}
+
+.how-itsworks-main-div-casino h3 {
+    color: #3f4450;
+    font-family: Roboto, Poppins;
+    font-size: 24px;
+    font-weight: 400;
+    text-shadow: 0 0 0 rgb(0 0 0 / 30%);
+    margin: 1rem 0;
+}
+
+/* --------------------------------------------------------------------------------------- */
+/* How Does It Work?-section  end */
+/* -------------------------------------------------------------------------------- */
+/* __________________________________________________________________________________________________ */
+/* What Is Our Offer In International Multilingual Link Outreach? starts */
+/* __________________________________________________________________________________________________ */
+.country-specific-international-section {
+    padding: 5rem;
+}
+
+.country-specific-international-section-h2 span {
+    color: #F7A546;
+    font-weight: 600;
+}
+
+.lbp-texting {
+    font-family: "Helvetica", Poppins;
+    font-size: 17px;
+    line-height: 1.625em;
+}
+
+.actually-card-inn-img-div {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.actually-card-div1 {
+    display: flex;
+    padding: 1.5rem;
+    border-radius: unset;
+    border: none;
+    min-height: 145px;
+}
+
+
+/* __________________________________________________________________________________________________ */
+/* What Is Our Offer In International Multilingual Link Outreach? ends */
+/*  ________________________________________________________________________________________ */
+/* --------------------------------------------------------------------------------------------- */
+/* Frequently Asked Questions (FAQs) starts */
+/* --------------------------------------------------------------------------------------------- */
+.faq-head-section {
+    color: darkblue;
+}
+
+.faq-head-section span {
+    color: #F7A546;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/*Frequently Asked Questions (FAQs) ends */
+/* --------------------------------------------------------------------------------------------- */
+/* ____________________________________________________ */
+/* MEDIA QUERY STARTS  */
+/* ____________________________________________________ */
+
+@media (max-width:1199px) {
+    .reach-your-audience-globally-section h1 {
+        font-size: 1.9rem !important;
+    }
+
+    .country-specific-international-section {
+        padding: 3rem !important;
+    }
+
+    .country-specific-banner-h1 {
+        font-size: 2.8rem;
+        font-weight: 600;
+    }
+
+    .why-country-specific-link-section {
+        padding: 3rem 2rem !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 3.2rem !important;
+    }
+}
+
+@media (max-width:991px) {
+    .reach-your-audience-globally-section {
+        margin: 4rem 2rem !important;
+    }
+
+    .how-itsworks-main-div-casino {
+        padding: 6rem 4rem;
+    }
+
+    .country-specific-banner-h1 {
+        font-size: 2.3rem;
+        font-weight: 500;
+    }
+
+    .country-specific-banner-p {
+        font-weight: 400;
+        font-size: 1.445rem !important;
+    }
+
+    .price-table {
+        padding: 20px 2rem !important;
+        margin: 2rem 0 !important;
+    }
+
+    .country-specific-international-section-h2 {
+        font-size: 1.8rem;
+    }
+
+    .why-country-specific-link-section {
+        padding: 3rem 1rem !important;
+    }
+}
+
+@media (max-width:767px) {
+    .country-specific-main-banner {
+        padding: 4rem 1rem 1rem;
+    }
+
+    .country-specific-banner-h1 {
+        margin-top: 3rem;
+    }
+
+    .blogger-btn {
+        padding: 11px 34px 9px 34px;
+    }
+
+    .reach-your-audience-globally-section {
+        margin: 3rem 1rem 0 !important;
+    }
+
+    .reach-your-audience-globally-section h1 {
+        text-align: center;
+    }
+
+    .reach-your-audience-globally-section p {
+        text-align: center;
+    }
+
+    .img-country-div {
+        min-height: 200px;
+    }
+
+    .country-specific-banner-h1 {
+        text-align: center;
+    }
+
+    .country-specific-banner-p {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .buttonsinfo {
+        margin-bottom: 3rem;
+    }
+
+    .country-specific-international-section-h2 {
+        font-size: 2.3rem !important;
+        text-align: center;
+    }
+
+    .why-country-specific-link-section {
+        padding: 4rem 3rem !important;
+    }
+}
+
+@media (max-width:600px) {
+    .why-country-specific-link-section h2 {
+        margin: 0 !important;
+    }
+
+    .why-country-specific-link-section {
+        padding: 4rem 2rem !important;
+    }
+
+    .how-itsworks-main-div-casino {
+        padding: 6rem 1rem;
+    }
+
+    .price-table {
+        padding: 20px 0rem !important;
+        margin: 2rem 0 !important;
+    }
+
+    .country-specific-banner-h1 {
+        font-size: 2rem;
+    }
+
+    .pricing-bo-p1 {
+        padding: .8rem;
+    }
+
+    .country-specific-international-section {
+        padding: 1rem !important;
+    }
+
+}
+
+@media (min-width:536px) and (max-width:767px) {
+
+    .pricing-bo-h1 {
+        font-size: 2.6rem !important;
+    }
+
+}
+
+@media (min-width:336px) and (max-width:535px) {
+
+    .pricing-bo-h1 {
+        font-size: 2.2rem !important;
+    }
+
+}
+
+@media (min-width:312px) and (max-width:335px) {
+
+    .pricing-bo-h1 {
+        font-size: 1.9rem !important;
+    }
+}
+
+@media (min-width:200px) and (max-width:312px) {
+    .reach-your-audience-globally-section h1 {
+        font-size: 1.33rem !important;
+        font-weight: 500;
+    }
+
+    .why-country-specific-link-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .country-specific-international-section-h2 {
+        font-size: 1.6rem !important;
+    }
+
+    .country-specific-banner-p {
+        font-size: 1.2rem !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 1.7rem !important;
+    }
+}
+
+@media (min-width:313px) and (max-width:399px) {
+    .country-specific-banner-h1 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (min-width:353px) and (max-width:420px) {
+    .country-specific-banner-p {
+        font-size: 1.2rem !important;
+    }
+}
+
+@media (min-width:250px) and (max-width:451px) {
+    .country-specific-international-section-h2 {
+        font-size: 1.9rem !important;
+        text-align: center;
+    }
+
+    .actually-card-div1 {
+        display: inline-block !important;
+        padding: 1.5rem 1rem !important;
+        border-radius: unset;
+        border: none;
+        min-height: 200px;
+    }
+
+    .actually-card-inn-img-div {
+        padding-right: 0rem !important;
+        padding-left: 0rem !important;
+        padding-bottom: 1rem;
+    }
+
+    .why-country-specific-link-section {
+        padding: 3rem .5rem !important;
+    }
+}

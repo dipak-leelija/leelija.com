@@ -1,0 +1,67 @@
+.register-section {
+    margin-top: 4rem
+}
+
+.reg-div-below-card {
+    padding: 1.3rem 1.5rem;
+}
+
+.reg-heading {
+    font-size: 2rem;
+    text-align: center;
+    color: #0673BA;
+}
+
+.user-client-radio {
+    justify-content: space-between;
+    padding: .438rem .5rem;
+    border: 1px solid #ced4da;
+    margin: 10px 0;
+    /* height: 40px; */
+}
+
+.term-n-policy {
+    color: var(--black);
+    text-decoration: underline;
+}
+
+.form-select:focus {
+    box-shadow: none;
+}
+
+.form-select {
+    border-radius: inherit;
+}
+
+@media(max-width:991px) {
+    .submit-divclass {
+        text-align: center;
+
+    }
+}
+@media(max-width:390px) {
+    .reg-div-below-card {
+        padding: 1rem 1rem;
+    }
+    .reg-heading {
+        font-size: 1.5rem;
+    }
+}
+
+.success-message {
+    color: green !important;
+}
+
+.error-message {
+    color: red !important;
+}
+
+.maincountainer {
+    align-items: center;
+    /* height:100vh; */
+}
+@media(max-width:575px) {
+    .maincountainer {
+        height:auto;
+    }
+}

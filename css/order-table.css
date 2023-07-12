@@ -1,0 +1,49 @@
+.dataTable-input {
+    border-radius: 6px !important;
+    border: 1px solid #c1c3c5 !important;
+}
+.dataTable-selector {
+    padding: 4px !important;
+    border-radius: 6px !important;
+    border: 1px solid #c1c3c5 !important;
+    /* font-size: 15px; */
+}
+.my-guestposttable td {
+    border-bottom: none;
+    /* border: 1px solid #ddd !important; */
+    text-align: left !important;
+}
+.my-guestposttable > thead > tr > th {
+    text-align: left !important;
+}
+
+/* PRODUCTS ORDERS TABLES */
+
+.product-orders-tables td {
+    border-bottom: none;
+vertical-align: middle !important;
+    text-align: center !important;
+}
+.product-orders-tables th {
+    text-align: center !important;
+    border-bottom: none;
+    border: none !important;
+}
+.dataTable-sorter::before {
+    border-top: 4px solid white !important;
+}
+.dataTable-sorter::after {
+    border-bottom: 4px solid white !important;
+   
+}
+.dataTable-sorter::before, .dataTable-sorter::after {
+    opacity: .8 !important;
+}
+.product-table-img-div{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #0d6efd;
+}
+

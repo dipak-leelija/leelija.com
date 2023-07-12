@@ -1,0 +1,300 @@
+.see_all {
+    text-align: right;
+    /* max-width: 700px; */
+    /* padding-right: 0px; */
+}
+
+.guest_post_orders .see_all {
+    text-align: right;
+    max-width: 88%;
+    padding-right: 0px;
+}
+
+.see_all a {
+    border: 1px solid #3366ccba;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+}
+
+.see_all a:hover {
+    color: #fff;
+    background-color: #36c;
+}
+
+.see_all a:active {
+    color: rgb(255, 255, 255);
+    background-color: rgb(78, 136, 252);
+}
+
+.product_card {
+    box-shadow: 0px 15px 10px -15px rgb(30 34 38 / 18%);
+    border: 1px solid #D3DBE3;
+    padding-top: 0.5rem ;
+    padding-bottom: 0.5rem ;
+}
+
+.niche_name {
+    font-size: 1rem;
+    /* background: #383838; */
+    background: darkslateblue;
+    width: fit-content;
+    padding: 0 1rem;
+    /* margin: auto; */
+    color: white;
+    text-align: center;
+}
+
+.ordername {
+    font-family: fangsong;
+    font-weight: 800;
+}
+
+.pagination {
+    display: block;
+    width: 75%;
+    margin: 1em auto;
+    text-align: center;
+}
+
+.pagination:after {
+    content: '';
+    clear: both;
+}
+
+.pagination-button {
+    display: inline-block;
+    padding: 5px 13px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    color: #36c;
+    cursor: pointer;
+    transition: background 0.1s, color 0.1s;
+    border-radius: 56px;
+}
+
+.pagination-button:hover {
+    background-color: #ddd;
+    color: #36c;
+}
+
+.pagination-button.active {
+    background-color: #36c;
+    border-color: #bbb;
+    color: #fff;
+}
+
+.pagination-button:first-of-type {
+    border-radius: 56px;
+}
+
+.pagination-button:last-of-type {
+    border-radius: 56px;
+}
+
+
+/* arbitrary styles */
+
+.heading {
+    text-align: center;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+
+/* .article-loop {} */
+
+@media (min-width:250px) and (max-width:359px) {
+    .pagination {
+        width: max-content;
+        padding: 0;
+    }
+    .product_card {
+        padding-top: 2.3rem;
+    }
+}
+
+
+/* ____________________________________ */
+
+
+/* package details css starts */
+
+
+/* ______________________________ */
+
+.activeOrderDetails {
+    background: aliceblue;
+    padding: 10px 20px;
+    /* padding-top: 0.1rem; */
+    max-width: 700px;
+    box-shadow: 0px 15px 10px -15px rgb(30 34 38 / 18%);
+    border: 1px solid #D3DBE3;
+    display: block;
+    margin: 20px auto;
+    position: relative;
+}
+
+.activeOrderDetails .order_data p {
+    line-height: 1.6rem;
+}
+
+.p-kage-de-tails {
+    background: aliceblue;
+    padding: 1rem 1.5rem;
+}
+
+.pkage-title {
+    font-size: 1.5rem;
+    color: #0673BA;
+    font-weight: 700;
+}
+
+.pkage-headline {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.listing-adrs {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.caution-style {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.caution-headline {
+    /* font-family: 'Orienta', sans-serif;
+    font-size: 2.3rem;
+    text-decoration: underline; */
+    color: #5150a1;
+    font-weight: 600;
+}
+
+.caution-abouts {
+    /* font-family: 'Orienta', sans-serif; */
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.caution-content {
+    /* font-family: 'Orienta', sans-serif; */
+    font-size: 1.2rem;
+    background: #fbf9f6;
+}
+
+.client_profile_dashboard_right {
+    padding-right: 3rem;
+}
+
+.fa-triangle-exclamation {
+    font-size: 2.2rem;
+    color: darkred;
+}
+
+
+/* media queries  */
+
+@media (max-width:767px) {
+    .client_profile_dashboard_right {
+        margin: 1rem;
+        padding-left: 1rem;
+    }
+    .caution-style {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+    .fa-triangle-exclamation {
+        font-size: 1.5rem;
+        color: darkred;
+    }
+    /* .caution-headline {
+        font-size: 1.5rem;
+    } */
+    .pkagerow {
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width:200px) and (max-width:359px) {
+    .pkage-title {
+        font-size: 1.2rem;
+    }
+    .pkage-headline {
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+    .listing-adrs {
+        font-size: 1rem;
+    }
+    .fa-triangle-exclamation {
+        font-size: 1.2rem;
+        color: darkred;
+    }
+    .caution-style {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    .adding-morebtn {
+        width: 9rem;
+        font-size: .9rem;
+    }
+    .apply-button {
+        height: 37px !important;
+    }
+    .maining-title {
+        font-size: 1.2rem;
+        font-weight: 800;
+    }
+}
+
+@media (max-width: 767px) {
+    .dashorder_row {
+        margin: 0rem !important;
+        /* margin-right: 2rem !important; */
+    }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+    .dashorder_row {
+        margin: 0rem !important;
+        /* margin-right: 1rem !important; */
+    }
+}
+
+@media (min-width:250px) and (max-width:320px) {
+    .status_bx h4 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 250px) and (max-width: 359px) {
+    .activeOrderDetails {
+        margin: 0.5rem;
+    }
+}
+
+@media (min-width:250px) and (max-width:420px) {
+    .pagination-button {
+        padding: 2px 9px;
+    }
+}
+
+@media (max-width: 440px) {
+    .activeOrderDetails {
+        padding-top: 2.5rem;
+    }
+}
+
+@media (max-width: 767px) {}
+
+@media (max-width: 991px) {
+    .activeOrderDetails {
+        margin: 1rem 0rem !important;
+    }
+}
+
+.pagination-items {
+    padding: 0;
+}

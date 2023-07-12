@@ -1,0 +1,121 @@
+
+:root {
+    --black:#222244;
+    --pure-white: #ffffff;
+    --darkblue: #20267f;
+    --pinkish-red: #9E4784;
+    --aegean-blue: #0673ba;
+    --pure-green: #00FF00;
+    --btn-bg-blue: #EBF4FE;
+    --custom-blue: #5C5CFF;
+    --text-blue: #0673BA;
+    --dark-blue: #0673BA;
+    --pink: #FF0833;
+}
+.pinkish-red-color{
+    color: var(--pinkish-red);
+}
+.aegean-blue-color{
+    color: var(--aegean-blue);
+}
+.darkblue-color{
+    color: var(--darkblue);
+}
+
+.service_page_banner1 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(to bottom, #0000009e, rgb(0 0 0 / 47%)), url(../images/portfolio/our_servicess.jpg);
+    color: var(--pure-white);
+    object-fit: cover;
+
+    align-items: center;
+    display: flex;
+    text-align: center !important;
+    justify-content: center;
+    /* padding: 7rem !important; */
+}
+
+.service_page_banner1 p {
+    color: var(--pure-white);
+    line-height: 1.5;
+}
+@media (min-width:200px) {
+    .service_page_banner1 {
+        padding: 0px 12px;
+    }
+}
+@media (min-width:1200px) {
+    .service_page_banner1 {
+        height: 442px;
+    }
+  
+}
+.service_page_section_dividor {
+    background: var(--aegean-blue);
+    padding: 2px;
+    width: 100px;
+    margin: 1rem auto;
+}
+
+.services_card {
+    background: var(--pure-white);
+    padding: 1rem;
+    margin: 10px 0;
+    box-shadow: -1px 0px 6px #0673ba4d;
+}
+
+.services_card .text-center {
+    padding: 1rem 0;
+}
+
+.services_card h3 {
+    padding: 1rem 0 0.5rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.service_devider {
+    background: var(--aegean-blue);
+    padding: 1px 0;
+    width: 50%;
+    margin: auto;
+}
+.services_card p {
+    font-weight: 400;
+    padding: 0.8rem 0;
+}
+
+.service_ul {
+    padding: 0;
+}
+
+.service_ul li {
+    line-height: 2rem;
+    list-style-type: none;
+}
+
+ul.service_ul li i {
+    color: var(--aegean-blue);
+    position: relative;
+    top: 1.2px;
+    font-size: 18px;
+    padding-right: 3px;
+}
+
+.read_more_service_btn {
+    text-align: center;
+    display: block;
+    background: #EBF4FE;
+    color: var(--aegean-blue);
+    width: 80%;
+    margin: auto;
+    border: 1px solid #EBF4FE;
+    font-weight: 500;
+    letter-spacing: .7px;
+    margin-top: 10px;
+}
+.read_more_service_btn:hover {
+    color: var(--pure-white);
+    background-color: var(--aegean-blue);
+}

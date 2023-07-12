@@ -1,0 +1,898 @@
+/* --------------------------------------------------------- */
+/* Managed link building main banner start */
+/* ------------------------------------------------------ */
+.managed-link-building-main-banner {
+    background-image: url('../images/blogger-outreach-bg-main.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mlb-main-start-row {
+    padding: 5rem 0;
+}
+
+.mlb-main-cntainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+.mlb-wrapping {
+    align-content: center;
+    align-items: center;
+}
+
+.mlb-wrapping span {
+    color: #0673ba;
+}
+
+.mlb-starting-main-h1 {
+    /* font-family: 'Orienta', sans-serif; */
+    font-family: "Poppins", Poppins;
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 1.2em;
+    color: #1C244B;
+    word-spacing: 0.1em;
+    stroke: #000;
+}
+
+.mlb-starting-main-p {
+    font-weight: 400;
+    text-align: left;
+    font-size: 1.7rem;
+    color: #324A6D;
+    line-height: 1.5em;
+    /* font-family: 'Orienta', sans-serif; */
+    font-family: "Poppins", Poppins;
+}
+
+.managed-link-btn {
+    font-family: "Poppins", Poppins;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 0;
+    word-spacing: 0em;
+    fill: #FFF;
+    color: #FFF;
+    background-image: linear-gradient(120deg, #FDA33B 0%, #FA8273 100%);
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #F7A546 !important;
+    border-radius: 50px 50px 50px 50px;
+    padding: 17px 40px 17px 40px;
+}
+
+.managed-link-btn:hover {
+    color: white;
+    background-image: linear-gradient(120deg, #FA8273 0%, #FDA33B 100%);
+}
+
+.tick-check {
+    content: "\2714";
+    font-family: Segoe UI Emoji;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0 0 22px 0;
+}
+
+.tick-check-p {
+    color: #3F4450;
+    font-family: "Helvetica", Poppins;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0 0 22px 0;
+}
+
+@media (min-width:250px) and (max-width:350px) {
+    .tick-check {
+        font-size: 16px !important;
+        margin: 0 0 18px 0;
+    }
+}
+
+/* ________________________________________________________________________________________ */
+/* Managed link building main banner end */
+/* ---------------------------------------------------------------------- */
+/* __________________________________________________________________________________________________ */
+/*  Examples of Blogs We Outreach To-blogger-outreach starts */
+/* ----------------------------------------------------------------------------------- */
+.examples-of-blogs-main-div {
+    padding: 1rem 4rem 4rem;
+    background-image: url('../images/blogger-outreach-bg-main.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.examples-of-blogs-main-div h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: darkblue;
+    font-family: "Poppins", Poppins;
+    margin-bottom: 3rem;
+}
+
+.slider {
+    height: inherit !important;
+}
+
+.examples-of-blogs-main-div span {
+    color: coral;
+}
+
+.examples-img-div-short {
+    width: -webkit-fill-available;
+    /* width: 290px; */
+    height: 189px;
+    object-fit: cover;
+}
+
+.examples-img-div-long {
+    object-fit: cover;
+    width: -webkit-fill-available;
+    /* width: 290px; */
+    height: 220px;
+}
+
+/* __________________________________________________________________________________________________ */
+/*  Examples of Blogs We Outreach To-blogger-outreach ends */
+/* --------------------------------------------------------------------------------------------- */
+
+/* ____________________________________________________________________________________ */
+/* TESTIMONIALS STARTS*/
+/* ----------------------------------------------------------------------------------------- */
+
+.what-others-say-testimonial {
+    color: #F7A546;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: "Poppins", Poppins;
+}
+
+.sliderbar {
+    margin-top: 3rem;
+}
+
+.what-others-say-bo-slider-h1 {
+    font-size: 2.8rem;
+    color: brown;
+    font-family: "Poppins", Poppins;
+}
+
+.what-others-say-bo-slider-h1 span {
+    color: darkblue;
+}
+
+.carousel {
+    background: #f1fbff;
+    border-radius: 16px;
+    padding: 5.5rem 1rem;
+    margin-top: 2rem;
+}
+
+.ci-blogger-outingreach {
+    z-index: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto;
+    vertical-align: baseline !important;
+}
+
+.para1 {
+    color: #222244;
+    font-weight: 100;
+    text-transform: capitalize;
+    font-size: 15px !important;
+    width: 100% !important;
+}
+
+.what-others-say-bo-ci-h4 {
+    font-family: "Poppins", Poppins;
+    font-size: 1rem;
+}
+
+/* carousels ends */
+
+.faq-head-section {
+    color: darkblue;
+}
+
+.faq-head-section span {
+    color: #F7A546;
+}
+
+/* --------------------------------------------------------------- */
+/* TESTIMONIALS ENDS */
+/* __________________________________________________________________________________________________ */
+
+/* --------------------------------------------------------------------------------- */
+/*  a-brand-need-link-section  start */
+/* ----------------------------------------------------------------------------------- */
+.a-brand-need-link-section {
+    margin: 5rem;
+}
+
+.a-brand-need-link-main-div {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.a-brand-need-link-main-h1 {
+    margin-bottom: 3rem;
+    font-size: 2.48rem;
+}
+
+.a-brand-need-link-main-h1 span {
+    color: chocolate;
+}
+
+.square-box-p {
+    color: #3F4450;
+    font-family: "Helvetica", Poppins;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0 0 22px 0;
+}
+
+.sq-pen-css {
+    font-size: 29px;
+}
+
+.need-link-text-p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5em;
+    /* font-family: 'Orienta', sans-serif; */
+    font-family: "Poppins", Poppins;
+    text-align: center;
+    align-items: center;
+}
+
+@media (min-width:350px) and (max-width:425px) {
+    .a-brand-need-link-main-h1 {
+        font-size: 1.5rem !important;
+    }
+
+}
+
+@media (min-width:250px) and (max-width:425px) {
+    .amazing-bo-text-h1 {
+        font-size: 1.7rem !important;
+    }
+}
+
+/* ___________________________________________________________________________________ */
+/* a-brand-need-link-section end */
+/* --------------------------------------------------------------------------- */
+/* ________________________________________________________________________________________________________ */
+/* <!-- Our clients earned brand mentions from publications like... starts --> */
+/* ________________________________________________________________________________________________________ */
+
+.plugging-div-main-img-divv {
+    background: #fff;
+    margin: 3rem 0 5rem;
+    padding: 3rem;
+}
+
+.plugging-div-main-h1 {
+    text-align: center;
+    margin: 6rem 0;
+}
+
+.plugging-div-span {
+    color: #F7A546;
+}
+
+.clients-pubb-div-img {
+    object-fit: cover;
+    height: 39px;
+    width: -webkit-fill-available;
+
+}
+
+/* ________________________________________________________________________________________ */
+/* <!-- Our clients earned brand mentions from publications like... ends --> */
+/* ________________________________________________________________________________________________________ */
+
+/* <!-- Link Building Services that Actually Matters-starts AND WHY LEELIJA?  AND WHAT MAKES LEELIJA SO SPECIAL  COMBINED CSS--> */
+/* <!-- ________________________________________________________________________________________ --> */
+
+.lbs-actually-matters-main {
+    /* background: aliceblue; */
+    padding: 5rem;
+}
+
+.lbs-actually-matters-main-h1 span {
+    color: #21D3A1;
+    font-weight: 600;
+}
+
+.lbp-texting {
+    color: #747880;
+    font-family: "Helvetica", Poppins;
+    font-size: 17px;
+    line-height: 1.625em;
+}
+
+.lbp-texting b {
+    margin: 0 0 11px 0;
+    padding: 0 0 0 0;
+    color: darkblue;
+    font-family: "Helvetica", Poppins;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.1em;
+}
+
+.actually-card-inn-img-div {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.actually-card-div1 {
+    display: flex;
+    padding: 2.5rem 1.5rem;
+    border-radius: unset;
+    border: none;
+    min-height: 200px;
+
+}
+
+.actually-card-div1:hover {
+    transition: all .9s ease;
+    background-color: #FFF0;
+    box-shadow: 0 15px 40px 2px rgb(18 21 154 / 15%);
+    background-image: url(../images/card-hover-bg-img-removebg-preview.jpg);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.textttting {
+    text-align: end;
+}
+
+.getyour-linkbtn-for-lbs-matter {
+    display: flex;
+    justify-content: left;
+
+}
+
+.external-css-fr-size {
+    width: 50%;
+}
+
+/* ___________________________________________________ */
+/* why leelija? */
+/* ---------------------------------------------------------------- */
+.why-leelija-section-mains {
+    margin: 5rem;
+}
+
+.why-leelija-h1 {
+    font-family: "Poppins", Poppins;
+    text-align: center;
+    font-size: 2.7rem;
+    color: chocolate;
+    margin-bottom: 5rem;
+}
+
+.why-leelija-main-for-card {
+    display: flex;
+    text-align: center;
+    align-items: start;
+    padding: .5rem;
+}
+
+.trustworthy-white-lebel-text-h1 {
+    font-size: 2.38rem;
+}
+
+
+.trustworthy-white-lebel-text-h1 span {
+    color: chocolate;
+}
+
+/* -------------------------------------------- */
+/* WHY LEELIJA ENDS */
+/* ----------------------------------------------- */
+
+/* <!--  Link Building Services that Actually Matters-starts AND WHY LEELIJA?  AND WHAT MAKES LEELIJA SO SPECIAL  COMBINED CSS --> */
+/* <!-- ________________________________________________________________________________________ --> */
+
+/* _______________________________________________________________________________________________________ */
+/* Pricing blogger outreach section start */
+.pricing-bo-h1 {
+    font-size: 3.6rem;
+    font-weight: 600;
+    color: darkblue;
+    font-family: "Poppins", Poppins;
+}
+
+.pricing-bo-p1 {
+    font-family: "Poppins", Poppins;
+    font-size: 1.1rem;
+    font-weight: 300;
+
+}
+
+.price-table {
+    background: #F9F9F9;
+    padding: 20px 5rem;
+    margin: 5rem 0;
+    /* background: #F9F9F9;
+    padding: 20px 0;
+    margin: 5rem; */
+}
+
+/* Pricing blogger outreach section ends */
+/* _____________________________________________________________________________________________________ */
+
+/* Effective and Transparent Link Building Process starts */
+/* _____________________________________________________________________________________________________ */
+
+.our-secret-delivering-main-sec {
+    padding: 7rem;
+}
+
+.our-secret-d-h2 {
+    font-weight: 600;
+    color: darkblue;
+    font-family: "Poppins", Poppins;
+}
+
+.our-secret-d-h2 span {
+    color: coral;
+}
+
+.our-secrect-delvry-main-card {
+    margin-top: 4rem;
+}
+
+.our-secrect-delvry-main-card p {
+    font-size: .95rem;
+}
+
+.our-secret-delivering-main-card {
+    padding: 1.5rem;
+    border-radius: unset;
+    background: #fff;
+    margin: 13px 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    border: none;
+    min-height: 320px;
+    border-radius: 15px;
+}
+
+.our-secret-delivering-main-card:hover {
+    box-shadow: 0 15px 40px 2px rgb(18 21 154 / 15%);
+}
+
+.our-secret-delivering-main-card h4 {
+    text-align: center;
+    color: #171C30;
+    font-family: "Helvetica", Poppins;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.our-secret-delivering-main-card p {
+    color: #747880;
+    font-family: "Helvetica", Poppins;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+/* our secrect----2nd section */
+.our-secret-delivering-main-card2 {
+    padding: 1.5rem;
+    border-radius: unset;
+    background: #fff;
+    margin: 13px 0;
+    border: none;
+    min-height: 410px;
+}
+
+.our-secret-delivering-main-card2:hover {
+    box-shadow: 0 15px 40px 2px rgb(18 21 154 / 15%);
+    transition: all .9s ease;
+    background-color: #FFF0;
+    background-image: url(../images/card-hover-bg-img-removebg-preview.jpg);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.our-secret-delivering-main-card2 h4 {
+    text-align: start;
+    color: #171C30;
+    font-family: "Helvetica", Poppins;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.our-secret-delivering-main-card2 p {
+    color: #747880;
+    font-family: "Helvetica", Poppins;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.getyour-linkbtn {
+    display: flex;
+    justify-content: right;
+}
+
+/* Effective and Transparent Link Building Process ends */
+/* _____________________________________________________________________________________________________ */
+
+/* ____________________________________________________ */
+
+/* MEDIA QUERY STARTS  */
+/* ____________________________________________________ */
+
+@media (max-width:1199px) {
+    .lbs-actually-matters-main {
+        padding: 3rem !important;
+    }
+
+    .mlb-starting-main-h1 {
+        font-size: 2.8rem;
+        font-weight: 600;
+    }
+
+    .our-secret-delivering-main-sec {
+        padding: 4rem !important;
+    }
+
+    .a-brand-need-link-main-h1 {
+        font-size: 2.4rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 3.2rem !important;
+    }
+}
+
+@media (max-width:991px) {
+
+    .mlb-starting-main-h1 {
+        font-size: 2.3rem;
+        font-weight: 500;
+    }
+
+    .our-secret-delivering-main-card2 {
+        min-height: 210px;
+    }
+
+    .mlb-starting-main-p {
+        font-weight: 400;
+        font-size: 1.445rem !important;
+    }
+
+    .a-brand-need-link-section {
+        margin: 5rem 1rem !important;
+    }
+
+    .price-table {
+        padding: 20px 2rem !important;
+        margin: 2rem 0 !important;
+        /* margin: 2rem !important; */
+    }
+
+    .lbs-actually-matters-main-h1 {
+        font-size: 1.8rem;
+    }
+
+    .our-secret-delivering-main-sec {
+        padding: 2rem !important;
+    }
+}
+
+@media (max-width:767px) {
+    .external-css-fr-size {
+        width: 100%;
+    }
+
+    .mlb-main-start-row {
+        padding: 2rem 0;
+    }
+
+    .a-brand-need-link-main-div {
+        margin-top: 0rem !important;
+        margin-bottom: 0rem !important;
+    }
+
+    .getyour-linkbtn {
+        display: flex;
+        justify-content: center !important;
+    }
+
+    .mlb-starting-main-h1 {
+        text-align: center;
+
+    }
+
+    .our-secret-delivering-main-card2 {
+        min-height: 210px;
+    }
+
+    .mlb-starting-main-p {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .real-bo-btn {
+        padding: 11px 34px 9px 34px !important;
+    }
+
+    .managed-link-btn {
+        padding: 11px 34px 9px 34px;
+    }
+
+    .buttonsinfo {
+        margin-bottom: 3rem;
+    }
+
+    .a-brand-need-link-main-h1 {
+        text-align: center;
+    }
+
+    .lbs-actually-matters-main-h1 {
+        font-size: 2.3rem !important;
+        text-align: center;
+    }
+
+    .why-leelija-section-mains {
+        margin: 1rem !important;
+    }
+
+    .getyour-linkbtn-for-lbs-matter {
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width:768px) and (max-width:1100px) {
+    .our-secret-delivering-main-card {
+        padding: 1rem !important;
+        margin: 20px 0px !important;
+        min-height: 330px !important;
+    }
+
+    .our-secrect-delvry-main-card {
+        margin-top: 0rem !important;
+    }
+
+    .examples-of-blogs-main-div {
+        padding: 4rem 1rem !important;
+    }
+}
+
+@media (min-width:706px) and (max-width:767px) {
+    .examples-of-blogs-main-div h2 {
+        font-size: 1.9rem !important;
+    }
+}
+
+@media (max-width:600px) {
+    h3.stat-title {
+        font-size: 2em !important;
+    }
+
+    .price-table {
+        padding: 20px 0rem !important;
+        margin: 2rem 0 !important;
+        /* margin: 0rem !important; */
+    }
+
+    .mlb-starting-main-h1 {
+        font-size: 2rem;
+    }
+
+    .mlb-wrapping {
+        padding: 0 1rem;
+        align-content: center;
+        align-items: center;
+    }
+
+    .pricing-bo-p1 {
+        padding: .8rem;
+    }
+
+    .examples-of-blogs-main-div {
+        padding: 1rem 1rem 4rem !important;
+
+    }
+
+    .a-brand-need-link-section {
+        margin: 2rem 1rem !important;
+    }
+
+    .lbs-actually-matters-main {
+
+        padding: 1rem !important;
+    }
+
+    .our-secret-delivering-main-sec {
+        padding: 1rem !important;
+    }
+}
+
+@media (min-width:536px) and (max-width:767px) {
+
+    .pricing-bo-h1 {
+        font-size: 2.6rem !important;
+    }
+}
+
+@media (min-width:336px) and (max-width:535px) {
+
+    .pricing-bo-h1 {
+        font-size: 2.2rem !important;
+    }
+}
+
+@media (min-width:312px) and (max-width:335px) {
+
+    .pricing-bo-h1 {
+        font-size: 1.9rem !important;
+    }
+}
+
+@media (min-width:200px) and (max-width:312px) {
+
+    .lbs-actually-matters-main-h1 {
+        font-size: 1.6rem !important;
+    }
+
+    .managed-link-btn {
+        padding: 11px 19px 11px 25px !important;
+    }
+
+    .a-brand-need-link-main-h1 {
+        font-size: 1.53rem !important;
+        font-weight: 500;
+    }
+
+    .mlb-starting-main-p {
+        font-size: 1.2rem !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 1.7rem !important;
+    }
+
+    .how-fonts-h4 {
+        font-size: 1.19rem;
+        font-weight: 700 !important;
+    }
+
+    .why-leelija-h1 {
+        font-size: 2.3rem !important;
+    }
+}
+
+@media (min-width:313px) and (max-width:399px) {
+    .mlb-starting-main-h1 {
+        font-size: 1.7rem;
+    }
+
+}
+
+@media (min-width:353px) and (max-width:420px) {
+
+    .mlb-starting-main-p {
+
+        font-size: 1.2rem !important;
+    }
+}
+
+@media (min-width:250px) and (max-width:451px) {
+    .tick-check-p {
+        font-size: 18px;
+    }
+
+    .examples-of-blogs-main-div {
+        padding: 4rem .5rem !important;
+
+    }
+
+    .examples-of-blogs-main-div h2 {
+        font-size: 1.6rem !important;
+
+    }
+
+    .plugging-div-main-h1 {
+        text-align: center;
+        margin: 0rem 0 !important;
+    }
+
+    .why-leelija-main-for-card {
+        display: inline-block !important;
+        text-align: start !important;
+        align-items: start !important;
+        padding: .5rem !important;
+        margin-bottom: 12px;
+        /* box-shadow: 0 15px 40px 2px rgb(18 21 154 / 8%); */
+        border: 1px solid #adff2f87;
+    }
+
+    .our-secrect-delvry-main-card {
+        margin-top: 1rem !important;
+    }
+
+    .our-secret-delivering-main-sec {
+        padding: 1rem !important;
+    }
+
+    .our-secret-delivering-main-card {
+        padding: 1rem !important;
+
+    }
+
+    .our-secret-delivering-main-card2 {
+        padding: 1rem !important;
+
+    }
+
+    .lbs-actually-matters-main-h1 {
+        font-size: 1.9rem !important;
+        text-align: center;
+    }
+
+    .what-others-say-bo-slider-h1 {
+        font-size: 1.9rem !important;
+    }
+
+    .what-others-say-bo-slider-h1 span {
+        color: brown !important;
+    }
+
+    .sliderbar {
+        margin-top: 1rem !important;
+    }
+
+    .actually-card-div1 {
+        display: inline-block !important;
+        padding: 1.5rem 1rem !important;
+        border-radius: unset;
+        border: none;
+        min-height: 200px;
+    }
+
+    .actually-card-inn-img-div {
+        padding-right: 0rem !important;
+        padding-left: 0rem !important;
+        padding-bottom: 1rem;
+    }
+}
+
+@media (min-width:768px) and (max-width:800px) {
+
+    .our-secret-delivering-main-card {
+        min-height: 396px !important;
+    }
+}
+
+@media (min-width:801px) and (max-width:849px) {
+
+    .our-secret-delivering-main-card {
+        min-height: 354px !important;
+    }
+}

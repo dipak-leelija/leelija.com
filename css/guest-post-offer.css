@@ -1,0 +1,73 @@
+.item_bx {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #D3DBE3;
+}
+
+.item_dollar {
+    font-weight: 500;
+    font-size: 22.5px;
+    /* position: absolute;
+    top: 0 */
+}
+
+.item_price {
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.item_bx i {
+    padding-right: 5px;
+    color: #0673BA;
+    font-size: 18px
+}
+
+.item_bx_ul {
+    padding: 0px 0px 20px 0px;
+    text-align: left;
+    margin-left: 25px
+}
+
+.item_bx_ul .select-niche {
+    border: 1px solid #0673BA;
+    outline: 0;
+    width: -webkit-fill-available !important;
+}
+
+.item_bx_ul li {
+    padding: 5px 0
+}
+
+.item_bx button {
+    padding: 0.3rem 0.8rem;
+    /* margin: 10px 0 10px 0; */
+    color: #0673BA;
+    background: #EBF4FE;
+    text-transform: capitalize;
+    font-weight: 500;
+    border: 2px solid #0673BA;
+    border-radius: 2px;
+}
+
+.item_bx button:active,
+.item_bx button:hover {
+    color: #EBF4FE;
+    background: #0645ba;
+}
+
+.item_bx .price-box-title {
+    position: relative;
+}
+
+.item_bx pre {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600
+}
+
+@media screen and (max-width: 767px) {
+    .item_bx {
+        margin: 1rem;
+    }
+}

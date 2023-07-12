@@ -1,0 +1,626 @@
+/* starting of white lebel links building main banner  */
+.white_lebel_link_banner {
+    background-image: url('../images/blogger-outreach-bg-main.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blog-1main-row {
+    padding: 5rem 0;
+}
+
+.bo-main-cntr {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+.bo-wrap {
+    align-content: center;
+    align-items: center;
+}
+
+.bo-wrap span {
+    color: #0673ba;
+}
+
+.blogout-main-h1 {
+    /* font-family: 'Orienta', sans-serif; */
+    font-family: "Poppins", Poppins;
+    font-size: 3.8rem;
+    font-weight: 600;
+    line-height: 1.2em;
+    color: #1C244B;
+    word-spacing: 0.1em;
+    stroke: #000;
+}
+
+.white-lebel-main-p {
+    font-weight: 300;
+    text-align: left;
+    font-size: 1.4rem;
+    color: #324A6D;
+    line-height: 1.5em;
+    /* font-family: 'Orienta', sans-serif; */
+    font-family: "Poppins", Poppins;
+}
+
+.blogger-btn {
+    font-family: "Poppins", Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 0;
+    word-spacing: 0em;
+    fill: #FFF;
+    color: #FFF;
+    background-color: #F7A546;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #F7A546 !important;
+    border-radius: 100px 100px 100px 100px;
+    padding: 16px 55px 16px 55px;
+}
+
+/*      ending of white lebel links building main banner  */
+/* ________________________________________________________________________________________ */
+
+/* trustworthy-white-lebel-section start */
+
+.trustwhite-section {
+    margin: 5rem;
+}
+.wp-building1 {
+    margin: 5rem;
+}
+
+.trustworthy-white-lebel-text-h1 {
+    font-size: 2.38rem;
+}
+
+
+.trustworthy-white-lebel-text-h1 span {
+    color: chocolate;
+}
+
+.real-bo-secondcol-div1 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: .5rem;
+}
+
+.real-bo-ul1 {
+
+    margin: 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.real-bo-li1 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.real-bo-ul1 b {
+    color: palevioletred;
+}
+
+.real-bo-btn {
+    font-family: "Poppins", Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 0;
+    word-spacing: 0em;
+    fill: #FFF;
+    color: #FFF;
+    background-color: #467FF7;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #467FF7 !important;
+    border-radius: 100px 100px 100px 100px;
+    padding: 16px 55px 16px 55px;
+}
+
+/* second-half */
+
+
+.real-bo-second-col-img {
+    width: 585px;
+    height: 356px;
+    object-fit: cover;
+}
+
+.real-bo-text-p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5em;
+    /* font-family: 'Orienta', sans-serif; */
+    font-family: "Poppins", Poppins;
+    text-align: center;
+    align-items: center;
+}
+
+@media (min-width:350px) and (max-width:425px) {
+    .trustworthy-white-lebel-text-h1 {
+        font-size: 1.5rem !important;
+    }
+
+}
+
+@media (min-width:250px) and (max-width:425px) {
+
+    .work-procedure-white-lebel-text-h1 {
+        font-size: 1.7rem !important;
+    }
+}
+
+/* trustworthy-white-lebel-section end */
+/* ________________________________________________________________________________________________________ */
+
+/*  Our Work Procedure-section start */
+
+.amazing-bo-first-col-img {
+    width: 525px;
+    height: 356px;
+    object-fit: cover;
+}
+
+.getyour-linkbtn {
+    display: flex;
+    justify-content: right;
+}
+
+.work-procedure-white-lebel-text-h1 {
+    font-family: "Poppins", Poppins;
+    text-align: center;
+    font-size: 2.7rem;
+    color: chocolate;
+    margin-bottom: 5rem;
+}
+
+
+.work-procedure-white-lebel-text-h1 span {
+    color: chocolate;
+
+}
+
+/* Our Work Procedure-section  end */
+/* ____________________________________________________________________________________________________________ */
+
+/* _____________________________________________________________________________________________________ */
+/*  Why Leelija Can Give You That Top Level starts  */
+.works-for-you-bo-section {
+    padding: 3rem;
+}
+
+.works-bo-h2 {
+    font-weight: 600;
+    color: darkblue;
+    font-family: "Poppins", Poppins;
+}
+
+.works-bo-h2 span {
+    color: coral;
+}
+
+.works-bo-p1 {
+    font-size: 1.1rem;
+}
+
+.works-f-u-main-card-div {
+    margin-top: 4rem;
+}
+
+.works-for-u-card {
+    padding: 1.5rem;
+    border-radius: unset;
+    background: #fff;
+    margin: 20px;
+    box-shadow: 0 0 10px 0 #ccc;
+    border: none;
+    min-height: 460px;
+}
+
+.works-f-u-main-card-div p {
+    font-size: .95rem;
+}
+
+/* does bo-works for you ends */
+
+/* how it works  blogger outreach starts */
+.how-its-wrok-bo-main-div {
+    padding: 1rem;
+}
+
+.how-it-work-f-u-card {
+
+    padding: 1.5rem;
+    border-radius: unset;
+    background: #fff;
+    /* background: #b8860b47; */
+    margin: 20px 5px;
+    box-shadow: 0 0 10px 0 #ccc;
+    border: none;
+    min-height: 360px;
+}
+
+/*  Why Leelija Can Give You That Top Level ends  */
+/* __________________________________________________________________________________________________ */
+/* Testimonials sliders starts */
+.what-others-say-testimonial {
+    color: #F7A546;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: "Poppins", Poppins;
+}
+
+.sliderbar {
+    margin-top: 3rem;
+}
+
+.what-others-say-bo-slider-h1 {
+    font-size: 2.8rem;
+    /* color: brown; */
+    font-family: "Poppins", Poppins;
+}
+
+.what-others-say-bo-slider-h1 span {
+    /* color: darkblue; */
+}
+
+.carousel {
+    /* position: relative; */
+    background: #f1fbff;
+    border-radius: 16px;
+    padding: 5.5rem 1rem;
+    margin-top: 2rem;
+    /* background: #094e69; */
+    /* height: 90%; */
+}
+
+.slider {
+    height: inherit !important;
+}
+
+.ci-blogger-outingreach {
+    z-index: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    /* margin: -35px auto; */
+    margin: 15px auto;
+    vertical-align: baseline !important;
+}
+
+.para1 {
+    color: #222244;
+    font-weight: 100;
+    text-transform: capitalize;
+    font-size: 15px !important;
+    width: 100% !important;
+    /* font-weight: 500; */
+}
+
+.what-others-say-bo-ci-h4 {
+    font-family: "Poppins", Poppins;
+    font-size: 1rem;
+}
+
+/* carousels ends */
+/* Testimonials sliders ends*/
+/* __________________________________________________________________________________________________ */
+
+
+.faq-head-section {
+    color: darkblue;
+}
+
+.faq-head-section span {
+    color: #F7A546;
+}
+
+/* __________________________________________________________________________________________________ */
+
+
+/* ____________________________________________________ */
+
+/* MEDIA QUERY STARTS  */
+/* ____________________________________________________ */
+
+@media (max-width:1199px) {
+
+
+    .blogout-main-h1 {
+        font-size: 2.8rem;
+        font-weight: 600;
+
+    }
+
+    .white-lebel-main-p {
+        font-weight: 300;
+        font-size: 1.5rem;
+
+    }
+
+    .trustworthy-white-lebel-text-h1 {
+        font-size: 1.9rem !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 3.2rem !important;
+    }
+}
+
+@media (max-width:991px) {
+
+    .blogout-main-h1 {
+        font-size: 2.3rem;
+        font-weight: 500;
+
+    }
+
+    .white-lebel-main-p {
+        font-weight: 300;
+        font-size: 1.3rem;
+
+    }
+    .trustwhite-section {
+        margin: 5rem 1rem !important;
+    }
+    .wp-building1 {
+        margin: 5rem 1rem !important;
+    }
+
+    .price-table {
+        margin: 2rem !important;
+    }
+}
+
+@media (max-width:767px) {
+    .blog-1main-row {
+        padding: 2rem 0;
+    }
+
+    .getyour-linkbtn {
+        display: flex;
+        justify-content: center !important;
+    }
+
+    .blogout-main-h1 {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .white-lebel-main-p {
+        text-align: center;
+        justify-content: center;
+
+    }
+
+    .real-bo-btn {
+        padding: 11px 34px 9px 34px !important;
+    }
+
+    .blogger-btn {
+
+        padding: 11px 34px 9px 34px;
+    }
+
+    .buttonsinfo {
+        margin-bottom: 3rem;
+    }
+
+    .trustworthy-white-lebel-text-h1 {
+        text-align: center;
+    }
+
+    .work-procedure-white-lebel-text-h1 {
+        text-align: center;
+    }
+}
+
+@media (min-width:768px) and (max-width:1100px) {
+    .works-for-u-card {
+        padding: 1rem !important;
+        margin: 20px 0px !important;
+        min-height: 490px !important;
+    }
+
+    .how-it-work-f-u-card {
+        padding: 1rem !important;
+        margin: 20px 0px !important;
+    }
+
+    .how-its-wrok-bo-main-div {
+        padding: 0rem !important;
+    }
+
+    .works-f-u-main-card-div {
+        margin-top: 0rem !important;
+    }
+
+    .examples-of-blogs-main-div {
+        padding: 4rem 1rem !important;
+
+    }
+}
+
+@media (min-width:706px) and (max-width:767px) {
+    .examples-of-blogs-main-div h2 {
+        font-size: 1.9rem !important;
+
+    }
+}
+
+@media (max-width:600px) {
+    h3.stat-title {
+        font-size: 2em !important;
+    }
+
+    .price-table {
+        margin: 0rem !important;
+    }
+
+    .blogout-main-h1 {
+        font-size: 2rem;
+
+    }
+
+    .bo-wrap {
+        padding: 0 1rem;
+        align-content: center;
+        align-items: center;
+    }
+
+    .pricing-bo-p1 {
+        padding: .8rem;
+    }
+
+}
+
+@media (min-width:768px) and (max-width:881px) {
+    .how-it-work-f-u-card {
+        min-height: 447px !important;
+    }
+}
+@media (min-width:882px) and (max-width:991px) {
+    .how-it-work-f-u-card {
+        min-height: 395px !important;
+    }
+}
+@media (min-width:536px) and (max-width:767px) {
+
+    .pricing-bo-h1 {
+        font-size: 2.6rem !important;
+    }
+}
+
+@media (min-width:336px) and (max-width:535px) {
+
+    .pricing-bo-h1 {
+        font-size: 2.2rem !important;
+    }
+}
+
+@media (min-width:312px) and (max-width:335px) {
+
+    .pricing-bo-h1 {
+        font-size: 1.9rem !important;
+    }
+}
+
+@media (min-width:200px) and (max-width:312px) {
+    .blogout-main-h1 {
+        font-size: 1.4rem;
+    }
+
+    .trustworthy-white-lebel-text-h1 {
+        font-size: 1.53rem !important;
+        font-weight: 500;
+    }
+
+    /* .work-procedure-white-lebel-text-h1 {
+        font-size: 1.3rem !important;
+        font-weight: 600 !important;
+    } */
+    .white-lebel-main-p {
+        font-size: 1.1rem !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 1.7rem !important;
+    }
+
+    .how-fonts-h4 {
+        font-size: 1.19rem;
+        font-weight: 700 !important;
+    }
+}
+
+@media (min-width:313px) and (max-width:399px) {
+    .blogout-main-h1 {
+        font-size: 1.7rem;
+    }
+
+}
+
+@media (min-width:250px) and (max-width:450px) {
+    .examples-of-blogs-main-div {
+        padding: 4rem 1rem !important;
+
+    }
+
+    .examples-of-blogs-main-div h2 {
+        font-size: 1.6rem !important;
+
+    }
+
+    .how-its-wrok-bo-main-div {
+        padding: 0rem !important;
+    }
+
+    .works-f-u-main-card-div {
+        margin-top: 1rem !important;
+    }
+
+    .works-for-you-bo-section {
+        padding: 1rem !important;
+    }
+
+    .works-for-u-card {
+        margin: 20px 0 !important;
+    }
+
+    .how-it-work-f-u-card {
+        margin: 20px 0px !important;
+    }
+
+    .what-others-say-bo-slider-h1 {
+        font-size: 1.9rem !important;
+    }
+
+    .what-others-say-bo-slider-h1 span {
+        /* color: brown !important; */
+    }
+
+    .sliderbar {
+        margin-top: 1rem !important;
+    }
+
+    .real-bo-secondcol-div1 {
+        display: inline-block !important;
+        text-align: center;
+        align-items: center;
+        padding: .5rem;
+        /* border: 1px solid bisque; */
+        margin: 1rem 0;
+    }
+
+    .trustworthy-img-div {
+        text-align: start;
+        margin: 1rem 0;
+    }
+    .lbp-texting{
+        text-align: left !important;
+        margin: 0 1rem;
+    }
+    .wp-building1{
+        margin: 1rem 1rem !important;
+    }
+    .wp-building2{
+        margin-bottom: 3rem !important;
+    }
+}

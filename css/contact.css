@@ -1,0 +1,120 @@
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#contact {
+    background-color: whitesmoke;
+}
+
+.contact-box {
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact-social-div,
+.contact-form-wrapper {
+    width: 50%;
+    padding: 3%;
+}
+.contact-social-div {
+    background-color: steelblue;
+    background:
+        radial-gradient(circle at 55% 92%, #426691 0 12%, transparent 12.2%),
+        radial-gradient(circle at 94% 72%, #426691 0 10%, transparent 10.2%),
+        radial-gradient(circle at 20% max(78%, 350px), #263a53 0 7%, transparent 7.2%),
+        radial-gradient(circle at 0% 0%, #263a53 0 40%, transparent 40.2%),
+        #1f2e43;
+    border-radius: 10px 0 0 10px;
+}
+
+.contact-form-wrapper {
+    background-color: #ffffff8f;
+    border-radius: 0 10px 10px 0;
+}
+
+@media only screen and (max-width: 800px) {
+
+    .contact-social-div,
+    .contact-form-wrapper {
+        width: 100%;
+    }
+
+    .contact-social-div {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .contact-form-wrapper {
+        border-radius: 0 0 10px 10px;
+    }
+}
+
+
+.contact-main-h2 {
+    color: steelblue;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-align: center;
+    transform: scale(.95, 1);
+    margin: auto;
+    padding-bottom: 2rem;
+}
+
+.contact-social-div .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.icons-social-div{
+    margin: 10px;
+    cursor: pointer;
+}
+
+.smedia-logo {
+    width: 45px;
+    height: 45px;
+    transition: 0.2s;
+}
+
+.smedia-logo:hover {
+    transform: scale(1.1, 1.1);
+}
+
+@media only screen and (max-width: 575px) {
+    .contact-main-h2{
+        font-size: 2rem;
+    }
+    .smedia-logo {
+        width: 38px;
+        height: 38px;
+    }
+    .contact-social-div,
+.contact-form-wrapper {
+    padding: 5%;
+}
+}
+@media only screen and (max-width: 300px) {
+    .contact-main-h2{
+        font-size: 1.75rem;
+    }
+    .smedia-logo {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+.contct-submit-bttn {
+    color: white;
+    background-color: steelblue;
+    padding: 7px;
+    width: 100px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+  }
+  
+  

@@ -1,0 +1,129 @@
+/* Loggedin user sidebar/sidenav */
+
+.client_profile_dashboard_left {
+    padding: 13px 13px 15px 25px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0px 0px 0px 0px rgb(0 0 0 / 12%);
+    /* max-width: 270px; */
+    z-index: -1;
+    height: -webkit-fill-available;
+    margin: 1rem;
+}
+
+.edit_profile .navi ul li {
+    border-bottom: 1px solid rgba(30, 34, 38, .18);
+    line-height: 50px;
+}
+
+#toClient,
+#toSeller {
+    cursor: pointer;
+}
+
+
+/*Main CSS*/
+
+
+/*///start breadcrumb*/
+
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background: white;
+    border-radius: 0;
+}
+
+ul.breadcrumb:hover,
+ul.breadcrumb:hover li a:hover {}
+
+ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+}
+
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: white;
+    content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+    border: 1px solid #0673BA;
+    color: #0673BA;
+    padding: 10px 25px;
+    text-decoration: none;
+}
+
+ul.breadcrumb li a:hover {
+    text-decoration: none;
+    background: #0673BA;
+    color: white;
+    border-color: #0673BA
+}
+
+
+/*///end breadcrumb*/
+
+
+/*///////Box Style/////*/
+
+.dbox {
+    min-height: 120px;
+    background-color: #0673ba;
+    text-align: center;
+}
+
+.dbox {
+    min-height: 50px;
+}
+
+.dbox a {
+    color: #ffffff;
+}
+
+.prof-dash {
+    height: auto;
+}
+
+.profile-img-box {
+    border: 2px solid #808080;
+    border-radius: 4px;
+    padding: 2%;
+    text-align: center;
+}
+
+.profile-img-box .blod {}
+
+.profile-img-box a img {
+    border-radius: 50%;
+    height: 150px;
+    text-align: center;
+}
+
+@media (min-width:768px) {
+    .client_profile_dashboard_left {
+        padding: 13px 20px 15px 35px;
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0px 0px 0px 0px rgb(0 0 0 / 12%);
+        /* max-width: 270px; */
+        z-index: -1;
+        margin: 0;
+        height: -webkit-fill-available;
+    }
+}
+
+@media(min-width:768px) and (max-width:991px) {
+    .dashorder_row {
+        margin: 1rem;
+    }
+    .client_profile_dashboard_left {
+        padding: 13px 0 15px 20px !important;
+    }
+}
+
+
+/* .p-image{
+        border: none;
+    } */
+
+.flduplod {
+    border: none;
+}

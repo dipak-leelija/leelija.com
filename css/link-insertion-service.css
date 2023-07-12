@@ -1,0 +1,573 @@
+/* --------------------------------------------------------------------------------------------- */
+/*Link Insertion Services main banner start */
+/* --------------------------------------------------------------------------------------------- */
+.managed-link-building-main-banner {
+    background-image: url('../images/blogger-outreach-bg-main.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mlb-main-start-row {
+    padding: 5rem 0;
+}
+
+.mlb-main-cntainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+.mlb-wrapping {
+    align-content: center;
+    align-items: center;
+}
+
+.mlb-wrapping span {
+    color: #0673ba;
+}
+
+.mlb-starting-main-h1 {
+    font-family: "Poppins", Poppins;
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 1.2em;
+    color: #1C244B;
+    word-spacing: 0.1em;
+    stroke: #000;
+}
+
+.mlb-starting-main-p {
+    font-weight: 400;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #324A6D;
+    line-height: 1.5em;
+    font-family: "Poppins", Poppins;
+}
+
+.managed-link-btn {
+    font-family: "Poppins", Poppins;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 0;
+    word-spacing: 0em;
+    fill: #FFF;
+    color: #FFF;
+    background-image: linear-gradient(120deg, #FDA33B 0%, #FA8273 100%);
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #F7A546 !important;
+    border-radius: 50px 50px 50px 50px;
+    padding: 17px 40px 17px 40px;
+}
+
+.managed-link-btn:hover {
+    color: white;
+    background-image: linear-gradient(120deg, #FA8273 0%, #FDA33B 100%);
+}
+
+.tick-check {
+    content: "\2714";
+    font-family: Segoe UI Emoji;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0 0 22px 0;
+}
+
+.tick-check-p {
+    color: #3F4450;
+    font-family: "Helvetica", Poppins;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0 0 22px 0;
+}
+
+@media (min-width:250px) and (max-width:350px) {
+
+    .tick-check {
+        font-size: 16px !important;
+        margin: 0 0 18px 0;
+    }
+}
+
+/* ________________________________________________________________________________________ */
+/* Link Insertion Services main banner end */
+/* __________________________________________________________________________________________________ */
+
+/* __________________________________________________________________________________________________ */
+/* Advantages Of Link Insert starts */
+/* __________________________________________________________________________________________________ */
+.lbs-actually-matters-main {
+    padding: 5rem;
+}
+
+.lbs-actually-matters-main-h1 span {
+    color: #F7A546;
+    font-weight: 600;
+}
+
+.lbp-texting {
+    font-family: "Helvetica", Poppins;
+    font-size: 17px;
+    line-height: 1.625em;
+}
+
+.actually-card-inn-img-div {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.actually-card-div1 {
+    display: flex;
+    padding: 1.5rem;
+    border-radius: unset;
+    border: none;
+    min-height: 145px;
+}
+
+.actually-card-div1:hover {
+    transition: all .9s ease;
+    background-color: #FFF0;
+    box-shadow: 0 15px 40px 2px rgb(18 21 154 / 15%);
+    background-image: url(../images/card-hover-bg-img-removebg-preview.jpg);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.getyour-linkbtn {
+    display: flex;
+    justify-content: right;
+}
+
+/* __________________________________________________________________________________________________ */
+/* Advantages Of Link Insert ends */
+/*  ________________________________________________________________________________________ */
+/* --------------------------------------------------------------------------------------------- */
+/* TESTIMONIALS STARTS*/
+/* --------------------------------------------------------------------------------------------- */
+.slider {
+    height: inherit !important;
+}
+
+.what-others-say-testimonial {
+    color: #F7A546;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: "Poppins", Poppins;
+}
+
+.sliderbar {
+    margin-top: 3rem;
+}
+
+.what-others-say-bo-slider-h1 {
+    font-size: 2.8rem;
+    color: brown;
+    font-family: "Poppins", Poppins;
+}
+
+.what-others-say-bo-slider-h1 span {
+    /* color: darkblue; */
+}
+
+.carousel {
+    background: #f1fbff;
+    border-radius: 16px;
+    padding: 5.5rem 1rem;
+    margin-top: 2rem;
+}
+
+.ci-blogger-outingreach {
+    z-index: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto;
+    vertical-align: baseline !important;
+}
+
+.para1 {
+    color: #222244;
+    font-weight: 100;
+    text-transform: capitalize;
+    font-size: 15px !important;
+    width: 100% !important;
+}
+
+.what-others-say-bo-ci-h4 {
+    font-family: "Poppins", Poppins;
+    font-size: 1rem;
+}
+
+/* carousels ends */
+
+
+/* --------------------------------------------------------------------------------------------- */
+/* TESTIMONIALS ENDS */
+/* --------------------------------------------------------------------------------------------- */
+
+/* _______________________________________________________________________________________________________ */
+/* Pricing blogger outreach section start */
+/* _____________________________________________________________________________________________________ */
+.pricing-bo-h1 {
+    font-size: 3.6rem;
+    font-weight: 600;
+    color: darkblue;
+    font-family: "Poppins", Poppins;
+}
+
+.pricing-bo-p1 {
+    font-family: "Poppins", Poppins;
+    font-size: 1.1rem;
+    font-weight: 300;
+
+}
+
+.price-table {
+    background: #F9F9F9;
+    padding: 20px 5rem;
+    margin: 5rem 0;
+    /* background: #F9F9F9;
+    padding: 20px 0;
+    margin: 5rem; */
+}
+
+/* _____________________________________________________________________________________________________ */
+/* Pricing blogger outreach section ends */
+/* _____________________________________________________________________________________________________ */
+
+/* --------------------------------------------------------------------------------------------- */
+/* how it works starts */
+/* --------------------------------------------------------------------------------------------- */
+.how-it-works-main-section {
+    padding: 6rem;
+}
+
+.how-it-works-main-section h1 {
+    font-family: "Helvetica", Poppins;
+    text-align: center;
+    margin: 0 0 3rem 0;
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 600;
+}
+
+.how-it-works-main-section span {
+    color: #fb8c00;
+}
+
+.how-it-works-1st-img {
+    width: 922px;
+    height: 95px;
+    object-fit: contain;
+}
+
+.how-it-works-main-card-div {
+    text-align: center;
+}
+
+.how-it-works-main-card-div h4 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    font-family: "Helvetica", Poppins;
+}
+
+.how-it-works-main-card-div span {
+    color: #fb8c00;
+
+}
+
+.how-it-works-main-card-div p {
+    /* color: #747880; */
+    font-family: "Helvetica", Poppins;
+    /* font-size: 18px; */
+    font-weight: 400;
+    line-height: 28px;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* how it works ends */
+/* --------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------- */
+/* Frequently Asked Questions (FAQs) starts */
+/* --------------------------------------------------------------------------------------------- */
+.faq-head-section {
+    color: darkblue;
+}
+
+.faq-head-section span {
+    color: #F7A546;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/*Frequently Asked Questions (FAQs) ends */
+/* --------------------------------------------------------------------------------------------- */
+/* ____________________________________________________ */
+/* MEDIA QUERY STARTS  */
+/* ____________________________________________________ */
+
+@media (max-width:1199px) {
+    .lbs-actually-matters-main {
+        padding: 3rem !important;
+    }
+
+    .mlb-starting-main-h1 {
+        font-size: 2.8rem;
+        font-weight: 600;
+    }
+
+    .how-it-works-main-section {
+        padding: 4rem 2rem !important;
+    }
+
+    .how-it-works-1st-img {
+        width: 771px !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 3.2rem !important;
+    }
+}
+
+@media (max-width:991px) {
+
+    .mlb-starting-main-h1 {
+        font-size: 2.3rem;
+        font-weight: 500;
+    }
+
+    .mlb-starting-main-p {
+        font-weight: 400;
+        font-size: 1.445rem !important;
+    }
+
+    .price-table {
+        padding: 20px 2rem !important;
+        margin: 2rem 0 !important;
+        /* margin: 2rem !important; */
+    }
+
+    .lbs-actually-matters-main-h1 {
+        font-size: 1.8rem;
+    }
+
+    .how-it-works-main-section {
+        padding: 4rem 1rem !important;
+    }
+
+    .how-it-works-1st-img {
+        width: 650px !important;
+
+    }
+}
+
+@media (max-width:767px) {
+
+    .mlb-main-start-row {
+        padding: 2rem 0;
+    }
+
+    .a-brand-need-link-main-div {
+        margin-top: 0rem !important;
+        margin-bottom: 0rem !important;
+    }
+
+    .getyour-linkbtn {
+        display: flex;
+        justify-content: center !important;
+    }
+
+    .mlb-starting-main-h1 {
+        text-align: center;
+    }
+
+    .mlb-starting-main-p {
+        text-align: center;
+        justify-content: center;
+
+    }
+
+    .real-bo-btn {
+        padding: 11px 34px 9px 34px !important;
+    }
+
+    .managed-link-btn {
+        padding: 11px 34px 9px 34px;
+    }
+
+    .buttonsinfo {
+        margin-bottom: 3rem;
+    }
+
+    .lbs-actually-matters-main-h1 {
+        font-size: 2.3rem !important;
+        text-align: center;
+    }
+
+    .how-it-works-main-section {
+        padding: 5rem 3rem !important;
+    }
+
+    .how-it-works-1st-img {
+        width: 490px !important;
+
+    }
+}
+
+@media (max-width:600px) {
+    .how-it-works-main-section h1 {
+        margin: 0 !important;
+    }
+
+    .how-it-works-main-section {
+        padding: 4rem 2rem !important;
+    }
+
+    .price-table {
+        padding: 20px 0rem !important;
+        margin: 2rem 0 !important;
+        /* margin: 0rem !important; */
+    }
+
+    .mlb-starting-main-h1 {
+        font-size: 2rem;
+    }
+
+    .mlb-wrapping {
+        padding: 0 1rem;
+        align-content: center;
+        align-items: center;
+    }
+
+    .pricing-bo-p1 {
+        padding: .8rem;
+    }
+
+    .lbs-actually-matters-main {
+        padding: 1rem !important;
+    }
+
+}
+
+@media (min-width:536px) and (max-width:767px) {
+
+    .pricing-bo-h1 {
+        font-size: 2.6rem !important;
+    }
+
+    .how-it-works-1st-img {
+        width: 460px !important;
+
+    }
+}
+
+@media (min-width:336px) and (max-width:535px) {
+
+    .pricing-bo-h1 {
+        font-size: 2.2rem !important;
+    }
+
+    .how-it-works-1st-img {
+        width: 300px !important;
+    }
+}
+
+@media (min-width:312px) and (max-width:335px) {
+
+    .pricing-bo-h1 {
+        font-size: 1.9rem !important;
+    }
+
+    .how-it-works-1st-img {
+        width: 285px !important;
+
+    }
+}
+
+@media (min-width:200px) and (max-width:312px) {
+
+    .lbs-actually-matters-main-h1 {
+        font-size: 1.6rem !important;
+    }
+
+    .how-it-works-main-section h1 {
+        font-size: 30px !important;
+    }
+
+    .managed-link-btn {
+        padding: 11px 19px 11px 25px !important;
+    }
+
+    .mlb-starting-main-p {
+        font-size: 1.2rem !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 1.7rem !important;
+    }
+
+    .how-it-works-1st-img {
+        width: 253px !important;
+
+    }
+}
+
+@media (min-width:313px) and (max-width:399px) {
+    .mlb-starting-main-h1 {
+        font-size: 1.7rem;
+    }
+
+}
+
+@media (min-width:353px) and (max-width:420px) {
+
+    .mlb-starting-main-p {
+        font-size: 1.2rem !important;
+    }
+}
+
+@media (min-width:250px) and (max-width:451px) {
+    .tick-check-p {
+        font-size: 18px;
+    }
+
+    .lbs-actually-matters-main-h1 {
+        font-size: 1.9rem !important;
+        text-align: center;
+    }
+
+    .sliderbar {
+        margin-top: 1rem !important;
+    }
+
+    .actually-card-div1 {
+        display: inline-block !important;
+        padding: 1.5rem 1rem !important;
+        border-radius: unset;
+        /* background: #fff; */
+        /* margin: 20px 0; */
+        border: none;
+        min-height: 200px;
+    }
+
+    .actually-card-inn-img-div {
+        padding-right: 0rem !important;
+        padding-left: 0rem !important;
+        padding-bottom: 1rem;
+    }
+
+    .how-it-works-main-section {
+        padding: 3rem .5rem !important;
+    }
+}

@@ -1,0 +1,653 @@
+/* --------------------------------------------------------------------------------------------- */
+/*Cannabis Backlinks main banner start */
+/* --------------------------------------------------------------------------------------------- */
+.managed-link-building-main-banner {
+    background-image: url('../images/blogger-outreach-bg-main.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mlb-main-start-row {
+    padding: 5rem 0;
+}
+
+.mlb-main-cntainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+.mlb-wrapping {
+    align-content: center;
+    align-items: center;
+}
+
+.mlb-wrapping span {
+    color: #0673ba;
+}
+
+.mlb-starting-main-h1 {
+    font-family: "Poppins", Poppins;
+    font-size: 3.8rem;
+    font-weight: 600;
+    line-height: 1.2em;
+    color: #1C244B;
+    word-spacing: 0.1em;
+    stroke: #000;
+}
+
+.mlb-starting-main-p {
+    font-weight: 400;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #324A6D;
+    line-height: 1.5em;
+    font-family: "Poppins", Poppins;
+}
+
+.managed-link-btn {
+    font-family: "Helvetica",Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 0;
+    word-spacing: 0em;
+    fill: #FFF;
+    color: #FFF;
+    background-color: #0DA789;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #0DA789 !important;
+    border-radius: 100px 100px 100px 100px;
+    padding: 16px 55px 16px 55px;
+}
+
+.managed-link-btn:hover {
+    color: #0DA789 !important;
+  
+}
+
+.tick-check {
+    content: "\2714";
+    font-family: Segoe UI Emoji;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0 0 22px 0;
+}
+
+.tick-check-p {
+    color: #3F4450;
+    font-family: "Helvetica", Poppins;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0 0 22px 0;
+}
+
+@media (min-width:250px) and (max-width:350px) {
+
+    .tick-check {
+        font-size: 16px !important;
+        margin: 0 0 18px 0;
+    }
+}
+
+/* ________________________________________________________________________________________ */
+/* Cannabis Backlinks main banner end */
+/* __________________________________________________________________________________________________ */
+
+/* __________________________________________________________________________________________________ */
+/* Collaboration opportunity-cb starts */
+/* __________________________________________________________________________________________________ */
+.lbs-actually-matters-main {
+    padding: 5rem;
+}
+
+.lbs-actually-matters-main-h1  {
+    font-size: 2rem;
+    font-family: "Helvetica", Poppins;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.lbs-actually-matters-main-h1 span {
+    color: #F7A546;
+    
+}
+.lbs-actually-matters-main p{
+    text-align: left;
+    color: #3F4450;
+    font-family: "Helvetica",Poppins;
+    font-size: 19px;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+.lbp-texting {
+    font-family: "Helvetica", Poppins;
+    font-size: 17px;
+    line-height: 1.625em;
+}
+
+.actually-card-inn-img-div {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.actually-card-div1 {
+    display: flex;
+    padding: 1.5rem;
+    border-radius: unset;
+    border: none;
+    min-height: 145px;
+}
+
+.actually-card-div1:hover {
+    transition: all .9s ease;
+    background-color: #FFF0;
+    box-shadow: 0 15px 40px 2px rgb(18 21 154 / 15%);
+    background-image: url(../images/card-hover-bg-img-removebg-preview.jpg);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.getyour-linkbtn {
+    display: flex;
+    justify-content: right;
+}
+
+/* __________________________________________________________________________________________________ */
+/* Collaboration opportunity-cb  ends */
+/*  ________________________________________________________________________________________ */
+
+/* --------------------------------------------------------------------------------------------- */
+/* Cannabis Link Building Or Regular Link Building- STARTS*/
+/* --------------------------------------------------------------------------------------------- */
+.cannabis-clb-rlb-section{
+    background-image: url('../images/blogger-outreach-bg-main.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.cannabis-clb-rlb-main-div{
+    padding: 7rem 6rem;
+}
+.cannabis-clb-rlb-main-div h2{
+    text-align: left;
+    color: #3F4450;
+    font-family: "Helvetica",Poppins;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+.cannabis-clb-rlb-main-div strong{
+    color: #f98b0b;
+    font-weight: 500;
+}
+.cannabis-clb-rlb-main-div ul{
+    font-family: "Helvetica",Poppins;
+    font-size: 22px;
+    font-weight: 400;
+    color: #3F4450;
+    
+} 
+
+.cannabis-clb-rlb-main-div span{
+    color: #0DA789 ;
+    font-size: 26px;
+}
+.cannabis-clb-rlb-main-div span :hover{
+    color: #f98b0b85;
+}
+/* --------------------------------------------------------------------------------------------- */
+/* Cannabis Link Building Or Regular Link Building- ENDS */
+/* --------------------------------------------------------------------------------------------- */
+/* __________________________________________________________________________________________________ */
+/* How will Leelija Help You To Grow in the CBD business? starts */
+/* __________________________________________________________________________________________________ */
+.cbd-business-main-section {
+    padding: 5rem;
+}
+
+.cbd-business-main-section-h1  {
+    font-size: 2rem;
+    font-family: "Helvetica", Poppins;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.cbd-business-main-section-h1 strong {
+    color: #F7A546;
+    font-size: 2rem;
+    font-weight: 500;
+}
+.cbd-business-main-section ul{
+    font-family: Helvetica,Poppins;
+    font-size: 22px;
+    font-weight: 400;
+    color: #3f4450;
+    margin-bottom: 2rem;
+}
+
+.cbd-business-main-section span{
+    color: #0DA789 ;
+    font-size: 25px;
+}
+.cbd-business-main-section span :hover{
+    color: #F7A546;
+}
+
+/* __________________________________________________________________________________________________ */
+/* How will Leelija Help You To Grow in the CBD business?   ends */
+/*  ________________________________________________________________________________________ */
+/* _______________________________________________________________________________________________________ */
+/* Pricing blogger outreach section start */
+/* _____________________________________________________________________________________________________ */
+.pricing-bo-h1 {
+    font-size: 3.6rem;
+    font-weight: 600;
+    color: darkblue;
+    font-family: "Poppins", Poppins;
+}
+
+.pricing-bo-p1 {
+    font-family: "Poppins", Poppins;
+    font-size: 1.1rem;
+    font-weight: 300;
+
+}
+
+.price-table {
+    background: #F9F9F9;
+    padding: 20px 5rem;
+    margin: 5rem 0;
+    /* background: #F9F9F9;
+    padding: 20px 0;
+    margin: 5rem; */
+}
+
+/* _____________________________________________________________________________________________________ */
+/* Pricing blogger outreach section ends */
+/* _____________________________________________________________________________________________________ */
+
+/* --------------------------------------------------------------------------------------------- */
+/* Why is Link Building Important for Cannabis Business? starts */
+/* --------------------------------------------------------------------------------------------- */
+.why-is-lb-important-main{
+    padding: 5rem;
+}
+
+.why-is-lb-important-main-h1  {
+    font-size: 2rem;
+    font-family: "Helvetica", Poppins;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.why-is-lb-important-main-h1 span {
+    color: #F7A546;
+    
+}
+.why-is-lb-important-main p{
+    text-align: left;
+    color: #3F4450;
+    font-family: "Helvetica",Poppins;
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+/* --------------------------------------------------------------------------------------------- */
+/* Why is Link Building Important for Cannabis Business? ends */
+/* --------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------- */
+/* Improve Your ROI In The CBD Business With Through Organic Growth Plan! starts */
+/* --------------------------------------------------------------------------------------------- */
+.improve-your-roi-organic-main{
+    padding: 5rem;
+}
+
+.improve-your-roi-organic-main-h1  {
+    font-size: 2rem;
+    font-family: "Helvetica", Poppins;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.improve-your-roi-organic-main span {
+    color: #F7A546;
+    
+}
+.improve-your-roi-organic-main p{
+    text-align: left;
+    color: #3F4450;
+    font-family: "Helvetica",Poppins;
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+/* --------------------------------------------------------------------------------------------- */
+/* Improve Your ROI In The CBD Business With Through Organic Growth Plan! ends */
+/* --------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------- */
+/* Frequently Asked Questions (FAQs) starts */
+/* --------------------------------------------------------------------------------------------- */
+.faq-head-section {
+    color: darkblue;
+}
+
+.faq-head-section span {
+    color: #F7A546;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/*Frequently Asked Questions (FAQs) ends */
+/* --------------------------------------------------------------------------------------------- */
+/* ____________________________________________________ */
+/* MEDIA QUERY STARTS  */
+/* ____________________________________________________ */
+
+@media (max-width:1199px) {
+    .lbs-actually-matters-main {
+        padding: 3rem !important;
+    }
+    .cbd-business-main-section {
+        padding: 5rem 3rem;
+    }
+    .mlb-starting-main-h1 {
+        font-size: 2.8rem;
+        font-weight: 600;
+    }
+
+    .how-it-works-1st-img {
+        width: 771px !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 3.2rem !important;
+    }
+    .cannabis-clb-rlb-main-div{
+        padding: 7rem 5rem;
+    }
+}
+
+@media (max-width:991px) {
+
+    .mlb-starting-main-h1 {
+        font-size: 2.3rem;
+        font-weight: 500;
+    }
+
+    .mlb-starting-main-p {
+        font-weight: 400;
+        font-size: 1.445rem !important;
+    }
+
+    .price-table {
+        padding: 20px 2rem !important;
+        margin: 2rem 0 !important;
+        /* margin: 2rem !important; */
+    }
+
+    .lbs-actually-matters-main-h1 {
+        font-size: 1.8rem;
+    }
+    .cbd-business-main-section {
+        padding: 5rem 2rem;
+    }
+    .cannabis-clb-rlb-main-div{
+        padding: 7rem 4rem;
+    }
+    .why-is-lb-important-main {
+        padding: 5rem 2rem;
+    }
+    .improve-your-roi-organic-main{
+        padding: 5rem 2rem;
+    }
+}
+
+@media (max-width:767px) {
+    .cbd-business-main-section {
+        padding: 3rem 1rem;
+    }
+    .why-is-lb-important-main {
+        padding: 5rem 1rem;
+        text-align: center;
+    }
+    .improve-your-roi-organic-main{
+        padding: 3rem 1rem;
+        text-align: center;
+    }
+    .cbd-business-main-section-h1 { 
+        margin-top: 3rem;
+        text-align: center;
+    }
+    .cannabis-clb-rlb-main-div{
+        padding: 7rem 3rem;
+        text-align: center;
+    }
+    .cannabis-clb-rlb-main-div h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .cannabis-for-smallsizing{
+     margin-bottom: 0rem !important;
+    }
+    .mlb-main-start-row {
+        padding: 2rem 0;
+    }
+
+    .a-brand-need-link-main-div {
+        margin-top: 0rem !important;
+        margin-bottom: 0rem !important;
+    }
+
+    .getyour-linkbtn {
+        display: flex;
+        justify-content: center !important;
+    }
+
+    .mlb-starting-main-h1 {
+        padding-top: 3rem !important;
+        text-align: center;
+    }
+
+    .mlb-starting-main-p {
+        text-align: center;
+        justify-content: center;
+
+    }
+
+    .real-bo-btn {
+        padding: 11px 34px 9px 34px !important;
+    }
+
+    .managed-link-btn {
+        padding: 11px 34px 9px 34px;
+    }
+
+    .buttonsinfo {
+        margin-bottom: 3rem;
+    }
+
+    .lbs-actually-matters-main-h1 {
+        font-size: 2.3rem !important;
+        text-align: center;
+    }
+
+    .lbs-actually-matters-main p {
+        text-align: center !important;
+       
+    }
+    .cannabis-clb-rlb-main-div ul {
+        text-align: start;
+    }
+    .why-is-lb-important-main-h1 {
+        font-size: 2rem;
+        font-family: "Helvetica", Poppins;
+        margin-bottom: 2.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-top: 4rem;
+    }
+}
+
+@media (max-width:600px) {
+    .mlb-starting-main-h1 {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+    .cannabis-clb-rlb-main-div{
+        padding: 7rem 2rem;
+    }
+    .cannabis-clb-rlb-main-div ul {
+        font-size: 20px;
+    }
+    .price-table {
+        padding: 20px 0rem !important;
+        margin: 2rem 0 !important;
+        /* margin: 0rem !important; */
+    }
+
+    /* .mlb-starting-main-h1 {
+        font-size: 2rem;
+    } */
+
+    .mlb-wrapping {
+        padding: 0 1rem;
+        align-content: center;
+        align-items: center;
+    }
+
+    .pricing-bo-p1 {
+        padding: .8rem;
+    }
+
+    .lbs-actually-matters-main {
+        padding: 1rem !important;
+    }
+
+}
+
+@media (min-width:536px) and (max-width:767px) {
+
+    .pricing-bo-h1 {
+        font-size: 2.6rem !important;
+    }
+  
+}
+
+@media (min-width:336px) and (max-width:535px) {
+
+    .pricing-bo-h1 {
+        font-size: 2.2rem !important;
+    }
+   
+    
+}
+@media (max-width:363px){
+    .mlb-starting-main-h1 {
+        font-size: 2.5rem;
+    }
+}
+@media (min-width:312px) and (max-width:335px) {
+
+    .pricing-bo-h1 {
+        font-size: 1.9rem !important;
+    }
+   
+}
+
+@media (min-width:200px) and (max-width:312px) {
+
+    .lbs-actually-matters-main-h1 {
+        font-size: 1.6rem !important;
+    }
+
+    .how-it-works-main-section h1 {
+        font-size: 30px !important;
+    }
+
+    .managed-link-btn {
+        padding: 11px 19px 11px 25px !important;
+    }
+
+    .mlb-starting-main-p {
+        font-size: 1.2rem !important;
+    }
+
+    .pricing-bo-h1 {
+        font-size: 1.7rem !important;
+    }
+   
+    
+}
+
+@media (min-width:313px) and (max-width:399px) {
+    /* .mlb-starting-main-h1 {
+        font-size: 1.7rem;
+    } */
+   
+}
+
+@media (min-width:353px) and (max-width:420px) {
+
+    .mlb-starting-main-p {
+        font-size: 1.2rem !important;
+    }
+}
+
+@media (min-width:250px) and (max-width:451px) {
+ 
+    .tick-check-p {
+        font-size: 18px;
+    }
+    .cannabis-clb-rlb-main-div ul {
+        font-size: 19px;
+    }
+    .lbs-actually-matters-main-h1 {
+        font-size: 1.8rem !important;
+        text-align: center;
+    }
+
+    .sliderbar {
+        margin-top: 1rem !important;
+    }
+
+    .actually-card-div1 {
+        display: inline-block !important;
+        padding: 1.5rem 1rem !important;
+        border-radius: unset;
+        /* background: #fff; */
+        /* margin: 20px 0; */
+        border: none;
+        min-height: 200px;
+    }
+
+    .actually-card-inn-img-div {
+        padding-right: 0rem !important;
+        padding-left: 0rem !important;
+        padding-bottom: 1rem;
+    }
+
+    .cannabis-clb-rlb-main-div{
+        padding: 3rem 1rem;
+    }
+   
+    .cannabis-clb-rlb-main-div span {
+        font-size: 24px;
+    }
+    .cbd-business-main-section ul {
+        font-size: 19px;
+    }
+    .why-is-lb-important-main-h1 {
+        font-size: 1.7rem;
+       
+    }
+}

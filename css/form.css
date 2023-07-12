@@ -1,0 +1,377 @@
+/* From design*/
+
+.features_grids {
+    padding: 20px 80px;
+    margin: auto;
+}
+
+.form_shadow {
+    box-shadow: 0 2px 20px 0 rgba(30, 34, 38, .18)
+}
+
+.log_section {
+    -webkit-box-shadow: 0 2px 9px 0 rgba(30, 34, 38, .18);
+    box-shadow: 0 2px 9px 0 rgba(30, 34, 38, .18);
+    border: 1px solid #D3DBE3
+}
+
+.login-sec-img {
+    background: #EBF4FE;
+    height: 100%;
+}
+
+.log_section {
+    background: #ffffff;
+    /* width: 580px; */
+    /* margin-left: auto; */
+    /* margin-top: 80px; */
+    margin: auto;
+}
+
+.form-horizontal-login input {
+    /* border-radius: 10px; */
+    /* padding-left: 40px; */
+}
+
+.login-logo {
+    z-index: 2;
+}
+
+.login-second-title {
+    color: #BFBFBF;
+    font-size: 12px;
+    text-align: center;
+}
+
+#loginBTN {
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.sign-up-btn a {
+    color: #1F81C1;
+    font-weight: 700;
+}
+
+.sign-up-btn a:hover {
+    color: #474e5d;
+}
+
+.login-tag-line {
+    color: #00254d;
+    font-size: 12px;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-weight: 600;
+}
+
+
+/* register */
+
+.registerImg {
+    background: #D3DBE3;
+    height: 100%;
+    width: 100%;
+}
+
+.registerImg img {
+    padding: 10px;
+}
+
+
+/* register */
+
+.form-control {
+    border-radius: inherit;
+    /* height: 40px!important; */
+    /* padding: 10px; */
+    /* margin: 10px 0 */
+}
+
+.form-control:focus {
+    box-shadow: none
+}
+
+.form-group textarea {
+    height: auto!important;
+}
+
+.form-control input {
+    background: none;
+}
+
+.form-group:last-child {
+    margin-bottom: 0
+}
+
+.main_login_btn,
+.main_register_btn {
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    width: auto;
+    background: #EBF4FE;
+    border: 1px solid #EBF4FE;
+    color: #0673BA
+}
+
+.bfrom .login_text {
+    line-height: 150%
+}
+
+.bfrom .login_text::after {
+    width: 200px;
+}
+
+.register_section_header::after {
+    width: 137px
+}
+
+.bfrom .login_text::after,
+.register_section_header::after {
+    content: "";
+    background: #0673BA;
+    display: block;
+    height: 3px;
+    bottom: 0;
+    margin: auto;
+}
+
+.create_account {
+    margin-top: 15px;
+    border-top: 1px solid #0673BA8c;
+    padding-top: 5%;
+}
+
+.create_account a {
+    background: #EBF4FE;
+    color: #0673BA;
+    padding: 10px 15px;
+    border: 1px solid #EBF4FE;
+    font-weight: 500
+}
+
+.create_account a:hover {
+    border: 1px solid #0673BA;
+    background: transparent;
+    text-decoration: none
+}
+
+
+/* Full-width input fields */
+
+
+/*input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+*/
+
+
+/* Add a background color when the inputs get focus */
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #FBFCFE;
+    outline: none;
+    border: 1px solid #0673BA
+}
+
+
+/* Set a style for all buttons */
+
+
+/* button {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity: 1;
+} */
+
+
+/* Extra styles for the cancel button */
+
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+
+/* Float cancel and signup buttons and add an equal width */
+
+.cancelbtn,
+.signupbtn {
+    float: left;
+    width: 50%;
+}
+
+
+/* Add padding to container elements */
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%;
+    /* Could be more or less, depending on screen size */
+}
+
+
+/* Style the horizontal ruler */
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+
+/* The Close Button (x) */
+
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+
+/* Clear floats */
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+/*Image upload*/
+
+#image-preview {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    color: #ecf0f1;
+}
+
+#image-preview input {
+    line-height: 200px;
+    font-size: 200px;
+    position: absolute;
+    opacity: 0;
+    z-index: 10;
+}
+
+#image-preview label {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: #1F81C1;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-transform: uppercase;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: 14px
+}
+
+
+/*//Image upload*/
+
+
+/* Change styles for cancel button and signup button on extra small screens */
+
+@media screen and (max-width: 300px) {
+    .cancelbtn,
+    .signupbtn {
+        width: 100%;
+    }
+}
+
+#boardsTable {
+    padding: 2%
+}
+
+.already_a_member {
+    position: absolute;
+    top: -42px;
+    right: 38px
+}
+
+select.form-control:not([size]):not([multiple]) {
+    border: 1px solid #3134355c
+}
+
+.careerform::-webkit-scrollbar {
+    width: 0.5rem !important;
+    opacity: 1;
+    overflow-y: auto;
+  }
+  
+  .careerform::-webkit-scrollbar-thumb {
+    background: #f7f7f9 !important;
+    border-radius: 2px;
+  }
+  
+  .careerform::-webkit-scrollbar-track {
+    box-shadow: none !important;
+    border-radius: 2px;
+  }
+  
+  .careerform::-webkit-scrollbar-thumb:hover {
+    background: #dadadb !important;
+  }

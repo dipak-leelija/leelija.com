@@ -1,0 +1,17 @@
+.empty_bx {
+    background-color: #f0fbfb;
+    width: 90%;
+}
+
+.empty_bx p {
+    color: #eb7f7f;
+}
+
+.empty_bx p i {
+    font-size: 12rem;
+    cursor: pointer;
+}
+
+.emp_icon {
+    opacity: 0.4;
+}

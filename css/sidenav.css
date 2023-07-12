@@ -1,0 +1,32 @@
+.client_profile_dashboard_left {
+    padding: 13px 0 15px 25px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+    max-width: 300px;
+    z-index: -1;
+    height: -webkit-fill-available;
+}
+
+.client_profile_dashboard_left ul li a:hover {
+    color: #0056b3
+}
+
+.client_profile_dashboard_left ul li a:hover .edit_profile .navi span {
+    font-weight: 500 !important
+}
+
+.edit_profile .navi ul li {
+    border-bottom: 1px solid rgba(30, 34, 38, .18);
+    line-height: 50px
+}
+
+.edit_profile .navi ul li a {
+    display: block;
+}
+
+.edit_profile .navi ul li:last-child {
+    border-bottom: none
+}
+
+.edit_profile .navi span {
+    font-weight: 400
+}

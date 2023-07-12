@@ -1,0 +1,232 @@
+
+/* From design*/
+.features_grids{
+	max-width: 920px;
+	padding: 20px 80px;
+	margin: auto;
+
+}
+.form_shadow{
+	box-shadow: 0 2px 20px 0 rgba(30,34,38,.18)
+}
+.log_section{
+
+	-webkit-box-shadow: 0 2px 20px 0 rgba(30,34,38,.18);
+	box-shadow: 0 2px 20px 0 rgba(30,34,38,.18)
+}
+.log_section{
+	padding: 2% 8%;
+  max-width: 750px
+	margin: auto;
+	background: #ffffff;
+}
+.form-control{
+	border: none;
+	border-bottom: 1px solid #06418d;
+	border-radius: inherit;
+	padding-left: 0;
+	height: 50px!important;
+	padding: 0
+}
+.form-group textarea{
+	height: auto!important;
+}
+.form-control input{
+	background: none;
+}
+.form-control input::placeholder{
+	color: :#babec4
+}
+.form-group:last-child{
+	margin-bottom: 0
+}
+.main_login_btn,.main_register_btn {
+	padding: 2% 5%;
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: 1px
+}
+.bfrom .login_text{
+	line-height: 150%
+}
+.bfrom .login_text::after{
+	width: 200px;
+}
+.register_section_header::after{
+	width: 137px
+}
+.bfrom .login_text::after,.register_section_header::after{
+	content: "";
+	background: #06418d;
+	display: block;
+	height: 3px;
+	bottom: 0;
+	margin: auto;
+}
+.create_account{
+margin: 8% 2% 0 2%;
+border-top: 1px solid #06418d8c;
+padding-top: 5%;
+}
+.create_account a{
+	border:1px solid #06418d;
+	color: #06418d;
+	padding: 10px 15px
+}
+.create_account a:hover{
+	text-decoration: underline;
+}
+
+/* Full-width input fields */
+/*input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+*/
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #FBFCFE;
+	  outline: none;
+		border: 1px solid rgb(245, 246, 247)
+}
+
+/* Set a style for all buttons */
+button {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/*Image upload*/
+#image-preview {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  color: #ecf0f1;
+}
+#image-preview input {
+  line-height: 200px;
+  font-size: 200px;
+  position: absolute;
+  opacity: 0;
+  z-index: 10;
+}
+#image-preview label {
+  position: absolute;
+  z-index: 5;
+  opacity: 0.8;
+  cursor: pointer;
+  background-color:#1F81C1;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  line-height: 50px;
+  text-transform: uppercase;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+	color: white;
+	font-size: 14px
+}
+/*//Image upload*/
+
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+#boardsTable{
+	padding: 2%
+}
+
+
+.already_a_member{
+	position: absolute;
+  top: -49px;
+  right: 38px
+}
