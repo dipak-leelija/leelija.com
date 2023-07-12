@@ -1,22 +1,12 @@
 <?php 
-
-
-
 //database_connection.php
 
         $host = 'localhost';
-
         $user = 'root';
-
         $pass = '';
-
-        $db = 'i5876163_wp1';
-
-
+        $db   = 'leelija_db';
 
         $conn = new mysqli($host, $user, $pass, $db);
-
-
 
 if (!$conn) {
 

@@ -1,12 +1,60 @@
 <?php 
 	
-	//website related
-	define('URL', 				"http://" . $_SERVER['HTTP_HOST']."/leelija.com");				 
-	define('URL_LOCAL', 		"http://localhost/leelija.com/");						
-	define('URL_S', 			"leelija.com");
+	date_default_timezone_set("Asia/Calcutta");   //India time (GMT+5:30)
+
+
+	function is_localhost() {
+		// set the array for testing the local environment
+		$whitelist = array( '127.0.0.1', '::1' );
+		
+		// check if the server is in the array
+		if ( in_array( $_SERVER['REMOTE_ADDR'], $whitelist ) ) {
+			
+			// this is a local environment
+			return true;
+		}
+	}
+
+	if (is_localhost())
+		define('LOCAL_DIR',			'/leelija.com');
+	else
+		define('LOCAL_DIR',			'');
+
+	//URLS Details 
+	$protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
+
+
+	// database credentials 
+	if (LOCAL_DIR == "") {
+		define('DBHOST',				'localhost');
+		define('DBUSER',				'');
+		define('DBPASS',				'');
+		define('DBNAME',				'');
+	}else {
+		define('DBHOST',				'localhost');
+		define('DBUSER',				'root');
+		define('DBPASS',				'');
+		define('DBNAME',				'leelija_db');
+	}
+
+
+	define('URL', 				$protocol.$_SERVER['HTTP_HOST'].LOCAL_DIR.'/');
+	define('ROOT_DIR', 			$_SERVER['DOCUMENT_ROOT'].LOCAL_DIR.'/');
+	define('ADM_DIR', 			$_SERVER['DOCUMENT_ROOT'].LOCAL_DIR.'/admin/');
+	define('CONT_DIR', 			$_SERVER['DOCUMENT_ROOT'].LOCAL_DIR.'/uploads/contents/');
+
+
+
+
 	define('PAGE',				$_SERVER['PHP_SELF']);
-	define('ADM_PATH',  		URL.'/admin/');								
-	define('LOCALPATH',  		'marketing/leelija/');
+	define('ADM_URL',  			URL.'/admin/');
+	define('SELLER_AREA',  		URL."/dashboard.php");
+	define('BUYER_AREA',  		URL."/app.client.php");
+	define('IMG_PATH',  		URL."/images");
+
+
+	
+
 	define('CLIENT_AREA',  		URL."/dashboard.php");
 	
 	define('SITE_EMAIL', 		"contact@leelija");		//blackbox@ansysoft.com anarul.elance@gmail.com//ranjan.basak@ansysoft.com //contact@continuecontent.com

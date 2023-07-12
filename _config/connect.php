@@ -3,12 +3,9 @@
 //database connection parameter
 
 $url		= "localhost";						// 
-
 $user		= "root";				// safikul				
-
 $password	= "";					//	safikul#islam12				  	
-
-$db		= "i5876163_wp1";				   //				
+$db			= "leelija_db";				   //				
 
 //localhost connection
 
