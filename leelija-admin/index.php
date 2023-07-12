@@ -1,3 +1,6 @@
+<?php
+require_once dirname(__DIR__) ."/includes/constant.inc.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,10 +22,10 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
-<?php require_once "partials_asides/sidebar.php"; ?>
+<?php require_once "partials/sidebar.php"; ?>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
-    <?php require_once "partials_asides/navbar.php"; ?>
+    <?php require_once "partials/navbar.php"; ?>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row">
