@@ -17,6 +17,7 @@ $page = "Admin_customer";
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
     <link href="assets/css/soft-ui-dashboard.css.map" rel="stylesheet" />
     <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+    <link rel="stylesheet" href="../plugins/data-table/style.css">
     <!-- <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script> -->
 </head>
 
@@ -35,7 +36,7 @@ $page = "Admin_customer";
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
-                                <table class="table align-items-center mb-0">
+                                <table class="table align-items-center mb-0 datatable">
                                     <thead>
                                         <tr>
                                             <th
@@ -315,6 +316,9 @@ $page = "Admin_customer";
     <script src="assets/js/core/bootstrap.min.js"></script>
     <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="../plugins/data-table/simple-datatables.js"></script>
+    <script src="../plugins/tinymce/tinymce.js"></script>
+    <script src="../plugins/main.js"></script>
     <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
