@@ -1,5 +1,6 @@
 <?php
 require_once dirname(__DIR__) ."/includes/constant.inc.php";
+$page = "Admin_signup";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,11 +8,8 @@ require_once dirname(__DIR__) ."/includes/constant.inc.php";
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="assets/img/favicon.png">
-  <title>
-    Soft UI Dashboard by Creative Tim
-  </title>
+  <link rel="icon" href="../images/logo/favicon.png" type="image/png">
+  <title> Leelija - Sign Up Page</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -22,32 +20,18 @@ require_once dirname(__DIR__) ."/includes/constant.inc.php";
 </head>
 
 <body class="">
-  <!-- Navbar -->
-  <?php require_once "partials/navbar.php"; ?>
-  <!-- End Navbar -->
   <main class="main-content  mt-0">
-    <section class="min-vh-100 mb-8">
-      <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('assets/img/curved-images/curved14.jpg');">
-        <span class="mask bg-gradient-dark opacity-6"></span>
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-5 text-center mx-auto">
-              <h1 class="text-white mb-2 mt-5">Welcome!</h1>
-              <p class="text-lead text-white">Use these awesome forms to login or create new account in your project for free.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section class="d-flex align-items-center justify-content-center min-vh-100">
       <div class="container">
-        <div class="row mt-lg-n10 mt-md-n11 mt-n10">
+        <div class="row ">
           <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
-            <div class="card z-index-0">
+            <div class="card z-index-0 my-3" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
               <div class="card-header text-center pt-4">
                 <h5>Register with</h5>
               </div>
               <div class="row px-xl-5 px-sm-4 px-3">
                 <div class="col-3 ms-auto px-1">
-                  <a class="btn btn-outline-light w-100" href="javascript:;">
+                  <a class="btn btn-outline-light w-100 admin_singup-social_icon" href="javascript:;">
                     <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink32">
                       <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="facebook-3" transform="translate(3.000000, 3.000000)" fill-rule="nonzero">
@@ -59,7 +43,7 @@ require_once dirname(__DIR__) ."/includes/constant.inc.php";
                   </a>
                 </div>
                 <div class="col-3 px-1">
-                  <a class="btn btn-outline-light w-100" href="javascript:;">
+                  <a class="btn btn-outline-light w-100 admin_singup-social_icon" href="javascript:;">
                     <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="apple-black" transform="translate(7.000000, 0.564551)" fill="#000000" fill-rule="nonzero">
@@ -70,7 +54,7 @@ require_once dirname(__DIR__) ."/includes/constant.inc.php";
                   </a>
                 </div>
                 <div class="col-3 me-auto px-1">
-                  <a class="btn btn-outline-light w-100" href="javascript:;">
+                  <a class="btn btn-outline-light w-100 admin_singup-social_icon" href="javascript:;">
                     <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="google-icon" transform="translate(3.000000, 2.000000)" fill-rule="nonzero">
