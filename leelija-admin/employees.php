@@ -36,7 +36,7 @@ $page = "Admin_employees";
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
-                                <table class="table align-items-center mb-0 datatable">
+                                <table class="table align-items-center mb-0 datatable" id="employees_tables">
                                     <thead>
                                         <tr>
                                             <th
@@ -59,8 +59,8 @@ $page = "Admin_employees";
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-2.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user1">
+                                                        <img src="assets/img/team-2.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">John Michael</h6>
@@ -89,8 +89,8 @@ $page = "Admin_employees";
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
+                                                        <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user2">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Alexa Liras</h6>
@@ -120,8 +120,8 @@ $page = "Admin_employees";
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-4.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user3">
+                                                        <img src="assets/img/team-4.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user3">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Laurent Perrier</h6>
@@ -151,8 +151,8 @@ $page = "Admin_employees";
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user4">
+                                                        <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user4">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Michael Levi</h6>
@@ -182,8 +182,8 @@ $page = "Admin_employees";
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user4">
+                                                        <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user4">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Michael Levi</h6>
@@ -213,8 +213,8 @@ $page = "Admin_employees";
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user4">
+                                                        <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user4">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Michael Levi</h6>
@@ -244,8 +244,8 @@ $page = "Admin_employees";
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user4">
+                                                        <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user4">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Michael Levi</h6>
@@ -275,8 +275,8 @@ $page = "Admin_employees";
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user4">
+                                                        <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user4">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Michael Levi</h6>
@@ -306,8 +306,8 @@ $page = "Admin_employees";
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user4">
+                                                        <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user4">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Michael Levi</h6>
@@ -337,8 +337,8 @@ $page = "Admin_employees";
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user4">
+                                                        <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user4">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Michael Levi</h6>
@@ -368,8 +368,8 @@ $page = "Admin_employees";
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user4">
+                                                        <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user4">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Michael Levi</h6>
@@ -395,13 +395,13 @@ $page = "Admin_employees";
                                                 </a>
                                             </td>
                                         </tr>
-                                        
+
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-2.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user5">
+                                                        <img src="assets/img/team-2.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user5">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Richard Gran</h6>
@@ -431,8 +431,8 @@ $page = "Admin_employees";
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-4.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user6">
+                                                        <img src="assets/img/team-4.jpg" class="avatar avatar-sm me-3"
+                                                            alt="user6">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Miriam Eric</h6>
