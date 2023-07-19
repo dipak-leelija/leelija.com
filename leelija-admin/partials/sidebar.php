@@ -145,8 +145,8 @@
                 </div>
             </li>
             <li class="nav-item has-submenu">
-                <a class="nav-link  submenu-toggle <?php if($page == "Admin_careers-application" || $page == "Admin_careers-jobform" ){echo "active";} ?> "
-                    href="#" data-bs-toggle="collapse" data-bs-target="#submenu-6" aria-expanded="<?php if($page == "Admin_careers-application" || $page == "Admin_careers-jobform"  ){echo "true";} else {
+                <a class="nav-link  submenu-toggle <?php if($page == "Admin_careers-application" || $page == "add-new-vacancy" ){echo "active";} ?> "
+                    href="#" data-bs-toggle="collapse" data-bs-target="#submenu-6" aria-expanded="<?php if($page == "Admin_careers-application" || $page == "add-new-vacancy"  ){echo "true";} else {
                 echo "flase"; 
              } ?>" aria-controls="submenu-6">
                     <div
@@ -157,7 +157,7 @@
                     <span class="nav-link-text ms-1">Careers</span>
                 </a>
                 <div id="submenu-6"
-                    class="collapse submenu submenu-6  <?php if($page == "Admin_careers-application" || $page == "Admin_careers-jobform" ){echo "show";} ?>"
+                    class="collapse submenu submenu-6  <?php if($page == "Admin_careers-application" || $page == "add-new-vacancy" ){echo "show";} ?>"
                     data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
                         <li class="submenu-item">
@@ -165,8 +165,8 @@
                                 href="careers-applicaion.php">Application</a>
                         </li>
                         <li class="submenu-item">
-                            <a class="submenu-link <?php if($page == "Admin_careers-jobform"  ){echo "active";} ?>"
-                                href="careers-jobform.php">Job Form</a>
+                            <a class="submenu-link <?php if($page == "add-new-vacancy"  ){echo "active";} ?>"
+                                href="add-new-vacancy.php">Add New Vacancy</a>
                         </li>
                     </ul>
                 </div>
