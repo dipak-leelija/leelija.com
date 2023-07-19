@@ -41,7 +41,7 @@ $page = "Admin_employees-Details";
                                         <tr>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Author</th>
+                                                Employee</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                                 Function</th>
@@ -50,8 +50,8 @@ $page = "Admin_employees-Details";
                                                 Status</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Employed</th>
-                                            <th class="text-secondary opacity-7"></th>
+                                                Joining Date</th>
+                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -78,10 +78,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -109,10 +113,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -140,10 +148,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -171,10 +183,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -202,10 +218,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -233,10 +253,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -264,10 +288,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -295,10 +323,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -326,10 +358,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -357,10 +393,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -388,10 +428,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -420,10 +464,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">04/10/21</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -451,10 +499,14 @@ $page = "Admin_employees-Details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>

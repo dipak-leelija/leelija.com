@@ -32,7 +32,7 @@ $page = "Admin_Contact-details";
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <h6>Authors table</h6>
+                            <h6>Contact Details</h6>
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
@@ -41,17 +41,17 @@ $page = "Admin_Contact-details";
                                         <tr>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Author</th>
+                                                Employee</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Function</th>
+                                                Position</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Status</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Employed</th>
-                                            <th class="text-secondary opacity-7"></th>
+                                                Date</th>
+                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -78,10 +78,14 @@ $page = "Admin_Contact-details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -109,10 +113,14 @@ $page = "Admin_Contact-details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -140,10 +148,14 @@ $page = "Admin_Contact-details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -171,10 +183,14 @@ $page = "Admin_Contact-details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -202,10 +218,14 @@ $page = "Admin_Contact-details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">04/10/21</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -233,10 +253,14 @@ $page = "Admin_Contact-details";
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
                                             </td>
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                                    <i class="fa-solid fa-eye pe-4"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
