@@ -32,7 +32,7 @@
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-users-line"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Employees Management</span>
+                    <span class="nav-link-text ms-1">Employees Section</span>
                 </a>
                 <div id="submenu-1"
                     class="collapse submenu submenu-1  <?php if($page == "Admin_employees-Details" || $page == "Admin_add-new-employees" ){echo "show";} ?>"
@@ -45,32 +45,6 @@
                         <li class="submenu-item">
                             <a class="submenu-link <?php if($page == "Admin_employees-Details"  ){echo "active";} ?>"
                                 href="employees-details.php">Employee Details</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item has-submenu">
-                <a class="nav-link  submenu-toggle <?php if($page == "Admin_customer" || $page == "Admin_Customer-Type" ){echo "active";} ?> "
-                    href="#" data-bs-toggle="collapse" data-bs-target="#submenu-5" aria-expanded="<?php if($page == "Admin_customer" || $page == "Admin_Customer-Type"  ){echo "true";} else {
-                echo "flase"; 
-             } ?>" aria-controls="submenu-5">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-user-pen"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">User Management</span>
-                </a>
-                <div id="submenu-5"
-                    class="collapse submenu submenu-5  <?php if($page == "Admin_customer" || $page == "Admin_Customer-Type" ){echo "show";} ?>"
-                    data-bs-parent="#menu-accordion">
-                    <ul class="submenu-list list-unstyled">
-                        <li class="submenu-item">
-                            <a class="submenu-link  <?php if($page == "Admin_customer"  ){echo "active";} ?>"
-                                href="customer.php">Customer</a>
-                        </li>
-                        <li class="submenu-item">
-                            <a class="submenu-link <?php if($page == "Admin_Customer-Type"  ){echo "active";} ?>"
-                                href="customer-type.php">Customer Type</a>
                         </li>
                     </ul>
                 </div>
@@ -140,6 +114,59 @@
                         <li class="submenu-item"><a
                                 class="submenu-link <?php if($page == "Admin_Database-backup"  ){echo "active";} ?>"
                                 href="database-backup.php">Database Backup</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item has-submenu">
+                <a class="nav-link  submenu-toggle <?php if($page == "Admin_customer" || $page == "Admin_Customer-Type" ){echo "active";} ?> "
+                    href="#" data-bs-toggle="collapse" data-bs-target="#submenu-5" aria-expanded="<?php if($page == "Admin_customer" || $page == "Admin_Customer-Type"  ){echo "true";} else {
+                echo "flase"; 
+             } ?>" aria-controls="submenu-5">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-user-pen"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">User Management</span>
+                </a>
+                <div id="submenu-5"
+                    class="collapse submenu submenu-5  <?php if($page == "Admin_customer" || $page == "Admin_Customer-Type" ){echo "show";} ?>"
+                    data-bs-parent="#menu-accordion">
+                    <ul class="submenu-list list-unstyled">
+                        <li class="submenu-item">
+                            <a class="submenu-link  <?php if($page == "Admin_customer"  ){echo "active";} ?>"
+                                href="customer.php">Customer</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a class="submenu-link <?php if($page == "Admin_Customer-Type"  ){echo "active";} ?>"
+                                href="customer-type.php">Customer Type</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item has-submenu">
+                <a class="nav-link  submenu-toggle <?php if($page == "Admin_careers-application" || $page == "Admin_careers-jobform" ){echo "active";} ?> "
+                    href="#" data-bs-toggle="collapse" data-bs-target="#submenu-6" aria-expanded="<?php if($page == "Admin_careers-application" || $page == "Admin_careers-jobform"  ){echo "true";} else {
+                echo "flase"; 
+             } ?>" aria-controls="submenu-6">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        <!-- <i class="fa-solid fa-address-card"></i> -->
+                    </div>
+                    <span class="nav-link-text ms-1">Careers</span>
+                </a>
+                <div id="submenu-6"
+                    class="collapse submenu submenu-6  <?php if($page == "Admin_careers-application" || $page == "Admin_careers-jobform" ){echo "show";} ?>"
+                    data-bs-parent="#menu-accordion">
+                    <ul class="submenu-list list-unstyled">
+                        <li class="submenu-item">
+                            <a class="submenu-link  <?php if($page == "Admin_careers-application"  ){echo "active";} ?>"
+                                href="careers-applicaion.php">Application</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a class="submenu-link <?php if($page == "Admin_careers-jobform"  ){echo "active";} ?>"
+                                href="careers-jobform.php">Job Form</a>
                         </li>
                     </ul>
                 </div>
