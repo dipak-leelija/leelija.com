@@ -1,6 +1,6 @@
 <?php
 require_once dirname(__DIR__) ."/includes/constant.inc.php";
-$page = "Admin_employees";
+$page = "Admin_employees-Details";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@ $page = "Admin_employees";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="../images/logo/favicon.png" type="image/png">
-    <title> Leelija - Employees </title>
+    <title> Leelija - Employee Details</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -548,6 +548,7 @@ $page = "Admin_employees";
     </script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+
 </body>
 
 </html>
