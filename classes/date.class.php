@@ -10,21 +10,43 @@ include_once("duration.class.php");
 *	UPDATE March 05, 2010 New functions have been added to the system to generate the 
 *	dropdown list of months and year. The months can be generated either on every year or
 *	within a span or years. 
-*
-*	@author		Himadri Shekhar Roy
-*	@date		July 03, 2006
-*	@update		September 12, 2008; June 01, 2009; March 05, 2010
-*	@version	2.2
-*	@copyright	Analyze System
-*	@url		http://www.ansysoft.com
-*	@email		himadri.s.roy@ansysoft.com
-* 
 */
  
-class DateUtil extends GeneraicDuration
-{
+class DateUtil extends GeneraicDuration{
+
 	//declare var
 	public $monthFormat;
+
+	function todayWithTime($divider){
+		return date("d".$divider."m".$divider."Y h:i:s a");
+	}
+
+	function todayDate($divider){
+		return date("d".$divider."m".$divider."Y");
+	}
+
+	/**
+	 * This Function Will printa the date like : 01.01.1997 01:57:40 pm
+	 * $date = date as string
+	 */
+	function dateTimeNum($date, $divider){
+		$date = strtotime($date);
+		$date = date('d'.$divider.'m'.$divider.'Y h:i:s a', $date);
+
+		return $date;
+	}
+
+
+	/**
+	 * This Function Will printa the date like : 1st of January, 1997
+	 * $date = date as string
+	 */
+	function dateTimeNum2($date, $divider){
+		$date = strtotime($date);
+		$date = date('h:i a d'.$divider.'m'.$divider.'Y', $date);
+
+		return $date;
+	}
 
 
 	/**
@@ -37,7 +59,6 @@ class DateUtil extends GeneraicDuration
 
 		return $date;
 	}
-
 
 
 
@@ -54,6 +75,87 @@ class DateUtil extends GeneraicDuration
 	}
 
 
+	/**
+	 * This Function Will printa the date like : 1st of January, 1997
+	 * $date = date as string
+	 */
+	function dateTimeText($date){
+		$date = strtotime($date);
+		$date = date('jS \of F Y, h:ia', $date);
+
+		return $date;
+
+	}
+
+	/**
+	 * This Function Will printa the date like : 1st Jan, 1997 12:00am
+	 * $date = date as string
+	 */
+	function dateTimeText2($date){
+		$date = strtotime($date);
+		$date = date('M d, Y, h:ia', $date);
+
+		return $date;
+
+	}
+
+	
+	/**
+	 * This Function Will printa the date like : 09/07/2019, 08:38 PM
+	 * $date = date as string
+	 */
+	function dateTimeNumber($date){
+		
+		$date = strtotime($date);
+		$date = date('d/m/Y, h:i A', $date);
+
+		return $date;
+
+	}
+
+
+	function dayIncToDate($date, $dayNos){
+		
+		$updateDate = date("Y-m-d h:i:s", strtotime($date));
+		$dueDate = strtotime("+".$dayNos."days", strtotime($updateDate));
+		$dueDate = date("Y-m-d h:i:s", $dueDate);
+		return $dueDate;
+	}
+
+	/**
+	 * 	This function will return the difference the 
+	 *  between given time and current time
+	 */
+	function timeDiff($date){
+
+        $mydate= date("Y-m-d H:i:s");
+        $theDiff="";
+        //echo $mydate;//2014-06-06 21:35:55
+        $datetime1 = date_create($date);
+        $datetime2 = date_create($mydate);
+        $interval = date_diff($datetime1, $datetime2);
+        //echo $interval->format('%s Seconds %i Minutes %h Hours %d days %m Months %y Year    Ago')."<br>";
+        $min=$interval->format('%i');
+        $sec=$interval->format('%s');
+        $hour=$interval->format('%h');
+        $mon=$interval->format('%m');
+        $day=$interval->format('%d');
+        $year=$interval->format('%y');
+        if($interval->format('%i%h%d%m%y')=="00000") {
+            //echo $interval->format('%i%h%d%m%y')."<br>";
+            return $sec." Seconds";
+        } else if($interval->format('%h%d%m%y')=="0000"){
+            return $min." Minutes";
+        } else if($interval->format('%d%m%y')=="000"){
+            return $hour." Hours";
+        } else if($interval->format('%m%y')=="00"){
+            return $day." Days";
+        } else if($interval->format('%y')=="0"){
+            return $mon." Months";
+        } else{
+            return $year." Years";
+        }    
+    }
 
 	
 	/**
@@ -116,34 +218,118 @@ class DateUtil extends GeneraicDuration
 	
 	
 	
-	// /* THIS FUNCTION WILL PRINT DATE WITH THE PARTICULAR FORMAT JUL 3, 2006*/
-	// function printDate($date)
-	// {
-	// 	$day   = (int)substr($date,8,2);
-	// 	$month = (int)substr($date,5,2);
-	// 	$year  = (int)substr($date,0,4);
+	/* THIS FUNCTION WILL PRINT DATE WITH THE PARTICULAR FORMAT JUL 3, 2006*/
+	function printDate($date)
+	{
+		$day   = (int)substr($date,8,2);
+		$month = (int)substr($date,5,2);
+		$year  = (int)substr($date,0,4);
 		
-	// 	$date_string = mktime(0,0,0,$month,$day,$year);
-	// 	$date = date("M d, Y",$date_string);
-	// 	// echo $date;
-	// 	return $date;
+		$date_string = mktime(0,0,0,$month,$day,$year);
+		$date = date("M d, Y",$date_string);
+		// echo $date;
+		return $date;
 		
-	// }//END OF PRINTING DATE
+	}//END OF PRINTING DATE
 	
-	//  /* This function will return Date format like Monday June 12, 2006
-	// 	$date : is the only parameter
-	//  */
-	//   function printDate2($date)
-	//   {
+	 /* This function will return Date format like Monday June 12, 2006
+		$date : is the only parameter
+	 */
+	  function printDate2($date)
+	  {
 	  	
-	//  	$day   = (int)substr($date,8,2);
-	// 	$month = (int)substr($date,5,2);
-	// 	$year  = (int)substr($date,0,4);
-	// 	$date_string = mktime(0,0,0,$month,$day,$year);
-	// 	$dateFormat = date("l, F j, Y",$date_string);
-	// 	return $dateFormat;
-	//   }
+	 	$day   = (int)substr($date,8,2);
+		$month = (int)substr($date,5,2);
+		$year  = (int)substr($date,0,4);
+		$date_string = mktime(0,0,0,$month,$day,$year);
+		$dateFormat = date("l, F j, Y",$date_string);
+		return $dateFormat;
+	  }
 	  
+
+	function timeZoneConvert($dateTime){
+
+		$defaultZone = date_default_timezone_get();
+		// echo $defaultZone.'=>'.$dateTime.'<br>';
+
+		$datetime = new DateTime($dateTime);
+		// echo $datetime->format('Y-m-d H:i:s') . "\n";
+
+		$newTZ = $this->getMyIpData()->geoplugin_timezone;
+		// $newTZ = 'America/Los_Angeles';
+		
+		if ($newTZ != '') {
+			$newTZ = new DateTimeZone($newTZ);
+		}else {
+			$newTZ = new DateTimeZone($defaultZone);
+		}
+		
+		$datetime->setTimezone($newTZ);
+		
+		return $datetime->format('Y-m-d h:i:sa');
+		}
+
+		
+	// PHP code to extract IP
+	function getVisIpAddr() {
+			
+		if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+			return $_SERVER['HTTP_CLIENT_IP'];
+		}
+		else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+		}
+		else {
+			return $_SERVER['REMOTE_ADDR'];
+		}
+	}
+
+
+	/**
+	 * @return object
+	 * [geoplugin_request] 
+	 * [geoplugin_status] 
+	 * [geoplugin_delay] 
+	 * [geoplugin_credit]
+	 * [geoplugin_city]
+	 * [geoplugin_region]
+	 * [geoplugin_regionCode]
+	 * [geoplugin_regionName]
+	 * [geoplugin_areaCode]
+	 * [geoplugin_dmaCode]
+	 * [geoplugin_countryCode]
+	 * [geoplugin_countryName]
+	 * [geoplugin_inEU]
+	 * [geoplugin_euVATrate]
+	 * [geoplugin_continentCode]
+	 * [geoplugin_continentName]
+	 * [geoplugin_latitude]
+	 * [geoplugin_longitude]
+	 * [geoplugin_locationAccuracyRadius]
+	 * [geoplugin_timezone]
+	 * [geoplugin_currencyCode]
+	 * [geoplugin_currencySymbol]
+	 * [geoplugin_currencySymbol_UTF8]
+	 * [geoplugin_currencyConverter]
+	 */
+	function getMyIpData(){
+
+		// Use JSON encoded string and converts
+		$ip = $this->getVisIpAddr();
+		$ipData = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=" . $ip));
+
+		// echo 'Country Name: ' . $ipdat->geoplugin_countryName . "\n";
+		// echo 'City Name: ' . $ipdat->geoplugin_city . "\n";
+		// echo 'Continent Name: ' . $ipdat->geoplugin_continentName . "\n";
+		// echo 'Latitude: ' . $ipdat->geoplugin_latitude . "\n";
+		// echo 'Longitude: ' . $ipdat->geoplugin_longitude . "\n";
+		// echo 'Currency Symbol: ' . $ipdat->geoplugin_currencySymbol . "\n";
+		// echo 'Currency Code: ' . $ipdat->geoplugin_currencyCode . "\n";
+		// echo 'Timezone: ' . $ipdata->geoplugin_timezone;
+		return $ipData;
+	}
+
+
 	//  /**
 	//  * This function will return Date format like Monday Jun 12, 2006
 	//  * $date : is the only parameter

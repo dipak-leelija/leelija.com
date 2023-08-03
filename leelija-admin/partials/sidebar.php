@@ -202,7 +202,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  <?= $page == 'Admin_signin' ? 'active' : ''; ?>" href="sign-in.php">
+                <a class="nav-link" href="login.php">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-right-to-bracket"></i>
@@ -211,7 +211,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  <?= $page == 'Admin_signup' ? 'active' : ''; ?>" href="sign-up.php">
+                <a class="nav-link" href="sign-up.php">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-user-plus"></i>

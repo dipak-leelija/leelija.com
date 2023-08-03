@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__DIR__) ."/includes/constant.inc.php";
+require_once 'incs/global-inc.php';
 $page = "Admin_profile";
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ $page = "Admin_profile";
                     <div class="col-auto my-auto">
                         <div class="h-100">
                             <h5 class="mb-1">
-                                Alec Thompson
+                            <?php $Utility->printSess('adminuser'); ?>
                             </h5>
                             <p class="mb-0 font-weight-bold text-sm">
                                 CEO / Co-Founder
