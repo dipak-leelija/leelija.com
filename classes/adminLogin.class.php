@@ -22,7 +22,7 @@ class AdminLogin extends Utility{
 	function validate($login, $password, $bdLogin, $dbPass, $table){
 
 		$select     = "SELECT * FROM ".$table." WHERE ".$bdLogin." = '$login'";
-		// echo $select.$this->conn->error;
+		// echo $select.$this->conn->error;exit;
 		$query      = $this->conn->query($select);
 		foreach($query as $rowquery){
 
@@ -72,7 +72,7 @@ class AdminLogin extends Utility{
 
 				}else{
 
-					$pageName	= 'admin';
+					$pageName	= 'index';
 					$id_var		= '';
 					$id_var_val	= 0;
 

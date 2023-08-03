@@ -1,6 +1,7 @@
 <?php
-require_once dirname(__DIR__) ."/includes/constant.inc.php";
 $page = "Admin_dashboard";
+require_once dirname(__DIR__) ."/includes/constant.inc.php";
+require_once 'incs/global-inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +16,7 @@ $page = "Admin_dashboard";
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
-  <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
-  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <link id="pagestyle" href="assets/css/soft-ui-dashboard.css" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">

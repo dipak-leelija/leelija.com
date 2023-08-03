@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 require_once dirname(dirname(dirname(__FILE__))).'/includes/constant.inc.php';
 
 require_once 'checkSession.php';
