@@ -9,7 +9,7 @@
                 $cusDtl			= $customer->getCustomerData($cusId); 
 
                 if($cusId != 0){
-                    echo "Hi, ".$cusDtl[0][5];
+                    echo "Hi, {$cusDtl[0][5]}";
                 }else {
                     echo 'info@leelija.com';
                 }
@@ -20,7 +20,7 @@
             <?php
             if($cusId == 0){
             ?>
-            <a href="<?php echo URL;?>/login.php" class="btn login-btn mobile_login_btn">
+            <a href="<?php echo URL;?>login.php" class="btn login-btn mobile_login_btn">
                 <i class="pe-2 fa-solid fa-right-to-bracket"></i>Login
             </a>
             <?php
@@ -66,16 +66,16 @@
         <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav  ms-auto mb-2 mb-lg-0 ">
                 <li class="nav-item ">
-                    <a class="nav-link  li-style" aria-current="page" href="<?php echo URL;?>">Home</a>
+                    <a class="nav-link  li-style" aria-current="page" href="<?= URL;?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link li-style" href="<?php echo URL;?>about.php">About</a>
+                    <a class="nav-link li-style" href="<?= URL;?>about.php">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link li-style" href="<?php echo URL;?>services.php">Services</a>
+                    <a class="nav-link li-style" href="<?= URL;?>services.php">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link li-style" href="<?php echo URL;?>domains.php">Marketplace</a>
+                    <a class="nav-link li-style" href="<?= URL;?>domains.php">Marketplace</a>
                 </li>
 
 
@@ -90,7 +90,7 @@
             if($cusId == 0){
             ?>
             <!-- btn-contact -->
-            <a class="login-btn desktop-login-btn" href="<?php echo URL;?>/login.php"><i
+            <a class="login-btn desktop-login-btn" href="<?= URL;?>login.php"><i
                     class="pe-1 fa-solid fa-arrow-right-to-bracket"></i>Login</a>
             <?php
             }else {
@@ -100,17 +100,16 @@
                 <button class=" dropdown  login-btn external-styling ">My Account <i class="bi bi-chevron-down"></i>
                 </button>
                 <ul class="dropdown-menu external-drop-menu">
-                    <li> <a href="<?php echo URL;?>/dashboard.php" class="dropdown-item  external-lis"><i
+                    <li> <a href="<?= URL;?>dashboard.php" class="dropdown-item  external-lis"><i
                                 class="fa fa-home pe-2"></i>Dashboard</a>
                     </li>
-                    <li><a class="dropdown-item  external-lis" href="<?php echo URL;?>/logout.php"><i
+                    <li><a class="dropdown-item  external-lis" href="<?= URL;?>logout.php"><i
                                 class="fa-solid fa-arrow-right-from-bracket pe-2"></i>Logout</a></li>
                 </ul>
             </li>
             <?php
             }
             ?>
-
         </div>
     </div>
 </nav>
