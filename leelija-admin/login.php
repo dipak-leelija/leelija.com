@@ -2,7 +2,7 @@
 session_start(); 
 require_once dirname(__DIR__) ."/includes/constant.inc.php";
 
-if($_SESSION[ADM_SESS]){
+if(isset($_SESSION[ADM_SESS])){
 	header("Location: index.php");
 	exit;
 }
