@@ -1,12 +1,12 @@
 <?php
 session_start();
-require_once("_config/dbconnect.php");
+require_once dirname(__DIR__)."/includes/constant.inc.php";
 
-require_once("includes/constant.inc.php");
-require_once("classes/customer.class.php");
-require_once("classes/domain.class.php");
-require_once("classes/utility.class.php");
-require_once "classes/wishList.class.php";
+require_once ROOT_DIR."/_config/dbconnect.php";
+require_once ROOT_DIR."/classes/customer.class.php";
+require_once ROOT_DIR."/classes/domain.class.php";
+require_once ROOT_DIR."/classes/utility.class.php";
+require_once ROOT_DIR."/classes/wishList.class.php";
 
 /* INSTANTIATING CLASSES */
 $customer		= new Customer();
@@ -19,11 +19,10 @@ $typeM		= $utility->returnGetVar('typeM','');
 $cusId		= $utility->returnSess('userid', 0);
 $cusDtl		= $customer->getCustomerData($cusId);
 if($cusId == 0){
-    header("Location: index.php");
+    header("Location: ".URL);
 }
-// echo $cusDtl[0][0]; exit;
 if($cusDtl[0][0] == 2){
-    header("Location: dashboard.php");
+    header("Location: ".SELLER_AREA);
 }
 
 $wishes = $WishList->wishListAllData($cusId);
@@ -49,19 +48,16 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
-	<link href="plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<link href="plugins/fontawesome-6.1.1/css/all.css" rel='stylesheet' type='text/css' />
+	<link href="<?= URL?>plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<link href="<?= URL?>plugins/fontawesome-6.1.1/css/all.css" rel='stylesheet' type='text/css' />
 
     <!-- Custom CSS -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="css/leelija.css">
+    <link href="<?= URL?>css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL?>css/leelija.css" rel="stylesheet" type='text/css'>
+    <link href="<?= URL?>css/dashboard.css" rel='stylesheet' type='text/css' />
 
-    <!-- <link href="css/about.css" rel='stylesheet' type='text/css' /> -->
-    <!-- <link href="css/form.css" rel='stylesheet' type='text/css' /> -->
-    <link href="css/dashboard.css" rel='stylesheet' type='text/css' />
-
-    <link rel="shortcut icon" href="images/logo/favicon.png" type="image/png"/>
-    <link rel="apple-touch-icon" href="images/logo/favicon.png" />
+    <link rel="shortcut icon" href="<?= URL?>images/logo/favicon.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="<?= URL?>images/logo/favicon.png" />
    
     <!--webfonts-->
     <link href="//fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
@@ -70,14 +66,11 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
     <link href="//fonts.googleapis.com/css?family=Nunito+Sans:400,700,900" rel="stylesheet">
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body>
     <div id="home">
-        <!-- header -->
         
-        <?php 
-            require_once "partials/navbar.php";
-            // include('header-user-profile.php') ?>
-        <!-- //header -->
+        <?php require_once ROOT_DIR."partials/navbar.php"; ?>
+
         <!-- banner -->
         <div class="edit_profile"  style="overflow: hidden;">
             <div class="container-fluid1">
@@ -87,7 +80,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                         <div class="col-md-3 col-sm-12 hidden-xs display-table-cell v-align" id="navigation">
 
                             <div class="client_profile_dashboard_left">
-                                <?php include("dashboard-inc.php");?>
+                                <?php include ROOT_DIR."/partials/dashboard-inc.php";?>
                                 <hr>
                             </div>
 
@@ -114,21 +107,6 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="col-md-3">
-                                                        <div class="dbox">
-                                                            <ul class="list1">
-                                                                <li class="list1_right">
-
-                                                                    <a href="my-domain.php">
-                                                                        <p>Products Or Blogs for sales</p><span
-                                                                            class="d-block text-center"><?php if($domainDtls != NULL){echo count($domainDtls); }else{ echo 0;}?></span>
-                                                                    </a>
-
-                                                                </li>
-                                                                <div class="clearfix"> </div>
-                                                            </ul>
-                                                        </div>
-                                                    </div> -->
                                                     <div class="col-md-4">
                                                         <div class="dbox">
                                                             <ul class="list1">
@@ -173,70 +151,12 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
 
                 </div>
                 <!-- //end display table-->
-
-                <!-- Footer -->
-                <?php require_once "partials/footer.php" ?>
-                <!-- /Footer -->
             </div>
         </div>
         <!-- js-->
-        <script src="plugins/jquery-3.6.0.min.js"></script>
-        <!-- js-->
-        <!-- Scrolling Nav JavaScript -->
-        <!-- <script src="js/scrolling-nav.js"></script>
-        <script>
-        $(document).ready(function() {
-            $('[data-toggle="offcanvas"]').click(function() {
-                $("#navigation").toggleClass("hidden-xs");
-            });
-        });
-        </script> -->
-
-
-        <!-- //fixed-scroll-nav-js -->
-        <!-- <script src="js/pageplugs/fixedNav.js"></script> -->
-        
-        <!-- //Banner text  Responsiveslides -->
-        <!-- start-smooth-scrolling -->
-        <!-- <script src="js/move-top.js"></script>
-        <script src="js/easing.js"></script>
-        <script>
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event) {
-                event.preventDefault();
-
-                $('html,body').animate({
-                    scrollTop: $(this.hash).offset().top
-                }, 1000);
-            });
-        });
-        </script> -->
-        <!-- //end-smooth-scrolling -->
-        <!-- smooth-scrolling-of-move-up -->
-        <!-- <script>
-        $(document).ready(function() {
-            /*
-            var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear'
-            };
-            */
-
-            $().UItoTop({
-                easingType: 'easeOutQuart'
-            });
-
-        });
-        </script> -->
-        <!-- <script src="js/SmoothScroll.min.js"></script> -->
-        <!-- //smooth-scrolling-of-move-up -->
-        <!-- Bootstrap Core JavaScript -->
-        <!-- <script src="js/bootstrap.js"></script> -->
-
+        <script src="<?= URL?>plugins/jquery-3.6.0.min.js"></script>
         <!-- Switch Customer Type -->
-        <script src="js/customerSwitchMode.js"></script>
+        <script src="<?= URL?>js/customerSwitchMode.js"></script>
 </body>
 
 </html>

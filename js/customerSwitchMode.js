@@ -2,9 +2,9 @@
 $(document).ready(function() {
 
     $('#toSeller').click(function() {
-        urlCustomerSwap = "dashboard.php";
+        urlCustomerSwap = "../seller/dashboard.php";
         $.ajax({
-            url: 'customerSwap.php',
+            url: "customerSwap.php",
             type: "GET",
             data: {
                 seller: "seller"
@@ -23,9 +23,9 @@ $(document).ready(function() {
 $(document).ready(function() {
 
     $('#toClient').click(function() {
-        urlCustomerSwap = "app.client.php";
+        urlCustomerSwap = "../user/app.client.php";
         $.ajax({
-            url: 'customerSwap.php',
+            url: '../customerSwap.php',
             type: "GET",
             data: {
                 client: "client"

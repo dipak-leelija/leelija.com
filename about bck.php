@@ -1,13 +1,6 @@
-<!--
-Author: Safikul Islam
-Author URL: https://webtechhelp.org
--->
 <?php
 session_start();
-//include_once('checkSession.php');
-// require_once("_config/dbconnect.php");
 require_once("_config/dbconnect.php");
-require_once "_config/dbconnect.trait.php";
 
 require_once("includes/constant.inc.php");
 require_once("classes/date.class.php");

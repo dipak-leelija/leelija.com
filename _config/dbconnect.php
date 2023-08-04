@@ -16,11 +16,11 @@
 
 
 
-// $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+$conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
-// if (!$conn) {
-//     die("Connection failed: " . mysqli_connect_error());
-// }
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 
 // $link = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);

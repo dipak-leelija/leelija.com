@@ -1,25 +1,19 @@
 <?php
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
 session_start();
+require_once dirname(__DIR__)."/includes/constant.inc.php";
 
-// var_dump($_SESSION);
-require_once("_config/dbconnect.php");
-require_once "_config/dbconnect.trait.php";
+require_once ROOT_DIR."/_config/dbconnect.php";
+require_once ROOT_DIR."/classes/encrypt.inc.php";
 
-require_once "includes/constant.inc.php";
-require_once "classes/encrypt.inc.php";
-
-require_once "classes/customer.class.php";
-require_once "classes/content-order.class.php";
-require_once "classes/gp-order.class.php";
-require_once "classes/gp-package.class.php";
-require_once "classes/orderStatus.class.php";
-require_once "classes/order.class.php";
-require_once "classes/domain.class.php";
-require_once "classes/blog_mst.class.php";
-require_once "classes/utility.class.php";
+require_once ROOT_DIR."/classes/customer.class.php";
+require_once ROOT_DIR."/classes/content-order.class.php";
+require_once ROOT_DIR."/classes/gp-order.class.php";
+require_once ROOT_DIR."/classes/gp-package.class.php";
+require_once ROOT_DIR."/classes/orderStatus.class.php";
+require_once ROOT_DIR."/classes/order.class.php";
+require_once ROOT_DIR."/classes/domain.class.php";
+require_once ROOT_DIR."/classes/blog_mst.class.php";
+require_once ROOT_DIR."/classes/utility.class.php";
 
 /* INSTANTIATING CLASSES */
 $customer		= new Customer();
@@ -41,10 +35,10 @@ if($cusId == 0){
 }
 
 if($cusDtl[0][0] == 2){
-    header("Location: dashboard.php");
+    header("Location: seller/dashboard.php");
 }
 $myOrders       = $ContentOrder->clientOrders($cusId);
-$gpPackagesOrd  = $Gporder->getOrderDetails($cusId);
+// $gpPackagesOrd  = $Gporder->getOrderDetails($cusId);
 $orders         = $Order->getOrdersByCusId($cusId);
 
 
@@ -59,21 +53,21 @@ $orders         = $Order->getOrdersByCusId($cusId);
     <link rel="icon" href="images/logo/favicon.png" type="image/png">
 
     <!-- Bootstrap Core CSS -->
-    <link href="plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <link href="plugins/fontawesome-6.1.1/css/all.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>plugins/fontawesome-6.1.1/css/all.css" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
 
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link href="css/leelija.css" rel='stylesheet' type='text/css' />
-    <link href="css/dashboard.css" rel='stylesheet' type='text/css' />
-    <link href="css/my-orders.css" rel='stylesheet' type='text/css' />
-    <link href="css/order-list.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/leelija.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/dashboard.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/my-orders.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/order-list.css" rel='stylesheet' type='text/css' />
 
     <!-- font-awesome icons -->
     <!-- <link href="css/fontawesome-all.min.css" rel="stylesheet"> -->
 
     <!-- Datatable CSS  -->
-    <link rel="stylesheet" href="plugins/data-table/style.css">
+    <link href="<?= URL ?>plugins/data-table/style.css" rel="stylesheet">
 
 
     <!--//webfonts-->
@@ -85,7 +79,7 @@ $orders         = $Order->getOrdersByCusId($cusId);
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <div id="home">
         <!-- header -->
-        <?php  require_once "partials/navbar.php" ?>
+        <?php  require_once ROOT_DIR."/partials/navbar.php" ?>
         <?php //include 'header-user-profile.php'?>
 
         <!-- //header -->
@@ -98,7 +92,7 @@ $orders         = $Order->getOrdersByCusId($cusId);
                         <div class="col-md-3 hidden-xs display-table-cell v-align" id="navigation">
 
                             <div class="client_profile_dashboard_left">
-                                <?php include("dashboard-inc.php");?>
+                                <?php include ROOT_DIR."partials/dashboard-inc.php";?>
                                 <hr>
                             </div>
 
@@ -171,11 +165,11 @@ $orders         = $Order->getOrdersByCusId($cusId);
 
                                 <!-- ========================= -->
                                 <?php
-                                            $showItems++;
-                                            if ($showItems == 2) {
-                                                break;
-                                            }
+                                    $showItems++;
+                                    if ($showItems == 2) {
+                                        break;
                                         }
+                                    }
                                 ?>
                                 <div class="see_all">
                                     <a href="guest-post-order-list.php">See All</a>
@@ -195,92 +189,6 @@ $orders         = $Order->getOrdersByCusId($cusId);
                             </div>
                             <!-- Guest Post Orders  Section End-->
 
-
-                            <!-- Package Order Show Section -->
-                            <div class="order_sec">
-                                <div class="bg-light mt-5">
-                                    <h3 class="fw-bold text-center py-1">Package Orders:</h3>
-                                </div>
-                                <div class="row justify-content-evenly dashorder_row me-2">
-                                    <?php
-                                  if (count($gpPackagesOrd) > 0 ) {
-                                    $showItems = 0;
-                                    foreach ($gpPackagesOrd as $pOrder) {
-                                        // print_r($pOrder);
-                                        ?>
-                                    <div class="card activeOrderDetails pt-2 col-xxl-5"
-                                        <?php if($pOrder[10] == "Failed") echo 'style="background: #fbe2e2;"'; ?>>
-                                        <a href="package-order-details.php?data=<?php echo $pOrder[12]; ?>">
-                                            <div class="status_bx">
-                                                <div class="">
-                                                    <?php
-                                                    $package = $GPPackage->packDetailsById($pOrder[0]);
-                                                  ?>
-                                                    <h2 class="mt-0 mb-0 text-dark "><?php echo $package[1];?></h2>
-                                                    <p class=" my-1 badge bg-primary">
-                                                        <small><?php echo $pOrder[1];?></small>
-                                                    </p>
-                                                </div>
-                                                <div class="orderStatus <?php echo $pOrder[10]; ?>">
-                                                    <p><?php echo $pOrder[10]; ?></p>
-                                                </div>
-                                            </div>
-                                            <div class="order_data">
-                                                <!-- <table style="width: 100%;">
-                                                    <tr>
-                                                        <td>Transection Id</td>
-                                                        <td>:</td>
-                                                        <td>ORDER-13092022GXZ44-1297</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Order Status</td>
-                                                        <td>:</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Date</td>
-                                                        <td>:</td>
-                                                        <td>2022-09-13 16:37:44</td>
-                                                    </tr>
-                                                </table> -->
-                                                <table style="width: 100%;">
-                                                    <tr>
-                                                        <td>Transection Id</td>
-                                                        <td>:</td>
-                                                        <td style="word-break: break-word;"><?php echo $pOrder[9];?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Order Status</td>
-                                                        <td>:</td>
-                                                        <td><?php echo $pOrder[11];?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Date</td>
-                                                        <td>:</td>
-                                                        <td style="word-break: break-word;"> <?php echo $pOrder[8];?>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                    <?php
-                                        $showItems++;
-                                        if ($showItems == 2) {
-                                            break;
-                                        }
-                                    }
-                                }
-                                ?>
-                                    <div class="see_all pe-5">
-                                        <a href="package-order-list.php">See All</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Package Order Show Section End -->
 
 
                             <!-- Product Order Show Section -->
@@ -353,22 +261,16 @@ $orders         = $Order->getOrdersByCusId($cusId);
                     </div>
                 </div>
                 <!-- //end display table-->
-
-                <!-- Footer -->
-                <?php require_once 'partials/footer.php'; ?>
-                <!-- /Footer -->
             </div>
         </div>
-        <script src="plugins/bootstrap-5.2.0/js/bootstrap.js" type="text/javascript"></script>
-        <script src="plugins/sweetalert/sweetalert2.all.min.js" type="text/javascript"></script>
-        <script src="plugins/data-table/simple-datatables.js"></script>
-        <script src="plugins/tinymce/tinymce.js"></script>
-        <script src="plugins/main.js"></script>
-        <script src="plugins/jquery-3.6.0.min.js"></script>
+        <script src="<?= URL ?>plugins/bootstrap-5.2.0/js/bootstrap.js" type="text/javascript"></script>
+        <script src="<?= URL ?>plugins/sweetalert/sweetalert2.all.min.js" type="text/javascript"></script>
+        <script src="<?= URL ?>plugins/data-table/simple-datatables.js"></script>
+        <script src="<?= URL ?>plugins/tinymce/tinymce.js"></script>
+        <script src="<?= URL ?>plugins/main.js"></script>
+        <script src="<?= URL ?>plugins/jquery-3.6.0.min.js"></script>
+        <script src="<?= URL ?>js/customerSwitchMode.js"></script>
 
-        <!-- //fixed-scroll-nav-js -->
-        <!-- <script src="js/pageplugs/fixedNav.js"></script> -->
-        <script src="js/customerSwitchMode.js"></script>
         <script>
         /* jQuery Pagination */
 

@@ -1,12 +1,12 @@
 <?php
 session_start();
-require_once("_config/dbconnect.php");
-require_once("includes/constant.inc.php");
-require_once("classes/search.class.php");
-require_once("classes/customer.class.php");
-require_once("classes/domain.class.php");
+require_once dirname(__DIR__)."/includes/constant.inc.php";
+require_once ROOT_DIR."_config/dbconnect.php";
+require_once ROOT_DIR."classes/search.class.php";
+require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/domain.class.php";
 
-require_once("classes/utility.class.php");
+require_once ROOT_DIR."classes/utility.class.php";
 
 /* INSTANTIATING CLASSES */
 $search_obj		= new Search();
@@ -25,7 +25,7 @@ if($cusDtl[0][0] == 0){
 // echo $cusDtl[0][0]; exit;
 
 if($cusDtl[0][0] == 1){ 
-	header("Location: app.client.php");
+	header("Location: ".USER_AREA);
 }
 
 $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
@@ -50,15 +50,15 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
-    <link href="plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <link href="plugins/fontawesome-6.1.1/css/all.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>plugins/fontawesome-6.1.1/css/all.css" rel='stylesheet' type='text/css' />
 
     <!-- Custom CSS -->
-    <link href="css/leelija.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="css/partials.css">
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link href="css/form.css" rel='stylesheet' type='text/css' />
-    <link href="css/dashboard.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/leelija.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/partials.css" rel="stylesheet">
+    <link href="<?= URL ?>css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/form.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/dashboard.css" rel='stylesheet' type='text/css' />
     <!-- //Custom Theme files -->
     <!--webfonts-->
     <link href="//fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
@@ -70,7 +70,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <div id="home">
         <!-- header -->
-        <?php require_once 'partials/navbar.php'; ?>
+        <?php require_once ROOT_DIR.'partials/navbar.php'; ?>
         <!-- //header -->
         <!-- banner -->
         <div class="edit_profile" style="overflow: hidden;">
@@ -80,8 +80,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                         <!--Row start-->
                         <div class="col-md-3 hidden-xs display-table-cell v-align" id="navigation">
                             <div class="client_profile_dashboard_left">
-                                <?php include("dashboard-inc.php");?>
-
+                                <?php include ROOT_DIR."partials/dashboard-inc.php";?>
                             </div>
 
                         </div>
@@ -199,18 +198,12 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
         </div>
         <!-- js-->
         <!-- <script src="js/jquery-2.2.3.min.js"></script> -->
-        <script src="plugins/jquery-3.6.0.min.js"></script>
+        <script src="<?= URL ?>plugins/jquery-3.6.0.min.js"></script>
 		<!-- alax custom library  -->
-        <script src="js/ajax.js"></script>
-        <script src="js/customerSwitchMode.js"></script>
-		
-
-
-
-
-        <!-- js-->
+        <script src="<?= URL ?>js/ajax.js"></script>
+        <script src="<?= URL ?>js/customerSwitchMode.js"></script>
         <!-- Scrolling Nav JavaScript -->
-        <script src="js/scrolling-nav.js"></script>
+        <script src="<?= URL ?>js/scrolling-nav.js"></script>
         <script>
         $(document).ready(function() {
             $('[data-toggle="offcanvas"]').click(function() {
@@ -221,15 +214,11 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
 
 
         <!-- //fixed-scroll-nav-js -->
-        <script src="js/pageplugs/fixedNav.js"></script>
+        <script src="<?= URL ?>js/pageplugs/fixedNav.js"></script>
 
-
-        <!-- Banner text Responsiveslides -->
-
-        <!-- //Banner text  Responsiveslides -->
         <!-- start-smooth-scrolling -->
-        <script src="js/move-top.js"></script>
-        <script src="js/easing.js"></script>
+        <script src="<?= URL ?>js/move-top.js"></script>
+        <script src="<?= URL ?>js/easing.js"></script>
         <script>
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event) {
@@ -241,22 +230,11 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
             });
         });
         </script>
-        <!-- //end-smooth-scrolling -->
-        <!-- smooth-scrolling-of-move-up -->
-        <script src="js/pageplugs/toPageTop.js"></script>
 
-        <script src="js/SmoothScroll.min.js"></script>
-        <!-- //smooth-scrolling-of-move-up -->
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.js">
-        </script>
-        <!-- //Bootstrap Core JavaScript -->
+        <script src="<?= URL ?>js/pageplugs/toPageTop.js"></script>
+        <script src="<?= URL ?>js/SmoothScroll.min.js"></script>
+        <script src="<?= URL ?>js/bootstrap.js"></script>
 
-
-
-
-
-        
 </body>
 
 </html>

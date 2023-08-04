@@ -1,19 +1,12 @@
 <?php
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
 session_start();
-
-// var_dump($_SESSION);
-require_once("_config/dbconnect.php");
-require_once "_config/dbconnect.trait.php";
-
-require_once("includes/constant.inc.php");
-require_once("classes/customer.class.php");
-require_once("classes/wishList.class.php");
-require_once("classes/blog_mst.class.php");
-require_once("classes/utility.class.php");
-require_once "classes/wishList.class.php";
+require_once dirname(__DIR__)."/includes/constant.inc.php";
+require_once ROOT_DIR."_config/dbconnect.php";
+require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/wishList.class.php";
+require_once ROOT_DIR."classes/blog_mst.class.php";
+require_once ROOT_DIR."classes/utility.class.php";
+require_once ROOT_DIR."classes/wishList.class.php";
 
 /* INSTANTIATING CLASSES */
 $customer		= new Customer();
@@ -33,7 +26,6 @@ if($cusDtl[0] == 1){
     header("Location: dashboard.php");
 }
  
-$userWishLists = $WishList->showUserWishes($_SESSION['userid']);
 
 ?>
 <!DOCTYPE HTML>
@@ -56,7 +48,7 @@ $userWishLists = $WishList->showUserWishes($_SESSION['userid']);
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
     <!-- <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css"> -->
-    <link href="plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <!-- <link href="plugins/fontawesome-6.1.1/css/all.css" rel='stylesheet' type='text/css' /> -->
     <!-- <link href="plugins/fontawesome-6.1.1/icons.css" rel='stylesheet' type='text/css' />
     <link href="plugins/fontawesome-6.1.1/icons-sharp.css" rel='stylesheet' type='text/css' /> -->
@@ -66,10 +58,10 @@ $userWishLists = $WishList->showUserWishes($_SESSION['userid']);
 
 
     <!-- Custom CSS -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link href="css/leelija.css" rel='stylesheet' type='text/css' />
-    <link href="css/dashboard.css" rel='stylesheet' type='text/css' />
-    <link href="css/wishlist.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/leelija.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/dashboard.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/wishlist.css" rel='stylesheet' type='text/css' />
 
     <!-- //Custom Theme files -->
 
@@ -80,7 +72,7 @@ $userWishLists = $WishList->showUserWishes($_SESSION['userid']);
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <div id="home">
         <!-- header -->
-        <?php require_once 'partials/navbar.php' ?>
+        <?php require_once ROOT_DIR . 'partials/navbar.php' ?>
         <?php //include 'header-user-profile.php'?>
 
         <!-- //header -->
@@ -96,7 +88,7 @@ $userWishLists = $WishList->showUserWishes($_SESSION['userid']);
 
                                 <!-- <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" /> -->
                                 <!-- Customer Switch Mode -->
-                                <?php include("dashboard-inc.php");?>
+                                <?php include ROOT_DIR . "partials/dashboard-inc.php";?>
                                 <hr>
                             </div>
 
@@ -123,34 +115,34 @@ $userWishLists = $WishList->showUserWishes($_SESSION['userid']);
                                         </thead>
                                         <tbody>
                                             <?php 
-                                            foreach($userWishLists as $singleWish) { 
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $x; $x++?></td>
-                                                <td><?php echo $singleWish['domain'];?></td>
-                                                <td><?php echo $singleWish['niche'];?></td>
-                                                <td><?php echo round($singleWish['da']);?></td>
-                                                <td><?php echo round($singleWish['tf']);?></td>
-                                                <td><?php echo $singleWish['follow'];?></td>
-                                                <td><?php echo $singleWish['cost'];?></td>
-                                                <td>
-                                                    <a href="webSiteDetailsSingle.php?id=<?php echo $singleWish['blog_id'] ?>"
-                                                        class="badge text-bg-success">
-                                                        <span>
-                                                            <i class="fas fa-shopping-bag"></i>
-                                                        </span> Buy
-                                                    </a>
-                                                    <a href="javascript:void()"
-                                                        id="<?php echo $singleWish['blog_id'];?>"
-                                                        onclick="delWish(this);" class="badge text-bg-danger">
-                                                        <span>
-                                                            <i class="fas fa-minus-circle"></i>
-                                                        </span> Remove
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <?php
-                                            } 
+                                        //        foreach($userWishLists as $singleWish) { 
+                                        // ?>
+                                        //     <tr>
+                                        //         <td><?php echo $x; $x++?></td>
+                                        //         <td><?php echo $singleWish['domain'];?></td>
+                                        //         <td><?php echo $singleWish['niche'];?></td>
+                                        //         <td><?php echo round($singleWish['da']);?></td>
+                                        //         <td><?php echo round($singleWish['tf']);?></td>
+                                        //         <td><?php echo $singleWish['follow'];?></td>
+                                        //         <td><?php echo $singleWish['cost'];?></td>
+                                        //         <td>
+                                        //             <a href="webSiteDetailsSingle.php?id=<?php echo $singleWish['blog_id'] ?>"
+                                        //                 class="badge text-bg-success">
+                                        //                 <span>
+                                        //                     <i class="fas fa-shopping-bag"></i>
+                                        //                 </span> Buy
+                                        //             </a>
+                                        //             <a href="javascript:void()"
+                                        //                 id="<?php echo $singleWish['blog_id'];?>"
+                                        //                 onclick="delWish(this);" class="badge text-bg-danger">
+                                        //                 <span>
+                                        //                     <i class="fas fa-minus-circle"></i>
+                                        //                 </span> Remove
+                                        //             </a>
+                                        //         </td>
+                                        //     </tr>
+                                        //     <?php
+                                        //     } 
                                         ?>
                                         </tbody>
                                     </table>
@@ -173,10 +165,6 @@ $userWishLists = $WishList->showUserWishes($_SESSION['userid']);
                     </div>
                 </div>
                 <!-- //end display table-->
-
-                <!-- Footer -->
-                <?php require_once 'partials/footer.php'; ?>
-                <!-- /Footer -->
             </div>
         </div>
         <!-- <script src="js/jquery.min.js" type="text/javascript"></script> -->
@@ -210,13 +198,8 @@ $userWishLists = $WishList->showUserWishes($_SESSION['userid']);
                         success: function(data) {
                             // alert(data);
                             if (data) {
-                                // alert(blogId)
-                                // getElementById
                                 $(`#${blogId}`).closest("tr").fadeOut();
                             } else {
-                                // $("#error-message").html("Deletion Field !!!")
-                                //     .slideDown();
-                                // $("success-message").slideUp();
                                 Swal.fire(
                                     'failed!',
                                     'Item Not Removed 😥.',
@@ -231,55 +214,12 @@ $userWishLists = $WishList->showUserWishes($_SESSION['userid']);
             return false;
         }
         </script>
-        <!-- js-->
-        <!-- js-->
-
-
 
         <!-- //fixed-scroll-nav-js -->
-        <script src="js/pageplugs/fixedNav.js"></script>
+        <script src="<?= URL ?>js/pageplugs/fixedNav.js"></script>
 
-        <!-- //Banner text  Responsiveslides -->
-        <!-- start-smooth-scrolling -->
-        <!-- <script src="js/move-top.js"></script>
-        <script src="js/easing.js"></script>
-        <script>
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event) {
-                event.preventDefault();
-
-                $('html,body').animate({
-                    scrollTop: $(this.hash).offset().top
-                }, 1000);
-            });
-        });
-        </script> -->
-        <!-- //end-smooth-scrolling -->
-        <!-- smooth-scrolling-of-move-up -->
-        <!-- <script>
-        $(document).ready(function() {
-            /*
-            var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear'
-            };
-            */
-
-            $().UItoTop({
-                easingType: 'easeOutQuart'
-            });
-
-        }); 
-        </script>-->
-
-        <!-- <script src="js/SmoothScroll.min.js"></script> -->
-        <!-- //smooth-scrolling-of-move-up -->
-        <!-- Bootstrap Core JavaScript -->
-        <!-- <script src="js/bootstrap.js"></script> -->
         <!-- Switch Customer Type -->
-        <script src="js/customerSwitchMode.js"></script>
+        <script src="<?= URL ?>js/customerSwitchMode.js"></script>
 </body>
 
 </html>

@@ -1,9 +1,10 @@
 <?php
+require_once("includes/constant.inc.php");
 
 //fetch_data.php
-require_once("_config/db_connect.php");
+// require_once("_config/db_connect.php");
 require_once("_config/dbconnect.php");
-require_once "_config/db_connect.php";
+// require_once "_config/db_connect.php";
 
 require_once("classes/blog_mst.class.php");
 

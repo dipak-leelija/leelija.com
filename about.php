@@ -1,15 +1,8 @@
-<!--
-Author: Safikul Islam
-Author URL: https://webtechhelp.org
--->
 <?php
 session_start();
-//include_once('checkSession.php');
-// require_once("_config/dbconnect.php");
-require_once("_config/dbconnect.php");
-require_once "_config/dbconnect.trait.php";
-
 require_once("includes/constant.inc.php");
+require_once("_config/dbconnect.php");
+
 require_once("classes/date.class.php");
 require_once("classes/error.class.php");
 require_once("classes/search.class.php");
@@ -54,16 +47,15 @@ if(isset($_GET['seo_url']))
 ?>
 <!DOCTYPE HTML>
 <html lang="zxx" style="overflow: hidden;">
-
 <head>
+    <meta charset="utf-8">
     <title>About Our Company :<?php echo COMPANY_S; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Leelija is an online product selling agency based in India. We are enhancing our business with the same tactics that we employ to our clients.">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Web Design, Web Development, Apps Development, SEO Services, Guest Post Services, Domain name with Ready Website,
-		Ready website for business, High Quality website sales, High quality blogs sales, expired domain sales" />
-        <link rel="icon" href="images/logo/favicon.png" type="image/png">
+    <meta name="description" content="Leelija is an online product selling agency based in India. We are enhancing our business with the same tactics that we employ to our clients.">
+    <meta name="keywords" content="Web Design, Web Development, Apps Development, SEO Services, Guest Post Services, Domain name with Ready Website, Ready website for business, High Quality website sales, High quality blogs sales, expired domain sales" />
+    
+    <link rel="icon" href="images/logo/favicon.png" type="image/png">
+    
     <script>
     addEventListener("load", function() {
         setTimeout(hideURLbar, 0);

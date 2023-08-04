@@ -41,6 +41,8 @@
 	define('URL', 				$protocol.$_SERVER['HTTP_HOST'].LOCAL_DIR.'/');
 	define('ROOT_DIR', 			$_SERVER['DOCUMENT_ROOT'].LOCAL_DIR.'/');
 	define('ADM_DIR', 			$_SERVER['DOCUMENT_ROOT'].LOCAL_DIR.'/admin/');
+	define('SELLER_PATH', 		$_SERVER['DOCUMENT_ROOT'].LOCAL_DIR.'/seller/');
+	define('USER_PATH', 		$_SERVER['DOCUMENT_ROOT'].LOCAL_DIR.'/user/');
 	define('CONT_DIR', 			$_SERVER['DOCUMENT_ROOT'].LOCAL_DIR.'/uploads/contents/');
 
 
@@ -48,8 +50,10 @@
 
 	define('PAGE',				$_SERVER['PHP_SELF']);
 	define('ADM_URL',  			URL.'/admin/');
-	define('SELLER_AREA',  		URL."/dashboard.php");
-	define('BUYER_AREA',  		URL."/app.client.php");
+	define('SELLER_URL',  		URL.'/seller/');
+	define('USER_URL',  		URL.'/user/');
+	define('SELLER_AREA',  		URL."/seller/dashboard.php");
+	define('USER_AREA',  		URL."/user/app.client.php");
 	define('IMG_PATH',  		URL."/images");
 
 

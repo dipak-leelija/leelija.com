@@ -3,15 +3,15 @@
         <?php
 			if($cusDtl[0][9] == ''){
 		?>
-        <img src="images/icons/user.png" alt="" class="visible-xs visible-sm circle-logo">
+        <img src="<?= URL?>images/icons/user.png" alt="" class="visible-xs visible-sm circle-logo">
         <?php
-								}else{
-							?>
-        <img src="images/user/<?php echo $cusDtl[0][9] ?>" alt="<?php echo $cusDtl[0][5] ?>"
+		}else{
+		?>
+        <img src="<?= URL?>images/user/<?php echo $cusDtl[0][9] ?>" alt="<?php echo $cusDtl[0][5] ?>"
             class="visible-xs visible-sm circle-logo">
         <?php
-								}
-							?>
+        }
+        ?>
     </a>
     <p class="blod"><?php echo $cusDtl[0][5];?></p>
     <p><?php echo $cusDtl[0][14];?></p>
@@ -57,7 +57,7 @@
         </li>
 
         <li>
-            <a href="edit-profile.php"><i class="fa fa-cog pe-2" aria-hidden="true"></i><span
+            <a href="<?= URL ?>edit-profile.php"><i class="fa fa-cog pe-2" aria-hidden="true"></i><span
                     class="hidden-xs hidden-sm">Setting</span></a>
         </li>
     </ul>
@@ -83,11 +83,6 @@
             <a href="my-orders.php"><i class="text-primary fas fa-handshake pe-2" aria-hidden="true"></i><span
                     class="hidden-xs hidden-sm">My Orders</span></a>
         </li>
-        <li>
-            <a href="blogs-list.php"><i class="fa fa-tasks pe-2" aria-hidden="true"></i><span
-                    class="hidden-xs hidden-sm">Guest posting Blogs</span></a>
-        </li>
-
 
         <li>
             <a href="#"><i class="fa fa-user pe-2" aria-hidden="true"></i><span
@@ -95,7 +90,7 @@
         </li>
 
         <li>
-            <a href="edit-profile.php"><i class="fa fa-cog pe-2" aria-hidden="true"></i><span
+            <a href="<?= URL ?>edit-profile.php"><i class="fa fa-cog pe-2" aria-hidden="true"></i><span
                     class="hidden-xs hidden-sm">Setting</span></a>
         </li>
         <!-- <div><span class="wisListHeart"><i class="fas fa-heart"></i></span> <span><a href="">Wishlist</a></span></div> -->
