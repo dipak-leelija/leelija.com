@@ -1,6 +1,7 @@
 
 <?php
    session_start();
+   require_once 'includes/constant.inc.php';
    require_once("_config/db_connect.php"); 
    $userId = $_SESSION['userid'];
    

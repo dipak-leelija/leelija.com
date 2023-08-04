@@ -1,43 +1,18 @@
 <?php
 session_start();
-//var_dump($_SESSION);
-//include_once('checkSession.php');
-// require_once("_config/connect.php");
 require_once("_config/dbconnect.php");
-require_once "_config/dbconnect.trait.php";
 
 require_once("includes/constant.inc.php");
-// require_once("classes/date.class.php");
-// require_once("classes/error.class.php");
-// require_once("classes/search.class.php");
 require_once("classes/customer.class.php");
-// require_once("classes/login.class.php");
 require_once("classes/domain.class.php");
 require_once("classes/utility.class.php");
 require_once "classes/wishList.class.php";
 
-//require_once("../classes/front_photo.class.php");
-// require_once("classes/blog_mst.class.php");
-// require_once("classes/utilityMesg.class.php");
-// require_once("classes/utilityImage.class.php");
-// require_once("classes/utilityNum.class.php");
-
 /* INSTANTIATING CLASSES */
-// $dateUtil      	= new DateUtil();
-// $error 			= new Error();
-// $search_obj		= new Search();
 $customer		= new Customer();
-// $logIn			= new Login();
 $domain			= new Domain();
-
 $WishList       = new WishList();
-
-//$ff				= new FrontPhoto();
-// $blogMst		= new BlogMst();
 $utility		= new Utility();
-// $uMesg 			= new MesgUtility();
-// $uImg 			= new ImageUtility();
-// $uNum 			= new NumUtility();
 ######################################################################################################################
 $typeM		= $utility->returnGetVar('typeM','');
 //user id

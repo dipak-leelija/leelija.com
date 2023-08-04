@@ -1,3 +1,4 @@
+<?php require ROOT_DIR.'/header.incpro.php';?>
 <nav class="navbar navbar-expand-lg navbar-dark text-light">
 
     <div class="container-fluid">

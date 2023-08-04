@@ -3,7 +3,6 @@ session_start();
 //var_dump($_SESSION);
 //include_once('checkSession.php');
 require_once "_config/dbconnect.php";
-require_once "_config/dbconnect.trait.php";
 
 require_once "includes/constant.inc.php";
 require_once "classes/encrypt.inc.php";
@@ -14,12 +13,7 @@ require_once "classes/customer.class.php";
 require_once "classes/login.class.php";
 require_once "classes/domain.class.php";
 
-//require_once("../classes/front_photo.class.php");
-require_once "classes/blog_mst.class.php";
 require_once "classes/utility.class.php";
-// require_once "classes/utilityMesg.class.php";
-// require_once "classes/utilityImage.class.php";
-// require_once "classes/utilityNum.class.php";
 require_once "classes/gp-order.class.php";
 require_once "classes/gp-package.class.php";
 
@@ -35,9 +29,6 @@ $search_obj		= new Search();
 $customer		= new Customer();
 $logIn			= new Login();
 $Domain			= new Domain();
-
-//$ff				= new FrontPhoto();
-$blogMst		= new BlogMst();
 $ContentOrder   = new ContentOrder();
 $OrderStatus    = new OrderStatus();
 
@@ -64,10 +55,6 @@ if($cusDtl[0][0] == 1){
 	header("Location: app.client.php");
 }
 
-//echo $cusId;exit;
-// $blogsDtls 	= $blogMst->ShowUserBlogData($cusDtl[0][2]);
-// $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
-// print_r($domainDtls);
 ?>
 <!DOCTYPE HTML>
 <html lang="zxx">
@@ -130,104 +117,7 @@ if($cusDtl[0][0] == 1){
                             </div>
                         </div>
                         <div class="col-md-9  display-table-cell v-align client_profile_dashboard_right">
-                            <!-- MY GUEST POST ORDER section starts -->
-                            <div class="lists_of_blogs  montserrat-font py-4">
-
-                                <!-- <div class=""> -->
-                                <div class=" display-table">
-                                    <div class="row ">
-                                        <!--Row start-->
-                                        <!-- <div class=""> -->
-                                        <!--Content sec start-->
-                                        <div class="features your_blog_lists" id="features">
-                                            <!--Features Content start-->
-                                            <div class="wrap">
-                                                <!--Wrap start-->
-                                                <h2
-                                                    class="title color-blue font-weight-bold text-center text-uppercase pt-4 pb-0">
-                                                    MY GUEST POST ORDER</h2>
-                                                <div class="features_grids table-responsive">
-                                                    <table
-                                                        class="table table-striped table-hover  my-guestposttable datatable">
-                                                        <thead style="color: white; background: #212529;">
-                                                            <tr>
-                                                                <th style="width: fit-content;">Sl. No.</th>
-                                                                <th style="width: fit-content;">Order Id</th>
-                                                                <th style="width: fit-content;">Domian</th>
-                                                                <th style="width: fit-content;">Status</th>
-                                                                <th style="width: fit-content;">Order Date</th>
-                                                                <th style="width: fit-content;">Action</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <?php
-                                                            $activeOrder    = $ContentOrder->activeOrders();
-                                                            // print_r($activeOrder);
-                                                            if (count($activeOrder) > 0) {
-                                                                foreach ($activeOrder as $order) {
-                                                                    $domains = $blogMst->ShowUserBlogData($cusDtl[0][2]);
-                                                                    // print_r($domains[0]['domain']);
-                                                                    foreach ($domains as $domain) {
-                                                                        // echo $order['clientOrderStatus'];
-                                                                        $status = $OrderStatus->singleOrderStatus($order['clientOrderStatus']); 
-                                                                        if ($order['clientOrderedSite'] == $domain['domain']) {
-                                                                ?>
-                                                            <tr>
-                                                                <td>01</td>
-                                                                <td style="width:100px;font-weight:500;">
-                                                                    <?php echo '#'.$order['id'];?>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $order['clientOrderedSite'];?>
-                                                                </td>
-                                                                <td
-                                                                    class="<?php echo $status[0]['orders_status_name']; ?>">
-                                                                    <?php echo $status[0]['orders_status_name']; ?>
-                                                                </td>
-                                                                <td class="text-center">
-                                                                    <?php echo date("d.m.Y - h:i a", strtotime($order['added_on']));?>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="order-view-update.php?id=<?php echo base64_encode($order['id']);?>"
-                                                                        title="Edit"><i
-                                                                            class="fa-solid fa-pen-to-square"></i>
-                                                                        <i class=" ps-3 fa-solid fa-trash"
-                                                                            style="color: #ff0000a1;"></i></a>
-                                                                </td>
-                                                            </tr>
-                                                            <?php
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }else {
-                                                            ?>
-                                                            <div class="card activeOrderDetails">
-                                                                <p class="text-center text-info fw-bolder">No Orders</p>
-                                                            </div>
-                                                            <?php
-                                                            }
-                                                        ?>
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <!--end features grid and responsive table-->
-                                            </div>
-                                            <!--Wrap End-->
-                                        </div>
-                                        <!--Features Content end-->
-                                        <!-- </div> -->
-                                        <!--Content end start-->
-                                    </div>
-                                    <!--Row end-->
-                                </div>
-                                <!-- </div> -->
-                            </div>
-                            <!-- MY GUEST POST ORDER section starts -->
-
-
-
-
+                           
 
                             <!-- PRODUCTS ORDERS section starts -->
                             <div class="lists_of_blogs  montserrat-font py-4">
@@ -326,9 +216,6 @@ if($cusDtl[0][0] == 1){
                 </div>
                 <!-- //end display table-->
 
-                <!-- Footer -->
-                <?php require_once 'partials/footer.php'; ?>
-                <!-- /Footer -->
             </div>
         </div>
         <!-- js-->

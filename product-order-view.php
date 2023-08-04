@@ -1,9 +1,6 @@
 <?php
 session_start();
-//var_dump($_SESSION);
-//include_once('checkSession.php');
 require_once "_config/dbconnect.php";
-require_once "_config/dbconnect.trait.php";
 
 require_once "classes/encrypt.inc.php";
 require_once "includes/constant.inc.php";
@@ -789,10 +786,6 @@ $prodId =  url_dec($_GET['pdata']) ;
 
                 </div>
                 <!-- //end display table-->
-
-                <!-- Footer -->
-                <?php require_once 'partials/footer.php'; ?>
-                <!-- /Footer -->
             </div>
         </div>
 

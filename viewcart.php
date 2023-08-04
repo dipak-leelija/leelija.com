@@ -3,7 +3,6 @@ session_start();
 //include_once('checkSession.php');
 // require_once("_config/connect.php");
 require_once "_config/dbconnect.php";
-require_once "_config/dbconnect.trait.php";
 
 require_once("includes/constant.inc.php");
 require_once("classes/date.class.php");
@@ -94,7 +93,7 @@ $_SESSION['reorder-page'] = $utility->currentUrl();
 						$totalAmt = 0;
 						//echo '<ol>';
 						foreach ($_SESSION["domain"] as $cart_itm){
-							$domainDtl		= $domain->showDomains($cart_itm['code']);
+							$domainDtl		= $domain->showDomainsById($cart_itm['code']);
 							$subtotal 		= $cart_itm["qty"];
 							$total 			= ($total + $subtotal);
 							$nicheDtls	 	= $blogMst->showBlogNichMst($domainDtl[1]);

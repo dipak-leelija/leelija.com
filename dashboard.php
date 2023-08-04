@@ -1,39 +1,18 @@
 <?php
 session_start();
-//include_once('checkSession.php');
-// require_once("_config/connect.php");
 require_once("_config/dbconnect.php");
-require_once "_config/dbconnect.trait.php";
-
 require_once("includes/constant.inc.php");
-// require_once("classes/date.class.php");
-// require_once("classes/error.class.php");
 require_once("classes/search.class.php");
 require_once("classes/customer.class.php");
-// require_once("classes/login.class.php");
 require_once("classes/domain.class.php");
 
-//require_once("../classes/front_photo.class.php");
-require_once("classes/blog_mst.class.php");
 require_once("classes/utility.class.php");
-// require_once("classes/utilityMesg.class.php");
-// require_once("classes/utilityImage.class.php");
-// require_once("classes/utilityNum.class.php");
 
 /* INSTANTIATING CLASSES */
-// $dateUtil      	= new DateUtil();
-// $error 			= new Error();
 $search_obj		= new Search();
 $customer		= new Customer();
-// $logIn			= new Login();
 $domain			= new Domain();
-
-//$ff				= new FrontPhoto();
-$blogMst		= new BlogMst();
 $utility		= new Utility();
-// $uMesg 			= new MesgUtility();
-// $uImg 			= new ImageUtility();
-// $uNum 			= new NumUtility();
 ######################################################################################################################
 $typeM		= $utility->returnGetVar('typeM','');
 //user id
@@ -49,7 +28,6 @@ if($cusDtl[0][0] == 1){
 	header("Location: app.client.php");
 }
 
-$blogsDtls 	= $blogMst->ShowUserBlogData($cusDtl[0][2]);
 $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
 
 ?>
@@ -122,7 +100,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                                                 <li class="list1_right">
                                                                     <a href="gblogs-list.php">
                                                                         <p>Blogs for Guest Service</p><span
-                                                                            class="d-block text-center"><?php echo count($blogsDtls); ?></span>
+                                                                            class="d-block text-center"><?php  ?></span>
                                                                     </a>
                                                                 </li>
                                                                 <div class="clearfix"> </div>
@@ -217,10 +195,6 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                     </div>
                 </div>
                 <!-- //end display table-->
-
-                <!-- Footer -->
-                <?php require_once 'partials/footer.php'; ?>
-                <!-- /Footer -->
             </div>
         </div>
         <!-- js-->

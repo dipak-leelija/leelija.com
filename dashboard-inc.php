@@ -1,40 +1,3 @@
-<?php
-
-// require_once("_config/connect.php");
-// require_once("includes/constant.inc.php");
-// require_once("classes/date.class.php");
-// require_once("classes/error.class.php");
-// require_once("classes/search.class.php");
-// require_once("classes/customer.class.php");
-// require_once("classes/login.class.php");
-
-// //require_once("../classes/front_photo.class.php");
-// require_once("classes/blog_mst.class.php");
-// require_once("classes/utility.class.php");
-// require_once("classes/utilityMesg.class.php");
-// require_once("classes/utilityImage.class.php");
-// require_once("classes/utilityNum.class.php");
-
-// /* INSTANTIATING CLASSES */
-// $dateUtil      	= new DateUtil();
-// $error 			= new Error();
-// $search_obj		= new Search();
-// $customer		= new Customer();
-// $logIn			= new Login();
-
-// //$ff				= new FrontPhoto();
-// $blogMst		= new BlogMst();
-// $utility		= new Utility();
-// $uMesg 			= new MesgUtility();
-// $uImg 			= new ImageUtility();
-// $uNum 			= new NumUtility();
-// ######################################################################################################################
-// $typeM		= $utility->returnGetVar('typeM','');
-// //user id
-// $cusId		= $utility->returnSess('userid', 0);
-// $cusDtl		= $customer->getCustomerData($cusId);
-
-?>
 <div class="logo text-center" >
     <a href="edit-profile.php">
         <?php
@@ -75,15 +38,6 @@
                     class="hidden-xs hidden-sm">Order</span></a>
 
         </li>
-
-        <li>
-            <a href="gblogs-list.php"><i class="fa fa-tasks pe-2" aria-hidden="true"></i><span
-                    class="hidden-xs hidden-sm">Guest posting Blogs</span></a>
-        </li>
-        <li>
-            <a href="add-blog.php"><i class="fa fa-plus pe-2" aria-hidden="true"></i><span
-                    class="hidden-xs hidden-sm">Add Blog for Guest Post</span></a>
-        </li>
         <li>
             <a href="my-domain.php"><i class="fa fa-globe pe-2" aria-hidden="true"></i><span
                     class="hidden-xs hidden-sm">Web Products Or Blogs</span></a>
@@ -105,10 +59,6 @@
         <li>
             <a href="edit-profile.php"><i class="fa fa-cog pe-2" aria-hidden="true"></i><span
                     class="hidden-xs hidden-sm">Setting</span></a>
-        </li>
-        <li>
-            <a href="logout.php" class="wishlistBlog"><i class="fa-solid fa-arrow-right-from-bracket"></i>
-                <span>Logout</span></a>
         </li>
     </ul>
     <?php } else{?>
@@ -152,10 +102,6 @@
         <li>
             <a href="wishlist.php" class="wishlistBlog"><span class="wisListHeart"><i class="fas fa-heart"></i></span>
                 <span>Wishlist</span></a>
-        </li>
-        <li>
-            <a href="logout.php" class="wishlistBlog"><i class="fa-solid fa-arrow-right-from-bracket"></i>
-                <span>Logout</span></a>
         </li>
 
     </ul>
