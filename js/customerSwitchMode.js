@@ -2,7 +2,8 @@
 $(document).ready(function() {
 
     $('#toSeller').click(function() {
-        urlCustomerSwap = "../seller/dashboard.php";
+        // urlCustomerSwap = "../seller/dashboard.php";
+        urlCustomerSwap = "http://localhost/leelija.com/seller/dashboard.php";
         $.ajax({
             url: "customerSwap.php",
             type: "GET",
@@ -23,9 +24,10 @@ $(document).ready(function() {
 $(document).ready(function() {
 
     $('#toClient').click(function() {
-        urlCustomerSwap = "../user/app.client.php";
+        // urlCustomerSwap = "../user/app.client.php";
+        urlCustomerSwap = "http://localhost/leelija.com/user/app.client.php";
         $.ajax({
-            url: '../customerSwap.php',
+            url: 'customerSwap.php',
             type: "GET",
             data: {
                 client: "client"

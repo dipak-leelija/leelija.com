@@ -1,4 +1,4 @@
-<?php require ROOT_DIR.'/header.incpro.php';?>
+<?php require ROOT_DIR.'/partials/top-bar.php';?>
 <nav class="navbar navbar-expand-lg navbar-dark text-light">
 
     <div class="container-fluid">
@@ -100,7 +100,7 @@
                 <button class=" dropdown  login-btn external-styling ">My Account <i class="bi bi-chevron-down"></i>
                 </button>
                 <ul class="dropdown-menu external-drop-menu">
-                    <li> <a href="<?= URL;?>dashboard.php" class="dropdown-item  external-lis"><i
+                    <li> <a href="<?= SELLER_AREA;?>" class="dropdown-item  external-lis"><i
                                 class="fa fa-home pe-2"></i>Dashboard</a>
                     </li>
                     <li><a class="dropdown-item  external-lis" href="<?= URL;?>logout.php"><i

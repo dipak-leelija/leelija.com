@@ -1,27 +1,21 @@
-<!--
-Author: Safikul Islam
-Author URL: http://webtechhelp.org
--->
 <?php
 session_start();
-//include_once('checkSession.php');
-// require_once("_config/dbconnect.php");
-require_once "_config/dbconnect.php";
+require_once dirname(__DIR__)."/includes/constant.inc.php";
 
-require_once("includes/constant.inc.php");
-require_once("classes/date.class.php");
-require_once("classes/error.class.php");
-require_once("classes/search.class.php");
-require_once("classes/customer.class.php");
-require_once("classes/login.class.php");
+require_once ROOT_DIR."_config/dbconnect.php";
+require_once ROOT_DIR."classes/date.class.php";
+require_once ROOT_DIR."classes/error.class.php";
+require_once ROOT_DIR."classes/search.class.php";
+require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/login.class.php";
 
-require_once("classes/products.class.php");
-require_once("classes/blog_mst.class.php");
-require_once("classes/domain.class.php");
-require_once("classes/utility.class.php");
-require_once("classes/utilityMesg.class.php");
-require_once("classes/utilityImage.class.php");
-require_once("classes/utilityNum.class.php");
+require_once ROOT_DIR."classes/products.class.php";
+require_once ROOT_DIR."classes/blog_mst.class.php";
+require_once ROOT_DIR."classes/domain.class.php";
+require_once ROOT_DIR."classes/utility.class.php";
+require_once ROOT_DIR."classes/utilityMesg.class.php";
+require_once ROOT_DIR."classes/utilityImage.class.php";
+require_once ROOT_DIR."classes/utilityNum.class.php";
 
 /* INSTANTIATING CLASSES */
 $dateUtil      	= new DateUtil();
@@ -44,12 +38,10 @@ $cusId		= $utility->returnSess('userid', 0);
 $cusDtl		= $customer->getCustomerData($cusId);
 //$seo_url	= $utility->returnGetVar('seo_url','');
 
-	if(isset($_GET['seo_url']))
-		{
-		 $seo_url			  		= $_GET['seo_url'];
-
-		// $return_url 	= base64_decode($_GET["return_url"]); //get return url
-		}
+if(isset($_GET['seo_url'])){
+	$seo_url			  		= $_GET['seo_url'];
+    // $return_url 	= base64_decode($_GET["return_url"]); //get return url
+}
 
 $domainDtl		= $domain->getAllDomains($seo_url);
 $nicheDtls	 	= $blogMst->showBlogNichMst($domainDtl[1]);
@@ -63,7 +55,7 @@ $current_url 	= base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQ
 <html lang="zxx">
 
 <head>
-    <title><?php echo $domainDtl[0]; ?> Selling on: <?php echo COMPANY_S; ?></title>
+    <title><?= $domainDtl[0]; ?> Selling on: <?php echo COMPANY_S; ?></title>
     <link rel="icon" href="<?php echo FAVCON_PATH; ?>" type="image/png">
     <link rel="apple-touch-icon" href="<?php echo FAVCON_PATH; ?>" />
     
@@ -72,11 +64,11 @@ $current_url 	= base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQ
     <meta name="keywords" content="Ready Website, Ready Blogs, Ready Websites Sales, Ready Blogs sales,
 	Domain selling, Low Budget Websites, Good Metrics ready blogs sales, web design" />
 
-    <link rel="stylesheet" href="plugins/bootstrap-5.2.0/css/bootstrap.css">
-    <link rel="stylesheet" href="plugins/fontawesome-6.1.1/css/all.css">
+    <link href="<?= URL ?>plugins/bootstrap-5.2.0/css/bootstrap.css" rel="stylesheet">
+    <link href="<?= URL ?>plugins/fontawesome-6.1.1/css/all.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="css/leelija.css" rel='stylesheet' type='text/css' />
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/leelija.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/style.css" rel='stylesheet' type='text/css' />
 
     <!--webfonts-->
     <link href="//fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
@@ -87,13 +79,9 @@ $current_url 	= base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQ
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <div id="home">
         <!-- header -->
-        <?php 
-		// include('header.incpro.php') 
-		require_once 'partials/navbar.php';
+        <?php  
+		require_once ROOT_DIR.'partials/navbar.php';
 		?>
-        <!-- //header -->
-        <!-- branches -->
-        <!--<section class="py-5 branches position-relative" id="explore">-->
         <div class="container indivisual_domain_details">
             <div class="branches">
                 <div class="row py-lg-5 pt-sm-5">
@@ -102,8 +90,7 @@ $current_url 	= base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQ
                         <div class="prod-dtls-sec">
                             <div class="prod-dtls-img">
                                 <a href="">
-                                    <img src="images/domains/<?php echo $domainDtl[10];?>"
-                                        alt="<?php echo $domainDtl[0];?>" class="img-fluid">
+                                    <img src="<?= URL ?>images/domains/<?php echo $domainDtl[10];?>" alt="<?php echo $domainDtl[0];?>" class="img-fluid">
                                 </a>
                             </div>
                             <div class="py-lg-5">
@@ -113,7 +100,6 @@ $current_url 	= base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQ
                                             onclick="AddToCart(<?php echo $domainDtl[19]; ?>)" value="ADD TO CART" />
                                     </div>
                                     <div class="col-lg-5 addcartbttn buy-sec">
-                                        <!--<a href="#" class="buy-Btn purple_opp_btn">BUY NOW</a>-->
                                         <input type="button" class="cart-btn purple-btn"
                                             onclick="AddToCart(<?php echo $domainDtl[19]; ?>)" value="BUY NOW" />
                                     </div>

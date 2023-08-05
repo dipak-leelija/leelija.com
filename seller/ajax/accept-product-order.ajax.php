@@ -1,13 +1,11 @@
 <?php
 session_start();
-//var_dump($_SESSION);
-//include_once('checkSession.php');
-require_once "../_config/dbconnect.php";
-require_once "../_config/dbconnect.trait.php";
+require_once dirname(dirname(__DIR__))."/includes/constant.inc.php";
+require_once ROOT_DIR."_config/dbconnect.php";
 
-require_once "../classes/customer.class.php";
-require_once "../classes/order.class.php";
-require_once "../classes/utility.class.php";
+require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/order.class.php";
+require_once ROOT_DIR."classes/utility.class.php";
 
 
 
@@ -30,9 +28,6 @@ if($cusId == 0){
 	header("Location: index.php");
 }
 
-if($cusDtl[0][0] == 1){
-	header("Location: app.client.php");
-}
 
 if(isset($_POST["action"])){
 

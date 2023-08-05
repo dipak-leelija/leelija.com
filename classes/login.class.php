@@ -72,6 +72,10 @@ class Login extends Utility{
 						 $this->delSession('goto');
 						 header("Location: ".$url);
 
+					}elseif($_SESSION['customer_type'] == 1){
+
+						header("Location: seller/dashboard.php");
+
 					}elseif($_SESSION['customer_type'] == 2){
 
 						header("Location: user/app.client.php");

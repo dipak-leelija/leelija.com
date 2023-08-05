@@ -1,21 +1,21 @@
 <?php
 session_start();
-require_once("_config/dbconnect.php");
+require_once dirname(__DIR__)."/includes/constant.inc.php";
 
-require_once("includes/constant.inc.php");
-require_once("classes/date.class.php");
-require_once("classes/error.class.php");
-require_once("classes/search.class.php");
-require_once("classes/customer.class.php");
-require_once("classes/login.class.php");
+require_once ROOT_DIR."_config/dbconnect.php";
+require_once ROOT_DIR."classes/date.class.php";
+require_once ROOT_DIR."classes/error.class.php";
+require_once ROOT_DIR."classes/search.class.php";
+require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/login.class.php";
 
 //require_once("../classes/front_photo.class.php");
-require_once("classes/blog_mst.class.php");
-require_once("classes/domain.class.php");
-require_once("classes/utility.class.php");
-require_once("classes/utilityMesg.class.php");
-require_once("classes/utilityImage.class.php");
-require_once("classes/utilityNum.class.php");
+require_once ROOT_DIR."classes/blog_mst.class.php";
+require_once ROOT_DIR."classes/domain.class.php";
+require_once ROOT_DIR."classes/utility.class.php";
+require_once ROOT_DIR."classes/utilityMesg.class.php";
+require_once ROOT_DIR."classes/utilityImage.class.php";
+require_once ROOT_DIR."classes/utilityNum.class.php";
 
 /* INSTANTIATING CLASSES */
 $dateUtil      	= new DateUtil();
@@ -63,15 +63,15 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
-    <link href="plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <link href="plugins/fontawesome-6.1.1/css/all.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL?>plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL?>plugins/fontawesome-6.1.1/css/all.css" rel='stylesheet' type='text/css' />
 
     <!-- Custom CSS -->
-    <link href="css/leelija.css" rel='stylesheet' type='text/css' />
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link href="css/form.css" rel='stylesheet' type='text/css' />
-    <link href="css/custom.css" rel='stylesheet' type='text/css' />
-    <link href="css/dashboard.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL?>css/leelija.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL?>css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL?>css/form.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL?>css/custom.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL?>css/dashboard.css" rel='stylesheet' type='text/css' />
     <!-- //Custom Theme files -->
     <!--webfonts-->
     <!-- <link href="//fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet"> -->
@@ -84,14 +84,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <div id="home">
         <!-- header -->
-        <?php require_once "partials/navbar.php"; ?>
+        <?php require_once ROOT_DIR."partials/navbar.php"; ?>
         <!-- //header -->
 
 
         <!-- Main Content -->
         <div class="my_domain_section my-4">
-            <div class="container	">
-                <?php include('breadcrumb.inc.php') ?>
+            <div class="container">
+                <?php include ROOT_DIR.'breadcrumb.inc.php' ?>
             </div>
             <!--<section class="py-5 branches position-relative" id="explore">-->
             <div class="container text-center">
@@ -109,7 +109,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <div class="prod-dtls">
                                     <div class="prod-img">
                                         <a href="">
-                                            <img src="images/domains/<?php echo $eachRecord['dimage'];?>"
+                                            <img src="<?= URL?>images/domains/<?php echo $eachRecord['dimage'];?>"
                                                 alt="<?php echo $eachRecord['domain'];?>" class="img-fluid">
                                         </a>
                                         <div class="team-content">
@@ -173,17 +173,16 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							}
 						}
 						?>
-                </div><!-- end Row-->
+                </div>
+                <!-- end Row-->
 
             </div>
         </div>
 
     </div>
     <!-- js-->
-    <script src="js/jquery-2.2.3.min.js"></script>
-    <!-- js-->
-    <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
-    <!-- //Bootstrap Core JavaScript -->
+    <script src="<?= URL?>js/jquery-2.2.3.min.js"></script>
+    <script src="<?= URL?>plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
 </body>
 
 </html>

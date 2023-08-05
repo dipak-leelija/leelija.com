@@ -1,22 +1,20 @@
 <?php
 session_start();
-require_once "_config/dbconnect.php";
+require_once dirname(__DIR__)."/includes/constant.inc.php";
 
-require_once "classes/encrypt.inc.php";
-require_once "includes/constant.inc.php";
+require_once ROOT_DIR."_config/dbconnect.php";
+require_once ROOT_DIR."classes/encrypt.inc.php";
 
-require_once "classes/date.class.php";
-require_once "classes/error.class.php";
-require_once "classes/search.class.php";
-require_once "classes/customer.class.php";
-require_once "classes/login.class.php";
-require_once "classes/domain.class.php";
-require_once "classes/blog_mst.class.php";
-
-//require_once("../classes/front_photo.class.php");
-require_once "classes/order.class.php";
-require_once "classes/orderStatus.class.php";
-require_once "classes/utility.class.php";
+require_once ROOT_DIR."classes/date.class.php";
+require_once ROOT_DIR."classes/error.class.php";
+require_once ROOT_DIR."classes/search.class.php";
+require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/login.class.php";
+require_once ROOT_DIR."classes/domain.class.php";
+require_once ROOT_DIR."classes/blog_mst.class.php";
+require_once ROOT_DIR."classes/order.class.php";
+require_once ROOT_DIR."classes/orderStatus.class.php";
+require_once ROOT_DIR."classes/utility.class.php";
 
 
 /* INSTANTIATING CLASSES */
@@ -68,7 +66,7 @@ $prodId =  url_dec($_GET['pdata']) ;
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
-    <link href="plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <!-- <link href="plugins/fontawesome-6.1.1/css/all.css" rel='stylesheet' type='text/css' />
     <link href="plugins/fontawesome-6.1.1/icons-all.css" rel='stylesheet' type='text/css' />
     <link href="plugins/fontawesome-6.1.1/icons-sharp.css" rel='stylesheet' type='text/css' /> -->
@@ -76,11 +74,11 @@ $prodId =  url_dec($_GET['pdata']) ;
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/sharp-solid.css">
 
     <!-- Custom CSS -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="css/leelija.css">
-    <link href="css/order-list.css" rel='stylesheet' type='text/css' />
-    <link href="css/my-orders.css" rel='stylesheet' type='text/css' />
-    <link href="css/dashboard.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/leelija.css" rel="stylesheet">
+    <link href="<?= URL ?>css/order-list.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/my-orders.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/dashboard.css" rel='stylesheet' type='text/css' />
 
     <!-- //Custom Theme files -->
     <!--webfonts-->
@@ -149,10 +147,10 @@ $prodId =  url_dec($_GET['pdata']) ;
     </style>
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body>
     <div id="home">
         <!-- header -->
-        <?php require_once 'partials/navbar.php'; ?>
+        <?php require_once ROOT_DIR.'partials/navbar.php'; ?>
         <!-- //header -->
         <!-- banner -->
         <div class="edit_profile">
@@ -162,7 +160,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                         <!--Row start-->
                         <div class="col-md-3 hidden-xs display-table-cell v-align" id="navigation">
                             <div class="client_profile_dashboard_left">
-                                <?php include("dashboard-inc.php");?>
+                                <?php include ROOT_DIR."partials/dashboard-inc.php";?>
                             </div>
                         </div>
                         <div class="col-md-9  display-table-cell v-align client_profile_dashboard_right">
@@ -315,7 +313,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                                         <div class="col-md-4">
                                             <div class="product_image_sec_right">
                                                 <img class="product_image"
-                                                    src="images/domains/<?php echo $OrdrdProduct[10]?>" alt="">
+                                                    src="<?= URL ?>images/domains/<?php echo $OrdrdProduct[10]?>" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -710,76 +708,6 @@ $prodId =  url_dec($_GET['pdata']) ;
                             </section>
                             <!-- Products Order End -->
 
-
-                            <!-- Faq Section Start  -->
-                            <h1>Faq</h1>
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                            Accordion Item #1
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse"
-                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <strong>This is the first item's accordion body.</strong> It is shown by
-                                            default, until the collapse plugin adds the appropriate classes that we use
-                                            to style each element. These classes control the overall appearance, as well
-                                            as the showing and hiding via CSS transitions. You can modify any of this
-                                            with custom CSS or overriding our default variables. It's also worth noting
-                                            that just about any HTML can go within the <code>.accordion-body</code>,
-                                            though the transition does limit overflow.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                            aria-expanded="false" aria-controls="collapseTwo">
-                                            Accordion Item #2
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <strong>This is the second item's accordion body.</strong> It is hidden by
-                                            default, until the collapse plugin adds the appropriate classes that we use
-                                            to style each element. These classes control the overall appearance, as well
-                                            as the showing and hiding via CSS transitions. You can modify any of this
-                                            with custom CSS or overriding our default variables. It's also worth noting
-                                            that just about any HTML can go within the <code>.accordion-body</code>,
-                                            though the transition does limit overflow.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                            aria-expanded="false" aria-controls="collapseThree">
-                                            Accordion Item #3
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse"
-                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <strong>This is the third item's accordion body.</strong> It is hidden by
-                                            default, until the collapse plugin adds the appropriate classes that we use
-                                            to style each element. These classes control the overall appearance, as well
-                                            as the showing and hiding via CSS transitions. You can modify any of this
-                                            with custom CSS or overriding our default variables. It's also worth noting
-                                            that just about any HTML can go within the <code>.accordion-body</code>,
-                                            though the transition does limit overflow.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Faq Section End  -->
-
                         </div>
 
                     </div>
@@ -820,7 +748,7 @@ $prodId =  url_dec($_GET['pdata']) ;
         <div class="toast-container position-fixed top-0 end-0 p-3">
             <div id="tost" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
-                    <img src="images/icons/tick.png" class="rounded me-2" alt="...">
+                    <img src="<?= URL ?>images/icons/tick.png" class="rounded me-2" alt="...">
                     <strong id="toast-heading" class="me-auto">Text Copied!</strong>
                     <small id="toast-time" class="text-muted toast-time">just now</small>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -1111,11 +1039,11 @@ $prodId =  url_dec($_GET['pdata']) ;
 
         }
         </script>
-        <script src="plugins/bootstrap-5.2.0/js/bootstrap.bundle.js"></script>
-        <script src="plugins/sweetalert/sweetalert2.all.js"></script>
-        <script src="plugins/jquery-3.6.0.min.js"></script>
+        <script src="<?= URL ?>plugins/bootstrap-5.2.0/js/bootstrap.bundle.js"></script>
+        <script src="<?= URL ?>plugins/sweetalert/sweetalert2.all.js"></script>
+        <script src="<?= URL ?>plugins/jquery-3.6.0.min.js"></script>
         <!-- Switch Customer Type -->
-        <script src="js/customerSwitchMode.js"></script>
+        <script src="<?= URL ?>js/customerSwitchMode.js"></script>
 
         <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
