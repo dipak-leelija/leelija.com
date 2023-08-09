@@ -1,8 +1,8 @@
 <?php 
 session_start(); 
-require_once("_config/dbconnect.php");
-
 require_once("includes/constant.inc.php");
+
+require_once("_config/dbconnect.php");
 require_once("classes/date.class.php");  
 require_once("classes/error.class.php"); 
 require_once("classes/search.class.php");	
@@ -137,7 +137,7 @@ if(isset($_POST['btnSubmit'])){
             $ordProdIds = array();
             foreach ($_SESSION["domain"] as $cart_itm){
 
-                $domainDtl		= $domain->showDomains($cart_itm['code']);
+                $domainDtl		= $domain->showDomainsById($cart_itm['code']);
                 $ordProdIds[]	= $checkout->addOrdProd($ordId, 'domain', $domainDtl[19], '', $domainDtl[0], $domainDtl[17], $domainDtl[17], 0.0, 1);
                 $totalAmt		= $totalAmt + $domainDtl[17];
             }
@@ -292,10 +292,10 @@ if(isset($_POST['btnSubmit'])){
                                     <?php 
 										if(isset($_SESSION['userid'])){
 											//$utility->genDropDown($_SESSION['txtCountriesId'], $arr_val, $arr_label);
-											$utility->populateDropDown($cusDtl[24], 'countries_id', 'countries_name', 'countries');
+											$utility->populateDropDown($cusDtl[0][24], 'id', 'country_name', 'countries');
 										}else{
 											//$utility->genDropDown(0, $arr_val, $arr_label);
-											$utility->populateDropDown(0, 'countries_id', 'countries_name', 'countries');
+											$utility->populateDropDown(0, 'id', 'country_name', 'countries');
 										}
 										?>
                                 </select>
@@ -351,7 +351,7 @@ if(isset($_POST['btnSubmit'])){
 										//echo '<ol>';
 									foreach ($_SESSION["domain"] as $cart_itm)
 									{
-										$domainDtl		= $domain->showDomains($cart_itm['code']);
+										$domainDtl		= $domain->showDomainsById($cart_itm['code']);
 										$subtotal 		= $cart_itm["qty"];
 										$total 			= ($total + $subtotal);
 										$nicheDtls	 	= $blogMst->showBlogNichMst($domainDtl[1]);
@@ -491,10 +491,6 @@ if(isset($_POST['btnSubmit'])){
 
         </div>
 
-
-        <!-- Footer -->
-        <?php require_once "partials/footer.php"; ?>
-        <!-- /Footer -->
     </div>
     <!-- js-->
     <script src="js/jquery-2.2.3.min.js"></script>

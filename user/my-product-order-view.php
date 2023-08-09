@@ -1,24 +1,17 @@
 <?php
 session_start();
-//var_dump($_SESSION);
-//include_once('checkSession.php');
-require_once "_config/dbconnect.php";
-require_once "_config/dbconnect.trait.php";
-
-require_once "includes/constant.inc.php";
-require_once "classes/encrypt.inc.php";
-// require_once "classes/date.class.php";
-require_once "classes/error.class.php";
-require_once "classes/search.class.php";
-require_once "classes/customer.class.php";
-require_once "classes/login.class.php";
-require_once "classes/domain.class.php";
-require_once "classes/blog_mst.class.php";
-
-//require_once("../classes/front_photo.class.php");
-require_once "classes/order.class.php";
-require_once "classes/orderStatus.class.php";
-require_once "classes/utility.class.php";
+require_once dirname(__DIR__)."/includes/constant.inc.php";
+require_once ROOT_DIR."_config/dbconnect.php";
+require_once ROOT_DIR."classes/encrypt.inc.php";
+require_once ROOT_DIR."classes/error.class.php";
+require_once ROOT_DIR."classes/search.class.php";
+require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/login.class.php";
+require_once ROOT_DIR."classes/domain.class.php";
+require_once ROOT_DIR."classes/blog_mst.class.php";
+require_once ROOT_DIR."classes/order.class.php";
+require_once ROOT_DIR."classes/orderStatus.class.php";
+require_once ROOT_DIR."classes/utility.class.php";
 
 
 /* INSTANTIATING CLASSES */
@@ -46,7 +39,7 @@ if($cusId == 0){
 }
 
 if($cusDtl[0][0] == 2){
-    header("Location: dashboard.php");
+    header("Location: ".SELLER_AREA);
 }
 
 // print_r($_REQUEST);exit;
@@ -73,17 +66,17 @@ $prodId =  url_dec($_GET['pdata']) ;
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
-    <link href="plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>plugins/bootstrap-5.2.0/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <!-- <link href="plugins/fontawesome-6.1.1/css/all.css" rel='stylesheet' type='text/css' /> -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/sharp-solid.css">
 
     <!-- Custom CSS -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="css/leelija.css">
-    <link href="css/order-list.css" rel='stylesheet' type='text/css' />
-    <link href="css/my-orders.css" rel='stylesheet' type='text/css' />
-    <link href="css/dashboard.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/leelija.css" rel="stylesheet">
+    <link href="<?= URL ?>css/order-list.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/my-orders.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/dashboard.css" rel='stylesheet' type='text/css' />
 
     <!-- //Custom Theme files -->
     <!--webfonts-->
@@ -224,7 +217,7 @@ $prodId =  url_dec($_GET['pdata']) ;
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <div id="home">
         <!-- header -->
-        <?php require_once 'partials/navbar.php'; ?>
+        <?php require_once ROOT_DIR.'partials/navbar.php'; ?>
         <!-- //header -->
         <!-- banner -->
         <div class="edit_profile">
@@ -234,7 +227,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                         <!--Row start-->
                         <div class="col-md-3 hidden-xs display-table-cell v-align" id="navigation">
                             <div class="client_profile_dashboard_left">
-                                <?php include("dashboard-inc.php");?>
+                                <?php include ROOT_DIR."partials/dashboard-inc.php";?>
                             </div>
                         </div>
                         <div class="col-md-9  display-table-cell v-align client_profile_dashboard_right">
@@ -394,7 +387,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                                         <div class="col-md-4">
                                             <div class="product_image_sec_right">
                                                 <img class="product_image"
-                                                    src="images/domains/<?php echo $OrdrdProduct[10]?>" alt="">
+                                                    src="<?= URL ?>images/domains/<?php echo $OrdrdProduct[10]?>" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -656,10 +649,6 @@ $prodId =  url_dec($_GET['pdata']) ;
 
                 </div>
                 <!-- //end display table-->
-
-                <!-- Footer -->
-                <?php require_once 'partials/footer.php'; ?>
-                <!-- /Footer -->
             </div>
         </div>
 
@@ -669,7 +658,7 @@ $prodId =  url_dec($_GET['pdata']) ;
         <div class="toast-container position-fixed top-0 end-0 p-3">
             <div id="tost" class="toast text-bg-primary " role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
-                    <img src="images/icons/tick.png" class="rounded me-2" alt="...">
+                    <img src="<?= URL ?>images/icons/tick.png" class="rounded me-2" alt="...">
                     <strong id="toast-heading" class="me-auto">Text Copied!</strong>
                     <small id="toast-time" class="text-muted toast-time">just now</small>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -683,7 +672,7 @@ $prodId =  url_dec($_GET['pdata']) ;
 
 
         <!-- js-->
-        <script src="js/jquery-2.2.3.min.js"></script>
+        <script src="<?= URL ?>js/jquery-2.2.3.min.js"></script>
         <script>
         $(document).ready(function() {
             $('[data-toggle="offcanvas"]').click(function() {
@@ -693,12 +682,12 @@ $prodId =  url_dec($_GET['pdata']) ;
         </script>
 
         <!-- Banner text Responsiveslides -->
-        <script src="js/responsiveslides.min.js"></script>
+        <script src="<?= URL ?>js/responsiveslides.min.js"></script>
 
         <!-- start-smooth-scrolling -->
-        <script src="js/move-top.js"></script>
-        <script src="js/easing.js"></script>
-        <script src="js/script.js"></script>
+        <script src="<?= URL ?>js/move-top.js"></script>
+        <script src="<?= URL ?>js/easing.js"></script>
+        <script src="<?= URL ?>js/script.js"></script>
 
         <script>
         const selfIntegrate = () => {
@@ -783,11 +772,11 @@ $prodId =  url_dec($_GET['pdata']) ;
         }
         </script>
         <!-- Bootstrap Core JavaScript -->
-        <!-- <script src="js/bootstrap.js"></script> -->
-        <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
-        <script src="plugins/sweetalert/sweetalert2.all.js"></script>
+        <!-- <script src="<?= URL ?>js/bootstrap.js"></script> -->
+        <script src="<?= URL ?>plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
+        <script src="<?= URL ?>plugins/sweetalert/sweetalert2.all.js"></script>
         <!-- Switch Customer Type -->
-        <script src="js/customerSwitchMode.js"></script>
+        <script src="<?= URL ?>js/customerSwitchMode.js"></script>
 </body>
 
 </html>

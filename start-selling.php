@@ -1,15 +1,9 @@
-<!--
-Author: Safikul Islam
-Author URL: http://webtechhelp.org
--->
+
 <?php
 session_start();
-//include_once('checkSession.php');
-// require_once("_config/connect.php");
-require_once("_config/dbconnect.php");
-require_once "_config/dbconnect.trait.php";
-
 require_once("includes/constant.inc.php");
+require_once("_config/dbconnect.php");
+
 require_once("classes/date.class.php");
 require_once("classes/error.class.php");
 require_once("classes/search.class.php");
@@ -84,7 +78,7 @@ Ready website for business, High Quality website sales, High quality blogs sales
                 <?php
 					}else{
 				?>
-                <a href="dashboard.php" class="text-capitalize serv_link btn my-sm-5 my-3 become-a-seller-btn">Become a
+                <a href="<?= SELLER_AREA ?>" class="text-capitalize serv_link btn my-sm-5 my-3 become-a-seller-btn">Become a
                     Seller</a>
                 <?php
 				}

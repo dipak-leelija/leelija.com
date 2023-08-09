@@ -1,16 +1,8 @@
-<!--
-Author: Safikul Islam
-Author URL: https://webtechhelp.org
--->
 <?php
 session_start();
-
-//include_once('checkSession.php');
-// require_once("_config/connect.php");
-require_once("_config/dbconnect.php");
-require_once "_config/dbconnect.trait.php";
-
 require_once("includes/constant.inc.php");
+require_once "_config/dbconnect.php";
+
 require_once("classes/date.class.php");
 require_once("classes/error.class.php");
 require_once("classes/search.class.php");
@@ -56,20 +48,12 @@ $cusId		= $utility->returnSess('userid', 0);
 
 
 
-if(isset($_GET['seo_url']))
-{
+if(isset($_GET['seo_url'])){
 $seo_url			  		= $_GET['seo_url'];
 // $return_url 	= base64_decode($_GET["return_url"]); //get return url
 }
 //$serviceDtl		= $service->showServicesSeoUrlWise($seo_url);
 //$servFeatDtls	= $service->ShowServcFrdDtls($serviceDtl[0]);
-?>
-<?php
-/*
-define('WP_USE_THEMES', false);
-require('blog/wp-load.php');
-query_posts('showposts=3');
-*/
 ?>
 <!DOCTYPE HTML>
 <html lang="zxx">

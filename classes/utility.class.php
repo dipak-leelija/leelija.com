@@ -1,37 +1,4 @@
 <?php 
-// include_once "_config/dbconnect.php";
-/**
-*	This is a generic utility class, offer seamless integration with many other application
-*	wherever required. 	
-*
-*	UPDATE July 05, 2012:
-*	Page forwarding function has been added to the system. If user wants to view a content 
-*	either from back office or from user control panel. For example, the user has created a 
-*	package and he wants to view the package, like how it will look like once it goes live.
-*	The forwarding page can be either content.php or static.php or any other php page, that will
-*	display live view of the content.
-*
-*	UPDATE November 14, 2011:
-*	Added new functions to display images and get the spect ratio of image
-*
-*	UPDATE December 06, 2009:
-*	In the new update image handling files have moved to ImageUtility class
-*
-*	UPDATE December 26, 2009
-*	Style based on divisional conditions can be achieved that is useful to display images and
-*	products. The function is made such that user will input data in runtime.	
-*
-*	@author		Leelija Web Solutions
-*	@date		November 26, 2006
-*	@update		December 26, 2009
-*	@version	3.0
-*	@copyright	Analyze System
-*	@url		http://www.ansysoft.com
-*	@email		himadri.s.roy@ansysoft.com
-* 
-*/
-
-
 class Utility extends DatabaseConnection{
 
    ##########################################################################################
@@ -53,7 +20,7 @@ class Utility extends DatabaseConnection{
 		   $key .= $pattern[rand(0,35)];
 		}
     return $key;
-   }//eof
+   }//
    
    /**	
 	*	Generating the random key without zero and O' as this might cerate confusion
@@ -141,14 +108,53 @@ class Utility extends DatabaseConnection{
 	*
 	*	@return string
 	*/
-	function fileUpload($fileName, $fileIndex ,$path, $id, $column_file, $column_id, $table)
-	{
+	// function fileUpload($fileName, $fileIndex ,$path, $id, $column_file, $column_id, $table)
+	// {
+	// 	/*GENERATING UNIQUE NAME*/
+	// 	$timestamp = time();
+	// 	$randNum = $this->randomkeys(8);
+		
+	// 	if(isset($fileName['name']))
+	// 	{
+	// 		$file = explode('.',$fileName['name']);
+	// 		$file_name = $file[0];
+			
+	// 		//count the number of element in array
+	// 		$num = (int)count($file);
+			
+	// 		//Getting the file extentions, applicable when the user put 2 or 3 dots before 
+	// 		//the extension like 1.jpg.jpg
+	// 		$file_extension = $file[$num - 1];
+			
+	// 		//replace the file name with teh unique name
+	// 		$newName = $fileIndex."_".$timestamp."_".$randNum.".".$file_extension;
+			
+	// 		if (move_uploaded_file($fileName['tmp_name'], $path.$newName)) 
+	// 		{
+	// 			$msg = "File is valid, and was successfully uploaded. ";
+	// 		}
+			
+	// 		$update = "UPDATE ".$table." SET ".$column_file."='$newName' WHERE ".$column_id."='$id' ";
+	// 		$query  = mysql_query($update);
+			
+	// 		if(!$query)
+	// 		{
+	// 			return mysql_error();
+	// 		}
+	// 		else
+	// 		{
+	// 			return $fileName['tmp_name']." ".$path.$newName;
+	// 		} 
+	// 	}
+		
+	// }//eof
+	function fileUploadWithRename($fileName, $path){
+
 		/*GENERATING UNIQUE NAME*/
-		$timestamp = time();
 		$randNum = $this->randomkeys(8);
 		
-		if(isset($fileName['name']))
-		{
+		if(isset($fileName['name'])){
+
 			$file = explode('.',$fileName['name']);
 			$file_name = $file[0];
 			
@@ -160,27 +166,18 @@ class Utility extends DatabaseConnection{
 			$file_extension = $file[$num - 1];
 			
 			//replace the file name with teh unique name
-			$newName = $fileIndex."_".$timestamp."_".$randNum.".".$file_extension;
+			$newName = $file_name."-".$randNum.".".$file_extension;
 			
-			if (move_uploaded_file($fileName['tmp_name'], $path.$newName)) 
-			{
-				$msg = "File is valid, and was successfully uploaded. ";
-			}
-			
-			$update = "UPDATE ".$table." SET ".$column_file."='$newName' WHERE ".$column_id."='$id' ";
-			$query  = mysql_query($update);
-			
-			if(!$query)
-			{
-				return mysql_error();
-			}
-			else
-			{
-				return $fileName['tmp_name']." ".$path.$newName;
+			if (move_uploaded_file($fileName['tmp_name'], $path.$newName)) {
+				return $path.$newName;
+			}else {
+				return false;
 			} 
 		}
 		
 	}//eof
+
+	
 	
 	/**
 	*	Upload a file in the server. Before uploading it rename the file. This is advanced
@@ -302,19 +299,21 @@ class Utility extends DatabaseConnection{
 	*
 	*	@return NULL
 	*/
-	function deleteFile($id, $column_id ,$path, $column_file, $table)
-	{
+	function deleteFile($id, $column_id ,$path, $column_file, $table){
+
 		//get the file name before deleting
 		$select = "SELECT ".$column_file." FROM ".$table." WHERE ".$column_id."='".$id."'";
 		
 		$query  = $this->conn->query($select);
 		
-		$result = $queryfetch_array($query);
+		$result = $query->fetch_array();
 		
-		if($query->num_rows > 0)
-		{
+		if($query->num_rows > 0){
+
 			$fileName = $result[$column_file];
-			@unlink($path.$fileName); 
+			if ($fileName != null) {
+				unlink($path.$fileName); 
+			}
 		}
 		
 		//set the column value
@@ -324,6 +323,78 @@ class Utility extends DatabaseConnection{
 		//echo $select." <br />".$sql;exit;
 	}//eof
 	
+
+
+	function read_file_docx($filename){
+
+		$striped_content = '';
+		$content = '';
+	
+		if(!$filename || !file_exists($filename)) return false;
+	
+		$zip = zip_open($filename);
+	
+		if (!$zip || is_numeric($zip)) return false;
+	
+		while ($zip_entry = zip_read($zip)) {
+	
+			if (zip_entry_open($zip, $zip_entry) == FALSE) continue;
+	
+			if (zip_entry_name($zip_entry) != "word/document.xml") continue;
+	
+			$content .= zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
+	
+			zip_entry_close($zip_entry);
+		}// end while
+	
+		zip_close($zip);
+	
+		//echo $content;
+		//echo "<hr>";
+		//file_put_contents('1.xml', $content);
+	
+		$content = str_replace('</w:r></w:p></w:tc><w:tc>', " ", $content);
+		$content = str_replace('</w:r></w:p>', "\r\n", $content);
+		$striped_content = strip_tags($content);
+	
+		return $striped_content;
+	}
+	
+
+
+	function read_doc_file($filename) {
+		if(file_exists($filename))
+	   {
+		   if(($fh = fopen($filename, 'r')) !== false ) 
+		   {
+			  $headers = fread($fh, 0xA00);
+   
+			  // 1 = (ord(n)*1) ; Document has from 0 to 255 characters
+			  $n1 = ( ord($headers[0x21C]) - 1 );
+   
+			  // 1 = ((ord(n)-8)*256) ; Document has from 256 to 63743 characters
+			  $n2 = ( ( ord($headers[0x21D]) - 8 ) * 256 );
+   
+			  // 1 = ((ord(n)*256)*256) ; Document has from 63744 to 16775423 characters
+			  $n3 = ( ( ord($headers[0x21E]) * 256 ) * 256 );
+   
+			  // 1 = (((ord(n)*256)*256)*256) ; Document has from 16775424 to 4294965504 characters
+			  $n4 = ( ( ( ord($headers[0x21F]) * 256 ) * 256 ) * 256 );
+   
+			  // Total length of text in the document
+			  $textLength = ($n1 + $n2 + $n3 + $n4);
+   
+			  $extracted_plaintext = fread($fh, $textLength);
+   
+			  // simple print character stream without new lines
+			  //echo $extracted_plaintext;
+   
+			  // if you want to see your paragraphs in a new line, do this
+			  return nl2br($extracted_plaintext);
+			  // need more spacing after each paragraph use another nl2br
+		   }
+	   }   
+	   }
 	
 	/**
 	*	This function will allow user to download a file with file name, located in different
@@ -344,30 +415,43 @@ class Utility extends DatabaseConnection{
 	{
 		$sql	= "SELECT ".$fileCol." FROM ".$table." WHERE ".$keyCol." = '".$keyId."'";
 		
-		$query	= mysql_query($sql);
+		$query	= $this->conn->query($sql);
 		
-		if(mysql_num_rows($query) > 0)
-		{
-			$result		= mysql_fetch_array($query);
+		if($query->num_rows > 0){
+
+			$result		= $query->fetch_array();
 			$fileVal	= $result[$fileCol];
 			
-			if(file_exists($path.$fileVal))
-			{
-				header("Content-Disposition: attachment; filename=$fileVal");
-				header("Content-Length: " . filesize($path.$fileVal));
-				header("Content-Type: " . filetype($path.$fileVal));
-				readfile($path.$fileVal);
-				echo "<javascript>
-					  document.write('Please wait, while download is in process.');
-					  
-					  document.write('Closing window.');
-					  this.window.close();
-					  </javascript>";
-					  //
-
+			if ($path == '') {
+				$path = $fileVal;
+			}else {
+				$path = $path.$fileVal;
 			}
-			else
-			{
+
+			ob_clean();
+			if(file_exists($path)){
+
+				// header("Content-Disposition: attachment; filename=". basename($fileVal));
+				// header("Content-Length: " . filesize($path));
+				// header("Content-Type: " . filetype($path));
+				
+				header($_SERVER["SERVER_PROTOCOL"] . " 200 OK");
+				header("Cache-Control: public"); // needed for internet explorer
+				header('Content-type: application/vnd.openxmlformats- officedocument.wordprocessingml.document');
+				header("Content-Transfer-Encoding: Binary");
+				header("Content-Length:".filesize($path));
+				header("Content-Disposition: attachment; filename=" .  basename($fileVal));
+				readfile($path);
+				die();        
+
+				// readfile($path);
+				echo "<javascript>
+						document.write('Please wait, while download is in process.'); 
+						document.write('Closing window.');
+						this.window.close();
+					  </javascript>";
+			}else{
+				
 				echo "<javascript>document.write('No file found. Closing window.');
 					  this.window.close();</javascript>";
 			}
@@ -790,30 +874,7 @@ class Utility extends DatabaseConnection{
 		return $format;
 	}//END OF FORMATTING CURRENCY
 	
-	/**
-	*	Update counter, useful when wants to update the no. of visit by 1
-	*	@return NULL
-	*/
-	function updateCounter($id, $key_column ,$update_column, $table)
-	{
-		$update	= "UPDATE ".$table." SET ".$update_column." = ".$update_column." + 1 WHERE ".$key_column."= ".$id."";
-		$query = mysql_query($update);
-		
-	}//end of update counter
-	
-	/**
-	*	Update counter, useful when wants to update the no. of visit by 1
-	*	@return NULL
-	*/
-	function getCounter($id, $key_column ,$counter_column, $table)
-	{
-		$sql	= "SELECT  ".$counter_column." FROM ".$table." WHERE ".$key_column."= ".$id."";
-		$query 	= mysql_query($sql);
-		$result	= mysql_fetch_array($query);
-		$data	= $result[$counter_column];
-		return $data;
-	}//end of get counter
-	
+
 	/**
 	*	Generate randon x coordinate
 	*	@return int
@@ -988,28 +1049,6 @@ class Utility extends DatabaseConnection{
 	}//eof
 
 
-	//////////////////////////////////////////////////////////////////////////////////////
-	//
-	//							Session + Get + Post + Form Fields and Variables
-	//
-	///////////////////////////////////////////////////////////////////////////////////////
-	
-	/**
-	*	Add to session
-	*	
-	*	@param
-	*			$sessArr	Session name
-	*
-	*	@return NULL
-	*/
-	function addToSession($sessArr)
-	{
-		foreach($sessArr as $k)
-		{
-			$_SESSION[$k] = $k;
-		}
-	}//eof
-	
 	/**
 	*	Show the selected value in a dropdown menu
 	*
@@ -1051,138 +1090,6 @@ class Utility extends DatabaseConnection{
 			$check	= '';
 		}
 		return $check;
-	}//eof
-	
-	/**
-	*	Check the radio or check box if the session variable is there
-	*
-	*	@param
-	*			$name		The current name
-	*			$value		The has to select
-	*			$alt		Alternate text or default value
-	*
-	*	@return string
-	*/
-	function checkSessStr($name,$value, $alt)
-	{
-		$str 	= '';
-		
-		if(isset($_SESSION[$name]))
-		{
-			if($_SESSION[$name] == $value)
-			{
-				$str 	= 'checked';
-			}
-			else
-			{
-				$str 	= $alt;
-			}
-		}
-		else
-		{
-			$str 	= $alt;
-		}
-		
-		//return
-		return $str;
-		
-	}//eof
-	
-	/**
-	*	Check the radio or check box if the session variable is there
-	*
-	*	@param
-	*			$valArr		The current name
-	*			$value		The has to select
-	*			$alt		Alternate text or default value
-	*
-	*	@return string
-	*/
-	function checkSessStr2($valArr,$value, $alt)
-	{
-		$str 	= '';
-		if(in_array($value, $valArr))
-		{
-			$str 	= 'checked';
-		}
-		else
-		{
-			$str 	= $alt;
-		}
-		
-		//return
-		return $str;
-		
-	}//eof
-	
-
-	/**
-	*	This function simply print session variables
-	*	
-	*	@param
-	*			$var		Value associated with the the session variable
-	*
-	*	@return NULL
-	*/
-	function printSess($var)
-	{
-		if(isset($_SESSION[$var]))
-		{
-			echo $_SESSION[$var];
-		}
-	}//eof
-	
-	/**
-	*	This function is a modified version of previous function. It will 
-	*	find for a default value as well.
-	*	
-	*	@param
-	*			$var		Value associated with the the session variable
-	*			$default	Default value to be printed if the session is not registered
-	*
-	*	@return NULL
-	*/
-	function printSess2($var, $default)
-	{
-		if(isset($_SESSION[$var]))
-		{
-			echo $_SESSION[$var];
-		}
-		else
-		{
-			echo $default;
-		}
-	}//eof
-	
-	
-	/**
-	*	This function is a modified version of previous function. It will return the session
-	*	value if registered else will return a default value
-	*	
-	*	@param
-	*			$var		Value associated with the the session variable
-	*			$default	Default value to be printed if the session is not registered
-	*
-	*	@return NULL
-	*/
-	function returnSess($var, $default)
-	{
-		// echo $var, $default;
-		// exit;
-		$sessVal	= '';
-		if(isset($_SESSION[$var])){
-			// echo "here 1"; exit;
-			// echo $_SESSION[$var]; exit;
-			$sessVal  =  $_SESSION[$var];
-		}else{
-			// echo "here 2"; exit;
-			$sessVal  =  $default;
-		}
-		
-		//return the value
-		// echo $sessVal;exit;
-		return $sessVal;
-		
 	}//eof
 	
 	
@@ -1405,35 +1312,6 @@ class Utility extends DatabaseConnection{
 		}
 	}//eof
 	
-	/**
-	*	Delete session if exist.
-	*/
-	function delSession($sess)
-	{
-		if(isset($_SESSION[$sess]))
-		{
-			$_SESSION[$sess] = '';
-			unset($_SESSION[$sess]);
-		}
-	}//eof
-	
-	
-	/**
-	*	Delete session are in array
-	*
-	*	@param
-	*			$sess_arr	Session Array
-	*
-	*	@return	null
-	*/
-	function delSessArr($sess_arr)
-	{
-		foreach($sess_arr as $k)
-		{
-			$this->delSession($k);
-		}
-	}//eof
-	
 	
 	/**
 	*	Generate array of fields
@@ -1617,7 +1495,7 @@ class Utility extends DatabaseConnection{
 	function deleteRecord($id, $column, $table)
 	{
 		$sql	= "DELETE FROM ".$table." WHERE ".$column."='$id'";
-		$query	= mysql_query($sql);
+		$query	= $this->conn->query($sql);
 		
 		$result = '';
 		if(!$query)
@@ -2009,8 +1887,8 @@ class Utility extends DatabaseConnection{
 	*			
 	*/
 	 
-	function imageDisplay2($dir, $name, $displayHeight, $displayWidth, $border, $class, $alt)
-	{
+	function imageDisplay2($dir, $name, $displayHeight, $displayWidth, $border, $class, $alt){
+
 		$imageSize  = getimagesize( $dir . $name );
 		$width		= $imageSize[0];
 		$height		= $imageSize[1];
@@ -2020,57 +1898,50 @@ class Utility extends DatabaseConnection{
 		$ratio		= 1;
 		
 		//find which has the higher value
-		if(($width <= $displayWidth) && ($height <= $displayHeight))
-		{
+		if(($width <= $displayWidth) && ($height <= $displayHeight)){
+
 			$newWidth 	= $width;
 			$newHeight 	= $height;
-		}
-		elseif(($width > $displayWidth) || ($height > $displayHeight))
-		{
+		}elseif(($width > $displayWidth) || ($height > $displayHeight)){
+
 			$ratio	= ($width/$height);
 			
-			if($ratio > 1)
-			{
+			if($ratio > 1){
+
 				$newWidth  = $displayWidth;
 				$newHeight = (int)(($height/$width) * $newWidth);
 				
-				if($newHeight > $displayHeight)
-				{
+				if($newHeight > $displayHeight){
 					$newHeight = $displayHeight;
 				}
-			}
-			elseif($ratio < 1)
-			{
+			}elseif($ratio < 1){
+
 				$newHeight  = $displayHeight;
 				$newWidth 	= (int)(($width/$height) * $newHeight);
 				
 				
-				if($newWidth > $displayWidth)
-				{
+				if($newWidth > $displayWidth){
 					$newWidth = $displayWidth;
 				}
-			}
-			else
-			{
+			}else{
+
 				$newHeight 	= $displayHeight;
 				$newWidth 	= $displayWidth;
 			}
-		}
-		else
-		{
+		}else{
+
 			$newHeight 	= $displayHeight;
 			$newWidth 	= $displayWidth;
 		}
 		//echo "image display".$height." ".$width." ".$displayHeight." ".$displayWidth.$dir.$name;
 		//echo '<img src="'.$dir.$name.'">';exit;
 		$jsFunction		= 'fadeInfoBlock()';
-		if($name == 'close-button.png')
-		{
+		if($name == 'close-button.png'){
+
 			$data = "<img src='".$dir.$name."' height='".$newHeight."' width='".$newWidth."' 
 				border='".$border."' class='".$class."' alt='".$alt."' onclick='".$jsFunction."' />";
-		}
-		else
-		{
+		}else{
+
 			$data = "<img src='".$dir.$name."' height='".$newHeight."' width='".$newWidth."' 
 				border='".$border."' class='".$class."' alt='".$alt."' />";
 		}
@@ -2112,18 +1983,15 @@ class Utility extends DatabaseConnection{
 	*	Return image mesg. A new version of the function imgDisplay. R at the name of the function
 	*	refered to Return.
 	*/
-	function imgDisplayR($dir, $name, $displayWidth, $displayHeight, $border, $class, $alt, $str)
-	{	
+	function imgDisplayR($dir, $name, $displayWidth, $displayHeight, $border, $class, $alt, $str){
+
 		$data	= '';
 		//echo $dir .  $name;exit;
-		if(($name != ''))
-		{				
+		if(($name != '')){				
 			
 			$data = $this->imageDisplay2($dir, $name, $displayHeight, $displayWidth, $border, $class, $alt);
 		
-		}
-		else
-		{
+		}else{
 			
 			$data =  "<span class='orangeLetter'>".$str."</span>";
 		}
@@ -2296,23 +2164,25 @@ class Utility extends DatabaseConnection{
 	}//eof
 	
 	/**
-	*	This function update the status of a id associated with a table. 
-	*	Useful when you want to change the status of any ads.
+	*	This function update the value of a id associated with a table. 
+	*	Useful when you want to change the status/single value of any table.
 	*
 	*	@param
 	*			$key_val	Primary key value
 	*			$key_col	Primary key column name
-	*			$stat_col	Status column name
-	*			$status		Status value of the column
+	*			$set_col	column name
+	*			$col_val	value of the column
 	*			$table		Table name
 	*
 	*	@return NULL
 	*/
-	function updStatus($key_val, $key_col, $status, $stat_col, $table)
-	{
-		$sql	= "UPDATE ".$table." SET ".$stat_col."='".$status."' WHERE ".$key_col." = ".$key_val."";
-		$query	= mysql_query($sql);
-		//echo $sql.mysql_error();exit;
+	function updSingleData($key_val, $key_col, $col_val, $set_col, $table){
+
+		$col_val	= addslashes(trim($col_val));
+		$sql	= "UPDATE {$table} SET {$set_col} ='{$col_val}' WHERE {$key_col}  = {$key_val}";
+		$query	= $this->conn->query($sql);
+	
+		return $query; 
 		
 	}//eof
 	
@@ -2872,22 +2742,19 @@ class Utility extends DatabaseConnection{
 		$query		= $this->conn->query($select);
 		$rows 		= $query->num_rows;
 		
-		if($rows > 0)
-		{
-			while($result	= 	$query->fetch_array())
-			{
+		if($rows > 0){
+
+			while($result	= 	$query->fetch_array()){
+				
 				$data_id	= $result[$idColumn];
-				if($data_id == $selected)
-				{
+				
+				if($data_id == $selected){
 					$select_string = 'selected';
-				}
-				else
-				{
+				}else{
 					$select_string = '';
 				}
 				
-				echo "<option value='".$data_id."' class='menuText' ".$select_string.">".
-				$result[$populate]."</option>";
+				echo "<option value='".$data_id."' ".$select_string.">".$result[$populate]."</option>";
 				
 			}
 		}	
@@ -2946,10 +2813,10 @@ class Utility extends DatabaseConnection{
 	*	@return NULL
 	*/
 	function populateDropDown2($selected, $id, $populate, $foreign_key, $key_value, $table){
+		// $cusDetail[0][27], 'id', 'city',  'state_id', $cusDetail[0][28], 'cities'
 
 		$select		= "SELECT * FROM ".$table." WHERE ".$foreign_key." = ".$key_value.
 		" ORDER BY ".$populate."";
-		echo $select;
 		// exit;
 		$query		= $this->conn->query($select);
 		
@@ -2966,8 +2833,7 @@ class Utility extends DatabaseConnection{
 					$select_string = '';
 				}
 				
-				echo "<option value='".$data_id."' class='menuText' ".$select_string.">".
-				$result[$populate]."</option>";
+				echo "<option value='".$data_id."' ".$select_string.">".$result[$populate]."</option>";
 				
 			}
 		}	
@@ -3579,11 +3445,12 @@ class Utility extends DatabaseConnection{
 		}
 		
 		if($send == "YES")
-		{
-			echo	"<a href=\"javascript:void(0)\" title=\"mail to ".$toEmail."\" 
-					  onClick=\"MM_openBrWindow('".$fileName."?toEmail=".$toEmail."&amp;toName=".$toName."','SendMail','scrollbars=yes,width=650,height=450')\">
+		{			
+			echo	  "<a href=\"javascript:void(0)\" title=\"mail to ".$toEmail."\" 
+			           onclick=\"location.href='".$fileName."?toEmail=".$toEmail."&amp;toName=".$toName."','SendMail','scrollbars=yes,width=650,height=450';\">
 					  ".$dispLength."			  
 					  </a>";
+					//   onClick=\"MM_openBrWindow('".$fileName."?toEmail=".$toEmail."&amp;toName=".$toName."','SendMail','scrollbars=yes,width=650,height=450')\">
 		}
 		else
 		{
@@ -3655,93 +3522,38 @@ class Utility extends DatabaseConnection{
 
 		$url      = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 		$validURL = str_replace("&", "&amp;", $url);
+		// $validURL = str_replace(".php", "", $url);
+
+		// $url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+		// $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
 		return $validURL;
 		
 	}
 	
+	
+	
+
+
 	/**
-	*	Display correct URL for forwarding
-	*	
-	*	@param
-	*			$url		URL to check and display
-	*
-	*	@return string
-	*/
-	function dispURL($url)
-	{
-		if(!ereg('^http', $url))
-		{
-			$url = 'http://'.$url;
+	 * This function is used to add st,nd,rd,th after the given number
+	 * here $num is the gigen nuber
+	 */
+	function ordinal($num){
+
+		$last = substr($num,-1);
+		if( $last>3  or $last==0 or ( $num >= 11 and $num <= 19 ) ){
+			$ext='th';
+		}else if( $last==3 ){
+			$ext='rd';
+		}else if( $last==2 ){
+			$ext='nd';
+		}else{
+			$ext='st';
 		}
-		else
-		{
-			$url = $url;
-		}
-		
-		return $url;
-	}//eof
-	
-	
-	
-	/**
-	*	Go to page session
-	*
-	*	@param
-	*			$goTo		Name of the session variable 
-	*			$pageName	Name of the new page
-	*			$alt		If page not found then forward it to alternate page
-	*
-	*	@date	October 5, 2009
-	*
-	*	@return string
-	*/
-	function forwardPage($pageName, $alt)
-	{
-		//unset the previously set session
-		$this->delSession('goTo');
-		
-		//register with new page
-		$_SESSION['goTo']	= $pageName;
-		
-		//return page name
-		return $pageName;
-		
-	}//eof
-	
-	
-	/**
-	*	Build the forward page name
-	*
-	*	@param
-	*			$pageName	Name of the new page
-	*			$alt		If page not found then forward it to alternate page
-	*
-	*	@date	October 5, 2009
-	*
-	*	@return string
-	*/
-	function buildForwardPage($pageName, $ext)
-	{
-		//declare var
-		$pageStr	= '';
-		
-		if($pageName != '')
-		{
-			//create page name
-			$pageStr = $pageName.".".$ext;
-		}
-		else
-		{
-			$pageStr	= 'index.php';
-		}
-		
-		//return page name
-		return $pageStr;
-		
-	}//eof
-	
-	
-	
+    return $num.$ext;
+
+  }
+
 	
 	
 	/**
@@ -4134,6 +3946,326 @@ function word_teaser_end($string, $count){
  $string = implode(' ', $words);
   return $string;
 }
+
+
+	/*****************************************************************************
+	 *																			 *
+	*								SESSION FUNCTIONS							 *
+	*																			 *
+	*****************************************************************************/
+
+
+	function setSession($sess, $value){
+		try {
+			$this->delSession($sess);
+			$_SESSION[$sess] = $value;
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
+	} 
+
+	/**
+	*	Delete session if exist.
+	*/
+	function delSession($sess){
+		if(isset($_SESSION[$sess])){
+			$_SESSION[$sess] = '';
+			unset($_SESSION[$sess]);
+		}
+	}//eof
 	
+	
+	/**
+	*	Delete session are in array
+	*
+	*	@param
+	*			$sess_arr	Session Array
+	*
+	*	@return	null
+	*/
+	function delSessArr($sess_arr)
+	{
+		foreach($sess_arr as $k)
+		{
+			$this->delSession($k);
+		}
+	}//eof
+	
+ 	/**
+	*	Go to page session
+	*
+	*	@param
+	*			$goTo		Name of the session variable 
+	*			$currentUrl	URL of the current page
+	*
+	*	@return string
+	*/
+	function setCurrentPageSession(){
+		
+		//unset the previously set session
+		$this->delSession('goTo');
+		
+		//register with new page
+		$currentUrl = $this->currentUrl();
+		$_SESSION['goTo']	= $currentUrl;
+
+		
+		//return page name
+		return $currentUrl;
+		
+	}//eof
+	
+	
+
+	function goToPreviousSessionPage(){
+		if (isset($_SESSION['goTo'])) {
+			// return $_SESSION['goTo'];
+			header('Location: '.$_SESSION['goTo']);
+			exit;
+		}else {
+			return null;
+		}
+
+	}
+
+
+	
+	//////////////////////////////////////////////////////////////////////////////////////
+	//
+	//							Session + Get + Post + Form Fields and Variables
+	//
+	///////////////////////////////////////////////////////////////////////////////////////
+	
+	/**
+	*	Add to session
+	*	
+	*	@param
+	*			$sessArr	Session name
+	*
+	*	@return NULL
+	*/
+	function addToSession($sessArr){
+		foreach($sessArr as $k){
+			$_SESSION[$k] = $k;
+		}
+	}//eof
+	
+
+	/**
+	*	Check the radio or check box if the session variable is there
+	*
+	*	@param
+	*			$name		The current name
+	*			$value		The has to select
+	*			$alt		Alternate text or default value
+	*
+	*	@return string
+	*/
+	function checkSessStr($name,$value, $alt){
+		$str 	= '';
+		
+		if(isset($_SESSION[$name])){
+			if($_SESSION[$name] == $value){
+				$str 	= 'checked';
+			}else{
+				$str 	= $alt;
+			}
+		}
+		else
+		{
+			$str 	= $alt;
+		}
+		
+		//return
+		return $str;
+		
+	}//eof
+	
+	/**
+	*	Check the radio or check box if the session variable is there
+	*
+	*	@param
+	*			$valArr		The current name
+	*			$value		The has to select
+	*			$alt		Alternate text or default value
+	*
+	*	@return string
+	*/
+	function checkSessStr2($valArr,$value, $alt){
+
+		$str 	= '';
+		if(in_array($value, $valArr)){
+			$str 	= 'checked';
+		}else{
+			$str 	= $alt;
+		}
+		
+		//return
+		return $str;
+		
+	}//eof
+	
+
+	/**
+	*	This function simply print session variables
+	*	
+	*	@param
+	*			$var		Value associated with the the session variable
+	*
+	*	@return NULL
+	*/
+	function printSess($var){
+
+		if(isset($_SESSION[$var])){
+			echo $_SESSION[$var];
+		}
+	}//eof
+	
+	/**
+	*	This function is a modified version of previous function. It will 
+	*	find for a default value as well.
+	*	
+	*	@param
+	*			$var		Value associated with the the session variable
+	*			$default	Default value to be printed if the session is not registered
+	*
+	*	@return NULL
+	*/
+	function printSess2($var, $default){
+
+		if(isset($_SESSION[$var])){
+			echo $_SESSION[$var];
+		}else{
+			echo $default;
+		}
+	}//eof
+	
+	
+	/**
+	*	This function is a modified version of previous function. It will return the session
+	*	value if registered else will return a default value
+	*	
+	*	@param
+	*			$var		Value associated with the the session variable
+	*			$default	Default value to be printed if the session is not registered
+	*
+	*	@return NULL
+	*/
+	function returnSess($var, $default){
+
+		$sessVal	= '';
+		if(isset($_SESSION[$var])){
+			$sessVal  =  $_SESSION[$var];
+		}else{
+			$sessVal  =  $default;
+		}
+		
+		return $sessVal;
+		
+	}//eof
+	
+
+
+	/*****************************************************************************
+	 *																			 *
+	*								DATABASE FUNCTIONS							 *
+	*																			 *
+	*****************************************************************************/
+
+	function getSingleData($fetch, $table, $column, $value){
+		try {
+			$data	= array();
+			$sql	= "SELECT $fetch FROM $table WHERE $column = '$value'";
+			$query	= $this->conn->query($sql);
+			// echo $sql;
+			if($query->num_rows > 0){
+				while($result = $query->fetch_assoc()){
+					$data = $result;
+				}
+			}
+			return $data;
+		
+		} catch (Exception $e) {
+			echo '<b>Error on:</b> '.__FILE__.', <b>On Line:</b>'.__LINE__.'<br>';
+			echo '<b>Error:</b> '.$e->getMessage();
+			exit;
+		}
+	}
+
+
+	/*****************************************************************************
+	*																			 *
+	*								URL MANIPULATION							 *
+	*																			 *
+	*****************************************************************************/
+
+	function url_to_domain($url){
+		$pieces = parse_url($url);
+		$domain = isset($pieces['host']) ? $pieces['host'] : $pieces['path'];
+		if (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i', $domain, $regs)) {
+			return trim($regs['domain']);
+		}
+		return false;
+	}
+
+
+
+	/*****************************************************************************
+	*																			 *
+	*								URL MANIPULATION							 *
+	*																			 *
+	*****************************************************************************/
+
+	// PHP code to extract IP
+	function getVisIpAddr() {
+		
+		if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+			return $_SERVER['HTTP_CLIENT_IP'];
+		}
+		else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+		}
+		else {
+			return $_SERVER['REMOTE_ADDR'];
+		}
+	}
+
+
+	/*****************************************************************************
+	*																			 *
+	*								DATABASE UPDATES							 *
+	*																			 *
+	*****************************************************************************/
+
+	function getMysqlTimeZone() {
+		
+		try {
+
+			$sql = 'SELECT @@global.time_zone as Time_Zone';
+			$query   = $this->conn->query($sql);
+			while($row  = $query->fetch_object()){
+				$res	= $row->Time_Zone;
+			}
+
+			echo $res;
+
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
+	}
+
+	function setMysqlTimeZone($zone) {
+		
+		try {
+
+			$sql = "SET GLOBAL time_zone = '$zone'";
+			$query   = $this->conn->query($sql);
+			var_dump($query);
+
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
+	}
+
 }//eoc
 ?>

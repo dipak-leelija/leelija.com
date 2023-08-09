@@ -3922,7 +3922,7 @@ form.pack-form textarea {
     background: var(--aegean-blue);
 }
 
-.alert {
+/* .alert {
     position: fixed;
     background: var(--black);
     height: 100%;
@@ -3931,7 +3931,7 @@ form.pack-form textarea {
     top: 0;
     left: 0;
     right: 0;
-}
+} */
 
 .tranee-success {
     color: var(--pure-white);

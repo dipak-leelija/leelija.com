@@ -1,10 +1,8 @@
 <?php
 session_start();
-//include_once('checkSession.php');
-// require_once("_config/connect.php");
-require_once "_config/dbconnect.php";
+require_once "includes/constant.inc.php";
 
-require_once("includes/constant.inc.php");
+require_once "_config/dbconnect.php";
 require_once("classes/date.class.php");
 require_once("classes/error.class.php");
 require_once("classes/search.class.php");
