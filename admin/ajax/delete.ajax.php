@@ -7,14 +7,15 @@ require_once ROOT_DIR . "classes/encrypt.inc.php";
 
 $Utility    = new Utility();
 
-if(isset($_GET['data'])){
+if(isset($_POST['contactMsgId'])){
 
-    $contactMsgId = url_dec($_GET['data']);
+    $contactMsgId = url_dec($_POST['contactMsgId']);
 
     $delReg = $Utility->deleteRecord($contactMsgId, 'id', 'contact');
-    if (preg_match("/SU103/",$delReg)) {
-        $Utility->goToPreviousSessionPage();
-    }
+    // if (preg_match("/SU103/",$delReg)) {
+    //     $Utility->goToPreviousSessionPage();
+    // }
+    echo $delReg;
 }
 
 

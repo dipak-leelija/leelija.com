@@ -79,7 +79,7 @@ class AdminLogin extends Utility{
 				}
 
 				//forward page
-				$forwardPage	= $this->buildForwardPage($pageName, 'php');
+				// $forwardPage	= $this->buildForwardPage($pageName, 'php');
 
 				//url
 				$url	= $forwardPage.'?session_id='.$session_id."&".$id_var."=".$id_var_val;
