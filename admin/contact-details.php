@@ -276,7 +276,9 @@ if($lastpage > 1){
                                                     data-id="<?= url_enc($contDetail->id) ?>"
                                                     class="text-secondary font-weight-bold text-xs cursor-pointer"
                                                     data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                    data-toggle="tooltip" data-original-title="View Message">
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    data-bs-custom-class="custom-tooltip"
+                                                    data-bs-title="This top tooltip is themed via CSS variables.">
                                                     <i class="fa-solid fa-eye pe-4"></i>
                                                 </span>
                                                 <span onclick="deleteRow(this, event)"
@@ -347,6 +349,9 @@ if($lastpage > 1){
         }
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
+
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
     const deleteRow = (t, event) => {
 
