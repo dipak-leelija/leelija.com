@@ -156,7 +156,7 @@ $page = "Admin_add-new-employees";
                                         <label for="text" class="form-label">Password</label>
                                         <input type="password" minlength="8" id="txtPassword" name="txtPassword"
                                             placeholder="Password"
-                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
+                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                             autocomplete="new-password" class="form-control" required>
                                         <div class="invalid-feedback">
                                             Must be a combination of
@@ -171,7 +171,7 @@ $page = "Admin_add-new-employees";
                                         <label for="text" class="form-label">Confirm Password</label>
                                         <input type="password" id="txtPasswordConfirm" name="txtPasswordConfirm"
                                             minlength="8" placeholder="Confirm Password"
-                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
+                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                             class="form-control " required>
                                         <div class="form-text confirm-message"></div>
                                     </div>
@@ -304,7 +304,9 @@ $page = "Admin_add-new-employees";
             // $('#txtPasswordConfirm').addClass('is-invalid');
         }
     });
+
     </script>
+    
     <script>
     document.addEventListener("DOMContentLoaded", () => {
         var readURL = (input) => {
