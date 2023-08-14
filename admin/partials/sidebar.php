@@ -40,7 +40,7 @@
                     <ul class="submenu-list list-unstyled">
                         <li class="submenu-item">
                             <a class="submenu-link <?php if($page == "Admin_employees-Details"  ){echo "active";} ?>"
-                                href="employees-details.php">Employee Details</a>
+                                href="employees.php">Employees</a>
                         </li>
                         <li class="submenu-item">
                             <a class="submenu-link  <?php if($page == "Admin_add-new-employees"  ){echo "active";} ?>"

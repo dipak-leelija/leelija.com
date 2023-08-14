@@ -69,7 +69,7 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                                 Employee</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Function</th>
+                                                Designation</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Status</th>
@@ -117,8 +117,7 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                                     class="text-secondary text-xs font-weight-bold"><?= $eachEmp->doj?></span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                <a href="employee-details.php?data=<?= $empId; ?>" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                     <i class="fa-solid fa-eye pe-4"></i>
                                                 </a>
                                                 <span class="text-secondary font-weight-bold cursor-pointer text-xs" id="<?= $Utility->getLatersOnly($empId); ?>" data-id="<?= $empId; ?>" onclick="deleteRow(this, event)" data-toggle="tooltip" data-original-title="Edit user">
