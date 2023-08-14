@@ -36,6 +36,17 @@ class Employee extends DatabaseConnection{
     }
 
 
+    public function getEmpImage($empId){
+
+        $sql = "SELECT image FROM `employees` WHERE emp_id = '$empId'";
+        $res = $this->conn->query($sql);
+        $rows = $res->num_rows;
+        if ($rows == 1 ) {
+            $result = $res->fetch_object();
+            return json_encode($result);
+        }
+    }
+
     public function deleteEmp($empId){
 
         $sql = "DELETE FROM `employees` WHERE emp_id = '$empId'";

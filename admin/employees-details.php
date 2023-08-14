@@ -8,6 +8,7 @@ require_once ROOT_DIR . "classes/encrypt.inc.php";
 require_once ROOT_DIR . "classes/employee.class.php";
 require_once ROOT_DIR . "classes/utility.class.php";
 
+
 $Employee	= new Employee();
 $Utility    = new Utility();
 
@@ -82,6 +83,7 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                     </thead>
                                     <tbody>
                                         <?php foreach ($allEmps as $eachEmp) {
+                                            
                                         $empId = url_enc($eachEmp->emp_id);
 
                                         $empIcon = IMG_PATH.'default-icons/default-emp.png';

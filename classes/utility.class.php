@@ -312,7 +312,7 @@ class Utility extends DatabaseConnection{
 
 			$fileName = $result[$column_file];
 			if ($fileName != null) {
-				unlink($path.$fileName); 
+				unlink($path.$fileName);
 			}
 		}
 		
@@ -322,6 +322,19 @@ class Utility extends DatabaseConnection{
 		
 		//echo $select." <br />".$sql;exit;
 	}//eof
+
+
+	function unlinkFile($path){
+		if ($path != '') {
+			if (is_file($path)) {
+				unlink($path);
+				return 'SU001';
+			} else {
+				return 'ER001';
+			}
+		}
+		return 'ER001';
+	}
 	
 
 
