@@ -83,12 +83,17 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                     <tbody>
                                         <?php foreach ($allEmps as $eachEmp) {
                                         $empId = url_enc($eachEmp->emp_id);
+
+                                        $empIcon = IMG_PATH.'default-icons/default-emp.png';
+                                        if ($eachEmp->image != '') {
+                                            $empIcon = IMG_PATH.'emps/'.$eachEmp->image;
+                                        }
                                         ?>
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="../images/emps/<?= $eachEmp->image?>"
+                                                        <img src="<?= $empIcon ?>"
                                                             class="object-fit-cover avatar avatar-sm me-3" alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">

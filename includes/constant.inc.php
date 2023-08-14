@@ -55,7 +55,7 @@
 	define('USER_URL',  		URL.'/user/');
 	define('SELLER_AREA',  		URL."seller/dashboard.php");
 	define('USER_AREA',  		URL."user/app.client.php");
-	define('IMG_PATH',  		URL."/images");
+	define('IMG_PATH',  		URL."images/");
 
 
 	
