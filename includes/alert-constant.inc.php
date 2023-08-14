@@ -1,15 +1,10 @@
 <?php
-const ERRP005   = "New Password and Confirm Password not matched.";
-
-
 
 	//first name & last name
 	define('ERREG000', ' Name is empty');
 	define('ERREG001', ' First Name is empty');
 	define('ERREG002', ' Surname is empty');
-	define('ERREG013', ' Select your category');
-
-
+    
 	//contact + address
 	define('ERREG003', ' Phone number is empty');
 	define('ERREG014', ' Phone number already exits');
@@ -22,6 +17,8 @@ const ERRP005   = "New Password and Confirm Password not matched.";
 	define('ERREG010', ' District is empty');
 	define('ERREG011', ' State is empty');
 	define('ERREG012', ' City is empty');
+	define('ERREG013', ' Select your category');
+	define('ERREG015', ' Gender is empty');
 	// define('ERU117', ' Invalid Password');
 
 	//bank account related
@@ -35,7 +32,6 @@ const ERRP005   = "New Password and Confirm Password not matched.";
 
 	//user agreement
 	define('ERREG201', ' Please check the user agreement');
-
 
 	//success message
 	define('SUREG001', ' Thanks for registration!! Now You can login And Enjoy with us');
@@ -97,9 +93,10 @@ const ERRP005   = "New Password and Confirm Password not matched.";
 	
 
 	//password error
-	define('ERU105', ' Password is short.'); 
+	define('ERU105', ' Password is short.');
 	define('ERU106', ' Password is not verified.');
 	define('ERU107', ' Passwords do not match.');
+    const ERRP005   = "New Password and Confirm Password not matched.";
 	define('ERU117', ' Password is short, it should be minimum 8 character long.');
 
 	define('ERUVERF003', 'Not Verified.');
@@ -180,6 +177,13 @@ const ERRP005   = "New Password and Confirm Password not matched.";
 	define('EREVEORG000', ' No event organizer has been added yet');
 	define('SUEVEORG002', ' Event organizer has been added');
 	define('SUEVEORG001', ' Event organizer has been deleted');
+
+
+    /**
+     *      Employee Constants
+     */
+	const EMPSU001	= 'New Employee Added!';
+    const EMPER007  = 'Date of Joining is empty';
 
 
 ?>

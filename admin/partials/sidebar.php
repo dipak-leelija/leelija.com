@@ -39,12 +39,12 @@
                     data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
                         <li class="submenu-item">
-                            <a class="submenu-link  <?php if($page == "Admin_add-new-employees"  ){echo "active";} ?>"
-                                href="add-employees.php">Add New Employee</a>
-                        </li>
-                        <li class="submenu-item">
                             <a class="submenu-link <?php if($page == "Admin_employees-Details"  ){echo "active";} ?>"
                                 href="employees-details.php">Employee Details</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a class="submenu-link  <?php if($page == "Admin_add-new-employees"  ){echo "active";} ?>"
+                                href="add-employees.php">Add New Employee</a>
                         </li>
                     </ul>
                 </div>

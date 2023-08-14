@@ -20210,7 +20210,7 @@ fieldset:disabled .btn {
 }
 
 .alert-dismissible .btn-close {
-  background-image: none;
+  /* background-image: none; */
 }
 
 .avatar {

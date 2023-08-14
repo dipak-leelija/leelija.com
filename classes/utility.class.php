@@ -4028,6 +4028,15 @@ function word_teaser_end($string, $count){
 
 	}
 
+	function sessionPreviousPage(){
+		if (isset($_SESSION['goTo'])) {
+			return $_SESSION['goTo'];
+		}else {
+			return null;
+		}
+
+	}
+
 
 	
 	//////////////////////////////////////////////////////////////////////////////////////
@@ -4265,6 +4274,28 @@ function word_teaser_end($string, $count){
 		} catch (Exception $e) {
 			echo $e->getMessage();
 		}
+	}
+
+
+	/*****************************************************************************
+	*																			 *
+	*								STRING MANIPULATION							 *
+	*																			 *
+	*****************************************************************************/
+
+	/**
+	 * This Function will remove some special charagter from the given string
+	 * Will Remove : %$?
+	 * $str	The given string
+	 */
+	function getLatersOnly($str) {
+
+		//Remove "#","'" and ";" using str_replace() function
+		$result = preg_replace('/[0-9%$?]/s','', $str);
+		
+		//The output after remove
+		// echo "<br/><b>Text after remove: </b> <br/>".$result;
+		return $result;	
 	}
 
 }//eoc

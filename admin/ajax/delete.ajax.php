@@ -11,12 +11,14 @@ if(isset($_POST['contactMsgId'])){
 
     $contactMsgId = url_dec($_POST['contactMsgId']);
 
-    $delReg = $Utility->deleteRecord($contactMsgId, 'id', 'contact');
-    // if (preg_match("/SU103/",$delReg)) {
-    //     $Utility->goToPreviousSessionPage();
-    // }
-    echo $delReg;
+    echo $delReg = $Utility->deleteRecord($contactMsgId, 'id', 'contact');
 }
 
+if(isset($_POST['empDelAction'])){
 
+    $empId = url_dec($_POST['empDelAction']);
+
+    $delReg = $Utility->deleteRecord($empId, 'emp_id', 'employees');
+    echo $delReg;
+}
 ?>

@@ -1,6 +1,14 @@
 <?php
-require_once dirname(__DIR__) ."/includes/constant.inc.php";
 $page = "Admin_add-new-employees";
+require_once dirname(__DIR__) ."/includes/constant.inc.php";
+require_once 'incs/global-inc.php';
+
+$Utility->setCurrentPageSession();
+
+if(isset($_GET['action']) && isset($_GET['msg'])){
+    $_GET['action'] == 'SUCCESS' ? $alertClasse = 'alert-primary' : $alertClasse = 'alert-warning';
+    $msg = $_GET['msg'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,17 +16,8 @@ $page = "Admin_add-new-employees";
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="../images/logo/favicon.png" type="image/png">
     <title> Leelija - Add New Employees </title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-    <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
-    <link href="assets/css/soft-ui-dashboard.css.map" rel="stylesheet" />
-    <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
-    <link rel="stylesheet" href="../plugins/data-table/style.css">
-    <!-- <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script> -->
+    <?php require_once ADM_DIR."incs/common-html-header.php"?>
 </head>
 <style>
 .editingimg {
@@ -47,9 +46,18 @@ $page = "Admin_add-new-employees";
             <div class="row">
                 <div class="col-12">
                     <div class="card employee-card">
+
                         <div class="card-body ">
-                            <form action="" method="post"
-                                class="row w-100 m-0 bg-white text-dark rounded needs-validation" novalidate>
+                            <?php if (isset($msg)) { ?>
+                            <div class="alert <?= $alertClasse ?> alert-dismissible fade show" role="alert">
+                                <strong><?= $msg ?></strong>
+                                <button type="button" class="btn-close btn-dark" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                            <?php } ?>
+                            <form action="ajax/employee-add.ajax.php" method="post"
+                                class="row w-100 m-0 bg-white text-dark rounded needs-validation"
+                                enctype="multipart/form-data" novalidate>
                                 <div class="row w-100 m-0 mb-2">
                                     <div class="col-6 col-sm-auto mb-3">
                                         <div class="mx-auto" style="width: 130px;">
@@ -67,12 +75,6 @@ $page = "Admin_add-new-employees";
                                                 <i class="fa fa-fw fa-camera pe-2"></i>
                                                 Recent Photo
                                             </label>
-
-                                            <!-- <button id="upload-btn" type="submit" name="picture-update"
-                                            class="input-group-text btn btn-info rounded text-light fw-semibold ms-2 d-none">
-                                            <i class="fa-solid fa-arrow-up-from-bracket pe-1"></i>
-                                            Upload
-                                        </button> -->
                                         </div>
                                     </div>
                                 </div>
@@ -106,22 +108,22 @@ $page = "Admin_add-new-employees";
                                         <label for="" class="form-label">Gender</label>
                                         <div class="d-flex align-item-center justify-content-between">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                    id="flexRadioDefault1" required>
+                                                <input class="form-check-input" type="radio" name="gender"
+                                                    id="flexRadioDefault1" value="male" required>
                                                 <label class="form-check-label" for="flexRadioDefault1">
                                                     Male
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                    id="flexRadioDefault2">
+                                                <input class="form-check-input" type="radio" name="gender"
+                                                    id="flexRadioDefault2" value="male">
                                                 <label class="form-check-label" for="flexRadioDefault2">
                                                     Female
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                    id="flexRadioDefault3">
+                                                <input class="form-check-input" type="radio" name="gender"
+                                                    id="flexRadioDefault3" value="male">
                                                 <label class="form-check-label" for="flexRadioDefault3">
                                                     Transgender
                                                 </label>
@@ -132,9 +134,18 @@ $page = "Admin_add-new-employees";
 
                                 <div class="row w-100 m-0 mb-2">
                                     <div class="col-6 ">
-                                        <label for="qualification" class="form-label">Qualification</label>
-                                        <input type="text" name="qualification" minlength="4" class="form-control "
-                                            id="qualification" placeholder="Qualification" required>
+                                        <label for="designation" class="form-label">Designation</label>
+                                        <select class="form-select" name="designation" id="designation">
+                                            <option value="" disabled selected>Select</option>
+                                            <option value="Manager">Manager</option>
+                                            <option value="Human Resource">Human Resource</option>
+                                            <option value="SEO Specialist">SEO Specialist</option>
+                                            <option value="Content Writer">Content Writer</option>
+                                            <option value="Full Stack Web Developer">Full Stack Web Developer</option>
+                                            <option value="Frontent Developer">Frontent Developer</option>
+                                            <option value="Backend Developer">Backend Developer</option>
+                                            <option value="WordPress Developer">WordPress Developer</option>
+                                        </select>
                                     </div>
                                     <div class="col-6 ">
                                         <label for="experience" class="form-label">Experience</label>
@@ -154,7 +165,7 @@ $page = "Admin_add-new-employees";
                                 <div class="row w-100 m-0 mb-2">
                                     <div class="col-6 ">
                                         <label for="text" class="form-label">Password</label>
-                                        <input type="password" minlength="8" id="txtPassword" name="txtPassword"
+                                        <input type="password" minlength="8" id="txtPassword" name="password"
                                             placeholder="Password"
                                             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
                                             autocomplete="new-password" class="form-control" required>
@@ -169,7 +180,7 @@ $page = "Admin_add-new-employees";
                                     </div>
                                     <div class="col-6">
                                         <label for="text" class="form-label">Confirm Password</label>
-                                        <input type="password" id="txtPasswordConfirm" name="txtPasswordConfirm"
+                                        <input type="password" id="txtPasswordConfirm" name="confirmPassword"
                                             minlength="8" placeholder="Confirm Password"
                                             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
                                             class="form-control " required>
@@ -177,8 +188,7 @@ $page = "Admin_add-new-employees";
                                     </div>
                                 </div>
                                 <div class="col-12 text-center mt-4 ">
-                                    <button name="btnAddfaqs" type="submit" class="btn btn-primary">Submit</button>
-
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -187,68 +197,7 @@ $page = "Admin_add-new-employees";
             </div>
         </div>
     </main>
-    <div class="fixed-plugin">
-        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-            <i class="fa fa-cog py-2"> </i>
-        </a>
-        <div class="card shadow-lg ">
-            <div class="card-header pb-0 pt-3 ">
-                <div class="float-start">
-                    <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
-                </div>
-                <div class="float-end mt-4">
-                    <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-                        <i class="fa fa-close"></i>
-                    </button>
-                </div>
-                <!-- End Toggle Button -->
-            </div>
-            <hr class="horizontal dark my-1">
-            <div class="card-body pt-sm-3 pt-0">
-                <!-- Sidebar Backgrounds -->
-                <div>
-                    <h6 class="mb-0">Sidebar Colors</h6>
-                </div>
-                <a href="javascript:void(0)" class="switch-trigger background-color">
-                    <div class="badge-colors my-2 text-start">
-                        <span class="badge filter bg-gradient-primary active" data-color="primary"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-dark" data-color="dark"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-info" data-color="info"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-success" data-color="success"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-warning" data-color="warning"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-danger" data-color="danger"
-                            onclick="sidebarColor(this)"></span>
-                    </div>
-                </a>
-                <!-- Sidenav Type -->
-                <div class="mt-3">
-                    <h6 class="mb-0">Sidenav Type</h6>
-                    <p class="text-sm">Choose between 2 different sidenav types.</p>
-                </div>
-                <div class="d-flex">
-                    <button class="btn bg-gradient-primary w-100 px-3 mb-2 active" data-class="bg-transparent"
-                        onclick="sidebarType(this)">Transparent</button>
-                    <button class="btn bg-gradient-primary w-100 px-3 mb-2 ms-2" data-class="bg-white"
-                        onclick="sidebarType(this)">White</button>
-                </div>
-                <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-                <!-- Navbar Fixed -->
-                <div class="mt-3">
-                    <h6 class="mb-0">Navbar Fixed</h6>
-                </div>
-                <div class="form-check form-switch ps-0">
-                    <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed"
-                        onclick="navbarFixed(this)">
-                </div>
-                <hr class="horizontal dark my-sm-4">
-            </div>
-        </div>
-    </div>
+    <?php require_once ADM_DIR.'partials/bar-setting.php'; ?>
     <!--   Core JS Files   -->
     <script src="../plugins/jquery-3.6.0.min.js"></script>
     <script src="assets/js/core/popper.min.js"></script>
