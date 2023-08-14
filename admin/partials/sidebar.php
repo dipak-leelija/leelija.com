@@ -24,6 +24,27 @@
             </li>
 
             <li class="nav-item has-submenu">
+                <a class="nav-link  submenu-toggle <?= $page == "Admin_order" ?  "active" : "" ?> "
+                    href="#" data-bs-toggle="collapse" data-bs-target="#submenu-1" aria-expanded="<?= $page == "Admin_order" ? "true" : 'false'; ?>" aria-controls="submenu-1">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-users-line"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Order Management</span>
+                </a>
+                <div id="submenu-1"
+                    class="collapse submenu submenu-1  <?= $page == "Admin_order" ? "show" : ''; ?>"
+                    data-bs-parent="#menu-accordion">
+                    <ul class="submenu-list list-unstyled">
+                        <li class="submenu-item">
+                            <a class="submenu-link <?php if($page == "Admin_order"  ){echo "active";} ?>"
+                                href="orders.php">Orders</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item has-submenu">
                 <a class="nav-link  submenu-toggle <?php if($page == "Admin_employees-Details" || $page == "Admin_add-new-employees" ){echo "active";} ?> "
                     href="#" data-bs-toggle="collapse" data-bs-target="#submenu-1" aria-expanded="<?php if($page == "Admin_employees-Details" || $page == "Admin_add-new-employees"  ){echo "true";} else {
                 echo "flase"; 
