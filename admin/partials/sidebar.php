@@ -46,17 +46,17 @@
 
             <li class="nav-item has-submenu">
                 <a class="nav-link  submenu-toggle <?php if($page == "Admin_employees-Details" || $page == "Admin_add-new-employees" ){echo "active";} ?> "
-                    href="#" data-bs-toggle="collapse" data-bs-target="#submenu-1" aria-expanded="<?php if($page == "Admin_employees-Details" || $page == "Admin_add-new-employees"  ){echo "true";} else {
+                    href="#" data-bs-toggle="collapse" data-bs-target="#submenu-2" aria-expanded="<?php if($page == "Admin_employees-Details" || $page == "Admin_add-new-employees"  ){echo "true";} else {
                 echo "flase"; 
-             } ?>" aria-controls="submenu-1">
+             } ?>" aria-controls="submenu-2">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-users-line"></i>
                     </div>
                     <span class="nav-link-text ms-1">Employees Section</span>
                 </a>
-                <div id="submenu-1"
-                    class="collapse submenu submenu-1  <?php if($page == "Admin_employees-Details" || $page == "Admin_add-new-employees" ){echo "show";} ?>"
+                <div id="submenu-2"
+                    class="collapse submenu submenu-2  <?php if($page == "Admin_employees-Details" || $page == "Admin_add-new-employees" ){echo "show";} ?>"
                     data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
                         <li class="submenu-item">
@@ -72,17 +72,17 @@
             </li>
             <li class="nav-item has-submenu">
                 <a class="nav-link  submenu-toggle <?php if($page == "Admin_Contact-details" ){echo "active";} ?>"
-                    href="my-guest-post.php" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-2"
+                  href="#" data-bs-toggle="collapse" data-bs-target="#submenu-3"
                     aria-expanded="<?php if($page == "Admin_Contact-details"){echo "true";} else { echo "flase"; } ?>"
-                    aria-controls="submenu-2">
+                    aria-controls="submenu-3">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-message"></i>
                     </div>
                     <span class="nav-link-text ms-1">Contact Management</span>
                 </a>
-                <div id="submenu-2"
-                    class="collapse submenu submenu-2 <?php if($page == "Admin_Contact-details" ){echo "show";} ?>"
+                <div id="submenu-3"
+                    class="collapse submenu submenu-3 <?php if($page == "Admin_Contact-details" ){echo "show";} ?>"
                     data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
                         <li class="submenu-item"><a
@@ -92,19 +92,22 @@
                     </ul>
                 </div>
             </li>
+
+       
+
             <li class="nav-item has-submenu">
                 <a class="nav-link  submenu-toggle <?php if($page == "Admin_Email-group" ){echo "active";} ?>"
-                    href="my-guest-post.php" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-3"
+                    href="my-guest-post.php" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-4"
                     aria-expanded="<?php if($page == "Admin_Email-group"){echo "true";} else { echo "flase"; } ?>"
-                    aria-controls="submenu-3">
+                    aria-controls="submenu-4">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fas fa-cart-arrow-down"></i>
                     </div>
                     <span class="nav-link-text ms-1">Markerting Tools</span>
                 </a>
-                <div id="submenu-3"
-                    class="collapse submenu submenu-3 <?php if($page == "Admin_Email-group" ){echo "show";} ?>"
+                <div id="submenu-4"
+                    class="collapse submenu submenu-4 <?php if($page == "Admin_Email-group" ){echo "show";} ?>"
                     data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
                         <li class="submenu-item"><a
@@ -115,18 +118,18 @@
             </li>
             <li class="nav-item has-submenu">
                 <a class="nav-link  submenu-toggle <?php if($page == "Admin_User" || $page == "Admin_Database-backup" ){echo "active";} ?>"
-                    href="my-guest-post.php" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-4"
+                    href="my-guest-post.php" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-5"
                     aria-expanded="<?php if($page == "Admin_User" || $page == "Admin_Database-backup"  ){echo "true";} else {
                 echo "flase"; 
-             } ?>" aria-controls="submenu-4">
+             } ?>" aria-controls="submenu-5">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-gears"></i>
                     </div>
                     <span class="nav-link-text ms-1">Setup Tools</span>
                 </a>
-                <div id="submenu-4"
-                    class="collapse submenu submenu-4 <?php if($page == "Admin_User" || $page == "Admin_Database-backup" ){echo "show";} ?>"
+                <div id="submenu-5"
+                    class="collapse submenu submenu-5 <?php if($page == "Admin_User" || $page == "Admin_Database-backup" ){echo "show";} ?>"
                     data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
                         <li class="submenu-item"><a
@@ -141,17 +144,17 @@
             </li>
             <li class="nav-item has-submenu">
                 <a class="nav-link  submenu-toggle <?php if($page == "Admin_customer" || $page == "Admin_Customer-Type" ){echo "active";} ?> "
-                    href="#" data-bs-toggle="collapse" data-bs-target="#submenu-5" aria-expanded="<?php if($page == "Admin_customer" || $page == "Admin_Customer-Type"  ){echo "true";} else {
+                    href="#" data-bs-toggle="collapse" data-bs-target="#submenu-6" aria-expanded="<?php if($page == "Admin_customer" || $page == "Admin_Customer-Type"  ){echo "true";} else {
                 echo "flase"; 
-             } ?>" aria-controls="submenu-5">
+             } ?>" aria-controls="submenu-6">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-user-pen"></i>
                     </div>
                     <span class="nav-link-text ms-1">User Management</span>
                 </a>
-                <div id="submenu-5"
-                    class="collapse submenu submenu-5  <?php if($page == "Admin_customer" || $page == "Admin_Customer-Type" ){echo "show";} ?>"
+                <div id="submenu-6"
+                    class="collapse submenu submenu-6  <?php if($page == "Admin_customer" || $page == "Admin_Customer-Type" ){echo "show";} ?>"
                     data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
                         <li class="submenu-item">
@@ -167,9 +170,9 @@
             </li>
             <li class="nav-item has-submenu">
                 <a class="nav-link  submenu-toggle <?php if($page == "Admin_careers-application" || $page == "add-new-vacancy" ){echo "active";} ?> "
-                    href="#" data-bs-toggle="collapse" data-bs-target="#submenu-6" aria-expanded="<?php if($page == "Admin_careers-application" || $page == "add-new-vacancy"  ){echo "true";} else {
+                    href="#" data-bs-toggle="collapse" data-bs-target="#submenu-7" aria-expanded="<?php if($page == "Admin_careers-application" || $page == "add-new-vacancy"  ){echo "true";} else {
                 echo "flase"; 
-             } ?>" aria-controls="submenu-6">
+             } ?>" aria-controls="submenu-7">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-user-graduate"></i>
@@ -177,8 +180,8 @@
                     </div>
                     <span class="nav-link-text ms-1">Careers</span>
                 </a>
-                <div id="submenu-6"
-                    class="collapse submenu submenu-6  <?php if($page == "Admin_careers-application" || $page == "add-new-vacancy" ){echo "show";} ?>"
+                <div id="submenu-7"
+                    class="collapse submenu submenu-7  <?php if($page == "Admin_careers-application" || $page == "add-new-vacancy" ){echo "show";} ?>"
                     data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
                         <li class="submenu-item">
