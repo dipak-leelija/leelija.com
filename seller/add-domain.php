@@ -232,12 +232,6 @@ if(isset($_POST['btnAddDomain'])){
 
         <div class="client_add_blog mt-4">
 
-            <div class="container">
-
-                <?php include ROOT_DIR.'breadcrumb.inc.php'; ?>
-
-            </div>
-
             <!-- //banner -->
 
             <!-- Main Content -->

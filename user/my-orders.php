@@ -6,9 +6,6 @@ require_once ROOT_DIR."/_config/dbconnect.php";
 require_once ROOT_DIR."/classes/encrypt.inc.php";
 
 require_once ROOT_DIR."/classes/customer.class.php";
-require_once ROOT_DIR."/classes/content-order.class.php";
-require_once ROOT_DIR."/classes/gp-order.class.php";
-require_once ROOT_DIR."/classes/gp-package.class.php";
 require_once ROOT_DIR."/classes/orderStatus.class.php";
 require_once ROOT_DIR."/classes/order.class.php";
 require_once ROOT_DIR."/classes/domain.class.php";
@@ -17,9 +14,6 @@ require_once ROOT_DIR."/classes/utility.class.php";
 
 /* INSTANTIATING CLASSES */
 $customer		= new Customer();
-$ContentOrder   = new ContentOrder();
-$Gporder        = new Gporder();
-$GPPackage      = new GuestPostpackage();
 $Order          = new Order();
 $Domain         = new Domain();
 $BlogMst		= new BlogMst();
@@ -37,7 +31,6 @@ if($cusId == 0){
 if($cusDtl[0][0] == 2){
     header("Location: seller/dashboard.php");
 }
-$myOrders       = $ContentOrder->clientOrders($cusId);
 // $gpPackagesOrd  = $Gporder->getOrderDetails($cusId);
 $orders         = $Order->getOrdersByCusId($cusId);
 
@@ -99,102 +92,10 @@ $orders         = $Order->getOrdersByCusId($cusId);
                         </div>
                         <div class="col-md-9 mt-4  display-table-cell v-align client_profile_dashboard_right">
 
-
-
-
-                            <!-- Guest Post Orders  Section-->
-                            <div class="row justify-content-evenly dashorder_row guest_post_orders me-2">
-
-                                <div class="bg-light mb-3">
-                                    <h3 class="fw-bold text-center">Guest Posts:</h3>
-                                </div>
-
-                                <?php
-                                    $sl = 1;
-                                    if (count($myOrders) > 0 ) {
-                                        $showItems = 0;
-                                        foreach ($myOrders as $order) {
-                                            $status = $OrderStatus->singleOrderStatus($order['clientOrderStatus']);  
-                                ?>
-
-                                <!-- ========================= -->
-
-                                <div class="card product_card col-xl-5  position-relative border rounded  mb-3">
-                                    <div>
-                                        <a href="guest-post-article-submit.php?order=<?php echo base64_encode(urlencode($order['id'])); ?>"
-                                            class="text-dark">
-
-                                            <!-- ============== Order Status start ==============  -->
-                                            <div class="orderStatus <?php echo $status[0]['orders_status_name'];?>">
-                                                <p><?php echo $status[0]['orders_status_name'];?></p>
-                                            </div>
-                                            <!-- ============== Order Status end ==============  -->
-
-                                            <h3 class="product-title maining-title">
-                                                <?php echo $order['clientOrderedSite']; ?></h3>
-                                            <small>
-                                                Transection
-                                                :<?php echo $order['clientTransactionId'].' || '.$order['added_on'] ?>
-                                            </small>
-                                            <div>
-                                                <span><i class="fa fa-angle-double-right me-1"></i>Ancor Text:
-                                                    <?php echo $order['clientAnchorText'];?></span>
-                                                <br>
-                                                <span><i class="fa fa-angle-double-right me-1"></i>Target URL:
-                                                    <?php echo $order['clientTargetUrl'];?></span>
-                                            </div>
-                                            <div class="d-flex justify-content-between pt-2">
-                                                <!-- <div class="col-6 text-end"> -->
-                                                <?php
-                                                        //============== payment Status start ============== 
-                                                        if($order['paymentStatus'] != ''){
-                                                            if ($order['paymentStatus'] == "Completed") 
-                                                                $payStatus = 'complete-status';
-                                                            else
-                                                                $payStatus = '';
-
-
-                                                            echo '<p class="'.$payStatus.'">Payment : '.$order['paymentStatus'].'</p>';
-                                                        }
-                                                        //============== payment Status end ============== 
-                                                ?>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <!-- ========================= -->
-                                <?php
-                                    $showItems++;
-                                    if ($showItems == 2) {
-                                        break;
-                                        }
-                                    }
-                                ?>
-                                <div class="see_all">
-                                    <a href="guest-post-order-list.php">See All</a>
-                                </div>
-                                <?php
-                                    }else {
-                                ?>
-                                <div
-                                    class="product_card col-lg-5 text-center border border border-danger  border-1 rounded py-4 mb-3">
-                                    <h3 class="product-title text-danger m-auto">No Orders</h3>
-                                    <a href="blogs-list.php" class="btn btn-sm btn-primary  w-25 mt-4">Explore</a>
-                                </div>
-                                <?php
-                                        }
-
-                                    ?>
-                            </div>
-                            <!-- Guest Post Orders  Section End-->
-
-
-
                             <!-- Product Order Show Section -->
                             <div class="row justify-content-evenly dashorder_row me-2">
                                 <div class="bg-light mt-5">
-                                    <h3 class="fw-bold text-center">Item Orders:</h3>
+                                    <h3 class="fw-bold text-center">My Orders:</h3>
                                 </div>
                                 <?php
                                 if (count($orders) > 0 ) {
@@ -429,7 +330,7 @@ $orders         = $Order->getOrdersByCusId($cusId);
 
         /* This part is just for the demo,
         not actually part of the plugin */
-        $('.item_order_bx').paginate(2);
+        $('.item_order_bx').paginate(6);
         </script>
 
 </body>

@@ -90,9 +90,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
         <!-- Main Content -->
         <div class="my_domain_section my-4">
-            <div class="container">
-                <?php include ROOT_DIR.'breadcrumb.inc.php' ?>
-            </div>
             <!--<section class="py-5 branches position-relative" id="explore">-->
             <div class="container text-center">
                 <div class="row justify-content-evenly">

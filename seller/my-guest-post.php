@@ -11,10 +11,6 @@ require_once ROOT_DIR."classes/login.class.php";
 require_once ROOT_DIR."classes/domain.class.php";
 
 require_once ROOT_DIR."classes/utility.class.php";
-require_once ROOT_DIR."classes/gp-order.class.php";
-require_once ROOT_DIR."classes/gp-package.class.php";
-
-require_once ROOT_DIR."classes/content-order.class.php";
 require_once ROOT_DIR."classes/order.class.php";
 require_once ROOT_DIR."classes/orderStatus.class.php";
 
@@ -26,12 +22,9 @@ $search_obj		= new Search();
 $customer		= new Customer();
 $logIn			= new Login();
 $Domain			= new Domain();
-$ContentOrder   = new ContentOrder();
 $OrderStatus    = new OrderStatus();
 
-$utility		= new Utility();
-$gp				  = new Gporder();
-$GPpackage        = new GuestPostpackage(); 
+$utility		= new Utility(); 
 $Order            = new Order();
 ######################################################################################################################
 $typeM		= $utility->returnGetVar('typeM','');
