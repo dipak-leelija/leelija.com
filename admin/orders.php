@@ -1,6 +1,31 @@
 <?php
 $page = 'Admin_order';
 require_once dirname(__DIR__) ."/includes/constant.inc.php";
+require_once ADM_DIR . "incs/global-inc.php";
+
+require_once ROOT_DIR . "classes/encrypt.inc.php";
+
+require_once ROOT_DIR . "classes/order.class.php";
+require_once ROOT_DIR . "classes/orderStatus.class.php";
+require_once ROOT_DIR . "classes/domain.class.php";
+require_once ROOT_DIR . "classes/niche.class.php";
+require_once ROOT_DIR . "classes/utility.class.php";
+
+
+$Order	        = new Order();
+$OrderStatus    = new OrderStatus();
+$Domain         = new Domain();
+$Niche          = new Niche();
+$Utility        = new Utility();
+
+$Utility->setCurrentPageSession();
+
+$allOrders = $Order->getAllOrderDetails();
+
+// if(isset($_GET['action']) && isset($_GET['msg'])){
+//     $_GET['action'] == 'SUCCESS' ? $alertClasse = 'alert-primary' : $alertClasse = 'alert-warning';
+//     $msg = $_GET['msg'];
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +40,7 @@ require_once dirname(__DIR__) ."/includes/constant.inc.php";
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
-    <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
-    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+    <link id="pagestyle" href="assets/css/soft-ui-dashboard.css" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -34,49 +58,72 @@ require_once dirname(__DIR__) ."/includes/constant.inc.php";
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
+                                <?php if(count($allOrders) > 0): ?>
                                 <table class="table align-items-center mb-0 datatable">
                                     <thead>
                                         <tr>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Author</th>
+                                                Order ID</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Function</th>
+                                                Item</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Status</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Employed</th>
+                                                Date</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
                                                 Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                        foreach ($allOrders as $eachOrder) {
+                                            
+                                            // ( [] => 179 [customer_id] => 220 [billing_name] => Dipak Majumdar [orders_amount] => 1200.00 [orders_code] => ORDER-10082022T2NM8-1180 [delivery_type] => 0 [delivery_name] => Dipak [delivery_address1] => Kolkata [delivery_address2] => [delivery_city] => [delivery_postcode] => 700124 [delivery_phone] => 7699753019 [delivery_state] => Assam [delivery_country] => 99 [billing_address1] => Kolkata [billing_address2] => [billing_city] => [billing_postcode] => 700124 [billing_phone] => 7699753019 [billing_state] => Assam [billing_country] => 99 [last_modified] => 2022-08-10 03:42:50 [] => 2022-08-10 03:42:50 [shipping_id] => 0 [shipping_cost] => 0.00 [shipping_method] => [] => 2 [payment_status] => COMPLETED [orders_date_finished] => [email] => dipakmajumdar.leelija@gmail.com [description] => paypal check [payment_method_id] => credit card [cc_name] => [cc_number] => [coupon_id] => 0 [discount_provided] => 0.00 [currency_code] => [currency_conversion_rate] => [added_on] => 2022-08-10 03:42:50 [orders_products_id] => 95 [product_type] => domain [product_id] => 19 [product_model] => [] => neybg [product_price] => 1200.0000 [final_price] => 1200.0000 [products_tax] => 0.0000 [product_quantity] => 1 )
+                                            $tableId        = $eachOrder['orders_id'];
+                                            $orderId        = $eachOrder['orders_code'];
+                                            $productId      = $eachOrder['product_id'];
+                                            $itemName       = $eachOrder['product_name'];
+                                            $deliveryName   = $eachOrder['delivery_name'];
+                                            $orderDate      = $eachOrder['date_purchased'];
+
+                                            $ordsStatus     = $eachOrder['orders_status_id'];
+                                            $ordsStatus     = $OrderStatus->getOrdStatName($ordsStatus);
+
+                                            $item           = $Domain->showDomainsById($productId);
+                                            $itemImage      = $item['dimage'];
+                                            $itemNiche      = $Niche->getBlogNichMast($item['niche']);
+                                            $itemNiche      = $itemNiche['niche_name'];
+
+                                        ?>
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="assets/img/team-2.jpg" class="avatar avatar-sm me-3"
+                                                        <img src="<?= IMG_PATH ?>/domains/<?= $itemImage?>" class="avatar avatar-sm me-3"
                                                             alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">John Michael</h6>
-                                                        <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                                                        <h6 class="mb-0 text-sm"><?= $deliveryName ?></h6>
+                                                        <p class="text-xs text-secondary mb-0">#<?= $orderId ?></p>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">Manager</p>
-                                                <p class="text-xs text-secondary mb-0">Organization</p>
+                                                <p class="text-xs font-weight-bold mb-0"><?= $itemName; ?></p>
+                                                <p class="text-xs text-secondary mb-0"><?= $itemNiche; ?></p>
                                             </td>
                                             <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Online</span>
+                                                <span class="badge badge-sm bg-gradient-success"><?= $ordsStatus ?></span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    <?= $DateUtil->printDate2($orderDate); ?>
+                                                </span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
@@ -89,183 +136,12 @@ require_once dirname(__DIR__) ."/includes/constant.inc.php";
                                                 </a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3"
-                                                            alt="user2">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">Programator</p>
-                                                <p class="text-xs text-secondary mb-0">Developer</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-eye pe-4"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="assets/img/team-4.jpg" class="avatar avatar-sm me-3"
-                                                            alt="user3">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Laurent Perrier</h6>
-                                                        <p class="text-xs text-secondary mb-0">laurent@creative-tim.com
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">Executive</p>
-                                                <p class="text-xs text-secondary mb-0">Projects</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Online</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-eye pe-4"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3"
-                                                            alt="user4">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Michael Levi</h6>
-                                                        <p class="text-xs text-secondary mb-0">michael@creative-tim.com
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">Programator</p>
-                                                <p class="text-xs text-secondary mb-0">Developer</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Online</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-eye pe-4"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="assets/img/team-2.jpg" class="avatar avatar-sm me-3"
-                                                            alt="user5">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Richard Gran</h6>
-                                                        <p class="text-xs text-secondary mb-0">richard@creative-tim.com
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">Manager</p>
-                                                <p class="text-xs text-secondary mb-0">Executive</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">04/10/21</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-eye pe-4"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="assets/img/team-4.jpg" class="avatar avatar-sm me-3"
-                                                            alt="user6">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Miriam Eric</h6>
-                                                        <p class="text-xs text-secondary mb-0">miriam@creative-tim.com
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">Programtor</p>
-                                                <p class="text-xs text-secondary mb-0">Developer</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-eye pe-4"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+
+                                        <?php } ?>
+
                                     </tbody>
                                 </table>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -273,88 +149,8 @@ require_once dirname(__DIR__) ."/includes/constant.inc.php";
             </div>
         </div>
     </main>
-    <div class="fixed-plugin">
-        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-            <i class="fa fa-cog py-2"> </i>
-        </a>
-        <div class="card shadow-lg ">
-            <div class="card-header pb-0 pt-3 ">
-                <div class="float-start">
-                    <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
-                    <p>See our dashboard options.</p>
-                </div>
-                <div class="float-end mt-4">
-                    <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-                        <i class="fa fa-close"></i>
-                    </button>
-                </div>
-                <!-- End Toggle Button -->
-            </div>
-            <hr class="horizontal dark my-1">
-            <div class="card-body pt-sm-3 pt-0">
-                <!-- Sidebar Backgrounds -->
-                <div>
-                    <h6 class="mb-0">Sidebar Colors</h6>
-                </div>
-                <a href="javascript:void(0)" class="switch-trigger background-color">
-                    <div class="badge-colors my-2 text-start">
-                        <span class="badge filter bg-gradient-primary active" data-color="primary"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-dark" data-color="dark"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-info" data-color="info"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-success" data-color="success"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-warning" data-color="warning"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-danger" data-color="danger"
-                            onclick="sidebarColor(this)"></span>
-                    </div>
-                </a>
-                <!-- Sidenav Type -->
-                <div class="mt-3">
-                    <h6 class="mb-0">Sidenav Type</h6>
-                    <p class="text-sm">Choose between 2 different sidenav types.</p>
-                </div>
-                <div class="d-flex">
-                    <button class="btn bg-gradient-primary w-100 px-3 mb-2 active" data-class="bg-transparent"
-                        onclick="sidebarType(this)">Transparent</button>
-                    <button class="btn bg-gradient-primary w-100 px-3 mb-2 ms-2" data-class="bg-white"
-                        onclick="sidebarType(this)">White</button>
-                </div>
-                <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-                <!-- Navbar Fixed -->
-                <div class="mt-3">
-                    <h6 class="mb-0">Navbar Fixed</h6>
-                </div>
-                <div class="form-check form-switch ps-0">
-                    <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed"
-                        onclick="navbarFixed(this)">
-                </div>
-                <hr class="horizontal dark my-sm-4">
-                <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard">Free
-                    Download</a>
-                <a class="btn btn-outline-dark w-100"
-                    href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard">View
-                    documentation</a>
-                <div class="w-100 text-center">
-                    <a class="github-button" href="https://github.com/creativetimofficial/soft-ui-dashboard"
-                        data-icon="octicon-star" data-size="large" data-show-count="true"
-                        aria-label="Star creativetimofficial/soft-ui-dashboard on GitHub">Star</a>
-                    <h6 class="mt-3">Thank you for sharing!</h6>
-                    <a href="https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard"
-                        class="btn btn-dark mb-0 me-2" target="_blank">
-                        <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
-                    </a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard"
-                        class="btn btn-dark mb-0 me-2" target="_blank">
-                        <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <?php require_once ADM_DIR .'partials/bar-setting.php'; ?>
     <!--   Core JS Files   -->
     <script src="assets/js/core/popper.min.js"></script>
     <script src="assets/js/core/bootstrap.min.js"></script>

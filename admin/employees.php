@@ -126,42 +126,6 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                             </td>
                                         </tr>
                                         <?php }?>
-
-                                        <!-- <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3"
-                                                            alt="user2">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">Programator</p>
-                                                <p class="text-xs text-secondary mb-0">Developer</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-eye pe-4"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>-->
                                     </tbody>
                                 </table>
                             </div>

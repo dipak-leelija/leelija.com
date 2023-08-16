@@ -347,7 +347,7 @@ class Order extends Customer{
 		$query	= $this->conn->query($sql);
 		$rows	= $query->num_rows;
 		if($rows > 0){
-			while ($result = $query->fetch_array()) {
+			while ($result = $query->fetch_assoc()) {
 				$data[] = $result;
 			}
 			return $data;

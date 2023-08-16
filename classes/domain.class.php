@@ -122,9 +122,7 @@ class Domain extends DatabaseConnection
 	*	@return int
 	*/
 	function editDomain($id, $domain,$niche, $da, $pa, $cf, $tf, $alexa_traffic,$organic_traffic, $price, $durl,
-						 $selling_status, $approved, $modified_by)
-						
-	{
+						 $selling_status, $approved, $modified_by){
 		$id					=	addslashes(trim($id));
 		$domain				=	addslashes(trim($domain));
 		$niche				=	addslashes(trim($niche));
@@ -190,42 +188,33 @@ class Domain extends DatabaseConnection
 	function showDomainsById($id){
 		//declare vars
 		$data = array();
-		
-		//statement
-		$select = "SELECT * FROM domains WHERE id = '$id'";
-				   
-		//execute query
-		// $query	= mysql_query($select);
-		$query	= $this->conn->query($select);
+		$query	= $this->conn->query("SELECT * FROM domains WHERE id = '$id'");
 		//echo $select.mysql_error();exit;
-		//holds the data
-		while($result = $query->fetch_object())
-		{
-			$data  = array(
-					$result->domain,			//0
-					$result->niche,				//1
-					$result->da,				//2
-					$result->pa,				//3
-					$result->cf,				//4
-					$result->tf,				//5
-					$result->alexa_traffic,		//6
-					$result->organic_traffic,	//7
-					$result->price,				//8
-					$result->durl,				//9
-					$result->dimage,			//10
-					$result->selling_status,	//11
-					$result->approved,			//12
-					$result->added_by,			//13
-					$result->added_on,			//14
-					$result->modified_by,		//15
-					$result->modified_on,		//16
-					$result->sprice,			//17
-					$result->seo_url,			//18
-					$result->id     			//19
-					);
+		while($result = $query->fetch_assoc()){
+			// $data  = array(
+			// 		$result->domain,			//0
+			// 		$result->niche,				//1
+			// 		$result->da,				//2
+			// 		$result->pa,				//3
+			// 		$result->cf,				//4
+			// 		$result->tf,				//5
+			// 		$result->alexa_traffic,		//6
+			// 		$result->organic_traffic,	//7
+			// 		$result->price,				//8
+			// 		$result->durl,				//9
+			// 		$result->dimage,			//10
+			// 		$result->selling_status,	//11
+			// 		$result->approved,			//12
+			// 		$result->added_by,			//13
+			// 		$result->added_on,			//14
+			// 		$result->modified_by,		//15
+			// 		$result->modified_on,		//16
+			// 		$result->sprice,			//17
+			// 		$result->seo_url,			//18
+			// 		$result->id     			//19
+			// 		);
+			$data = $result;
 		}
-		//print_r($data);
-		//return the data
 		return $data;
 		
 	}//eof
