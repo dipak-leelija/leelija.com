@@ -3,20 +3,19 @@ session_start();
 require_once "../../includes/constant.inc.php";
 require_once "../../_config/dbconnect.php";
 
-require_once "../../includes/user.inc.php";
+require_once "../..//includes/alert-constant.inc.php";
 require_once "../../includes/email.inc.php";
 require_once "../../includes/paypal.inc.php";
 
 require_once "../../classes/customer.class.php";
 require_once "../../classes/utility.class.php";
 require_once "../../classes/order.class.php";
-require_once "../../classes/gp-order.class.php";
 
 /* INSTANTIATING CLASSES */
 $utility		= new Utility();
 $customer           = new Customer();
 $order  			= new Order();
-$gp 				= new Gporder();
+
 ###############################################################################################
 $typeM		= $utility->returnGetVar('typeM','');
 //user id
@@ -125,7 +124,7 @@ if (isset($_GET['data'])) {
                 <p>Your order status will updated to you, Now you can go back.</p>
                 <div class="mt-3">
                     <a class="btn btn-primary" href="<?php echo URL; ?>">Home</a>
-                    <a class="btn btn-primary" href="<?php echo CLIENT_AREA; ?>">My Account</a>
+                    <a class="btn btn-primary" href="<?php echo USER_AREA; ?>">My Account</a>
                 </div>
             </div>
         </div>

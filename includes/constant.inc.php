@@ -59,9 +59,6 @@
 
 
 	
-
-	define('CLIENT_AREA',  		URL."/dashboard.php");
-	
 	define('SITE_EMAIL', 		"contact@leelija");		//blackbox@ansysoft.com anarul.elance@gmail.com//ranjan.basak@ansysoft.com //contact@continuecontent.com
 	
 	define('CURRENCY',			'$');
