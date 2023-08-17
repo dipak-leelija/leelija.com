@@ -8,7 +8,7 @@ require_once ROOT_DIR."classes/search.class.php";
 require_once ROOT_DIR."classes/customer.class.php";
 require_once ROOT_DIR."classes/login.class.php";
 require_once ROOT_DIR."classes/domain.class.php";
-require_once ROOT_DIR."classes/blog_mst.class.php";
+require_once ROOT_DIR . "classes/niche.class.php";
 require_once ROOT_DIR."classes/order.class.php";
 require_once ROOT_DIR."classes/orderStatus.class.php";
 require_once ROOT_DIR."classes/utility.class.php";
@@ -21,7 +21,7 @@ $search_obj		= new Search();
 $customer		= new Customer();
 $logIn			= new Login();
 $Domain			= new Domain();
-$BlogMst        = new BlogMst();
+$Niche          = new Niche();
 $OrderStatus    = new OrderStatus();
 
 $utility		= new Utility();
@@ -248,14 +248,14 @@ $prodId =  url_dec($_GET['pdata']) ;
                                             <!-- Details section Start  -->
                                             <div class="">
                                                 <!-- Order Details Start -->
-                                                <h2 class="fw-bolder"><?php echo $OrdrdProduct[0]; ?>
+                                                <h2 class="fw-bolder"><?php echo $OrdrdProduct['domain']; ?>
                                                     <span class="badge bg-primary">
                                                         <?php echo $OrderStatus->getOrdStatName($orderedData['orders_status_id']) ?>
                                                     </span>
                                                     </h1>
                                                     <p class="niche_name">
                                                         <?php
-                                                        $niche = $BlogMst->showBlogNichMst($OrdrdProduct[1]);
+                                                        $niche = $Niche->showBlogNichMst($OrdrdProduct['niche']);
                                                         echo $niche[0][1]; // niche name
                                                     ?>
                                                     </p>

@@ -127,7 +127,7 @@ $orders         = $Order->getOrdersByCusId($cusId);
                                     ?>
                                         <tr>
                                             <th scope="row">#<?= $ordItem['orders_id'] ?></th>
-                                            <td ><?= $item[0];?></td>
+                                            <td ><?= $item['domain'];?></td>
                                             <td ><?= $ordStatusName;?></td>
                                             <td ><?= $DateUtil->dateTimeNumber($ordItem['date_purchased']);?></td>
                                             <td>
