@@ -118,11 +118,11 @@ $orders         = $Order->getOrdersByCusId($cusId);
                                         foreach ($orders as $ordItem) {
                                         
                                         $productId = $Order->getOrdDtlsByOrdId($ordItem['orders_id']);
-                                        $item      = $Domain->showDomainsById($productId[0]['product_id']);
+                                        $item      = $Domain->showDomainsById($productId['product_id']);
 
                                         $ordStatusName = $OrderStatus->getOrdStatName($ordItem['orders_status_id']);
 
-                                        $productQueryString = 'data='.url_enc($ordItem['orders_id']).'&pdata='.url_enc($productId[0]['product_id']);
+                                        $productQueryString = 'data='.url_enc($ordItem['orders_id']).'&pdata='.url_enc($productId['product_id']);
         
                                     ?>
                                         <tr>
