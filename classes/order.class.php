@@ -339,11 +339,7 @@ class Order extends Customer{
 	*/
 	function getAllOrderDetails(){
 
-			$sql	= "SELECT * FROM orders, orders_products 
-						WHERE orders.orders_id = orders_products.orders_id
-						";
-
-
+		$sql = "SELECT * FROM orders, orders_products WHERE orders.orders_id = orders_products.orders_id";
 		$query	= $this->conn->query($sql);
 		$rows	= $query->num_rows;
 		if($rows > 0){
@@ -352,7 +348,7 @@ class Order extends Customer{
 			}
 			return $data;
 		}else{
-			return 0;
+			return array();
 		}
 
 
@@ -691,7 +687,7 @@ class Order extends Customer{
 		$query	= $this->conn->query($select);
 		while($result = $query->fetch_array()){
 
-			$data[]	= $result;
+			$data	= $result;
 		
 		}
 		return $data;
