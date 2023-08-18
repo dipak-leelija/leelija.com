@@ -21,7 +21,6 @@ $Utility        = new Utility();
 $Utility->setCurrentPageSession();
 
 $allOrders = $Order->getAllOrderDetails();
-
 // if(isset($_GET['action']) && isset($_GET['msg'])){
 //     $_GET['action'] == 'SUCCESS' ? $alertClasse = 'alert-primary' : $alertClasse = 'alert-warning';
 //     $msg = $_GET['msg'];
@@ -54,7 +53,7 @@ $allOrders = $Order->getAllOrderDetails();
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <h6>Authors table</h6>
+                            <h6>Total Orders: <?= count($allOrders) ?></h6>
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
@@ -91,8 +90,8 @@ $allOrders = $Order->getAllOrderDetails();
                                             $deliveryName   = $eachOrder['delivery_name'];
                                             $orderDate      = $eachOrder['date_purchased'];
 
-                                            $ordsStatus     = $eachOrder['orders_status_id'];
-                                            $ordsStatus     = $OrderStatus->getOrdStatName($ordsStatus);
+                                            $ordStatus     = $eachOrder['orders_status_id'];
+                                            $ordStatus     = $OrderStatus->getOrdStatName($ordStatus);
 
                                             $item           = $Domain->showDomainsById($productId);
                                             $itemImage      = $item['dimage'];
@@ -118,7 +117,7 @@ $allOrders = $Order->getAllOrderDetails();
                                                 <p class="text-xs text-secondary mb-0"><?= $itemNiche; ?></p>
                                             </td>
                                             <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success"><?= $ordsStatus ?></span>
+                                                <span class="badge badge-sm bg-gradient-success"><?= $ordStatus ?></span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">
@@ -126,7 +125,7 @@ $allOrders = $Order->getAllOrderDetails();
                                                 </span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                <a href="<?= ADM_URL ?>order-details.php?order-id=<?= $tableId ?>" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
                                                     <i class="fa-solid fa-eye pe-4"></i>
                                                 </a>
@@ -141,6 +140,10 @@ $allOrders = $Order->getAllOrderDetails();
 
                                     </tbody>
                                 </table>
+                                <?php else: ?>
+                                    <div class="border border-danger rounded m-2 p-2">
+                                        <p class="text-bold text-center my-2 py-2">No Orders found</p>
+                                    </div>
                                 <?php endif; ?>
                             </div>
                         </div>

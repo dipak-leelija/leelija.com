@@ -24,7 +24,7 @@
             </li>
 
             <li class="nav-item has-submenu">
-                <a class="nav-link  submenu-toggle <?= $page == "Admin_order" ?  "active" : "" ?> "
+                <a class="nav-link  submenu-toggle <?= $page == "Admin_order" || $page == "Admin_order-details" ?  "active" : "" ?> "
                     href="#" data-bs-toggle="collapse" data-bs-target="#submenu-1" aria-expanded="<?= $page == "Admin_order" ? "true" : 'false'; ?>" aria-controls="submenu-1">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -33,11 +33,11 @@
                     <span class="nav-link-text ms-1">Order Management</span>
                 </a>
                 <div id="submenu-1"
-                    class="collapse submenu submenu-1  <?= $page == "Admin_order" ? "show" : ''; ?>"
+                    class="collapse submenu submenu-1 <?= $page == "Admin_order" || $page == "Admin_order-details" ? "show" : ''; ?>"
                     data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
                         <li class="submenu-item">
-                            <a class="submenu-link <?php if($page == "Admin_order"  ){echo "active";} ?>"
+                            <a class="submenu-link <?= $page == "Admin_order" || $page == "Admin_order-details" ? "active": ''; ?>"
                                 href="orders.php">Orders</a>
                         </li>
                     </ul>
