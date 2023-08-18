@@ -50,9 +50,9 @@
 
 
 	define('PAGE',				$_SERVER['PHP_SELF']);
-	define('ADM_URL',  			URL.'/admin/');
-	define('SELLER_URL',  		URL.'/seller/');
-	define('USER_URL',  		URL.'/user/');
+	define('ADM_URL',  			URL.'admin/');
+	define('SELLER_URL',  		URL.'seller/');
+	define('USER_URL',  		URL.'user/');
 	define('SELLER_AREA',  		URL."seller/dashboard.php");
 	define('USER_AREA',  		URL."user/app.client.php");
 	define('IMG_PATH',  		URL."images/");

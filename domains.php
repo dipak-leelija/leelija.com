@@ -9,7 +9,7 @@ require_once("classes/customer.class.php");
 require_once("classes/login.class.php");
 
 //require_once("../classes/front_photo.class.php");
-require_once("classes/blog_mst.class.php");
+require_once("classes/niche.class.php");
 require_once("classes/domain.class.php");
 require_once("classes/utility.class.php");
 require_once("classes/utilityMesg.class.php");
@@ -24,7 +24,7 @@ $customer		= new Customer();
 $logIn			= new Login();
 
 //$ff				= new FrontPhoto();
-$blogMst		= new BlogMst();
+$Niche		    = new Niche();
 $domain			= new Domain();
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
@@ -99,14 +99,14 @@ $domainDtls		= $domain->ShowDomainData();
                         <div class="nichdiv" style="height: 380px; overflow-y: auto; overflow-x: hidden; text-align: start;"
                             id="list-niches" data-scrollbar>
                             <?php
-								$BlogMst  = $blogMst->ShowBlogNichMast();
-								foreach($BlogMst as $row)
-								{
-								?>
+								$niches  = $Niche->ShowBlogNichMast();
+								foreach($niches as $eachNice){
+							?>
                             <div class="list-group-item checkbox">
-                                <label><input type="checkbox" class="common_selector niche"
-                                        value="<?php echo $row['niche_id']; ?>">
-                                    <?php echo $row['niche_name']; ?></label>
+                                <label>
+                                    <input type="checkbox" class="common_selector niche" value="<?= $eachNice['niche_id']; ?>">
+                                    <?= $eachNice['niche_name']; ?>
+                                </label>
                             </div>
                             <?php
 								}

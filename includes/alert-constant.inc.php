@@ -15,6 +15,7 @@
 	const ERREG008      = ' Designation can not be left empty';
 	define('ERREG009', ' Suburb or City or Town is empty');
 	define('ERREG010', ' District is empty');
+	const ERREG0016      = 'PIN Code is empty!';
 	define('ERREG011', ' State is empty');
 	define('ERREG012', ' City is empty');
 	define('ERREG013', ' Select your category');
@@ -184,6 +185,16 @@
      */
 	const EMPSU001	= 'New Employee Added!';
     const EMPER007  = 'Date of Joining is empty';
+
+
+	/****************************************************************************************************************
+	 * 																												*
+     *      										Billing Constants												*
+	 * 																												*
+     ****************************************************************************************************************/
+	const ERORDERL001	= 'Billing name is enpty!';
+    const ERORDERL007   = 'Billing address is empty!';
+
 
 
 ?>

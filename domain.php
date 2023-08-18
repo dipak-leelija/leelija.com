@@ -10,7 +10,7 @@ require_once ROOT_DIR."classes/customer.class.php";
 require_once ROOT_DIR."classes/login.class.php";
 
 require_once ROOT_DIR."classes/products.class.php";
-require_once ROOT_DIR."classes/blog_mst.class.php";
+require_once ROOT_DIR."classes/niche.class.php";
 require_once ROOT_DIR."classes/domain.class.php";
 require_once ROOT_DIR."classes/utility.class.php";
 require_once ROOT_DIR."classes/utilityMesg.class.php";
@@ -25,7 +25,7 @@ $customer		= new Customer();
 $logIn			= new Login();
 
 $product		= new Products();
-$blogMst		= new BlogMst();
+$Niche		    = new Niche();
 $domain			= new Domain();
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
@@ -44,7 +44,7 @@ if(isset($_GET['seo_url'])){
 }
 
 $domainDtl		= $domain->getAllDomains($seo_url);
-$nicheDtls	 	= $blogMst->showBlogNichMst($domainDtl[1]);
+$nicheDtls	 	= $Niche->showBlogNichMst($domainDtl[1]);
 foreach($nicheDtls as $rownicheDtls){
 	$rownicheDtls[1];
 }

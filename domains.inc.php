@@ -6,10 +6,10 @@ require_once("includes/constant.inc.php");
 require_once("_config/dbconnect.php");
 // require_once "_config/db_connect.php";
 
-require_once("classes/blog_mst.class.php");
+require_once("classes/niche.class.php");
 
 /* INSTANTIATING CLASSES */
-$blogMst		= new BlogMst();
+$Niche		= new Niche();
 
 if(isset($_POST["action"])){
 
@@ -23,14 +23,6 @@ if(isset($_POST["action"])){
 		$niche_filter = implode("','", $_POST["niche"]);
 		$query .= " AND niche IN('".$niche_filter."') ";
 	}
-
-	// echo $query;exit;
-
-	// $statement  = mysqli_query($conn, $query);
-	// $total_row  = mysqli_num_rows($statement);
-	// while ($data = mysqli_fetch_assoc($statement)) {
-	// 	$result[] = $data;
-	// }
 
 	$statement  = mysqli_query($conn, $query);
 	$total_row  = mysqli_num_rows($statement);
@@ -46,7 +38,7 @@ if(isset($_POST["action"])){
 		foreach($result as $row){
 			
 			// print_r($row['niche']);
-			$nicheDtls	 	= $blogMst->showBlogNichMst($row['niche']);
+			$nicheDtls	 	= $Niche->showBlogNichMst($row['niche']);
 			foreach ($nicheDtls as $rowNicheDtls) {
 			$output .= '
 				<div class=" col-lg-4 col-md-6 col-sm-6">
@@ -86,9 +78,7 @@ if(isset($_POST["action"])){
 			';
 			}
 		}
-	}
-	else
-	{
+	}else{
 		$output = '<h3>No Data Found</h3>';
 	}
 	echo $output;
