@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once dirname(dirname(__DIR__))."/includes/constant.inc.php";
+require_once dirname(dirname(__DIR__))."/includes/order-constant.inc.php";
 require_once ROOT_DIR."_config/dbconnect.php";
 
 require_once ROOT_DIR."classes/customer.class.php";
@@ -14,7 +15,7 @@ require_once ROOT_DIR."classes/utility.class.php";
 
 $customer		= new Customer();
 $Order          = new Order();
-$utility        = new Utility;
+$utility        = new Utility();
 ######################################################################################################################
 $typeM		= $utility->returnGetVar('typeM','');
 //user id
@@ -33,8 +34,8 @@ if(isset($_POST["action"])){
     if ($_POST["action"] == 'self-integration' ) {
 
         $orders_id          = url_dec($_POST["orderId"]);
-        $order_status_id    = 3;
-        $domain_provider    = $_POST["domainProvider"];
+        $order_status_id    = PROCESSINGCODE;
+        $domain_provider    = url_enc($_POST["domainProvider"]);
         $domain_email      = $_POST["emailAddress"];
         $updated_by         = $cusDtl[0][2];
 
