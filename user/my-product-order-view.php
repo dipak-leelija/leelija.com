@@ -404,7 +404,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                                                         value="<?php echo $deliveryDtls['domain_authorizatrion_code'];?>"
                                                         readonly>
                                                     <div id="domain_authorizatrion_code_copy"
-                                                        onclick="copyText('domain_authorizatrion_code', this.id)"
+                                                        onclick="copyTextBS('domain_authorizatrion_code', this.id)"
                                                         class="clipboard icon">
                                                     </div>
                                                 </div>
@@ -417,7 +417,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                                                         value="<?php echo $deliveryDtls['website_file_link'];?>"
                                                         readonly>
                                                     <div id="website_file_link_copy"
-                                                        onclick="copyText('website_file_link', this.id)"
+                                                        onclick="copyTextBS('website_file_link', this.id)"
                                                         class="clipboard icon">
                                                     </div>
                                                 </div>
@@ -592,10 +592,6 @@ $prodId =  url_dec($_GET['pdata']) ;
 
         <!-- Banner text Responsiveslides -->
         <script src="<?= URL ?>js/responsiveslides.min.js"></script>
-
-        <!-- start-smooth-scrolling -->
-        <script src="<?= URL ?>js/move-top.js"></script>
-        <script src="<?= URL ?>js/easing.js"></script>
         <script src="<?= URL ?>js/script.js"></script>
 
         <script>
@@ -636,9 +632,9 @@ $prodId =  url_dec($_GET['pdata']) ;
                     domainProvider: domainProvider,
                     emailAddress: emailAddress
                 },
-                success: function(data) {
-                    // alert(data)
-                    if (data.includes('submited')) {
+                success: function(response) {
+                    alert(response)
+                    if (response.includes('submited')) {
 
                         Swal.fire({
                             position: 'center',
@@ -652,7 +648,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                     } else {
                         Swal.fire(
                             'Failed!',
-                            'Failed to submit details!',
+                            response,
                             'error'
                         )
                     };
@@ -662,7 +658,7 @@ $prodId =  url_dec($_GET['pdata']) ;
         }
 
 
-        const copyText = (fieldId, btnId) => {
+        const copyTextBS = (fieldId, btnId) => {
 
             var text = document.getElementById(fieldId);
             text.select();
