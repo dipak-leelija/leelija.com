@@ -11,7 +11,7 @@ require_once ROOT_DIR."classes/search.class.php";
 require_once ROOT_DIR."classes/customer.class.php";
 require_once ROOT_DIR."classes/login.class.php";
 require_once ROOT_DIR."classes/domain.class.php";
-require_once ROOT_DIR."classes/blog_mst.class.php";
+require_once ROOT_DIR."classes/niche.class.php";
 require_once ROOT_DIR."classes/order.class.php";
 require_once ROOT_DIR."classes/orderStatus.class.php";
 require_once ROOT_DIR."classes/utility.class.php";
@@ -24,7 +24,7 @@ $search_obj		= new Search();
 $customer		= new Customer();
 $logIn			= new Login();
 $Domain			= new Domain();
-$BlogMst        = new BlogMst();
+$Niche          = new Niche();
 $OrderStatus    = new OrderStatus();
 
 $utility		= new Utility();
@@ -169,7 +169,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                             <section class="my-gp-order">
                                 <div class="p-kage-de-tails">
 
-                                    <?php
+                                <?php
                                 $orderedData = $Order->getFullOrderDetailsById($ordId);
                                 if ($prodId == $orderedData['product_id']) {
                                     $OrdrdProduct = $Domain->showDomainsById($prodId);
@@ -181,14 +181,14 @@ $prodId =  url_dec($_GET['pdata']) ;
                                             <!-- Details section Start  -->
                                             <div class="">
                                                 <!-- Order Details Start -->
-                                                <h2 class="fw-bolder"><?php echo $OrdrdProduct[0]; ?>
+                                                <h2 class="fw-bolder"><?php echo $OrdrdProduct['domain']; ?>
                                                     <span class="badge bg-primary">
                                                         <?php echo $OrderStatus->getOrdStatName($orderedData['orders_status_id']) ?>
                                                     </span>
                                                     </h1>
                                                     <p class="niche_name">
                                                         <?php
-                                                        $niche = $BlogMst->showBlogNichMst($OrdrdProduct[1]);
+                                                        $niche = $Niche->showBlogNichMst($OrdrdProduct['niche']);
                                                         echo $niche[0][1]; // niche name
                                                     ?>
                                                     </p>
@@ -201,7 +201,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                                                                                 class="fa-sharp fa-solid fa-forward me-1"></i>
                                                                     </div>
                                                                     <div class="col-6 ps-0">DA </div>
-                                                                    <div class="col-4 "><?php echo $OrdrdProduct[2];?>
+                                                                    <div class="col-4 "><?php echo $OrdrdProduct['da'];?>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -212,7 +212,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                                                                                 class="fa-sharp fa-solid fa-forward me-1"></i>
                                                                     </div>
                                                                     <div class="col-6 ps-0">PA </div>
-                                                                    <div class="col-4 "><?php echo $OrdrdProduct[3];?>
+                                                                    <div class="col-4 "><?php echo $OrdrdProduct['pa'];?>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -223,7 +223,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                                                                                 class="fa-sharp fa-solid fa-forward me-1"></i>
                                                                     </div>
                                                                     <div class="col-6 ps-0">CF </div>
-                                                                    <div class="col-4 "><?php echo $OrdrdProduct[4];?>
+                                                                    <div class="col-4 "><?php echo $OrdrdProduct['cf'];?>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -234,7 +234,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                                                                                 class="fa-sharp fa-solid fa-forward me-1"></i>
                                                                     </div>
                                                                     <div class="col-6 ps-0">TF </div>
-                                                                    <div class="col-4 "><?php echo $OrdrdProduct[5];?>
+                                                                    <div class="col-4 "><?php echo $OrdrdProduct['tf'];?>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -245,7 +245,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                                                                                 class="fa-sharp fa-solid fa-forward me-1"></i>
                                                                     </div>
                                                                     <div class="col-6 ps-0">Alexa Traffic </div>
-                                                                    <div class="col-4 "><?php echo $OrdrdProduct[6];?>
+                                                                    <div class="col-4 "><?php echo $OrdrdProduct['alexa_traffic'];?>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -256,23 +256,10 @@ $prodId =  url_dec($_GET['pdata']) ;
                                                                                 class="fa-sharp fa-solid fa-forward me-1"></i>
                                                                     </div>
                                                                     <div class="col-6 ps-0 pe-0">Organic Traffic </div>
-                                                                    <div class="col-4 "><?php echo $OrdrdProduct[7];?>
+                                                                    <div class="col-4 "><?php echo $OrdrdProduct['organic_traffic'];?>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 col-12 col-sm-6">
-                                                                <div class="row">
-                                                                    <div class="col-2">
-                                                                        <td><i
-                                                                                class="fa-sharp fa-solid fa-forward me-1"></i>
-                                                                    </div>
-                                                                    <div class="col-6 ps-0">
-                                                                        <?php echo $OrdrdProduct[7];?></div>
-                                                                    <div class="col-4 "><?php echo $OrdrdProduct[1];?>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
                                                         </div>
                                                     </div>
 
