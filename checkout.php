@@ -1,6 +1,8 @@
 <?php 
 session_start(); 
 require_once("includes/constant.inc.php");
+require_once("includes/alert-constant.inc.php");
+require_once("includes/order-constant.inc.php");
 
 require_once("_config/dbconnect.php");
 require_once("classes/date.class.php");  
@@ -11,8 +13,9 @@ require_once("classes/order.class.php");
 require_once("classes/checkout.class.php");
 require_once("classes/login.class.php"); 
 
-require_once("classes/countries.class.php"); 
-require_once("classes/blog_mst.class.php"); 
+require_once("classes/countries.class.php");
+require_once("classes/location.class.php");
+require_once("classes/niche.class.php"); 
 require_once("classes/domain.class.php"); 
 require_once("classes/utility.class.php"); 
 require_once("classes/utilityMesg.class.php"); 
@@ -29,7 +32,8 @@ $order			= new Order();
 $checkout		= new Checkout();
 
 $country		= new Countries();
-$blogMst		= new BlogMst();
+$Location       = new Location();
+$Niche		    = new Niche();
 $domain			= new Domain();
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
@@ -54,10 +58,10 @@ foreach($cusDtl as $rowCusDtl){
 }
 
 
+$StateDtls 	= $Location->getStateData($rowCusDtl[28]); //countries_id
 
-
-$countriesDtls 	= $country->showCountry($rowCusDtl[30]); //countries_id
-// print_r($countriesDtls[0][0]); exit;
+$countriesDtls 	= $Location->getCountyById($rowCusDtl[30]); //countries_id
+// print_r($countriesDtls); exit;
 $domainDtls		= $domain->ShowDomainData();
 
 //Current Url
@@ -77,9 +81,9 @@ if(isset($_POST['btnSubmit'])){
         //post var
         $txtBillingName 			= $_POST['txtBillingName'];
         $phoneNo 			        = $_POST['contact-no'];
-        $billingState 			    = $_POST['txtBillingState'];
-        $txtBillingEmail	  		= $_POST['txtBillingEmail'];
+        $txtBillingEmail	  		= $cusDtl[0][3];
         $txtBillingAdd 				= $_POST['txtBillingAdd'];
+        $billingState 			    = $_POST['txtBillingState'];
         $txtPostCode 				= $_POST['txtPostCode'];
         $txtCountry  				= $_POST['txtCountry'];	//''
         $txtNotes  					= $_POST['txtNotes'];
@@ -106,16 +110,20 @@ if(isset($_POST['btnSubmit'])){
 
         }else if(($txtBillingAdd == '')){
 
-            $myError->showErrorTA($action, $id, $id_var, $url, ERORDERL002, $typeM, $anchor);
+            $myError->showErrorTA($action, $id, $id_var, $url, ERORDERL007, $typeM, $anchor);
 
         }else if(($invalidEmail == '')||(preg_match("/^ER/i",$invalidEmail))){
 
-            $myError->showErrorTA($action, $id, $id_var, $url, ERORDERL003, $typeM, $anchor);
+            $myError->showErrorTA($action, $id, $id_var, $url, ERREG005, $typeM, $anchor);
 
+        }else if($billingState == '') {
+
+            $myError->showErrorTA($action, $id, $id_var, $url, ERREG011, $typeM, $anchor);
+            
         }else if($txtPostCode == '') {
 
-            $myError->showErrorTA($action, $id, $id_var, $url, ERORDERL004, $typeM, $anchor);
-
+            $myError->showErrorTA($action, $id, $id_var, $url, ERREG0016, $typeM, $anchor);
+        
         }else{
 
             $client_dtl		= $customer->getCustomerData($cusId);
@@ -138,8 +146,8 @@ if(isset($_POST['btnSubmit'])){
             foreach ($_SESSION["domain"] as $cart_itm){
 
                 $domainDtl		= $domain->showDomainsById($cart_itm['code']);
-                $ordProdIds[]	= $checkout->addOrdProd($ordId, 'domain', $domainDtl[19], '', $domainDtl[0], $domainDtl[17], $domainDtl[17], 0.0, 1);
-                $totalAmt		= $totalAmt + $domainDtl[17];
+                $ordProdIds[]	= $checkout->addOrdProd($ordId, 'domain', $domainDtl['id'], '', $domainDtl['domain'], $domainDtl['sprice'], $domainDtl['sprice'], 0.0, 1);
+                $totalAmt		= $totalAmt + $domainDtl['sprice'];
             }
             
             //generate order key
@@ -152,16 +160,7 @@ if(isset($_POST['btnSubmit'])){
            
             
             //update order status
-            /**
-                 * 
-                 * ORDER STATUS CODE
-                 * 1 = Delivered
-                 * 2 = Pending
-                 * 3 = Processing
-                 * 4 = Oedered
-                 * 
-                 *  */ 
-            $order->updateOrderStatus($ordId, 2);
+            $order->updateOrderStatus($ordId, PENDINGCODE);
 
             //hold order values in session
             $_SESSION['ordId']	= $ordId;
@@ -169,7 +168,7 @@ if(isset($_POST['btnSubmit'])){
             $_SESSION['ordAmt']	= $ordAmt;
 
             //forward to payment page
-            header("Location: payments/itemPayment/paypal-payment-response.php?data=".base64_encode($paymentData));
+            header("Location: ".URL."payments/paypal-payment-response.php?data=".base64_encode($paymentData));
             exit();
         
         }
@@ -191,9 +190,6 @@ if(isset($_POST['btnSubmit'])){
     <link rel="icon" href="<?php echo FAVCON_PATH; ?>" type="image/png">
     <link rel="apple-touch-icon" href="<?php echo FAVCON_PATH; ?>" />
     
-    <meta name="description" content="LeeLija can Instantly find the Domain Name and Ready Blogs Or Websites that you have been looking for. Find the right Blog or Website today.">
-    <meta name="keywords" content="Precedence Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="plugins/bootstrap-5.2.0/css/bootstrap.css">
     <link rel="stylesheet" href="plugins/fontawesome-6.1.1/css/all.css">
@@ -256,7 +252,7 @@ if(isset($_POST['btnSubmit'])){
 
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="billing-email" placeholder=" "
-                                    name="txtBillingEmail" value="<?php echo $cusDtl[0][3]; ?>">
+                                    name="txtBillingEmail" value="<?= $cusDtl[0][3]; ?>" disabled>
                                 <label for="floatingInput">Email address</label>
                             </div>
                             <p id="noEmail" class="text-danger text-start"></p>
@@ -270,9 +266,22 @@ if(isset($_POST['btnSubmit'])){
 
 
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="billing-state" placeholder=" "
-                                    name="txtBillingState" value="<?php echo $cusDtl[0][28]; ?>">
-                                <label for="floatingInput">Billing State</label>
+                                <!-- <input type="text" class="form-control" id="" placeholder=" "
+                                    name="" value="">
+                                <label for="floatingInput">Billing State</label> -->
+
+                                <select class="form-select" id="billing-state" title="Countries" name="txtBillingState">
+                                    <option selected value="<?php echo $cusDtl[0][28]; ?>">
+                                        <?= $countriesDtls['name']; ?></option>
+                                    <?php 
+										if(isset($_SESSION['userid'])){
+											$utility->populateDropDown($cusDtl[0][24], 'id', 'name', 'states');
+										}else{
+											$utility->populateDropDown(0, 'id', 'name', 'states');
+										}
+									?>
+                                </select>
+                                <label for="billing-state">State</label>
                             </div>
                             <p id="noState" class="text-danger text-start"></p>
 
@@ -288,16 +297,14 @@ if(isset($_POST['btnSubmit'])){
                             <div class="form-floating">
                                 <select class="form-select" id="billing-cntry" title="Countries" name="txtCountry">
                                     <option selected value="<?php echo $cusDtl[0][30]; ?>">
-                                        <?php echo $countriesDtls[0][0]; ?></option>
+                                        <?= $countriesDtls['name']; ?></option>
                                     <?php 
 										if(isset($_SESSION['userid'])){
-											//$utility->genDropDown($_SESSION['txtCountriesId'], $arr_val, $arr_label);
-											$utility->populateDropDown($cusDtl[0][24], 'id', 'country_name', 'countries');
+											$utility->populateDropDown($cusDtl[0][24], 'id', 'name', 'countries');
 										}else{
-											//$utility->genDropDown(0, $arr_val, $arr_label);
-											$utility->populateDropDown(0, 'id', 'country_name', 'countries');
+											$utility->populateDropDown(0, 'id', 'name', 'countries');
 										}
-										?>
+									?>
                                 </select>
                                 <label for="floatingSelect">Country</label>
                             </div>
@@ -354,9 +361,9 @@ if(isset($_POST['btnSubmit'])){
 										$domainDtl		= $domain->showDomainsById($cart_itm['code']);
 										$subtotal 		= $cart_itm["qty"];
 										$total 			= ($total + $subtotal);
-										$nicheDtls	 	= $blogMst->showBlogNichMst($domainDtl[1]);
+										$nicheDtls	 	= $Niche->showBlogNichMst($domainDtl['niche']);
 										//$Amt			= $domainDtl[8];
-										$totalAmt		= $totalAmt + $domainDtl[17];
+										$totalAmt		= $totalAmt + $domainDtl['sprice'];
                                         // echo $domainDtl[17];
 								?>
                     <!--Start Row-->
@@ -366,43 +373,43 @@ if(isset($_POST['btnSubmit'])){
                         <!--Start Row-->
                         <div class="col-lg-10 card ckoutcol">
 
-                            <h2 class="stat-title text-center  pb-lg-3"><?php echo $domainDtl[0]; ?></h2>
+                            <h2 class="stat-title text-center  pb-lg-3"><?php echo $domainDtl['domain']; ?></h2>
                             <h3 class="sub-title2"><i class="fa-solid fa-angles-right"></i>URL :<a rel="nofollow"
-                                    href="<?php echo $domainDtl[9];?>" target="_blank">
-                                    <?php echo $domainDtl[9];?></a>
+                                    href="<?php echo $domainDtl['durl'];?>" target="_blank">
+                                    <?php echo $domainDtl['durl'];?></a>
                             </h3>
                             <h3 class="sub-title1 fs-4 fw-bold"><i class="fa-solid fa-right-long"></i> Price :
-                                $<?php echo $domainDtl[8];?></h3>
+                                $<?php echo $domainDtl['price'];?></h3>
 
                             <div class="ckoutdiv">
 
                                 <h3 class="sub-title1"><i class="fa-solid fa-right-long"></i> Niche :
                                     <?php echo $nicheDtls[0][1];?></h3>
                                 <h3 class="sub-title1"><i class="fa-solid fa-right-long"></i> DA :
-                                    <?php echo $domainDtl[2];?>
+                                    <?php echo $domainDtl['da'];?>
                                 </h3>
                                 <h3 class="sub-title1">
                                     <i class="fa-solid fa-right-long"></i>
-                                    PA : <?php echo $domainDtl[3];?>
+                                    PA : <?php echo $domainDtl['pa'];?>
                                 </h3>
                                 <h3 class="sub-title1"><i class="fa-solid fa-right-long"></i> TF :
-                                    <?php echo $domainDtl[5];?>
+                                    <?php echo $domainDtl['tf'];?>
                                 </h3>
                                 <h3 class="sub-title1">
                                     <i class="fa-solid fa-right-long"></i>
-                                    CF : <?php echo $domainDtl[4];?>
+                                    CF : <?php echo $domainDtl['cf'];?>
                                 </h3>
                                 <h3 class="sub-title1"><i class="fa-solid fa-right-long"></i> Alexa :
-                                    <?php echo $domainDtl[6];?>
+                                    <?php echo $domainDtl['alexa_traffic'];?>
                                 </h3>
                                 <h3 class="sub-title1">
                                     <i class="fa-solid fa-right-long"></i> Organic
-                                    Traffic : <?php echo $domainDtl[7];?>
+                                    Traffic : <?= $domainDtl['organic_traffic'];?>
                                 </h3>
                             </div>
                         </div>
                         <div class="col-lg-2 pb-2">
-                            <a href="removecart.php?removep=<?php echo $domainDtl[19];?>" class="btn btn-danger btn-sm">
+                            <a href="removecart.php?removep=<?php echo $domainDtl['id'];?>" class="btn btn-danger btn-sm">
                                 Remove
                             </a>
                         </div>

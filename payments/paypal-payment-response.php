@@ -1,18 +1,19 @@
-<?php 
+<?php
 session_start();
-require_once "../../includes/constant.inc.php";
-require_once "../../_config/dbconnect.php";
+require_once "../includes/constant.inc.php";
 
-require_once "../..//includes/alert-constant.inc.php";
-require_once "../../includes/email.inc.php";
-require_once "../../includes/paypal.inc.php";
+require_once ROOT_DIR."includes/alert-constant.inc.php";
+require_once ROOT_DIR."includes/order-constant.inc.php";
+require_once ROOT_DIR."includes/email.inc.php";
+require_once ROOT_DIR."includes/paypal.inc.php";
 
-require_once "../../classes/customer.class.php";
-require_once "../../classes/utility.class.php";
-require_once "../../classes/order.class.php";
+require_once ROOT_DIR."_config/dbconnect.php";
+require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/utility.class.php";
+require_once ROOT_DIR."classes/order.class.php";
 
 /* INSTANTIATING CLASSES */
-$utility		= new Utility();
+$utility		    = new Utility();
 $customer           = new Customer();
 $order  			= new Order();
 
@@ -25,43 +26,47 @@ $cusId		= $utility->returnSess('userid', 0);
 
 if(!isset($_SESSION["domain"]) && !isset($_SESSION["tAmount"]) && !isset($_SESSION["txtBillingName"]) && !isset($_SESSION["txtBillingEmail"]) && !isset($_SESSION["txtBillingAdd"]) && !isset($_SESSION["txtPostCode"]) && !isset($_SESSION["txtCountry"]) && !isset($_SESSION["ordId"]) && !isset($_SESSION["ordKey"]) && !isset($_SESSION["ordAmt"])){
 
-    header("Location: ../../");
+    header("Location: ".URL);
 }
 
 
 if (isset($_GET['data'])) {
 
     $details = (array)json_decode(base64_decode($_GET['data']));
-    // print_r($details);
+    $purchase_units = $details['purchase_units'][0];
+    $trxnId         = $purchase_units->payments->captures[0]->id;
+    $trxnStatus     = $purchase_units->payments->captures[0]->status;
 
-	$purchase_units = (array)$purchase_units = (array)$payer = $details['purchase_units'];
-	$payments = (array)$payments = $purchase_units[0];
-	$captures = (array)$captures = (array)$payments['payments'];
-	$captures = (array)$captures = (array)$captures = $captures['captures'];
-	$captures = (array)$captures = $captures[0];
 
-	$trxnId 	= $captures['id'];		//geting the transection id 
-	$trxnStatus = $captures['status'];	//geting the transection status
+	// $purchase_units = (array)$purchase_units = (array)$payer = $details['purchase_units'];
+	// $payments = (array)$payments = $purchase_units[0];
+	// $captures = (array)$captures = (array)$payments['payments'];
+	// $captures = (array)$captures = (array)$captures = $captures['captures'];
+	// $captures = (array)$captures = $captures[0];
+
+	// $trxnId 	= $captures['id'];		//geting the transection id 
+	// $trxnStatus = $captures['status'];	//geting the transection status
     // exit;
 
     if ($trxnStatus == "COMPLETED") {
-        $orderId    = $_SESSION['ordId'];
-        $transactionId  = $_SESSION['ordKey'];
-		$ordAmt     = $_SESSION['ordAmt'];
+        $orderId            = $_SESSION['ordId'];
+        $transactionCode    = $_SESSION['ordKey'];
+		$ordAmt             = $_SESSION['ordAmt'];
         
-        $paymentStatus  = $trxnStatus;
+        //update payment status
+        $order->updatePaymentStatus(COMPLETEDCODE, $orderId);
+        
+        //update order status
+        $order->updateOrderStatus($ordId, ORDEREDCODE);
 
-        $order->updatePaymentStatus($paymentStatus, $orderId);
-
-        $orderDetails = $order->getOrderDetail($transactionId, $orderId);
+        $orderDetails = $order->getOrderDetail($transactionCode, $orderId);
         $updated = $orderDetails[19];
         $amount  = $orderDetails[27];
     }
 
-
     $sess_arr = array('domain','tAmount','txtBillingName','txtBillingEmail','txtBillingAdd','txtPostCode','txtCountry','ordId','ordKey','ordAmt');
 
-    $utility->delSessArr($sess_arr); 
+    $utility->delSessArr($sess_arr);
 
 
 }
@@ -73,12 +78,12 @@ if (isset($_GET['data'])) {
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Payment Success - Order Received</title>
-    <link rel="stylesheet" href="../../plugins/bootstrap-5.2.0/css/bootstrap.css">
-    <link rel="stylesheet" href="../../plugins/fontawesome-6.1.1/css/all.css">
+    <link rel="stylesheet" href="<?= URL ?>plugins/bootstrap-5.2.0/css/bootstrap.css">
+    <link rel="stylesheet" href="<?= URL ?>plugins/fontawesome-6.1.1/css/all.css">
 
     <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <link rel="stylesheet" href="../../css/leelija.css">
-    <link rel="stylesheet" href="../../css/payment-status.css">
+    <link rel="stylesheet" href="<?= URL ?>css/leelija.css">
+    <link rel="stylesheet" href="<?= URL ?>css/payment-status.css">
 
 </head>
 
@@ -86,7 +91,7 @@ if (isset($_GET['data'])) {
 <body>
 
     <!-- Start  Header -->
-    <?php require_once "../../partials/navbar.php"; ?>
+    <?php require_once ROOT_DIR."partials/navbar.php"; ?>
     <!-- End  Header -->
 
     <!-- Start  container -->
@@ -101,9 +106,9 @@ if (isset($_GET['data'])) {
 
                     <div class="row p-3 w-md-50">
                         <div class="col-12 col-sm-6">Order ID :</div>
-                        <div class="col-12 col-sm-6"><b><?php echo "#".$orderId;?></b></div>
-                        <div class="col-12 col-sm-6">Transection ID :</div>
-                        <div class="col-12 col-sm-6"><b><?php echo $transactionId;?></b></div>
+                        <div class="col-12 col-sm-6"><b><?php echo "#".$transactionCode;?></b></div>
+                        <div class="col-12 col-sm-6">Status : </div>
+                        <div class="col-12 col-sm-6"><b><?php echo $trxnStatus;?></b></div>
                         <div class="col-12 col-sm-6">Amount :</div>
                         <div class="col-12 col-sm-6"><b><?php echo "$".$amount;?></b></div>
                         <div class="col-12 col-sm-6">Time :</div>
@@ -133,7 +138,7 @@ if (isset($_GET['data'])) {
     <!-- End  MainWrap -->
 
     <!-- Start Foter -->
-    <?php require_once "../../partials/footer.php"; ?>
+    <?php require_once ROOT_DIR."partials/footer.php"; ?>
     <!-- End Foter -->
 </body>
 

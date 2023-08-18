@@ -10,7 +10,7 @@ require_once("classes/customer.class.php");
 require_once("classes/login.class.php");
 
 require_once("classes/products.class.php");
-require_once("classes/blog_mst.class.php");
+require_once("classes/niche.class.php");
 require_once("classes/domain.class.php");
 require_once("classes/utility.class.php");
 require_once("classes/utilityMesg.class.php");
@@ -25,7 +25,7 @@ $customer		= new Customer();
 $logIn			= new Login();
 
 $product		= new Products();
-$blogMst		= new BlogMst();
+$Niche		= new Niche();
 $domain			= new Domain();
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
@@ -94,45 +94,43 @@ $_SESSION['reorder-page'] = $utility->currentUrl();
 							$domainDtl		= $domain->showDomainsById($cart_itm['code']);
 							$subtotal 		= $cart_itm["qty"];
 							$total 			= ($total + $subtotal);
-							$nicheDtls	 	= $blogMst->showBlogNichMst($domainDtl[1]);
-							foreach($nicheDtls as $rownicheDtls){
-								$rownicheDtls[1];
-						    }
-							
-						$totalAmt		= $totalAmt + $domainDtl[8];
+							$nicheDtls	 	= $Niche->showBlogNichMst($domainDtl['niche']);
+							$nicheName      = $nicheDtls[0][1];
+						    $totalAmt		= $totalAmt + $domainDtl['price'];
 									
 					?>
 
                     <div class="product_card col-lg-5 row border rounded shadow py-2 mb-3">
                         <div class="col-4 d-flex text-center aling-middle">
-                            <img src="images/domains/<?php echo $domainDtl[10];?>" alt="<?php echo $domainDtl[0];?>">
+                            <img src="images/domains/<?= $domainDtl['dimage'];?>" alt="<?= $domainDtl['domain'];?>">
                         </div>
                         <div class="card ccolcd col-8 col-md-8" style="border: none;">
-                            <h3 class="product-title text-capitalize"><?php echo $domainDtl[0]; ?></h3>
+                            <h3 class="product-title text-capitalize"><?= $domainDtl['domain']; ?></h3>
                             <div>
-                                <span><i class="fa fa-angle-double-right"></i>Url:
-                                    <a rel="nofollow" href="<?php echo $domainDtl[9];?>" target="_blank">
-                                        <?php echo $domainDtl[9];?></a></span>
+                                <span>
+                                    <i class="fa fa-angle-double-right"></i>
+                                    Url:
+                                    <a rel="nofollow" href="<?= $domainDtl['durl'];?>" target="_blank">
+                                        <?= $domainDtl['durl'];?></a>
+                                </span>
                                 <br>
-                                <span><i class="fa fa-angle-double-right"></i>Niche:
-                                    <?php echo $rownicheDtls[1];?></span>
-                                <br>
-
-                                <span><i class="fa fa-angle-double-right"></i>DA: <?php echo $domainDtl[2];?></span>
-                                <span><i class="fa fa-angle-double-right"></i>PA: <?php echo $domainDtl[3];?></span>
+                                <span><i class="fa fa-angle-double-right"></i>Niche: <?= $nicheName;?></span>
                                 <br>
 
-                                <span><i class="fa fa-angle-double-right"></i>Alexa: <?php echo $domainDtl[6];?></span>
-                                <span><i class="fa fa-angle-double-right"></i>Organic Traffic:
-                                    <?php echo $domainDtl[7];?></span>
+                                <span><i class="fa fa-angle-double-right"></i>DA: <?= $domainDtl['da'];?></span>
+                                <span><i class="fa fa-angle-double-right"></i>PA: <?= $domainDtl['pa'];?></span>
+                                <br>
+
+                                <span><i class="fa fa-angle-double-right"></i>Alexa: <?= $domainDtl['alexa_traffic'];?></span>
+                                <span><i class="fa fa-angle-double-right"></i>Organic Traffic: <?= $domainDtl['organic_traffic'];?></span>
 
                             </div>
                             <div class="row rw_twobtn justify-content-between py-2">
                                 <div class="col-12 col-sm-6 text-end">
-                                    <p class="fs-5 fw-bolder">$<span><?php echo $domainDtl[8];?></span></p>
+                                    <p class="fs-5 fw-bolder">$<span><?= $domainDtl['price'];?></span></p>
                                 </div>
                                 <div class="col-12 col-sm-6 text-end pt-2">
-                                    <a href="removecart.php?removep=<?php echo $domainDtl[19];?>"
+                                    <a href="removecart.php?removep=<?= $domainDtl['id'];?>"
                                         class="btn btn-danger btn-sm">Remove</a>
                                 </div>
 
