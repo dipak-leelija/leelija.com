@@ -1,7 +1,8 @@
 <?php
 session_start();
-require_once dirname(dirname(__DIR__))."_config/dbconnect.php";
+require_once dirname(dirname(__DIR__))."/includes/constant.inc.php";
 
+require_once ROOT_DIR."_config/dbconnect.php";
 require_once ROOT_DIR."classes/customer.class.php";
 require_once ROOT_DIR."classes/order.class.php";
 require_once ROOT_DIR."classes/utility.class.php";
@@ -19,23 +20,26 @@ $typeM		= $utility->returnGetVar('typeM','');
 $cusId		= $utility->returnSess('userid', 0);
 $cusDtl		= $customer->getCustomerData($cusId);
 
-// print_r($cusDtl);exit;
-
 if($cusId == 0){
 	header("Location: index.php");
 }
 
-// if($cusDtl[0][0] == 1){
-// 	header("Location: app.client.php");
-// }
 
 if(isset($_POST["action"])){
 
     if ($_POST["action"] == 'sendData' ) {
-        $updated_by         = $cusDtl[0][2];
+
+        $orders_id    = $_POST["ordrId"];
+        $domainCode   = $_POST["domainAuthCode"];
+        $fileLink     = $_POST['websiteFile'];
+        $dbLink       = $_POST['dbFile'];
+        $dbName       = $_POST['dbName'];
+        $dbUser       = $_POST['dbUser'];
+        $dbPass       = $_POST['dbPass'];
+        $waitingTime  = $_POST['waitingTime'];
+        $updated_by   = $cusDtl[0][2];
         
-        $send = $Order->updateData($_POST["ordrId"], 'domain_authorizatrion_code', $_POST["domainCode"], 'website_file_link', $_POST["driveUrl"], 	'waiting_time', $_POST["waitingTime"], '', $updated_by);
-        // $driveUrl = base64_decode($_POST["driveUrl"]);
+        $send = $Order->updateData($orders_id, $domainCode, $fileLink, $dbLink, $dbName, $dbUser, $dbPass, $waitingTime, $updated_by);
         // $newStat   = 3; // Processesing
         // $accepted = $Order->updateOrderStatus($orders_id, $newStat);
         if ($send) {

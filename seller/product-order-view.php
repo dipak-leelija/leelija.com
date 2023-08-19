@@ -889,7 +889,7 @@ $prodId =  url_dec($_GET['pdata']) ;
             } //end of for loop
 
 
-            domainCode = allinp[0].value;
+            domainAuthCode = allinp[0].value;
             websiteFile = allinp[1].value;
             dbFile = allinp[2].value;
             dbName = allinp[3].value;
@@ -905,7 +905,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                 data: {
                     action: action,
                     ordrId: ordrId,
-                    domainCode: domainCode,
+                    domainAuthCode: domainAuthCode,
                     websiteFile: websiteFile,
                     dbFile: dbFile,
                     dbName: dbName,
@@ -914,7 +914,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                     waitingTime: waitingTime
                 },
                 success: function(data) {
-                    alert(data);
+                    console.log(data);
                     if (data.includes('updated')) {
                         Swal.fire({
                             position: 'center',
