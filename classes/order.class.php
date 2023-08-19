@@ -1159,10 +1159,13 @@ function updateData($orders_id, $domainCode, $fileLink, $dbLink, $dbName, $dbUse
 	$fileLink 		= addslashes(trim($fileLink));
 	$dbLink 		= addslashes(trim($dbLink));
 
-	$dbName = str_replace("<", "&lt", str_replace(">", "&gt;", str_replace("'", "\\", $dbName)));
-	$dbUser = str_replace("<", "&lt", str_replace(">", "&gt;", str_replace("'", "\\", $dbUser)));
-	$dbPass = str_replace("<", "&lt", str_replace(">", "&gt;", str_replace("'", "\\", $dbPass)));
-
+	// $dbName = str_replace("<", "&lt", str_replace(">", "&gt;", str_replace("'", "\\", $dbName)));
+	// $dbUser = str_replace("<", "&lt", str_replace(">", "&gt;", str_replace("'", "\\", $dbUser)));
+	// $dbPass = str_replace("<", "&lt", str_replace(">", "&gt;", str_replace("'", "\\", $dbPass)));
+	
+	$dbName = addslashes(trim($dbName));
+	$dbUser = addslashes(trim($dbUser));
+	$dbPass = addslashes(trim($dbPass));
 	
 	$sql = 			"UPDATE order_products_delivery 
 					SET
@@ -1178,7 +1181,7 @@ function updateData($orders_id, $domainCode, $fileLink, $dbLink, $dbName, $dbUse
 					WHERE
 					`orders_id`		= '$orders_id'";
 	
-	//echo $sql.mysql_error();exit;
+	echo $sql.$this->conn->error;
 	
 	$query	= $this->conn->query($sql); 
 	

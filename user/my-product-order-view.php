@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once dirname(__DIR__)."/includes/constant.inc.php";
+require_once ROOT_DIR."/includes/order-constant.inc.php";
 require_once ROOT_DIR."_config/dbconnect.php";
 require_once ROOT_DIR."classes/encrypt.inc.php";
 require_once ROOT_DIR."classes/error.class.php";
@@ -231,331 +232,10 @@ $prodId =  url_dec($_GET['pdata']) ;
                             </div>
                         </div>
                         <div class="col-md-9  display-table-cell v-align client_profile_dashboard_right">
-
-
-                            <?php
-                                $orderedData = $Order->getFullOrderDetailsById($ordId);
-                                if ($prodId == $orderedData['product_id']) {
-                                    $OrdrdProduct = $Domain->showDomainsById($prodId);
-                                    if ($OrdrdProduct > 0) {
-                                        ?>
-                            <!-- Products Order Start -->
-                            <section class="my-gp-order">
-                                <div class="p-kage-de-tails">
-                                    <div class="row">
-                                        <div class="col-md-8">
-
-                                            <!-- Details section Start  -->
-                                            <div class="">
-                                                <!-- Order Details Start -->
-                                                <h2 class="fw-bolder"><?php echo $OrdrdProduct['domain']; ?>
-                                                    <span class="badge bg-primary">
-                                                        <?php echo $OrderStatus->getOrdStatName($orderedData['orders_status_id']) ?>
-                                                    </span>
-                                                    </h1>
-                                                    <p class="niche_name">
-                                                        <?php
-                                                        $niche = $Niche->showBlogNichMst($OrdrdProduct['niche']);
-                                                        echo $niche[0][1]; // niche name
-                                                    ?>
-                                                    </p>
-                                                    <table class="ordered-details-table-css " style="width: 100%;">
-                                                        <tr>
-                                                            <td>Order Id</td>
-                                                            <td>:</td>
-                                                            <td><?php echo "#".$orderedData['orders_id']; ?></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Transection Id</td>
-                                                            <td>:</td>
-                                                            <td style="word-break: break-word;">
-                                                                <?php echo "#".$orderedData['orders_code']; ?></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Price</td>
-                                                            <td>:</td>
-                                                            <td><?php echo "$".$orderedData['orders_amount']; ?></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Payment Status</td>
-                                                            <td>:</td>
-                                                            <td><?php echo $orderedData['payment_status']; ?>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Date</td>
-                                                            <td>:</td>
-                                                            <td><?php echo date('l jS \of F Y h:i:s A', strtotime($orderedData['added_on'])); ?>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                            </div>
-                                            <!-- Details section End -->
-
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="product_image_sec_right">
-                                                <img class="product_image"
-                                                    src="<?= URL ?>images/domains/<?php echo $OrdrdProduct[10]?>" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- actions Section start -->
-                                    <section
-                                        class="d-flex flex-column border-top  border-primary pb-3 px-2 bg_ord_footer">
-                                        <?php
-                                    if ($orderedData['orders_status_id'] == 3) { // if order status accepted/processesing
-
-                                        if ($orderedData['delivery_type'] == 1 ) { // if delivery type is self integration
-
-                                            // ====== steps and processes after order is accepted by seller ====== 
-
-                                            $deliveryDtls = $Order->deliveryDtlsByOrdId($orderedData['orders_id']);
-
-                                            // if ($orderedData['delivery_type'] == 1) {
-                                                
-                                                if($deliveryDtls['waiting_time'] == null){
-                                                
-                                                ?>
-
-                                        <p class="text-center bg-primary text-light fw-bold my-2 py-1">Please Wait for
-                                            seller integration</p>
-                                        <p class="text-center fw-normal cursor_pointer" data-bs-toggle="modal"
-                                            data-bs-target="#detailsModal">
-                                            Click here to see the details you have shared.
-                                        </p>
-
-
-                                        <!-- Details Modal Start -->
-                                        <div class="modal fade" id="detailsModal" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Integration
-                                                            Sharing Details</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <?php
-                                                             foreach ($deliveryDtls as $key => $value) {
-                                                                 if ($value != null || $value != '') {
-                                                                     if ($key != 'id' && $key != 'updated_by' && $key != 'order_status_id' && $key != 'accepted_on') {
-
-                                                                         if ($key == 'orders_id') $value = '#'.$value;
-                                                                         if ($key == 'updated_on') $value = $dateUtil->fullDateTimeText($value);
-                                                                            
-                                                                         echo '<div>
-                                                                                 <laber>'.$key.' :</laber><br>
-                                                                                 <p class="fw-semibold">'.$value.'</p>
-                                                                             </div>';
-                                                                     }
-                                                                 }
-                                                             }
-                                                             ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Details Modal End -->
-
-                                        <?php
-                                                }else{
-                                                ?>
-                                        <div class="order_action_bx">
-                                            <div class="m-auto dtls_bx">
-                                                <h3 class="text-center">Client Domain Account Details</h3>
-
-                                                <label class="fw-bold">Domain Provider</label>
-                                                <p class="fw-normal">
-                                                    <span id="domain_provider">
-                                                        <?php echo $deliveryDtls['domain_provider'];?>
-                                                    </span>
-                                                    <small data-bs-toggle="modal" data-bs-target="#editModal"
-                                                        onclick="editSingleData('domain_provider', 'domain_provider')"
-                                                        class="ms-2 text-danger cursor_pointer">
-                                                        <i class="fa-light fa-pen-to-square"></i>
-                                                        Edit
-                                                    </small>
-                                                </p>
-
-                                                <label class="fw-bold">Domain Email</label>
-                                                <p class="fw-normal">
-                                                    <span id="domain_email">
-                                                        <?php echo $deliveryDtls['domain_email'];?>
-                                                    </span>
-                                                    <small data-bs-toggle="modal" data-bs-target="#editModal"
-                                                        onclick="editSingleData('domain_email', 'domain_email')"
-                                                        class="ms-2 text-danger cursor_pointer">
-                                                        <i class="fa-light fa-pen-to-square"></i>
-                                                        Edit
-                                                    </small>
-                                                </p>
-                                            </div>
-
-                                            <div class="m-auto mt-4 form_bx">
-                                                <p class="fw-bold">Domain Email <span class="text-danger">Wrong?</span>
-                                                </p>
-                                                <div class="text-wrap">
-                                                    <input type="text" class="form-control"
-                                                        id="domain_authorizatrion_code"
-                                                        value="<?php echo $deliveryDtls['domain_authorizatrion_code'];?>"
-                                                        readonly>
-                                                    <div id="domain_authorizatrion_code_copy"
-                                                        onclick="copyTextBS('domain_authorizatrion_code', this.id)"
-                                                        class="clipboard icon">
-                                                    </div>
-                                                </div>
-
-
-                                                <p class="fw-bold mt-2">Website File Link <span
-                                                        class="text-danger">Wrong?</span></p>
-                                                <div class="text-wrap">
-                                                    <input type="text" class="form-control" id="website_file_link"
-                                                        value="<?php echo $deliveryDtls['website_file_link'];?>"
-                                                        readonly>
-                                                    <div id="website_file_link_copy"
-                                                        onclick="copyTextBS('website_file_link', this.id)"
-                                                        class="clipboard icon">
-                                                    </div>
-                                                </div>
-
-                                                <div class="mt-4 text-center">
-                                                    <button type="submit" class="btn btn-primary">Verified</button>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <?php
-                                                }
-                                        
-                                        }elseif($orderedData['delivery_type'] == 2) { // if delivery type is Leelija integration
-                                        ?>
-                                        <p class="text-light text-primary"></p>
-                                        <?php
-                                        }else {   //if delivery type not selected yet
-                                        ?>
-
-                                        <div class="text-center">
-                                            <p class="bg-primary text-light fw-bold my-2">
-                                                Your order has been accepted, Please Share require details
-                                            </p>
-                                        </div>
-
-                                        <!-- Integration Buttons Section Start-->
-                                        <div class="row m-auto butnrowss">
-                                            <div class="col-md-12 removingpadding">
-                                                <div class="buttonsinfo">
-                                                    <?php
-                                                        $deliveryType = $Order->allDeliveryType();
-                                                        foreach($deliveryType as $delivery){
-                                                        ?>
-                                                    <button class="btn managed-link-btn" data-bs-toggle="modal"
-                                                        data-bs-target="#modal-<?php echo $delivery['integration_id']; ?>">
-                                                        <?php 
-                                                        echo $delivery['integration_name']; 
-                                                        if ($delivery['cost'] > 0) {
-                                                            echo " ( $".$delivery['cost']." )";
-                                                        } ?>
-                                                    </button>
-
-
-
-                                                    <!-- Modal Start   -->
-                                                    <div class="modal fade"
-                                                        id="modal-<?php echo $delivery['integration_id'] ?>"
-                                                        tabindex="-1" aria-labelledby="exampleModalLabel"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                                                        New Domain Account Details
-                                                                    </h1>
-                                                                    <button type="button" class="btn-close"
-                                                                        data-bs-dismiss="modal"
-                                                                        aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-
-                                                                    <div class="mb-3">
-                                                                        <label for="domainProvider" class="form-label">
-                                                                            Transfer To Which Domain Provider
-                                                                        </label>
-                                                                        <input type="email" class="form-control"
-                                                                            id="domainProvider"
-                                                                            placeholder="www.example.com">
-                                                                    </div>
-
-                                                                    <div class="mb-3">
-                                                                        <label for="emailAddress" class="form-label">
-                                                                            Account Email Address
-                                                                        </label>
-                                                                        <input type="email" class="form-control"
-                                                                            id="emailAddress"
-                                                                            placeholder="name@example.com">
-                                                                    </div>
-
-                                                                    <div class="text-center">
-                                                                        <button type="button"
-                                                                            class="btn btn-primary m-auto" name="update"
-                                                                            onclick="selfIntegrate()">
-                                                                            Submit Details
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Modal End  -->
-
-                                                    <?php
-                                                        }
-                                                        ?>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Integration Buttons Section End-->
-
-                                        <?php
-                                        }//eof delivery type cheaking conditions
-
-                                    }elseif($orderedData['orders_status_id'] == 2){ // if order status pending
-                                        echo "Order Pending";
-                                    }elseif($orderedData['orders_status_id'] == 1){ // if order status delivered
-                                        echo "delivered";
-                                    }elseif($orderedData['orders_status_id'] == 0){ // if order status failed
-                                        echo 'Order Failed';
-                                    }elseif($orderedData['orders_status_id'] == 4){ // if order status ordered
-                                        echo '<p class="text-center bg-primary text-light fw-bold my-2 py-1">Please Wait for
-                                                seller Response.</p>';
-                                    }elseif($orderedData['orders_status_id'] == 5){ // if order status Completed
-                                        echo 'Order Completed';
-                                    }elseif($orderedData['orders_status_id'] == 6){ // if order status hold
-                                        echo 'Order Hold';
-                                    }else{
-                                        echo "Order Failed or something may wrong!";
-                                    }
-                                    ?>
-
-                                    </section>
-
-                                </div>
-                            </section>
-                            <!-- Products Order End -->
-
-                            <?php
-                                    }
-                                }
-
-                                ?>
+                            <?php require_once USER_PATH."components/order-process.php" ?>
 
                         </div>
-
                     </div>
-
                 </div>
                 <!-- //end display table-->
             </div>
@@ -564,7 +244,7 @@ $prodId =  url_dec($_GET['pdata']) ;
 
 
 
-        <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
             <div id="tost" class="toast text-bg-primary " role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
                     <img src="<?= URL ?>images/icons/tick.png" class="rounded me-2" alt="...">
@@ -635,6 +315,54 @@ $prodId =  url_dec($_GET['pdata']) ;
                 success: function(response) {
                     alert(response)
                     if (response.includes('submited')) {
+
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Details Submited!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then((result) => {
+                            location.reload();
+                        });
+                    } else {
+                        Swal.fire(
+                            'Failed!',
+                            response,
+                            'error'
+                        )
+                    };
+
+                }
+            });
+        }
+
+
+
+        const VerifyCompleteOrder = () => {
+
+            let urlString = window.location.href;
+            let paramString = urlString.split('?')[1];
+            let queryString = new URLSearchParams(paramString);
+            for (let pair of queryString.entries()) {
+                // console.log(pair);
+                if (pair[0] = 'data') {
+                    // console.log("Value is:" + pair[1]);
+                    orderId = pair[1];
+                    break;
+                }
+            }
+            
+            $.ajax({
+                url: "ajax/update-order-process.php",
+                method: "POST",
+                data: {
+                    action: 'verified',
+                    orderId: orderId,
+                },
+                success: function(response) {
+                    alert(response)
+                    if (response.includes('verified')) {
 
                         Swal.fire({
                             position: 'center',
