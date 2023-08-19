@@ -59,6 +59,12 @@ foreach ($allStatus as $value) {
 
 }
 
+const SELF_INTEGRATION                     = '1';
+const LEELIJA_INTEGRATION                  = '2';
+
+
+
+
 define("CONTENT_ORDER",                      'Guest Post Order');
 define("PACKAGE_ORDER",                      'Package Order');
 
