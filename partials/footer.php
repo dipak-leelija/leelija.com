@@ -3,7 +3,7 @@
     <section class="d-flex justify-content-center text-light">
         <div class="row px-3 footer-div">
             <div class="col-12 col-lg-5 col-md-6 p-0 bg-img">
-                <img src="img/footer-logo.png" class=" footer-logo" alt="">
+                <img src="<?= SITE_IMG_PATH ?>footer-logo.png" class=" footer-logo" alt="">
                 <p class="mb-4 text-light" style="font-size: 1.2rem">
                     Objectively integrate enterprise wide strategic theme areas with functionalized infrastructures.
                     Interactively productize premium mobile technologies.

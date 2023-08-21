@@ -56,10 +56,6 @@
 	define('SELLER_AREA',  		URL."seller/dashboard.php");
 	define('USER_AREA',  		URL."user/app.client.php");
 
-	define('IMG_PATH',  		URL."images/");
-	define('SITE_IMG_PATH',  	IMG_PATH."site-img/");
-
-
 	
 	define('SITE_EMAIL', 		"contact@leelija");		//blackbox@ansysoft.com anarul.elance@gmail.com//ranjan.basak@ansysoft.com //contact@continuecontent.com
 	
@@ -82,11 +78,15 @@
 	define('COMPANY_A', 		"Admin ".HOME);									//admin home
 	define('BLOG_ADMIN', 		"Blog Admin");									//admin home
 	
+
+	define('IMG_PATH',  		URL."images/");
+	define('SITE_IMG_PATH',  	IMG_PATH."site-img/");
+
 	//define company logo
-	define("LOGO_WITH_PATH",	URL."/images/logo/logo.png");					//location of the logo
+	define("LOGO_WITH_PATH",	SITE_IMG_PATH."logo.png");					//location of the logo
 	define("LOGO_WIDTH",		'170');											//width of the logo
 	define("LOGO_HEIGHT",		'50');											//height of the logo 
-	define("FAVCON_PATH",		URL."/images/logo/favicon.png");				//location of the favcon
+	define("FAVCON_PATH",		SITE_IMG_PATH."favicon.png");				//location of the favcon
 	define("LOGO_ALT",			'LeeLija');										//alternate text for the logo
 	
 	//define company logo
