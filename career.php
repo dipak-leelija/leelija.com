@@ -1,17 +1,10 @@
-<!--
-Author: Safikul Islam
-Author URL: https://webtechhelp.org
--->
 <?php
-
-
 session_start();
 //include_once('checkSession.php');
-// require_once("_config/connect.php");
-require_once("_config/dbconnect.php");
-require_once "_config/dbconnect.trait.php";
+require_once "includes/constant.inc.php";
 
-require_once("includes/constant.inc.php");
+require_once("_config/dbconnect.php");
+
 require_once("classes/date.class.php");
 require_once("classes/error.class.php");
 require_once("classes/search.class.php");
@@ -33,8 +26,6 @@ $error 			= new Error();
 $search_obj		= new Search();
 $customer		= new Customer();
 $logIn			= new Login();
-//$ff				= new FrontPhoto();
-$blogMst		= new BlogMst();
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
@@ -62,13 +53,12 @@ define('WP_USE_THEMES', false);
 <html lang="zxx">
 
 <head>
-    <meta name="robots" content="noindex">
+    <meta charset="utf-8">
     <?php include('head-section.php');?>
     <title>Career opportunity for web developers, digital marketing experts and editors with Leelija</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Thanks for checking out our current opportunities, current job opening for web developers, SEO experts and content writers." />
-    <meta charset="utf-8">
     <meta name="keywords"
         content="job oppertunities, job opening, job oppertunities for web developers, web designer, SEO experts, SEO analyzer, content writers, social media experts and apps developers" />
 
@@ -108,9 +98,7 @@ define('WP_USE_THEMES', false);
                 </div>
             </div>
 
-            <!-- ==========================================
-                                                    --------- m-card start---------
-                                             ========================================== -->
+            <!-- =================== m-card start ================= -->
 
 
             <section
@@ -420,7 +408,7 @@ define('WP_USE_THEMES', false);
                             <div class="quote-form px-md-3">
                                 <span class="close">&times;</span>
 
-                                <form class="w-100 m-0 careerform needs-validation" action="" method="post"
+                                <form class="w-100 m-0 careerform needs-validation" method="post"
                                     enctype="multipart/form-data"
                                     style="height: 501px; overflow-y: scroll; padding: 1rem;" novalidate>
                                     <h2 class="text-center ">Job Application</h2>
@@ -549,6 +537,8 @@ define('WP_USE_THEMES', false);
                                         </div>
                                     </div>
 
+                                    <div class="uploadedCvName"> </div>
+                                    
 
                                     <div class="row m-0 w-100 mt-5">
                                         <div class="col-sm-6 text-center">
@@ -558,7 +548,7 @@ define('WP_USE_THEMES', false);
                                                     accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf">
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 text-center"> <input type="submit"
+                                        <div class="col-sm-6 text-center"> <input type="button"
                                                 class="ml-auto mb-0 submit-apply-details "
                                                 name="submit-job-apply-details" value="Submit Details"></div>
                                     </div>
@@ -615,84 +605,84 @@ define('WP_USE_THEMES', false);
 
 
     // ============= Form Submission =============
-    // $(".submit-apply-details").click(function(e) {
-    //     e.preventDefault();
+    $(".submit-apply-details").click(function(e) {
+        e.preventDefault();
 
-    //     var fd = new FormData();
-    //     var cvFile = $('#cvUpload')[0].files[0];
-    //     fd.append('cvUpload', cvFile);
+        var fd = new FormData();
+        var cvFile = $('#cvUpload')[0].files[0];
+        fd.append('cvUpload', cvFile);
 
-    //     var firstName = $("#jobFirstName").val();
-    //     if (firstName == '' || firstName == '0') {
-    //         $("#noFirstName").css("display", "block");
-    //         $("#noFirstName").html("Enter a valid First Name");
-    //     }
-    //     $("#jobFirstName").keyup(function() {
-    //         $("#noFirstName").css("display", "none");
-    //     });
-    //     var secondName = $("#jobScndName").val();
-    //     if (secondName == '' || secondName == '0') {
-    //         $("#noSecondName").css("display", "block");
-    //         $("#noSecondName").html("Enter a valid Last Name");
-    //     }
-    //     $("#jobScndName").keyup(function() {
-    //         $("#noSecondName").css("display", "none");
-    //     });
-    //     var email = $("#jobEmail").val();
-    //     if (email == '' || email == '0') {
-    //         $("#noJobEmail").css("display", "block");
-    //         $("#noJobEmail").html("Please Enter a Valid Email");
-    //     }
-    //     $("#jobEmail").keyup(function() {
-    //         $("#noJobEmail").css("display", "none");
-    //     });
+        var firstName = $("#jobFirstName").val();
+        if (firstName == '' || firstName == '0') {
+            $("#noFirstName").css("display", "block");
+            $("#noFirstName").html("Enter a valid First Name");
+        }
+        $("#jobFirstName").keyup(function() {
+            $("#noFirstName").css("display", "none");
+        });
+        var secondName = $("#jobScndName").val();
+        if (secondName == '' || secondName == '0') {
+            $("#noSecondName").css("display", "block");
+            $("#noSecondName").html("Enter a valid Last Name");
+        }
+        $("#jobScndName").keyup(function() {
+            $("#noSecondName").css("display", "none");
+        });
+        var email = $("#jobEmail").val();
+        if (email == '' || email == '0') {
+            $("#noJobEmail").css("display", "block");
+            $("#noJobEmail").html("Please Enter a Valid Email");
+        }
+        $("#jobEmail").keyup(function() {
+            $("#noJobEmail").css("display", "none");
+        });
 
-    //     var phone = $("#jobPhone").val();
-    //     if (phone == '' || phone == '0' || phone == '.' || phone.length != 10) {
-    //         $("#noJobPhone").html("Please enter your mobile number");
-    //     }
+        var phone = $("#jobPhone").val();
+        if (phone == '' || phone == '0' || phone == '.' || phone.length != 10) {
+            $("#noJobPhone").html("Please enter your mobile number");
+        }
 
-    //     var currentJob = $(".current-job-status li input:checked").val();
-    //     if (currentJob == '' || currentJob == '0') {
-    //         $("#ifHasExpriences").html("please choose your current employment status");
-    //     }
-    //     var exprience = $(".experinces").val();
+        var currentJob = $(".current-job-status li input:checked").val();
+        if (currentJob == '' || currentJob == '0') {
+            $("#ifHasExpriences").html("please choose your current employment status");
+        }
+        var exprience = $(".experinces").val();
 
-    //     var uploadedCV = $(".uploadedCvName").html();
+        var uploadedCV = $(".uploadedCvName").html();
 
-    //     if (uploadedCV == '' || uploadedCV == '0') {
-    //         $(".uploadedCvName").html("Please insert Your CV");
-    //     }
-    //     var appliedForPost = $(".jobPost").children('.blue_color_class').html();
+        if (uploadedCV == '' || uploadedCV == '0') {
+            $(".uploadedCvName").html("Please insert Your CV");
+        }
+        var appliedForPost = $(".jobPost").children('.blue_color_class').html();
 
-    //     if (firstName != '' && firstName != '0' && secondName != '' && secondName != '0' && email != '' &&
-    //         email != '0' && currentJob != '' && currentJob != '0' && exprience != '' && uploadedCV != '' &&
-    //         uploadedCV != '0' && phone != '' && phone.length == 10) {
+        if (firstName != '' && firstName != '0' && secondName != '' && secondName != '0' && email != '' &&
+            email != '0' && currentJob != '' && currentJob != '0' && exprience != '' && uploadedCV != '' &&
+            uploadedCV != '0' && phone != '' && phone.length == 10) {
 
-    //         var jobData = 'fname=' + firstName + '&lname=' + secondName + '&email=' + email + '&phone=' +
-    //             phone + '&job=' + currentJob + '&exprience=' + exprience + '&cv=' + uploadedCV + '&post=' +
-    //             appliedForPost;
-    //         $.ajax({
-    //             url: 'job-applied.php?' + jobData,
-    //             data: fd,
-    //             type: 'post',
-    //             contentType: false,
-    //             processData: false,
-    //             success: function(message) {
-    //                 if (message == "1inserted") {
-    //                     $(".job-apply-form").css("display", "none");
-    //                     $(".afterApplied").css("display", "block")
-    //                 } else if (message == "0not inserted") {
-    //                     $(".successApplication").html("There are some error to submit your form");
-    //                 } else if (message == "0existed" || message == '1existed') {
-    //                     $("#noJobEmail").html("You have already applied");
-    //                 } else {
-    //                     alert(message);
-    //                 }
-    //             }
-    //         })
-    //     }
-    // });
+            var jobData = 'fname=' + firstName + '&lname=' + secondName + '&email=' + email + '&phone=' +
+                phone + '&job=' + currentJob + '&exprience=' + exprience + '&cv=' + uploadedCV + '&post=' +
+                appliedForPost;
+            $.ajax({
+                url: 'job-applied.php?' + jobData,
+                data: fd,
+                type: 'post',
+                contentType: false,
+                processData: false,
+                success: function(message) {
+                    if (message == "1inserted") {
+                        $(".job-apply-form").css("display", "none");
+                        $(".afterApplied").css("display", "block")
+                    } else if (message == "0not inserted") {
+                        $(".successApplication").html("There are some error to submit your form");
+                    } else if (message == "0existed" || message == '1existed') {
+                        $("#noJobEmail").html("You have already applied");
+                    } else {
+                        alert(message);
+                    }
+                }
+            })
+        }
+    });
     // ============= Form Submission End =============
 
 
@@ -720,117 +710,8 @@ define('WP_USE_THEMES', false);
         }
     });
     </script>
-    <!-- Scrolling Nav JavaScript -->
-    <!-- <script src="js/scrolling-nav.js"></script> -->
-    <!-- //fixed-scroll-nav-js -->
-    <!-- <script>
-    $(window).scroll(function() {
-        if ($(document).scrollTop() > 70) {
-            $('nav.pagescrollfix,nav.RWDpagescrollfix').addClass('shrink');
-        } else {
-            $('nav.pagescrollfix,nav.RWDpagescrollfix').removeClass('shrink');
-        }
-    });
-    </script> -->
-    <!-- Banner text Responsiveslides -->
-    <!-- <script src="js/responsiveslides.min.js"></script> -->
-    <!-- <script>
-    // You can also use"$(window).load(function() {"
-    $(function() {
-        // Slideshow 4
-        $("#slider3").responsiveSlides({
-            auto: true,
-            pager: true,
-            nav: false,
-            speed: 500,
-            namespace: "callbacks",
-            before: function() {
-                $('.events').append("<li>before event fired.</li>");
-            },
-            after: function() {
-                $('.events').append("<li>after event fired.</li>");
-            }
-        });
-
-    });
-    </script> -->
-    <!-- //Banner text  Responsiveslides -->
-    <!-- start-smooth-scrolling -->
-    <!-- <script src="js/move-top.js"></script> -->
-    <!-- <script src="js/easing.js"></script> -->
-    <!-- <script>
-    jQuery(document).ready(function($) {
-        $(".scroll").click(function(event) {
-            event.preventDefault();
-
-            $('html,body').animate({
-                scrollTop: $(this.hash).offset().top
-            }, 1000);
-        });
-    });
-    </script> -->
-    <!-- //end-smooth-scrolling -->
-    <!-- smooth-scrolling-of-move-up -->
-    <!-- <script>
-    $(document).ready(function() {
-        /*
-         var defaults = {
-        	 containerID: 'toTop', // fading element id
-        	 containerHoverID: 'toTopHover', // fading element hover id
-        	 scrollSpeed: 1200,
-        	 easingType: 'linear'
-         };
-         */
-
-        $().UItoTop({
-            easingType: 'easeOutQuart'
-        });
-
-        $(".EndQuote").on('click', function() {
-            $(".leelijaQuote").css("display", "block!important");
-
-        });
-
-        $(".EndQuote").click(function() {
-            $(".leelijaQuote").css("display", "block!important");
-        });
-
-        $("#EndQuote").click(function() {
-            $(".leelijaQuote").css("display", "block");
-        });
-
-        $(".quote-close").click(function() {
-            $(".leelijaQuote").css("display", "none");
-        });
-
-        $(".got-to-contributor").click(function() {
-            location.href = "./start-selling.php";
-        })
-
-    });
-    </script> -->
-    <!-- <script>
-    $(document).ready(function() {
-        /*
-         var defaults = {
-           containerID: 'toTop', // fading element id
-           containerHoverID: 'toTopHover', // fading element hover id
-           scrollSpeed: 1200,
-           easingType: 'linear'
-         };
-         */
-
-        $().UItoTop({
-            easingType: 'easeOutQuart'
-        });
-
-    });
-    </script> -->
-    <!-- <script src="js/SmoothScroll.min.js"></script> -->
-    <!-- //smooth-scrolling-of-move-up -->
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.js">
-    </script>
+    <script src="js/bootstrap.js"></script>
     <!-- //Bootstrap Core JavaScript -->
 </body>
 

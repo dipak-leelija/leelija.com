@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "includes/constant.inc.php";
 
 require_once("_config/dbconnect.php");
 require_once("classes/job.class.php");
@@ -25,17 +26,16 @@ if($uploadOk == 0){
    }
 }
 
-if(isset($_GET['fname']) && isset($_GET['lname'])    && isset($_GET['email'])    &&
-isset($_GET['phone'])    &&  isset($_GET['job'])      && isset($_GET['exprience'])&&
-isset($_GET['post']) ){
-  $fName  = $_GET['fname'];
-  $lName  = $_GET['lname'];
-  $email  = $_GET['email'];
-  $phone  = $_GET['phone'];
-  $job    = $_GET['job'];
-  $exprns = $_GET['exprience'] ;
-  $cv     = $_GET['cv'] ;
-  $post   = $_GET['post'];
+if(isset($_GET['fname']) && isset($_GET['lname']) && isset($_GET['email']) && isset($_GET['phone']) 
+   && isset($_GET['job']) && isset($_GET['exprience'])&& isset($_GET['post']) ){
+   $fName  = $_GET['fname'];
+   $lName  = $_GET['lname'];
+   $email  = $_GET['email'];
+   $phone  = $_GET['phone'];
+   $job    = $_GET['job'];
+   $exprns = $_GET['exprience'] ;
+   $cv     = $_GET['cv'] ;
+   $post   = $_GET['post'];
 }
 
 if(empty($alreadyApllied) == $email){

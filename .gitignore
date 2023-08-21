@@ -1,3 +1,5 @@
 .htaccess
 .ftpquota
 images/emps
+uploaded_cv
+*.log
