@@ -8,7 +8,7 @@ require_once ROOT_DIR. "classes/error.class.php";
 require_once ROOT_DIR. "classes/search.class.php";
 require_once ROOT_DIR. "classes/customer.class.php";
 require_once ROOT_DIR. "classes/login.class.php";
-require_once ROOT_DIR. "classes/blog_mst.class.php";
+require_once ROOT_DIR. "classes/niche.class.php";
 require_once ROOT_DIR. "classes/domain.class.php";
 require_once ROOT_DIR. "classes/utility.class.php";
 require_once ROOT_DIR. "classes/utilityMesg.class.php";
@@ -23,7 +23,7 @@ $MyError 			= new MyError();
 $search_obj		= new Search();
 $customer		= new Customer();
 $logIn			= new Login();
-$blogMst		= new BlogMst();
+$Niche		    = new Niche();
 $domain			= new Domain();
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
@@ -44,145 +44,75 @@ if($cusId == 0){
 
 if(isset($_POST['btnAddDomain'])){
 
-
-
 		$txtDomain			= $_POST['txtDomain'];
-
 		$txtDomainUrl		= $_POST['txtDomainUrl'];
-
 		$txtNicheId			= $_POST['txtNicheId'];
-
 		$txtDa				= $_POST['txtDa'];
-
 		$txtPa				= $_POST['txtPa'];
-
 		$txtCf				= $_POST['txtCf'];
-
 		$txtTf				= $_POST['txtTf'];
-
 		$txtAlxTraffic		= $_POST['txtAlxTraffic'];
-
 		$txtOrgTraffic		= $_POST['txtOrgTraffic'];
-
 		$txtPrice			= $_POST['txtPrice'];
 
-
-
-
-
 		//convert it into seo friendly url
-
 		$txtSeoUrl			= $utility->createContentSEOURL($txtDomain, $txtNicheId,'niche','durl','niche_master', 'seo_url', 'domains');
 
-
-
 		//add Blog post session variables
-
 		$sess_arr				= array('txtDomain','txtDomainUrl', 'txtNicheId', 'txtDa','txtPa','txtCf','txtTf','txtAlxTraffic','txtOrgTraffic','txtPrice');
 
 		$utility->addPostSessArr($sess_arr);
 
 
-
 		//defining error variables
-
 		$action		= 'add_domain';
-
 		$url		= $_SERVER['PHP_SELF'];
-
 		$id			= 0;
-
 		$id_var		= '';
-
 		$anchor		= 'addDomain';
-
 		$typeM		= 'ERROR';
-
 		$msg = '';
-
-
-
-
 
 		$duplicateId	= $MyError->duplicateUser($txtDomainUrl, 'durl', 'domains');
 
-
-
 		if(preg_match("^ER^",$duplicateId)){
 
-
-
 			//echo "<span class='orangeLetter'>Error: Domain is already taken</span >";
-
 			$MyError->showErrorTA($action, $id, $id_var, $url, 'Domain Url is already taken', $typeM, $anchor);
-
-		
 
 		}else{
 
-
-
-		//add Domain
-
-		$domid = $domain->addDomain($txtDomain, $txtNicheId, $txtDa, $txtPa, $txtCf, $txtTf, $txtAlxTraffic,$txtOrgTraffic, $txtPrice, 									$txtPrice, $txtDomainUrl, 'No', $txtSeoUrl, 'No', $cusDtl[0][2]);
-
-
+		    //add Domain
+		    $domid = $domain->addDomain($txtDomain, $txtNicheId, $txtDa, $txtPa, $txtCf, $txtTf, $txtAlxTraffic,$txtOrgTraffic, $txtPrice, $txtPrice, $txtDomainUrl, 'No', $txtSeoUrl, 'No', $cusDtl[0][2]);
 
 			// Domain Featured Add
-
 			for($i=0; $i < count($_POST['txtFeatured']); $i++){
-
-					//add the Featured
-
-					$domain->addDomainFeatured($domid, $_POST['txtFeatured'][$i]);
-
-
-
-				}
-
-
-
-			//uploading images
-
-			if($_FILES['fileImg']['name'] != ''){
-
-				
-
-				//rename the file
-
-				$newName = $utility->getNewName4($_FILES['fileImg'], '', $domid);
-
-
-
-				//upload and crop the file
-
-				$uImg->imgCropResize($_FILES['fileImg'], '', $newName,
-
-									'../images/domains/', 600, 600,
-
-									$domid, 'dimage', 'id','domains');
-
+				//add the Featured
+				$domain->addDomainFeatured($domid, $_POST['txtFeatured'][$i]);
 			}
 
 
 
-			//deleting the sessions
+			//uploading images
+			if($_FILES['fileImg']['name'] != ''){
 
+				//rename the file
+				$newName = $utility->getNewName4($_FILES['fileImg'], '', $domid);
+
+				//upload and crop the file
+				$uImg->imgCropResize($_FILES['fileImg'], '', $newName, '../images/domains/', 600, 600, $domid, 'dimage', 'id','domains');
+
+			}
+
+			//deleting the sessions
 			$utility->delSessArr($sess_arr);
 
-
-
 			//forward the web page
-
 			$uMesg->showSuccessT('success', 0, '', 'dashboard.php', "Domain Name Has been Successfully Added", 'SUCCESS');
 
 		}
 
-
-
-
-
-	}
+}
 
 ?>
 
@@ -255,96 +185,58 @@ if(isset($_POST['btnAddDomain'])){
                                 <form class="form-horizontal" role="form" action="add-domain.php" name="formContactform"
                                     method="post" enctype="multipart/form-data" autocomplete="off">
 
-                                    <b
-                                        style="color: red;"><?php $uMesg->dispMessage($typeM, '../images/icon/', 'blackLarge');?></b>
+                                    <b style="color: red;"><?php $uMesg->dispMessage($typeM, '../images/icon/', 'blackLarge');?></b>
 
                                     <div class="form-group">
-
                                         <p> <small class="py-2" style="color: red;">Do not use 'http' or 'www' and
                                                 '.com' or '.us' etc only name use</small></p>
-
                                         <div class="row align-items-center">
-
                                             <label class="control-label col-md-2" for="txtDomain">Domain name<span
                                                     class="orangeLetter"> </label>
-
                                             <div class="col-md-10">
-
                                                 <input type="text" class="form-control" id="txtDomain"
                                                     placeholder="example" name="txtDomain"
                                                     value="<?php $utility->printSess2('txtDomain',''); ?>" required />
-
                                             </div>
-
                                         </div>
-
                                     </div>
 
                                     <div class="form-group">
-
                                         <div class="row align-items-center">
-
                                             <label class="control-label col-md-2" for="txtDomainUrl">Domain Url<span
                                                     class="orangeLetter"> </label>
-
                                             <div class="col-md-10">
-
                                                 <input type="text" placeholder="https://www.example.com"
                                                     class="form-control" id="txtDomainUrl" name="txtDomainUrl"
                                                     value="<?php $utility->printSess2('txtDomainUrl',''); ?>"
                                                     required />
-
                                             </div>
-
                                         </div>
-
                                     </div>
 
                                     <div class="form-group mb-3">
-
                                         <div class="row align-items-center">
-
                                             <label class="control-label col-md-2" for="txtNicheId">Niche</label>
-
                                             <div class="col-md-10">
-
                                                 <select id="txtNicheId" class="form-control" name="txtNicheId" required>
-
                                                     <option value="" selected="selected">Select</option>
-
                                                     <?php
-
-															$BlogMst  = $blogMst->ShowBlogNichMast();
-
-															foreach($BlogMst as $eachRecord)
-
-																{
-
-																	echo '<option value="'.$eachRecord['niche_id'].'">'.$eachRecord['niche_name'].'</option>';
-
-																}
-
-														?>
-
+														$Niches  = $Niche->ShowBlogNichMast();
+														foreach($Niches as $eachNiche){
+															echo '<option value="'.$eachNiche['niche_id'].'">'.$eachNiche['niche_name'].'</option>';
+														}
+													?>
                                                 </select>
-
                                             </div>
-
                                         </div>
-
                                     </div>
 
                                     <div class="form-group">
-
                                         <div class="row align-items-center">
                                             <!-- begion row -->
-
                                             <div class="col-md-6">
-
                                                 <div class="row align-items-center">
-
                                                     <label class="control-label col-md-4" for="txtDa">DA</label>
-
                                                     <div class="col-md-8">
 
                                                         <input placeholder="Domain Authority" type="text"
