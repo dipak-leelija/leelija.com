@@ -13,7 +13,7 @@
                         <li class="predesign"><i class="pe-3 fa-solid fa-phone"></i><a href="tel:+91 874224523">+91
                                 874224523</a></li>
                         <li class="predesign"><i class="pe-3 fa-solid fa-earth-americas"></i><a
-                                href="/">www.leelija.com</a></li>
+                                href="<?= URL; ?>">www.leelija.com</a></li>
                         <li class="predesign"><i class="pe-3 fa-solid fa-envelope"></i><a
                                 href="mailto:">info@leelija.com</a></li>
                     </ul>
@@ -23,22 +23,22 @@
                 <ul class="list-unstyled ">
                     <h4 class="uldesign">Our Services</h4>
                     <div class=''>
-                        <li class='lidesign'><a href="<?php echo URL;?>/social-media-marketing-services.php">Branding
+                        <li class='lidesign'><a href="<?= URL; ?>social-media-marketing-services.php">Branding
                                 Services</a></li>
-                        <li class='lidesign'><a href="<?php echo URL;?>/content-marketing.php">Content Marketing</a>
+                        <li class='lidesign'><a href="<?= URL; ?>content-marketing.php">Content Marketing</a>
                         </li>
-                        <li class='lidesign'><a href="<?php echo URL;?>/guest-posting.php">Guest Post Services</a></li>
-                        <li class='lidesign'><a href="<?php echo URL;?>/seo-services.php">SEO Services</a></li>
-                        <li class='lidesign'><a href="<?php echo URL;?>/web-development-services.php">Web Design</a>
+                        <li class='lidesign'><a href="<?= URL; ?>guest-posting.php">Guest Post Services</a></li>
+                        <li class='lidesign'><a href="<?= URL; ?>seo-services.php">SEO Services</a></li>
+                        <li class='lidesign'><a href="<?= URL; ?>web-development-services.php">Web Design</a>
                         </li>
-                        <!-- <li class='lidesign'><a href="<?php echo URL;?>/web-development-services.php">Web
+                        <!-- <li class='lidesign'><a href="<?= URL; ?>web-development-services.php">Web
                                 Development</a></li> -->
 
-                        <!-- <li class='lidesign'><a href="<?php echo URL;?>/social-media-marketing-services.php">Social
+                        <!-- <li class='lidesign'><a href="<?= URL; ?>social-media-marketing-services.php">Social
                                 Media Marketing</a> -->
                         </li>
 
-                        <li class='lidesign'><a href="<?php echo URL;?>/wordpress-development-services.php">WordPress
+                        <li class='lidesign'><a href="<?= URL; ?>wordpress-development-services.php">WordPress
                                 Development</a></li>
                     </div>
                 </ul>
@@ -47,12 +47,12 @@
                 <ul class="list-unstyled ">
                     <h4 class="uldesign">More Info</h4>
                     <div class=''>
-                        <li class='lidesign'><a href="<?php echo URL;?>/blog">Blog</a></li>
-                        <li class='lidesign'><a href="<?php echo URL;?>/career.php">Career</a></li>
-                        <li class='lidesign'><a href="<?php echo URL;?>/contact.php">Clients Query</a></li>
-                        <li class='lidesign'><a href="<?php echo URL;?>/domains.php">Marketplace</a></li>
-                        <li class='lidesign'><a href="<?php echo URL;?>/portfolio.php">Portfolio</a></li>
-                        <li class='lidesign'><a href="<?php echo URL;?>/start-selling.php">Start Selling</a></li>
+                        <li class='lidesign'><a href="<?= URL; ?>blog">Blog</a></li>
+                        <li class='lidesign'><a href="<?= URL; ?>career.php">Career</a></li>
+                        <li class='lidesign'><a href="<?= URL; ?>contact.php">Clients Query</a></li>
+                        <li class='lidesign'><a href="<?= URL; ?>domains.php">Marketplace</a></li>
+                        <li class='lidesign'><a href="<?= URL; ?>portfolio.php">Portfolio</a></li>
+                        <li class='lidesign'><a href="<?= URL; ?>start-selling.php">Start Selling</a></li>
 
                     </div>
                 </ul>
@@ -100,13 +100,13 @@
             <div class="col-12 col-md-5">
                 <ul class="list-unstyled p-0 d-flex w-100">
                     <div class='d-flex justify-content-start w-100 p-0 m-0'>
-                        <li class='px-2 px-md-3 lidesign2'><a class="f-menu" href="/">Home</a></li>
+                        <li class='px-2 px-md-3 lidesign2'><a class="f-menu" href="<?= URL; ?>">Home</a></li>
                         <li class='px-2 px-md-3 lidesign2'><a class="f-menu"
-                                href="<?php echo URL;?>/about.php">About</a></li>
+                                href="<?= URL; ?>about.php">About</a></li>
                         <li class='px-2 px-md-3 lidesign2'><a class="f-menu" href="#">Privacy</a></li>
                         <li class='px-2 px-md-3 lidesign2'><a class="f-menu" href="#">Terms</a></li>
                         <li class='px-2 px-md-3 lidesign2'><a class="f-menu"
-                                href="<?php echo URL;?>/career.php">Careers</a></li>
+                                href="<?= URL; ?>career.php">Careers</a></li>
                     </div>
                 </ul>
             </div>
