@@ -10,7 +10,7 @@ require_once ROOT_DIR."classes/customer.class.php";
 require_once ROOT_DIR."classes/login.class.php";
 
 //require_once("../classes/front_photo.class.php");
-require_once ROOT_DIR."classes/blog_mst.class.php";
+require_once ROOT_DIR."classes/niche.class.php";
 require_once ROOT_DIR."classes/domain.class.php";
 require_once ROOT_DIR."classes/utility.class.php";
 require_once ROOT_DIR."classes/utilityMesg.class.php";
@@ -25,7 +25,7 @@ $customer		= new Customer();
 $logIn			= new Login();
 
 //$ff				= new FrontPhoto();
-$blogMst		= new BlogMst();
+$Niche		    = new Niche();
 $domain			= new Domain();
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
@@ -46,20 +46,10 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
 <html lang="zxx">
 
 <head>
-    <title>My Domains | List :: w3layouts</title>
+    <title>My Domains </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="keywords" content="Precedence Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script>
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-    </script>
+    <meta name="keywords" content=""/>
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
@@ -97,7 +87,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 					if ($domainDtls != NULL) {
 						foreach($domainDtls as $eachRecord)
 							{
-								$nicheDtls	 	= $blogMst->showBlogNichMst($eachRecord['niche']);
+								$nicheDtls	 	= $Niche->showBlogNichMst($eachRecord['niche']);
 						?>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                         <div class="card indivisual_blogs my-3" style="border: none;">

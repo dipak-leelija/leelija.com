@@ -39,7 +39,7 @@
 
         </li>
         <li>
-            <a href="my-domain.php"><i class="fa fa-globe pe-2" aria-hidden="true"></i><span
+            <a href="my-blogs.php"><i class="fa fa-globe pe-2" aria-hidden="true"></i><span
                     class="hidden-xs hidden-sm">Web Products Or Blogs</span></a>
         </li>
         <li>
