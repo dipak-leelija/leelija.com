@@ -57,7 +57,7 @@ if (isset($_GET['data'])) {
         $order->updatePaymentStatus(COMPLETEDCODE, $orderId);
         
         //update order status
-        $order->updateOrderStatus($ordId, ORDEREDCODE);
+        $order->updateOrderStatus($orderId, ORDEREDCODE);
 
         $orderDetails = $order->getOrderDetail($transactionCode, $orderId);
         $updated = $orderDetails[19];
