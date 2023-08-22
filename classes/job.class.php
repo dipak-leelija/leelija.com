@@ -23,10 +23,14 @@ class Job extends DatabaseConnection{
     }
       return $myArr;
   }
+
+
   public function editJob($id,$post,$postDetails){
     $sql = "UPDATE `all_jobs` SET `job_name`='$post',`details`='$postDetails',`date`=now() WHERE `id`= '$id'";
     $data = $this->conn->query($sql);
   }
+  
+  
   public function deletedJob($id){
     $sql = "DELETE FROM `all_jobs` WHERE `id` = '$id'";
     $data = $this->conn->query($sql);
@@ -56,7 +60,7 @@ class Job extends DatabaseConnection{
     while($res = $data->fetch_assoc()){
       $myArr[] = $res;
     }
-    return $myArr;
+    return json_encode($myArr);
   }
 
   public function deletedApplication($id){

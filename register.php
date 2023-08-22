@@ -2,10 +2,11 @@
 session_start();
 
 //include_once('checkSession.php');
-require_once("_config/dbconnect.php");
-require_once("_config/dbconnect.trait.php");
-
 require_once("includes/constant.inc.php");
+require_once("includes/alert-constant.inc.php");
+
+require_once("_config/dbconnect.php");
+
 require_once("classes/date.class.php");
 require_once("classes/error.class.php");
 require_once("classes/search.class.php");
@@ -17,7 +18,6 @@ require_once("classes/utilityMesg.class.php");
 require_once("classes/utilityImage.class.php");
 require_once("classes/utilityNum.class.php");
 
-require_once("includes/registration.inc.php");
 
 
 /* INSTANTIATING CLASSES */
@@ -42,10 +42,10 @@ if(isset($_POST['btnSubmit']))
 {
 //post vars
 $firstName 		= $_POST['firstName'];
-$fullname= explode(" ",$firstName );
-$firstName= $fullname[0];
-$lastName= $fullname[1];
-// $lastName 		= $_POST['lastName'];
+// $fullname= explode(" ",$firstName );
+// $firstName= $fullname[0];
+// $lastName= $fullname[1];
+$lastName 		= $_POST['lastName'];
 $txtemail  		= $_POST['txtemail'];
 $txtUserName 	= $_POST['txtemail'];
 $txtPassword	= $_POST['txtPassword'];
@@ -318,6 +318,7 @@ Ready website for business, High Quality website sales, High quality blogs sales
                                                                         name="txtCountry" required>
                                                                         <option value="" selected="selected">Select
                                                                             Country</option>
+                                                                            <option value="101">India</option>
 
                                                                     </select>
                                                                     <label for="floatingSelect">Country</label>
