@@ -19,9 +19,9 @@
     ?>
 
     <?php elseif ($orderedData['orders_status_id'] == PENDINGCODE): ?>
-    <p>Order Pending</p>
+    <p class="text-center fs-4 fw-semibold">Order Pending</p>
     <?php elseif ($orderedData['orders_status_id'] == DELIVEREDCODE): ?>
-    <div class="bg-primary rounded text-center text-light text-bold w-100 py-4 mb-2">
+    <div class="bg-primary rounded text-center text-light text-bold w-100 py-3 mb-2">
         Order Has Been Delivered!
     </div>
     <div class="border border-success rounded text-primary text-bold w-100">
@@ -29,7 +29,7 @@
     </div>
     <?php require_once SELLER_PATH."components/shared-data-view.inc.php";?>
     <?php else:?>
-    <p>Something error!</p>
+    <p class="text-center fs-4 fw-semibold">Something error!</p>
     <?php endif; ?>
 
 </section>

@@ -99,22 +99,11 @@ $prodId =  url_dec($_GET['pdata']) ;
 
     .product_image {
         object-fit: cover;
-        width: 90%;
+        width: 60%;
         border: 1px solid blue;
         border-radius: 0.4rem;
         /* border-radius: 10rem; */
         image-rendering: pixelated;
-    }
-
-    .product_image:before {
-        content: " ";
-        position: absolute;
-        z-index: -1;
-        top: 5px;
-        left: 5px;
-        right: 5px;
-        bottom: 5px;
-        border: 5px solid #ffea00;
     }
 
     .info-styling-mine {
@@ -170,7 +159,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                             <section class="my-gp-order">
                                 <div class="p-kage-de-tails">
 
-                                <?php
+                                    <?php
                                 $orderedData = $Order->getFullOrderDetailsById($ordId);
                                 if ($prodId == $orderedData['product_id']) {
                                     $OrdrdProduct = $Domain->showDomainsById($prodId);
@@ -184,18 +173,24 @@ $prodId =  url_dec($_GET['pdata']) ;
 
                                             <!-- Details section Start  -->
                                             <div class="">
-                                                <!-- Order Details Start -->
-                                                <h2 class="fw-bolder"><?php echo $OrdrdProduct['domain']; ?>
-                                                    <span class="badge bg-primary">
-                                                        <?php echo $OrderStatus->getOrdStatName($orderedData['orders_status_id']) ?>
-                                                    </span>
-                                                    </h1>
+                                                <div>
                                                     <p class="niche_name">
                                                         <?php
                                                         $niche = $Niche->showBlogNichMst($OrdrdProduct['niche']);
                                                         echo $niche[0][1]; // niche name
                                                         ?>
                                                     </p>
+                                                </div>
+
+                                                <!-- Order Details Start -->
+                                                <h2 class="align-items-center d-flex justify-content-normal text-capitalize">
+                                                    <?php echo $OrdrdProduct['domain']; ?>
+                                                    <span
+                                                        class="badge rounded-pill bg-warning text-dark ms-2 fw-normal" style="font-size: .75rem;">
+                                                        <?php echo $OrderStatus->getOrdStatName($orderedData['orders_status_id']) ?>
+                                                    </span>
+                                                    </h1>
+
 
                                                     <table class="ordered-details-table-css " style="width: 100%;">
                                                         <tr>
@@ -234,7 +229,10 @@ $prodId =  url_dec($_GET['pdata']) ;
                                         <div class="col-md-4">
                                             <div class="product_image_sec_right">
                                                 <img class="product_image"
-                                                    src="<?= URL ?>images/domains/<?php echo $OrdrdProduct[10]?>" alt="">
+                                                    src="<?= URL ?>images/domains/eno_fruit_salt_powder_orange_flavour_5_gm_0-5455PB4.jpg"
+                                                    alt="">
+                                                <!-- <img class="product_image"
+                                                    src="<?= URL ?>images/domains/<?php echo $OrdrdProduct[10]?>" alt=""> -->
                                             </div>
                                         </div>
                                     </div>
