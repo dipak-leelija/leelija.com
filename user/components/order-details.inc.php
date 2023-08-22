@@ -15,32 +15,32 @@
                 ?>
                 </p>
                 <table class="ordered-details-table-css " style="width: 100%;">
+                    <!-- <tr>
+                        <td> Id</td>
+                        <td>:</td>
+                        <td><?= $orderedData['orders_id']; ?></td>
+                    </tr> -->
                     <tr>
                         <td>Order Id</td>
                         <td>:</td>
-                        <td><?php echo "#".$orderedData['orders_id']; ?></td>
-                    </tr>
-                    <tr>
-                        <td>Transection Id</td>
-                        <td>:</td>
                         <td style="word-break: break-word;">
-                            <?php echo "#".$orderedData['orders_code']; ?></td>
+                            <?= $orderedData['orders_code']; ?></td>
                     </tr>
                     <tr>
                         <td>Price</td>
                         <td>:</td>
-                        <td><?php echo "$".$orderedData['orders_amount']; ?></td>
+                        <td><?= CURRENCY.$orderedData['orders_amount']; ?></td>
                     </tr>
                     <tr>
                         <td>Payment Status</td>
                         <td>:</td>
-                        <td><?php echo $orderedData['payment_status']; ?>
+                        <td><?= $orderedData['payment_status']; ?>
                         </td>
                     </tr>
                     <tr>
                         <td>Date</td>
                         <td>:</td>
-                        <td><?php echo date('l jS \of F Y h:i:s A', strtotime($orderedData['added_on'])); ?>
+                        <td><?= date('l jS \of F Y h:i:s A', strtotime($orderedData['added_on'])); ?>
                         </td>
                     </tr>
                 </table>
