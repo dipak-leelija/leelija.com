@@ -53,15 +53,18 @@ if ($cusDtl == NULL) {
 	exit;
 }
 
-foreach($cusDtl as $rowCusDtl){
-	$rowCusDtl[30];
-}
+$customerCountryId      = $cusDtl[0][30];
+$customerStateId        = $cusDtl[0][28];
+$customerEmail          = $cusDtl[0][3];
+$customerBillingName    = $cusDtl[0][37];
+$customerContactNo      = $cusDtl[0][32];
+$customerCityId         = $cusDtl[0][27];
+$customerZipCode        = $cusDtl[0][29];
 
+$StateDtls 	= $Location->getStateData($customerStateId);
 
-$StateDtls 	= $Location->getStateData($rowCusDtl[28]); //countries_id
+$countriesDtls 	= $Location->getCountyById($customerCountryId);
 
-$countriesDtls 	= $Location->getCountyById($rowCusDtl[30]); //countries_id
-// print_r($countriesDtls); exit;
 $domainDtls		= $domain->ShowDomainData();
 
 //Current Url
@@ -81,7 +84,7 @@ if(isset($_POST['btnSubmit'])){
         //post var
         $txtBillingName 			= $_POST['txtBillingName'];
         $phoneNo 			        = $_POST['contact-no'];
-        $txtBillingEmail	  		= $cusDtl[0][3];
+        $txtBillingEmail	  		= $customerEmail;
         $txtBillingAdd 				= $_POST['txtBillingAdd'];
         $billingState 			    = $_POST['txtBillingState'];
         $txtPostCode 				= $_POST['txtPostCode'];
@@ -189,7 +192,7 @@ if(isset($_POST['btnSubmit'])){
 
     <link rel="icon" href="<?php echo FAVCON_PATH; ?>" type="image/png">
     <link rel="apple-touch-icon" href="<?php echo FAVCON_PATH; ?>" />
-    
+
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="plugins/bootstrap-5.2.0/css/bootstrap.css">
     <link rel="stylesheet" href="plugins/fontawesome-6.1.1/css/all.css">
@@ -238,48 +241,51 @@ if(isset($_POST['btnSubmit'])){
                             autocomplete="off" name="billingForm" id="billingForm">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="billing-name" placeholder=" "
-                                    name="txtBillingName" value="<?php echo $cusDtl[0][37]; ?>">
+                                    name="txtBillingName" value="<?php echo $customerBillingName; ?>">
                                 <label for="floatingInput">Billing Name</label>
                             </div>
                             <p id="noName" class="text-danger text-start"></p>
 
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="contact-no" placeholder=" "
-                                    name="contact-no" value="<?php echo $cusDtl[0][32]; ?>">
+                                    name="contact-no" value="<?php echo $customerContactNo; ?>">
                                 <label for="floatingInput">Contact No</label>
                             </div>
                             <p id="noContact" class="text-danger text-start"></p>
 
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="billing-email" placeholder=" "
-                                    name="txtBillingEmail" value="<?= $cusDtl[0][3]; ?>" disabled>
+                                    name="txtBillingEmail" value="<?= $customerEmail; ?>" disabled>
                                 <label for="floatingInput">Email address</label>
                             </div>
                             <p id="noEmail" class="text-danger text-start"></p>
 
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="billing-addr" placeholder=" "
-                                    name="txtBillingAdd" value="<?php echo $cusDtl[0][24]; ?>">
-                                <label for="floatingInput">Billing Address</label>
+                                <select class="form-select" id="city" name="txtBillingAdd">
+                                    <option selected disabled value="">Please select state first</option>
+                                    <?php
+                                    if ($customerStateId != '') {
+                                        // $utility->populateDropDown($customerCityId, 'id', 'name', 'cities');
+                                        $utility->populateDropDown2($customerCityId, 'id', 'name', 'state_id', $customerStateId, 'cities');
+
+                                    }
+                                    ?>
+                                </select>
+                                <label for="city">Billing City</label>
                             </div>
                             <p id="noAdd" class="text-danger text-start"></p>
 
 
                             <div class="form-floating mb-3">
-                                <!-- <input type="text" class="form-control" id="" placeholder=" "
-                                    name="" value="">
-                                <label for="floatingInput">Billing State</label> -->
-
-                                <select class="form-select" id="billing-state" title="Countries" name="txtBillingState">
-                                    <option selected value="<?php echo $cusDtl[0][28]; ?>">
-                                        <?= $countriesDtls['name']; ?></option>
-                                    <?php 
-										if(isset($_SESSION['userid'])){
-											$utility->populateDropDown($cusDtl[0][24], 'id', 'name', 'states');
-										}else{
-											$utility->populateDropDown(0, 'id', 'name', 'states');
-										}
-									?>
+                                <select class="form-select" id="stateId" name="txtBillingState" onchange="getCitiesList(this)">
+                                    <?php
+                                        if ($customerCountryId!= '') {
+                                            echo '<option selected disabled value="">Select</option>';
+                                            $utility->populateDropDown2($customerStateId, 'id', 'name', 'country_id', $customerCountryId, 'states');
+                                        }else {
+                                            echo '<option selected disabled value="">Please select state first</option>';
+                                        }
+                                    ?>
                                 </select>
                                 <label for="billing-state">State</label>
                             </div>
@@ -288,22 +294,19 @@ if(isset($_POST['btnSubmit'])){
 
                             <div class="form-floating mb-3">
                                 <input type="number" class="form-control" id="billing-zip" placeholder=" "
-                                    name="txtPostCode" value="<?php echo $cusDtl[0][29]; ?>">
+                                    name="txtPostCode" value="<?= $customerZipCode; ?>">
                                 <label for="floatingInput">Billing Zip</label>
                             </div>
                             <p id="noZipCode" class="text-danger text-start"></p>
 
 
                             <div class="form-floating">
-                                <select class="form-select" id="billing-cntry" title="Countries" name="txtCountry">
-                                    <option selected value="<?php echo $cusDtl[0][30]; ?>">
-                                        <?= $countriesDtls['name']; ?></option>
-                                    <?php 
-										if(isset($_SESSION['userid'])){
-											$utility->populateDropDown($cusDtl[0][24], 'id', 'name', 'countries');
-										}else{
-											$utility->populateDropDown(0, 'id', 'name', 'countries');
-										}
+                                <select class="form-select" id="billing-cntry" name="txtCountry" onchange="getStateList(this)">
+                                    <?php
+                                    if ($customerCountryId != '') {
+                                        echo '<option selected disabled value="">Select</option>';
+                                    } 
+										$utility->populateDropDown($customerCountryId, 'id', 'name', 'countries');
 									?>
                                 </select>
                                 <label for="floatingSelect">Country</label>
@@ -409,7 +412,8 @@ if(isset($_POST['btnSubmit'])){
                             </div>
                         </div>
                         <div class="col-lg-2 pb-2">
-                            <a href="removecart.php?removep=<?php echo $domainDtl['id'];?>" class="btn btn-danger btn-sm">
+                            <a href="removecart.php?removep=<?php echo $domainDtl['id'];?>"
+                                class="btn btn-danger btn-sm">
                                 Remove
                             </a>
                         </div>
@@ -500,20 +504,22 @@ if(isset($_POST['btnSubmit'])){
 
     </div>
     <!-- js-->
-    <script src="js/jquery-2.2.3.min.js"></script>
+    <!-- <script src="js/jquery-2.2.3.min.js"></script> -->
+    <script src="plugins/jquery-3.6.0.min.js"></script>
+    <script src="js/location.js"></script>
     <script src="js/cregistration.js"></script>
 
     <script>
-        $("#contact-no").keyup(function() {
-            num = $("#contact-no").val();
-            // alert(num.length);
-            if (num.length < 10) {
-                $("#noContact").html("Please verify the length");
-            }else{
+    $("#contact-no").keyup(function() {
+        num = $("#contact-no").val();
+        // alert(num.length);
+        if (num.length < 10) {
+            $("#noContact").html("Please verify the length");
+        } else {
 
-                $("#noContact").css("display", "none");
-            }
-        });
+            $("#noContact").css("display", "none");
+        }
+    });
     </script>
     <script>
     const checkForm = () => {
@@ -578,7 +584,7 @@ if(isset($_POST['btnSubmit'])){
         });
 
 
-        
+
         if (zipCo == '' || zipCo == '0') {
             $("#noZipCode").html("Please Enter Your Zip Code");
             alert("Please Enter Your Zip Code");
@@ -587,7 +593,7 @@ if(isset($_POST['btnSubmit'])){
         $("#billing-zip").keyup(function() {
             $("#noZipCode").css("display", "none");
         });
-        
+
         if (cntry == '') {
             alert("Please Enter Your Country");
             $("#noCntry").html("Please Enter Your Country")
@@ -705,7 +711,7 @@ if(isset($_POST['btnSubmit'])){
 
             document.getElementById('billingForm').action = "payments/itemPayment/ccAvenue-payment/payment.php";
             document.getElementById('billingForm').submit();
-            
+
 
         } else {
             document.getElementById('acceptForm').classList.remove('d-none');
