@@ -18,7 +18,7 @@
                         <label class="fw-bold">Domain Provider</label>
                         <p class="fw-normal">
                             <span id="domain_provider">
-                                <?= $deliveryDtls['domain_provider'];?>
+                                <?= url_dec($deliveryDtls['domain_provider']);?>
                             </span>
                             <small data-bs-toggle="modal" data-bs-target="#editModal"
                                 onclick="editSingleData('domain_provider', 'domain_provider')"
