@@ -5,7 +5,7 @@
             <!-- Order Details Start -->
             <h2 class="fw-bolder"><?php echo $OrdrdProduct['domain']; ?>
                 <span class="badge bg-primary">
-                    <?php echo $OrderStatus->getOrdStatName($orderedData['orders_status_id']) ?>
+                    <?= $ordStatus ?>
                 </span>
                 </h1>
                 <p class="niche_name">
@@ -34,7 +34,7 @@
                     <tr>
                         <td>Payment Status</td>
                         <td>:</td>
-                        <td><?= $orderedData['payment_status']; ?>
+                        <td><?= $paymentStatus; ?>
                         </td>
                     </tr>
                     <tr>

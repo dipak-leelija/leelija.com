@@ -4,6 +4,9 @@ if ($prodId == $orderedData['product_id']) {
     $OrdrdProduct = $Domain->showDomainsById($prodId);
     if ($OrdrdProduct > 0) {
         $deliveryDtls = $Order->deliveryDtlsByOrdId($orderedData['orders_id']);
+        $ordStatus      = $OrderStatus->getOrdStatName($orderedData['orders_status_id']);
+        $paymentStatus  = $OrderStatus->getOrdStatName($orderedData['payment_status']);
+
 
 ?>
 <!-- Products Order Start -->
@@ -79,8 +82,8 @@ if ($prodId == $orderedData['product_id']) {
             <?php else: ?>
 
             <div class="text-center">
-                <p class="bg-primary text-light fw-bold my-2">
-                    Your order has been accepted, Please Share required details
+                <p class="bg-primary text-light rounded fw-bold my-2 py-2">
+                    Your order has been accepted, Please Choose Integration Method Bellow.
                 </p>
             </div>
 
@@ -90,19 +93,21 @@ if ($prodId == $orderedData['product_id']) {
                     <div class="buttonsinfo">
                         <?php
                             $deliveryType = $Order->allDeliveryType();
+                            $paidIntegration = false;
                             foreach($deliveryType as $delivery){
+                                if ($delivery['cost'] > 0) $paidIntegration = true;
+
                         ?>
-                        <button class="btn managed-link-btn" data-bs-toggle="modal"
-                            data-bs-target="#modal-<?php echo $delivery['integration_id']; ?>">
-                            <?php 
-                                echo $delivery['integration_name']; 
-                                if ($delivery['cost'] > 0) {
-                                    echo " ( $".$delivery['cost']." )";
-                                }
-                            ?>
+                        <?php if ($paidIntegration): ?>
+                        <button class="btn managed-link-btn">
+                            <?= $delivery['integration_name']." (".CURRENCY.$delivery['cost'].")"; ?>
                         </button>
 
-
+                        <?php else: ?>
+                        <button class="btn managed-link-btn" data-bs-toggle="modal"
+                            data-bs-target="#modal-<?= $delivery['integration_id']; ?>">
+                            <?= $delivery['integration_name']; ?>
+                        </button>
 
                         <!-- Modal Start   -->
                         <div class="modal fade" id="modal-<?php echo $delivery['integration_id'] ?>" tabindex="-1"
@@ -146,7 +151,11 @@ if ($prodId == $orderedData['product_id']) {
                         </div>
                         <!-- Modal End  -->
 
+
+                        <?php endif; ?>
+
                         <?php } ?>
+                        <!-- end of loop  -->
                     </div>
                 </div>
             </div>
@@ -169,8 +178,9 @@ if ($prodId == $orderedData['product_id']) {
             <?php elseif($orderedData['orders_status_id'] == FAILEDCODE):?>
             echo 'Order Failed';
             <?php elseif($orderedData['orders_status_id'] == ORDEREDCODE):?>
-            echo '<p class="text-center bg-primary text-light fw-bold my-2 py-1">Please Wait for
-                seller Response.</p>';
+            <p class="text-center bg-primary text-light fw-bold my-2 py-1">
+                Please wait for response.
+            </p>
             <?php elseif($orderedData['orders_status_id'] == COMPLETEDCODE):?>
             echo 'Order Completed';
             <?php elseif($orderedData['orders_status_id'] == HOLDCODE):?>
