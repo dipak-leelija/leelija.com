@@ -7,16 +7,17 @@ require_once ROOT_DIR."classes/encrypt.inc.php";
 require_once ROOT_DIR."classes/error.class.php";
 require_once ROOT_DIR."classes/search.class.php";
 require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/date.class.php";
 require_once ROOT_DIR."classes/login.class.php";
 require_once ROOT_DIR."classes/domain.class.php";
-require_once ROOT_DIR . "classes/niche.class.php";
+require_once ROOT_DIR."classes/niche.class.php";
 require_once ROOT_DIR."classes/order.class.php";
 require_once ROOT_DIR."classes/orderStatus.class.php";
 require_once ROOT_DIR."classes/utility.class.php";
 
 
 /* INSTANTIATING CLASSES */
-// $dateUtil      	= new DateUtil();
+$DateUtil      	= new DateUtil();
 $error 			= new Error();
 $search_obj		= new Search();
 $customer		= new Customer();
@@ -313,7 +314,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                     emailAddress: emailAddress
                 },
                 success: function(response) {
-                    alert(response)
+                    // alert(response)
                     if (response.includes('submited')) {
 
                         Swal.fire({
