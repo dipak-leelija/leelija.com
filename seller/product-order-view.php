@@ -10,6 +10,7 @@ require_once ROOT_DIR."classes/date.class.php";
 require_once ROOT_DIR."classes/error.class.php";
 require_once ROOT_DIR."classes/search.class.php";
 require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/orderStatus.class.php";
 require_once ROOT_DIR."classes/login.class.php";
 require_once ROOT_DIR."classes/domain.class.php";
 require_once ROOT_DIR."classes/niche.class.php";
@@ -23,6 +24,7 @@ $dateUtil      	= new DateUtil();
 $error 			= new Error();
 $search_obj		= new Search();
 $customer		= new Customer();
+$OrderStatus    = new OrderStatus();
 $logIn			= new Login();
 $Domain			= new Domain();
 $Niche          = new Niche();
@@ -166,6 +168,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                                     if ($OrdrdProduct > 0) {
 
                                         $deliveryDtls = $Order->deliveryDtlsByOrdId($orderedData['orders_id']);
+                                        $paymentStatusname = $OrderStatus->getOrdStatName($orderedData['payment_status']);
                                         
                                     ?>
                                     <div class="row">
@@ -196,23 +199,18 @@ $prodId =  url_dec($_GET['pdata']) ;
                                                         <tr>
                                                             <td>Order Id</td>
                                                             <td>:</td>
-                                                            <td><?php echo "#".$orderedData['orders_id']; ?></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Transection Id</td>
-                                                            <td>:</td>
                                                             <td style="word-break: break-word;">
-                                                                <?php echo "#".$orderedData['orders_code']; ?></td>
+                                                                <?= "#".$orderedData['orders_code']; ?></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Price</td>
                                                             <td>:</td>
-                                                            <td><?php echo "$".$orderedData['orders_amount']; ?></td>
+                                                            <td><?=  CURRENCY.$orderedData['orders_amount']; ?></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Payment Status</td>
                                                             <td>:</td>
-                                                            <td><?php echo $orderedData['payment_status']; ?>
+                                                            <td><?= $paymentStatusname; ?>
                                                             </td>
                                                         </tr>
                                                         <tr>
