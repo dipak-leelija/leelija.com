@@ -22,7 +22,7 @@
     </div>
 
     <?php if($deliveryDtls['domain_authorizatrion_code'] != null){ ?>
-
+        
         <?php require_once SELLER_PATH."components/shared-data-view.inc.php";?>
 
     <?php }else{ ?>
@@ -70,46 +70,6 @@
             </label>
             <div class="text-wrap">
                 <input type="text" class="form-control" id="drive-url" autocomplete="off">
-            </div>
-
-
-            <label class="fw-bold mt-2">Database Name
-                <span>
-                    <a href="#">
-                        <i class="far fw-light fa-exclamation-circle text-danger" data-bs-toggle="tooltip"
-                            title="Upload your website and database to Google drive and share the link, Click to Know More">
-                        </i>
-                    </a>
-                </span>
-            </label>
-            <div class="text-wrap">
-                <input type="text" class="form-control" id="db-name" autocomplete="off">
-            </div>
-
-            <label class="fw-bold mt-2">Database Username
-                <span>
-                    <a href="#">
-                        <i class="far fw-light fa-exclamation-circle text-danger" data-bs-toggle="tooltip"
-                            title="Upload your website and database to Google drive and share the link, Click to Know More">
-                        </i>
-                    </a>
-                </span>
-            </label>
-            <div class="text-wrap">
-                <input type="text" class="form-control" id="db-username" autocomplete="off">
-            </div>
-
-            <label class="fw-bold mt-2">Database Password
-                <span>
-                    <a href="#">
-                        <i class="far fw-light fa-exclamation-circle text-danger" data-bs-toggle="tooltip"
-                            title="Upload your website and database to Google drive and share the link, Click to Know More">
-                        </i>
-                    </a>
-                </span>
-            </label>
-            <div class="text-wrap">
-                <input type="text" class="form-control" id="db-pass" autocomplete="off">
             </div>
 
             <label class="fw-bold mt-2">Waiting Time

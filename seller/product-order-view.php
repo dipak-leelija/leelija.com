@@ -400,6 +400,7 @@ $prodId =  url_dec($_GET['pdata']) ;
 
             sec = document.getElementById('sendDataSection');
             allinp = sec.querySelectorAll('input');
+            console.log(allinp);
             allSelect = sec.querySelectorAll('select');
 
 
@@ -445,9 +446,9 @@ $prodId =  url_dec($_GET['pdata']) ;
             domainAuthCode = allinp[0].value;
             websiteFile = allinp[1].value;
             dbFile = allinp[2].value;
-            dbName = allinp[3].value;
-            dbUser = allinp[4].value;
-            dbPass = allinp[5].value;
+            // dbName = allinp[3].value;
+            // dbUser = allinp[4].value;
+            // dbPass = allinp[5].value;
 
             waitingTime = allSelect[0].value;
 
@@ -461,9 +462,9 @@ $prodId =  url_dec($_GET['pdata']) ;
                     domainAuthCode: domainAuthCode,
                     websiteFile: websiteFile,
                     dbFile: dbFile,
-                    dbName: dbName,
-                    dbUser: dbUser,
-                    dbPass: dbPass,
+                    // dbName: dbName,
+                    // dbUser: dbUser,
+                    // dbPass: dbPass,
                     waitingTime: waitingTime
                 },
                 success: function(data) {

@@ -1,4 +1,4 @@
-<div class="accordion" id="accordionExample">
+<div class="accordion dtls_bx m-auto mt-2" id="accordionExample">
     <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button d-block text-center shadow-none" type="button" data-bs-toggle="collapse"
