@@ -1,7 +1,7 @@
 <div class="accordion" id="accordionExample">
     <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button d-block text-center shadow-none <?= $orderedData['orders_status_id'] == COMPLETEDCODE ? '' : 'bg-warning'; ?>" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button d-block text-center shadow-none <?= $orderStatusId == COMPLETEDCODE ? '' : 'bg-warning'; ?>" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 Click to view shared details
             </button>
@@ -83,7 +83,7 @@
                             </div>
                         </div>  
 
-                        <div class="mt-4 text-center">
+                        <div class="mt-4 text-center <?= $orderStatusId == COMPLETEDCODE ? 'd-none' : ''; ?>">
                             <button type="button" class="btn btn-primary"
                                 onclick="VerifyCompleteOrder()">Verified</button>
                         </div>
