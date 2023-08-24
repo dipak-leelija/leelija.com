@@ -25,10 +25,10 @@ if ($prodId == $orderedData['product_id']) {
             echo "Order Pending";
 
             <?php elseif($orderedData['orders_status_id'] == DELIVEREDCODE):?>
-            <div class="bg-primary rounded text-center text-light text-bold w-100 py-4 mb-2">
+            <div class="bg-primary rounded text-center text-light text-bold w-100 py-4 mb-2 mt-2">
                 Order Has Been Delivered!
             </div>
-            <div class="border border-success rounded text-primary text-bold w-100">
+            <div class="rounded w-100">
                 <?php require_once USER_PATH."components/shared-details.inc.php";?>
             </div>
 

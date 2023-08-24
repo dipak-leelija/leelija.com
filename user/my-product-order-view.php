@@ -362,7 +362,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                     orderId: orderId,
                 },
                 success: function(response) {
-                    alert(response)
+                    // alert(response)
                     if (response.includes('verified')) {
 
                         Swal.fire({

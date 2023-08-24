@@ -38,7 +38,7 @@ if(isset($_POST["action"])){
 
         $updated = $Order->updateSingleData($orders_id, 'order_status_id', COMPLETEDCODE, $updated_by);
         if ($updated) {
-            $updated2 = $Order->updateOrderStatus($orders_id, DELIVEREDCODE);
+            $updated2 = $Order->updateOrderStatus($orders_id, COMPLETEDCODE);
             if ($updated && $updated2) {
                 echo 'verified';
             }
