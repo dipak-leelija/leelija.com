@@ -1,5 +1,47 @@
 <?php
+session_start();
 require_once dirname(__DIR__)."/includes/constant.inc.php";
+require_once ROOT_DIR."_config/dbconnect.php";
+require_once ROOT_DIR."classes/encrypt.inc.php";
+require_once ROOT_DIR."classes/date.class.php";
+require_once ROOT_DIR."classes/error.class.php";
+require_once ROOT_DIR."classes/search.class.php";
+require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/login.class.php";
+require_once ROOT_DIR."classes/domain.class.php";
+
+require_once ROOT_DIR."classes/utility.class.php";
+require_once ROOT_DIR."classes/order.class.php";
+require_once ROOT_DIR."classes/orderStatus.class.php";
+
+
+/* INSTANTIATING CLASSES */
+$dateUtil      	= new DateUtil();
+$error 			= new Error();
+$search_obj		= new Search();
+$customer		= new Customer();
+$logIn			= new Login();
+$Domain			= new Domain();
+$OrderStatus    = new OrderStatus();
+
+$utility		= new Utility(); 
+$Order            = new Order();
+######################################################################################################################
+$typeM		= $utility->returnGetVar('typeM','');
+//user id
+$cusId		= $utility->returnSess('userid', 0);
+$cusDtl		= $customer->getCustomerData($cusId);
+
+// print_r($cusDtl);exit;
+
+if($cusId == 0){
+	header("Location: index.php");
+}
+
+if($cusDtl[0][0] == 1){
+	header("Location: ".USER_AREA);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,176 +88,80 @@ require_once dirname(__DIR__)."/includes/constant.inc.php";
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Products</h4>
-                                   
+
                                     <div class="table-responsive">
-                                        <table  class="table table-striped dataTable" id="datatable">
+                                        <table class="table table-striped dataTable" id="datatable">
                                             <thead>
                                                 <tr>
                                                     <th>
-                                                        User
+                                                        Order
                                                     </th>
                                                     <th>
-                                                        First name
+                                                        Order ID
                                                     </th>
                                                     <th>
-                                                        Progress
+                                                        Status
                                                     </th>
                                                     <th>
-                                                        Amount
+                                                        Date
                                                     </th>
                                                     <th>
-                                                        Deadline
+                                                        Action
                                                     </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+
+
+                                                <?php
+                                                    $orderedData = $Order->getAllOrderDetails();
+                                                    foreach ($orderedData as $orderWise) {
+                                                    $productId = $orderWise['product_id'];
+                                                    $statusName = $OrderStatus->getOrdStatName($orderWise['orders_status_id']);
+
+                                                    $OrdrdProduct = $Domain->productSoldBySeller($productId, $cusDtl[0][3]);
+                                                    // print_r($OrdrdProduct);
+                                                    if ($OrdrdProduct > 0) {
+                                                    foreach ($OrdrdProduct as $productWise) {
+                                                ?>
+
                                                 <tr>
                                                     <td class="py-1">
-                                                        <img src="<?= URL ?>assets/images/faces/face1.jpg" alt="image" />
+                                                        <img src="<?= URL ?>images/domains/<?php echo $productWise['dimage'];?>"
+                                                            alt="Dipak">
+                                                        <?= $productWise['domain'];?>
+                                                    </td>
+                                                    <td style="width:100px;font-weight:500;">
+                                                        <?= '#'.$orderWise['orders_code'];?>
                                                     </td>
                                                     <td>
-                                                        Herman Beck
+                                                        <label class="badge badge-danger">
+                                                            <?= $statusName;?>
+                                                        </label>
                                                     </td>
                                                     <td>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-success" role="progressbar"
-                                                                style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                                                                aria-valuemax="100"></div>
-                                                        </div>
+                                                        <?php echo date("d.m.Y - h:i a", strtotime($orderWise['added_on']));?>
                                                     </td>
+                                                    <?php
+                                                     $productOrderViewUrl = '='.url_enc($orderWise['orders_id']).'&pdata='.url_enc($productId);
+                                                    ?>
                                                     <td>
-                                                        $ 77.99
-                                                    </td>
-                                                    <td>
-                                                        May 15, 2015
+                                                        <a href="product-order-view.php?data=<?php echo $productOrderViewUrl;?>"
+                                                            title="Edit">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </a>
+                                                        <span>
+                                                            <i class="ps-3 fa-solid fa-trash"></i>
+                                                        </span>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="py-1">
-                                                        <img src="<?= URL ?>assets/images/faces/face2.jpg" alt="image" />
-                                                    </td>
-                                                    <td>
-                                                        Messsy Adam
-                                                    </td>
-                                                    <td>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-danger" role="progressbar"
-                                                                style="width: 75%" aria-valuenow="75" aria-valuemin="0"
-                                                                aria-valuemax="100"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        $245.30
-                                                    </td>
-                                                    <td>
-                                                        July 1, 2015
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="py-1">
-                                                        <img src="<?= URL ?>assets/images/faces/face3.jpg" alt="image" />
-                                                    </td>
-                                                    <td>
-                                                        John Richards
-                                                    </td>
-                                                    <td>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-warning" role="progressbar"
-                                                                style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                                                                aria-valuemax="100"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        $138.00
-                                                    </td>
-                                                    <td>
-                                                        Apr 12, 2015
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="py-1">
-                                                        <img src="<?= URL ?>assets/images/faces/face4.jpg" alt="image" />
-                                                    </td>
-                                                    <td>
-                                                        Peter Meggik
-                                                    </td>
-                                                    <td>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-primary" role="progressbar"
-                                                                style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                                aria-valuemax="100"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        $ 77.99
-                                                    </td>
-                                                    <td>
-                                                        May 15, 2015
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="py-1">
-                                                        <img src="<?= URL ?>assets/images/faces/face5.jpg" alt="image" />
-                                                    </td>
-                                                    <td>
-                                                        Edward
-                                                    </td>
-                                                    <td>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-danger" role="progressbar"
-                                                                style="width: 35%" aria-valuenow="35" aria-valuemin="0"
-                                                                aria-valuemax="100"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        $ 160.25
-                                                    </td>
-                                                    <td>
-                                                        May 03, 2015
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="py-1">
-                                                        <img src="<?= URL ?>assets/images/faces/face6.jpg" alt="image" />
-                                                    </td>
-                                                    <td>
-                                                        John Doe
-                                                    </td>
-                                                    <td>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-info" role="progressbar"
-                                                                style="width: 65%" aria-valuenow="65" aria-valuemin="0"
-                                                                aria-valuemax="100"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        $ 123.21
-                                                    </td>
-                                                    <td>
-                                                        April 05, 2015
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="py-1">
-                                                        <img src="<?= URL ?>assets/images/faces/face7.jpg" alt="image" />
-                                                    </td>
-                                                    <td>
-                                                        Henry Tom
-                                                    </td>
-                                                    <td>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-warning" role="progressbar"
-                                                                style="width: 20%" aria-valuenow="20" aria-valuemin="0"
-                                                                aria-valuemax="100"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        $ 150.00
-                                                    </td>
-                                                    <td>
-                                                        June 16, 2015
-                                                    </td>
-                                                </tr>
+
+                                                <?php
+                                                        }
+                                                    }
+                                                    }
+
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -238,7 +184,7 @@ require_once dirname(__DIR__)."/includes/constant.inc.php";
     <!-- <script src="<?= URL ?>plugins/data-table/simple-datatables.js"></script> -->
 
     <script src="<?= URL ?>assets/vendors/js/vendor.bundle.base.js"></script>
-  
+
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <!-- <script src="<?= URL ?>assets/vendors/chart.js/Chart.min.js"></script> -->
