@@ -51,9 +51,11 @@
 
 	define('PAGE',				$_SERVER['PHP_SELF']);
 	define('ADM_URL',  			URL.'admin/');
-	define('SELLER_URL',  		URL.'seller/');
+	// define('SELLER_URL',  		URL.'seller/');
+	const SELLER_URL			= URL.'seller-new/';
 	define('USER_URL',  		URL.'user/');
-	define('SELLER_AREA',  		URL."seller/dashboard.php");
+	// define('SELLER_AREA',  		URL."seller/dashboard.php");
+	const SELLER_AREA			= URL."seller-new/index.php";
 	define('USER_AREA',  		URL."user/app.client.php");
 
 	

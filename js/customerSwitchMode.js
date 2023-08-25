@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     $('#toSeller').click(function() {
         // urlCustomerSwap = "../seller/dashboard.php";
-        urlCustomerSwap = "http://localhost/leelija.com/seller/dashboard.php";
+        urlCustomerSwap = "http://localhost/leelija.com/seller-new/index.php";
         $.ajax({
             url: "customerSwap.php",
             type: "GET",
