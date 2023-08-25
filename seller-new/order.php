@@ -48,7 +48,7 @@ require_once dirname(__DIR__)."/includes/constant.inc.php";
                                     <h4 class="card-title">Products</h4>
                                    
                                     <div class="table-responsive">
-                                        <table  class="table table-striped ">
+                                        <table  class="table table-striped dataTable" id="datatable">
                                             <thead>
                                                 <tr>
                                                     <th>
@@ -234,14 +234,18 @@ require_once dirname(__DIR__)."/includes/constant.inc.php";
     <!-- container-scroller -->
 
     <!-- plugins:js -->
+    <!-- <script src="<?= URL ?>plugins/jquery-3.6.0.min.js"></script> -->
+    <!-- <script src="<?= URL ?>plugins/data-table/simple-datatables.js"></script> -->
+
     <script src="<?= URL ?>assets/vendors/js/vendor.bundle.base.js"></script>
+  
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="<?= URL ?>assets/vendors/chart.js/Chart.min.js"></script>
+    <!-- <script src="<?= URL ?>assets/vendors/chart.js/Chart.min.js"></script> -->
     <script src="<?= URL ?>assets/vendors/datatables.net/jquery.dataTables.js"></script>
     <script src="<?= URL ?>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
     <script src="<?= URL ?>assets/js/dataTables.select.min.js"></script>
-<script src="<?= URL ?>assets/js/data-table.js"></script>
+    <script src="<?= URL ?>assets/js/data-table.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="<?= URL ?>assets/js/off-canvas.js"></script>
@@ -252,7 +256,6 @@ require_once dirname(__DIR__)."/includes/constant.inc.php";
     <!-- endinject -->
     <!-- Custom js for this page-->
     <script src="<?= URL ?>assets/js/dashboard.js"></script>
-    <script src="<?= URL ?>assets/js/Chart.roundedBarCharts.js"></script>
     <!-- End custom js for this page-->
 </body>
 
