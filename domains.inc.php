@@ -65,13 +65,11 @@ if(isset($_POST["action"])){
 								<p>Alexa Traffic: '. $row['alexa_traffic'] .'</p>
 								<p>Organic Traffic: '. $row['organic_traffic'] .'</p>
 								<h3>Price $'. $row['price'] .'</h3>
-
-								<a href="domain.php?seo_url='. $row['seo_url'] .'">View Details</a><br>
 							</div>
 						</div>
-						<div class="buy-sec">
-
-
+						<div class="buy-sec d-flex justify-content-evenly">
+							<a class="btn btn-sm btn-success" href="domain.php?seo_url='. $row['seo_url'] .'"><i class="far fa-eye"></i> View</a>
+							<span class="btn btn-sm btn-danger" onclick="AddToCart('.$row['id'].', this)"><i class="far fa-heart"></i> Add Cart</span>
 						</div>
 					</div>
 				</div>

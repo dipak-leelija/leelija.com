@@ -110,7 +110,7 @@ $current_url 	= base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQ
                     <div class="col-lg-6">
                         <div class="pb-lg-5 single_domain_feature">
                             <h2 class="stat-title text-capitalize text-start pb-lg-5"><?php echo $domainDtl[0]; ?></h2>
-                            <h3>$<?php echo $domainDtl[8];?></h3>
+                            <h3><?= CURRENCY.$domainDtl[8];?></h3>
                             <h3 class="sub-title"><i class="fa fa-angle-double-right"></i>Url:<a rel="nofollow"
                                     href="<?php echo $domainDtl[9];?>" target="_blank"> <?php echo $domainDtl[9];?></a>
                             </h3>
@@ -130,14 +130,9 @@ $current_url 	= base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQ
                             </h3>
                         </div>
                         <h3>Domain Featured</h3>
-                        <?php
-								foreach($domFeatures as $eachRecord)
-									{
-							?>
+                        <?php foreach($domFeatures as $eachRecord){ ?>
                         <p class="single_featured"><?php echo $eachRecord['featured'];?></p>
-                        <?php
-								}
-							?>
+                        <?php } ?>
 
                         <br>
                         <div id="share-buttons">
@@ -218,6 +213,7 @@ $current_url 	= base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQ
     </div>
     <!-- js-->
     <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/ajax.js"></script>
     <!-- js-->
     <script src="js/cart.js"></script>
     <!-- js-->

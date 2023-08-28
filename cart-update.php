@@ -21,162 +21,99 @@ require_once "classes/utilityNum.class.php";
 
 
 /* INSTANTIATING CLASSES */
-
 $dateUtil      	= new DateUtil();
-
 $error 			= new Error();
-
-$search_obj		= new Search();
-
 $customer		= new Customer();
-
 $logIn			= new Login();
-
-
-
 $product		= new Products();
-
-$blogMst		= new BlogMst();
-
-$domain			= new Domain();
-
+$Domain			= new Domain();
 $utility		= new Utility();
-
 $uMesg 			= new MesgUtility();
-
 $uImg 			= new ImageUtility();
-
 $uNum 			= new NumUtility();
 
 ######################################################################################################################
 
 
-
 //declare vars
-
 $typeM			= $utility->returnGetVar('typeM','');
 
-//$seo_url		= $utility->returnGetVar('seo_url','');
+//user id
+$cusId		= $utility->returnSess('userid', 0);
 
+$cusDtl		= $customer->getCustomerData($cusId);
 
+// print_r($_REQUEST);
+// exit;
+if($cusId == 0){
 
-//$shipDtl		= $shipping->showShipDisplay();
+	echo 'LOGIN-ERR!';
+	exit;
+	// header("Location: index.php");
 
+}
 
-
-$id		 		= $_GET["id"]; //product code
-
-//echo $id;exit;
+$id		 		= $_POST["itemId"]; //product code
 
 $product_qty 	= 1; //product code
 
 // Domain Details			
+$domainDtl		= $Domain->showDomainsById($id);
 
-$domainDtl		= $domain->showDomainsById($id);
-
-
-
-	if ($domainDtl) { //we have the personal meeting info
+	//we have the personal meeting info
+	if ($domainDtl) {
 
 		//prepare array for the session variable
+		$new_domain = array(array('name'=>$domainDtl['domain'], 'code'=>$id, 'qty'=>$product_qty, 'price'=>$domainDtl['sprice']));
 
-		$new_domain = array(array('name'=>$domainDtl[0], 'code'=>$id, 'qty'=>$product_qty, 'price'=>$domainDtl[17]));
-
-		
-
-		if(isset($_SESSION["domain"])) //if we have the session
-
-		{
+		//if we have the session
+		if(isset($_SESSION["domain"])){
 
 			$found = false; //set found item to false
+ 			
+			//loop through session array
+			foreach ($_SESSION["domain"] as $cart_itm){
 
-			
-
-			foreach ($_SESSION["domain"] as $cart_itm) //loop through session array
-
-			{
-
-				if($cart_itm["code"] == $id){ //the item exist in array
-
-					//echo $cart_itm['price'];
-
-					//exit;
-
-					
-
+				//the item exist in array
+				if($cart_itm["code"] == $id){
 					$product1[] = array('name'=>$cart_itm["name"], 'code'=>$cart_itm["code"], 'qty'=>$product_qty,'price'=>$cart_itm["price"]);
-
-
-
 					$found = true;
 
 				}else{
 
-					//echo $cart_itm['price'];
-
-					//exit;
-
 					//item doesn't exist in the list, just retrive old info and prepare array for session var
-
-					
-
 					$product1[] = array('name'=>$cart_itm["name"], 'code'=>$cart_itm["code"], 'qty'=>$product_qty,'price'=>$cart_itm["price"]);
-
-
 
 				}
 
 			}
 
-			
+			//we didn't find item in array
+			if($found == false){
+				//add new user item in array
+				$_SESSION["domain"] = array_merge($product1, $new_domain);
+				echo 'ADDED';
 
-				if($found == false) //we didn't find item in array
+			}else{
 
-				{
+				//found user item in array list, and increased the quantity
+				$_SESSION["domain"] = $product1;
+				echo 'ADDED';
 
-					//add new user item in array
-
-					$_SESSION["domain"] = array_merge($product1, $new_domain);
-
-	
-
-				}
-
-				else
-
-					{
-
-					//found user item in array list, and increased the quantity
-
-					$_SESSION["domain"] = $product1;
-
-	
-
-					}
-
-			
+			}
 
 		}else{
 
 			//create a new session var if does not exist
-
 			$_SESSION["domain"] = $new_domain;
+			echo 'ADDED';
 
-
-
-			
-
-			}
-
-		
+		}
 
 	}
 
-	
-
 //forward the web page
-
-$uMesg->showSuccessT('cart', 0, '', 'viewcart.php', "Your Shoppping cart", 'CART');	
+// $uMesg->showSuccessT('cart', 0, '', 'viewcart.php', "Your Shoppping cart", 'CART');	
 
 	
 

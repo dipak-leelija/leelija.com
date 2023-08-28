@@ -80,6 +80,10 @@
                     class="hidden-xs hidden-sm">Dashboard</span></a>
         </li>
         <li >
+            <a href="<?= URL ?>domains.php"><i class="text-primary fas fa-handshake pe-2" aria-hidden="true"></i><span
+                    class="hidden-xs hidden-sm">Marketplace</span></a>
+        </li>
+        <li >
             <a href="my-orders.php"><i class="text-primary fas fa-handshake pe-2" aria-hidden="true"></i><span
                     class="hidden-xs hidden-sm">My Orders</span></a>
         </li>

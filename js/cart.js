@@ -1,59 +1,32 @@
-function AddToCart(id) {
-    //alert(id);
-    //var product_id = document.getElementById("product_id").value;
+function AddToCart(id, t) {
 
-    //var product_qty = document.getElementById("product_qty").value;
-    //var return_url = document.getElementById("return_url").value;
-
-    //alert(return_url);
-
-    document.getElementById('AddCartPopup').style.display = "block";
-    window.location.replace("cart-update.php?id=" + escape(id));
-    var url = "cart-update.php?id=" + escape(id);
-
-    request.open('GET', url, true);
-    alert(url)
-        //set up a function to the server when its done
-    request.onreadystatechange = AddCart;
-
-    //writing response while verifying
-    /*	document.getElementById('add_to_cart').innerHTML=
-    	"<span class='orangeLetter padT10'>" +
-    	"" + 
-    	"<span class='padB5'> Loading ... </span></span>";		*/
-
-    //send the request
-    request.send(null);
+    let itemId = escape(id);
+    $.ajax({
+        url: "cart-update.php",
+        method: "POST",
+        data: {
+            action: 'addWishList',
+            itemId: itemId,
+        },
+        success: function(response) {
+            alert(response);
+            if (response.includes('LOGIN-ERR')){
+                alert('Please Login First!');
+            }
+            if(response.includes('ADDED')){
+                // alert('Added to cart!');
+                icon = t.childNodes[0].classList;
+                icon.remove('far');
+                icon.add('fas');
+            }
+        }
+    });
 }
 
-function AddCart() {
-    //alert("hi..");
-    if (request.readyState == 4) {
-
-        if (request.status == 200) {
-            var xmlResponse = request.responseText;
-            alert(xmlResponse);
-            //document.getElementById("shopping-cart").innerHTML = xmlResponse;
-            document.getElementById("addpopup").innerHTML = xmlResponse;
-        } else if (request.status == 404) {
-            alert("Request page doesn't exist");
-        } else if (request.status == 403) {
-            alert("Request page doesn't exist");
-        } else {
-            alert("Error: Status Code is " + request.statusText);
-        }
-    }
-} //eof
 
 
 // cancel to cart
-
 function CrossToCart(removep) {
-    //alert(removep);
-    //var product_id = document.getElementById("product_id").value;
-
-    //var categories_id = document.getElementById("categories_id").value;
-
     //alert(categories_id);
 
     var url = "cart_update2.php?removep=" + escape(removep);
