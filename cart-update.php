@@ -7,16 +7,15 @@ require_once "classes/date.class.php";
 require_once "classes/error.class.php"; 
 require_once "classes/search.class.php";	
 require_once "classes/customer.class.php"; 
-require_once "classes/login.class.php"; 
+require_once "classes/login.class.php";
+require_once "classes/wishList.class.php";
+
 
 
 require_once "classes/products.class.php"; 
 require_once "classes/blog_mst.class.php"; 
 require_once "classes/domain.class.php"; 
 require_once "classes/utility.class.php"; 
-require_once "classes/utilityMesg.class.php"; 
-require_once "classes/utilityImage.class.php";
-require_once "classes/utilityNum.class.php";
 
 
 
@@ -25,12 +24,10 @@ $dateUtil      	= new DateUtil();
 $error 			= new Error();
 $customer		= new Customer();
 $logIn			= new Login();
+$WishList		= new WishList();
 $product		= new Products();
 $Domain			= new Domain();
 $utility		= new Utility();
-$uMesg 			= new MesgUtility();
-$uImg 			= new ImageUtility();
-$uNum 			= new NumUtility();
 
 ######################################################################################################################
 
@@ -46,15 +43,18 @@ $cusDtl		= $customer->getCustomerData($cusId);
 // print_r($_REQUEST);
 // exit;
 if($cusId == 0){
-
-	echo 'LOGIN-ERR!';
-	exit;
-	// header("Location: index.php");
-
+	echo 'LOGIN-ERR!'; exit;
 }
 
-$id		 		= $_POST["itemId"]; //product code
 
+$itemId		 		= $_POST["itemId"]; //product code
+
+$added = $WishList->newWish($cusId, $itemId);
+
+if ($added == true ) {
+	echo 'ADDED';
+}
+exit;
 $product_qty 	= 1; //product code
 
 // Domain Details			

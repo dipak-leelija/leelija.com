@@ -2,28 +2,17 @@
 
 class WishList extends DatabaseConnection{
 
-
-
-
-      //  public function addToWish($domainName,$blog_id,$niche,$da,$tf,$linktype,$price){
-	  // 	$sql = "INSERT INTO `wishlist_buyer`( `domain_name`,`blog_id`,`siteNiche`, `siteDa`, `siteTf`, `siteLinkType`, `sitePrice`) VALUES ('$domainName','$blog_id','$niche','$da','$tf','$linktype','$price')";
-	  // 	//execute query
-	  // 	$query	= mysql_query($sql);
-	 
-	  // 	$insert_id = mysql_insert_id();
-	  // 	return $insert_id;
-		
-	  //  }
-  
-
-
-
-    public function newWish($userId, $blogId){
-
-        $sql = "INSERT INTO `wishlist_buyer`( `userid`,`blog_id`) VALUES ('$userId','$blogId')";
+    public function newWish($userId, $item){
+        try {
+        $sql = "INSERT INTO `wishlist`( `userid`,`item_id`) VALUES ('$userId','$item')";
         $query	= $this->conn->query($sql);
-        
-        return $query;
+        if ($query == 1) {
+            return true;
+        }
+        return false;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
   
     }//eof
 
@@ -33,7 +22,7 @@ class WishList extends DatabaseConnection{
 
     public function showUserWishes($user){
         $temp_arr = array();
-        $sql 		= "SELECT * FROM `wishlist_buyer` INNER JOIN blog_mst ON wishlist_buyer.blog_id = blog_mst.blog_id WHERE 				`userId`='$user'";
+        $sql 		= "SELECT * FROM `wishlist` INNER JOIN blog_mst ON wishlist.item_id = blog_mst.blog_id WHERE 				`userId`='$user'";
         $query	= $this->conn->query($sql);
         $rows		= $query->num_rows;
         
@@ -48,7 +37,7 @@ class WishList extends DatabaseConnection{
     
 
     public function checkWish($userId, $blogId){
-        $sql = "SELECT * FROM `wishlist_buyer` WHERE `userId`='$userId' AND `blog_id` ='$blogId'";
+        $sql = "SELECT * FROM `wishlist` WHERE `userId`='$userId' AND `item_id` ='$blogId'";
         $query	= $this->conn->query($sql);
         $count = $query->num_rows;
 
@@ -68,13 +57,13 @@ class WishList extends DatabaseConnection{
     public function wishListAllData($userId){
 
         $temp_arr = array();
-        $sql = "SELECT * FROM `wishlist_buyer` WHERE `userId` = '$userId'";
+        $sql = "SELECT * FROM `wishlist` WHERE `userId` = '$userId'";
         // echo $sql;
         $res = $this->conn->query($sql);
         $row = $res->num_rows;
         if ($row > 0) {
-            while($result = $res->fetch_array()) {
-                $temp_arr[] = $result;
+            while($result = $res->fetch_assoc()) {
+                $temp_arr[] = json_encode($result);
             }
         }
         return $temp_arr;
@@ -87,7 +76,7 @@ class WishList extends DatabaseConnection{
 
     public function removeWish($user, $blog){
 
-        $sql = "DELETE FROM `wishlist_buyer` WHERE `userId`='$user' AND `blog_id` ='$blog'";
+        $sql = "DELETE FROM `wishlist` WHERE `userId`='$user' AND `item_id` ='$blog'";
         $query	= $this->conn->query($sql);
         // echo($query);
         if($query){

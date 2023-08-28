@@ -3,14 +3,16 @@ session_start();
 require_once dirname(__DIR__)."/includes/constant.inc.php";
 require_once ROOT_DIR."_config/dbconnect.php";
 require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/domain.class.php";
+require_once ROOT_DIR."classes/niche.class.php";
 require_once ROOT_DIR."classes/wishList.class.php";
-require_once ROOT_DIR."classes/blog_mst.class.php";
 require_once ROOT_DIR."classes/utility.class.php";
 require_once ROOT_DIR."classes/wishList.class.php";
 
 /* INSTANTIATING CLASSES */
 $customer		= new Customer();
-$blogMst		= new BlogMst();
+$Domain         = new Domain();
+$Niche          = new Niche();
 $utility		= new Utility();
 $WishList       = new WishList();
 ######################################################################################################################
@@ -19,13 +21,14 @@ $typeM		= $utility->returnGetVar('typeM','');
 $cusId		= $utility->returnSess('userid', 0);
 $cusDtl		= $customer->getCustomerData($cusId);
 if($cusId == 0){
-    header("Location: index.php");
+    header("Location: ".URL);
 }
 
 if($cusDtl[0] == 1){
-    header("Location: dashboard.php");
+    header("Location: ".SELLER_URL);
 }
- 
+
+$userWishLists = $WishList->wishListAllData($cusId)
 
 ?>
 <!DOCTYPE HTML>
@@ -35,15 +38,6 @@ if($cusDtl[0] == 1){
     <title>User Dashboard | Dashboard :: <?php echo COMPANY_S; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <script>
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-    </script>
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
@@ -103,46 +97,47 @@ if($cusDtl[0] == 1){
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th scope="col">No</th>
                                                 <th scope="col">Site Name</th>
                                                 <th scope="col">Niche</th>
                                                 <th scope="col">Domain Authority</th>
                                                 <th scope="col">Trust Flow</th>
-                                                <th scope="col">Link Type</th>
                                                 <th scope="col">Price($)</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach($userWishLists as $singleWish) { ?>
                                             <?php 
-                                        //        foreach($userWishLists as $singleWish) { 
-                                        // ?>
-                                        //     <tr>
-                                        //         <td><?php echo $x; $x++?></td>
-                                        //         <td><?php echo $singleWish['domain'];?></td>
-                                        //         <td><?php echo $singleWish['niche'];?></td>
-                                        //         <td><?php echo round($singleWish['da']);?></td>
-                                        //         <td><?php echo round($singleWish['tf']);?></td>
-                                        //         <td><?php echo $singleWish['follow'];?></td>
-                                        //         <td><?php echo $singleWish['cost'];?></td>
-                                        //         <td>
-                                        //             <a href="webSiteDetailsSingle.php?id=<?php echo $singleWish['blog_id'] ?>"
-                                        //                 class="badge text-bg-success">
-                                        //                 <span>
-                                        //                     <i class="fas fa-shopping-bag"></i>
-                                        //                 </span> Buy
-                                        //             </a>
-                                        //             <a href="javascript:void()"
-                                        //                 id="<?php echo $singleWish['blog_id'];?>"
-                                        //                 onclick="delWish(this);" class="badge text-bg-danger">
-                                        //                 <span>
-                                        //                     <i class="fas fa-minus-circle"></i>
-                                        //                 </span> Remove
-                                        //             </a>
-                                        //         </td>
-                                        //     </tr>
-                                        //     <?php
-                                        //     } 
+                                                    $singleWish = json_decode($singleWish);
+                                                    $item = $Domain->showDomainsById($singleWish->item_id);
+                                                    $niche      = $Niche->getBlogNichMast($item['niche']);
+                                                    $nicheName  = $niche['niche_name']
+                                                ?>
+                                            <tr>
+                                                <td><?php echo $item['domain'];?></td>
+                                                <td><?php echo $nicheName;?></td>
+                                                <td><?php echo round(floatval($item['da']));?></td>
+                                                <td><?php echo round(floatval($item['tf']));?></td>
+                                                <td><?php echo $item['sprice'];?></td>
+                                                <td>
+                                                    <a href="webSiteDetailsSingle.php?id=<?= $singleWish->item_id ?>"
+                                                        class="badge text-bg-success">
+                                                        <span>
+                                                            <i class="fas fa-shopping-bag"></i>
+                                                        </span> Buy
+                                                    </a>
+                                                    <a href="javascript:void()"
+                                                        id="<?php echo $singleWish->id;?>"
+                                                        onclick="delWish(this);" class="badge text-bg-danger">
+                                                        <span>
+                                                            <i class="fas fa-minus-circle"></i>
+                                                        </span> Remove
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <?php
+                                            } 
                                         ?>
                                         </tbody>
                                     </table>
@@ -151,13 +146,13 @@ if($cusDtl[0] == 1){
                             <?php
                                 }else {
                                     ?>
-                                    <div class="border p-4 text-danger text-center empty_bx">
-                                        <p class="emp_icon">
-                                        <i class="fa-solid fa-heart-circle-plus"></i>
-                                        </p>
-                                        <p>Wishlist Empty!</p>
-                                    </div>
-                                    <?php
+                            <div class="border p-4 text-danger text-center empty_bx">
+                                <p class="emp_icon">
+                                    <i class="fa-solid fa-heart-circle-plus"></i>
+                                </p>
+                                <p>Wishlist Empty!</p>
+                            </div>
+                            <?php
                                 }
                                 ?>
                         </div>
@@ -169,10 +164,10 @@ if($cusDtl[0] == 1){
         </div>
         <!-- <script src="js/jquery.min.js" type="text/javascript"></script> -->
         <!-- <script src="js/jquery-2.2.3.min.js"></script> -->
-        <script src="plugins/bootstrap-5.2.0/js/bootstrap.js" type="text/javascript"></script>
-        <script src="plugins/jquery-3.6.0.min.js" type="text/javascript"></script>
-        <script src="plugins/sweetalert/sweetalert2.all.min.js" type="text/javascript"></script>
-        <script src="js/ajax.js" type="text/javascript"></script>
+        <script src="<?= URL ?>plugins/bootstrap-5.2.0/js/bootstrap.js" type="text/javascript"></script>
+        <script src="<?= URL ?>plugins/jquery-3.6.0.min.js" type="text/javascript"></script>
+        <script src="<?= URL ?>plugins/sweetalert/sweetalert2.all.min.js" type="text/javascript"></script>
+        <script src="<?= URL ?>js/ajax.js" type="text/javascript"></script>
         <script>
         const delWish = (t) => {
 
@@ -195,14 +190,14 @@ if($cusDtl[0] == 1){
                         data: {
                             BlogId: blogId
                         },
-                        success: function(data) {
-                            // alert(data);
-                            if (data) {
+                        success: function(response) {
+                            // alert(response);
+                            if (response.includes('Success')) {
                                 $(`#${blogId}`).closest("tr").fadeOut();
                             } else {
                                 Swal.fire(
                                     'failed!',
-                                    'Item Not Removed 😥.',
+                                    response,
                                     'error'
                                 )
                             }

@@ -16,7 +16,7 @@ class Niche extends DatabaseConnection{
 		$select = "SELECT * FROM niche_master WHERE niche_id = '$niche_id'";
 
 		//execute query
-		$query	= $this->conn->query($select);
+		$query	= $this->conn->query($select) or die($this->conn->error());
 		// echo $select.$this->conn->error;exit;
 		$rows = $query->num_rows;
 		// echo $rows.'<br>';
