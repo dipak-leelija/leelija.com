@@ -1,0 +1,152 @@
+.paylater-main-section {
+    /* margin: 2rem 10rem; */
+    padding: 0.5rem 10rem;
+}
+
+
+
+.customer-d-card {
+    font-family: Poppins, Poppins;
+    margin: 1rem 0;
+    padding: 1rem;
+    line-height: 1;
+    display: block;
+    border-radius: 0.25rem;
+    box-shadow: rgb(100 100 111 / 17%) 0px 7px 29px 0px;
+    border: none;
+    /* border: 1px solid #dfe1e6; */
+    /* box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px; */
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    border: none; */
+}
+
+.customer-d-card h5 {
+    color: #00254d;
+    /* color: #0673BA; */
+    font-family: Poppins, Poppins;
+}
+
+.customer-d-card p {
+    line-height: 1.6;
+    font-size: .95rem;
+    margin-bottom: 0;
+    font-weight: 500;
+    color: #6b778c;
+    font-family: Poppins, Poppins;
+}
+.second-table-fr-total{
+    margin-top: 1.5rem;
+}
+.invoice-styles {
+    margin: 1rem 0 1rem;
+}
+
+.invoice-styles p {
+    font-weight: 500;
+}
+
+table>tbody>tr>td {
+    vertical-align: middle !important;
+}
+
+.main_logo {
+    width: 16% !important;
+    margin-top: 1rem;
+}
+
+.pay_button{
+    border: none;
+    outline: none;
+    height: 45px;
+    font-size: 18px;
+    --bs-btn-color: #ffffff;
+    --bs-btn-bg: #4c8129;
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: #3b6320;
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-active-bg: #3b6320;
+    --bs-btn-active-border-color: #3b6320;
+    /* --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); */
+    --bs-btn-disabled-color: #7c7878;
+    --bs-btn-disabled-bg: #eee;
+    --bs-btn-disabled-border-color: #7c7878;
+}
+/* @media (min-width:1591px) {
+    .pay_button{
+        font-size: 20px;
+    }
+} */
+
+@media(max-width:992px) {
+    .paylater-main-section {
+        padding: 1rem 5rem;
+    }
+    .main_logo {
+        width: 22% !important;
+        margin-top: 1rem;
+    }
+}
+
+@media(max-width:576px) {
+    .customer-d-card {
+        margin: .5rem 0;
+    }
+    .paylater-main-section {
+        padding: 1rem;
+    }
+    .logos-section {
+        margin: 0 1rem;
+    }
+    .main_logo {
+        width: 32% !important;
+        margin-top: 1rem;
+    }
+}
+@media(max-width:340px) {
+    .detailing-table tr {
+        word-break: break-all;
+    }
+    .main_logo {
+        width: 47% !important;
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width:768px) {
+    .second-table-fr-total {
+        margin-top: 2.5rem;
+    }
+    /* .table-responsive {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    } */
+}
+
+.scroll {
+    border: none;
+    padding: 5px;
+    font: 24px/36px sans-serif;
+    width: 200px;
+    height: 200px;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 16px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(50, 50, 93, 0.25);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d9d9d9;
+}

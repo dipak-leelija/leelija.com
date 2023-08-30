@@ -1,26 +1,26 @@
 <?php 
-session_start(); 
-require_once("includes/constant.inc.php");
-require_once("includes/alert-constant.inc.php");
-require_once("includes/order-constant.inc.php");
+session_start();
+require_once dirname(__DIR__)."/includes/constant.inc.php";
+require_once ROOT_DIR. "includes/alert-constant.inc.php";
+require_once ROOT_DIR. "includes/paypal.inc.php";
 
-require_once("_config/dbconnect.php");
-require_once("classes/date.class.php");  
-require_once("classes/error.class.php"); 
-require_once("classes/search.class.php");	
-require_once("classes/customer.class.php");
-require_once("classes/order.class.php"); 
-require_once("classes/checkout.class.php");
-require_once("classes/login.class.php"); 
+require_once ROOT_DIR."_config/dbconnect.php";
+require_once ROOT_DIR."classes/date.class.php";  
+require_once ROOT_DIR."classes/error.class.php"; 
+require_once ROOT_DIR."classes/search.class.php";	
+require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/order.class.php"; 
+require_once ROOT_DIR."classes/checkout.class.php";
+require_once ROOT_DIR."classes/login.class.php"; 
 
-require_once("classes/countries.class.php");
-require_once("classes/location.class.php");
-require_once("classes/niche.class.php"); 
-require_once("classes/domain.class.php"); 
-require_once("classes/utility.class.php"); 
-require_once("classes/utilityMesg.class.php"); 
-require_once("classes/utilityImage.class.php");
-require_once("classes/utilityNum.class.php");
+require_once ROOT_DIR."classes/countries.class.php";
+require_once ROOT_DIR."classes/location.class.php";
+require_once ROOT_DIR."classes/niche.class.php"; 
+require_once ROOT_DIR."classes/domain.class.php"; 
+require_once ROOT_DIR."classes/utility.class.php"; 
+require_once ROOT_DIR."classes/utilityMesg.class.php"; 
+require_once ROOT_DIR."classes/utilityImage.class.php";
+require_once ROOT_DIR."classes/utilityNum.class.php";
 
 /* INSTANTIATING CLASSES */
 $dateUtil      	= new DateUtil();
@@ -65,7 +65,6 @@ $StateDtls 	= $Location->getStateData($customerStateId);
 
 $countriesDtls 	= $Location->getCountyById($customerCountryId);
 
-$domainDtls		= $domain->ShowDomainData();
 
 //Current Url
 $current_url 	= base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
@@ -73,9 +72,25 @@ $current_url 	= base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQ
 // get the current current url into session 
 $_SESSION['reorder-page'] = $utility->currentUrl();
 
-if(!isset($_SESSION["domain"])){
-    header("Location: domains.php");
-}
+// print_r($_REQUEST);
+// exit;
+
+// if(!isset($_SESSION["domain"])){
+//     header("Location: domains.php");
+// }
+
+$productId = $_REQUEST['data'];
+
+$total 		= 0;
+$totalAmt 	= 0;
+            
+$domainDtl		= $domain->showDomainsById($productId);
+$subtotal 		= $cart_itm["qty"];
+$total 			= ($total + $subtotal);
+$nicheDtls	 	= $Niche->showBlogNichMst($domainDtl['niche']);
+//$Amt			= $domainDtl[8];
+$totalAmt		= $totalAmt + $domainDtl['sprice'];
+// echo $domainDtl[17];
 
 if(isset($_POST['btnSubmit'])){
     if($_POST['btnSubmit'] == 'paypalData'){
@@ -194,12 +209,12 @@ if(isset($_POST['btnSubmit'])){
     <link rel="apple-touch-icon" href="<?php echo FAVCON_PATH; ?>" />
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="plugins/bootstrap-5.2.0/css/bootstrap.css">
-    <link rel="stylesheet" href="plugins/fontawesome-6.1.1/css/all.css">
+    <link rel="stylesheet" href="<?= URL ?>plugins/bootstrap-5.2.0/css/bootstrap.css">
+    <link rel="stylesheet" href="<?= URL ?>plugins/fontawesome-6.1.1/css/all.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/leelija.css">
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="css/cheakout.css" type='text/css'>
+    <link href="<?= URL ?>css/leelija.css" rel="stylesheet">
+    <link href="<?= URL ?>css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>css/cheakout.css" rel="stylesheet" type='text/css'>
 
     <!--//webfonts-->
     <link href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700,900" rel="stylesheet">
@@ -211,7 +226,7 @@ if(isset($_POST['btnSubmit'])){
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <div id="home">
         <!-- header -->
-        <?php require_once "partials/navbar.php"; ?>
+        <?php // require_once  "partials/navbar.php"; ?>
         <!-- //header -->
         <!-- banner -->
         <div class="banner1">
@@ -219,29 +234,89 @@ if(isset($_POST['btnSubmit'])){
         </div>
         <!-- //banner -->
         <!-- Main Content -->
-        <!--<section class="py-5 branches position-relative" id="explore">-->
         <div class="container text-center">
+            <!-- Start Row-->
             <div class="row">
-                <!-- Start Row-->
-                <div id="msg">
-                    <?php //$uMesg->dispMessage($typeM, 'images/icon/', 'blackLarge');?>
+                <!-- Items List/Details  -->
+                <div class="col-lg-6">
+
+                    <!--Start Row-->
+                    <div class="row coutrow">
+                        <!--Start Row-->
+                        <div class="col-lg-10 card ckoutcol">
+
+                            <h2 class="stat-title text-center  pb-lg-3"><?= $domainDtl['domain']; ?></h2>
+                            <h3 class="sub-title2"><i class="fa-solid fa-angles-right"></i>URL :<a rel="nofollow"
+                                    href="<?php echo $domainDtl['durl'];?>" target="_blank">
+                                    <?php echo $domainDtl['durl'];?></a>
+                            </h3>
+                            <h3 class="sub-title1 fs-4 fw-bold">
+                                <i class="fa-solid fa-right-long"></i>
+                                Price :<?= CURRENCY.$domainDtl['price'];?>
+                            </h3>
+
+                        </div>
+                        <div class="col-lg-2 pb-2">
+                            <a href="removecart.php?removep=<?php echo $domainDtl['id'];?>"
+                                class="btn btn-danger btn-sm">
+                                Remove
+                            </a>
+                        </div>
+                    </div>
+                    <!--end Row-->
+
+
+                    <p class="text-end fs-4 fw-bolder">
+                        Total: <?php echo CURRENCY.'<span id="totalAmount">'.$totalAmt.'</span>';
+								$_SESSION['tAmount']	= $totalAmt;
+							?>
+                    </p>
+
+                    <div class="payment-sec d-flex flex-column">
+                        <div class="cl"></div>
+
+                        <div id="item-subbmit-btn">
+
+                            <p class="py-2 text-center"><input type="checkbox" id="checkForm" name="checkForm"
+                                    value="checkForm" onclick="checkForm()">
+                                I agree with <a href="#">Terms & conditiond</a> and <a href="#">Refund Policy</a>
+                            </p>
+                            <p class="text-center text-danger fs-6 fw-bold pb-2 d-none" id="acceptForm">Please read
+                                the terms and conditions</p>
+
+                            <div id="smart-button-container">
+                                <div style="text-align: center;">
+                                    <div id="paypal-button-container" onclick="paypalOrder()"></div>
+                                </div>
+                            </div>
+                            <!-- <div class="container"> -->
+                            <div class="form-group">
+                                <button type="submit"
+                                    class="btn border border-primary border-1 bg-transparent w-100 mt-2"
+                                    name="orderNowCcavenue" onclick="ccAvenueOrder()">
+                                    <span class="masterCard"><img src="<?= IMG_PATH?>payments/masterCard.png"></span>
+                                    <span class="visaCard"><img src="<?= IMG_PATH ?>payments/visaCard.png"></span>
+                                    <span> Credit Card or Debit Card</span>
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="cl"></div>
+                    </div>
                 </div>
+                <!-- Items List/Details End -->
+
+                <!-- Customer Details Start -->
                 <div class="col-lg-6">
                     <!----------------------start login area-------------------------------->
 
-
                     <div title="regsitration" class="billing-details" id="form-login">
                         <h2 class="text-primary fw-normal pb-2">Billing Details</h2>
-                        <?php
-							if($cusId !="")
-								{
-							?>
-
                         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data"
                             autocomplete="off" name="billingForm" id="billingForm">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="billing-name" placeholder=" "
-                                    name="txtBillingName" value="<?php echo $customerBillingName; ?>">
+                                    name="txtBillingName" value="<?= $customerBillingName; ?>">
                                 <label for="floatingInput">Billing Name</label>
                             </div>
                             <p id="noName" class="text-danger text-start"></p>
@@ -277,7 +352,8 @@ if(isset($_POST['btnSubmit'])){
 
 
                             <div class="form-floating mb-3">
-                                <select class="form-select" id="stateId" name="txtBillingState" onchange="getCitiesList(this)">
+                                <select class="form-select" id="stateId" name="txtBillingState"
+                                    onchange="getCitiesList(this)">
                                     <?php
                                         if ($customerCountryId!= '') {
                                             echo '<option selected disabled value="">Select</option>';
@@ -301,7 +377,8 @@ if(isset($_POST['btnSubmit'])){
 
 
                             <div class="form-floating">
-                                <select class="form-select" id="billing-cntry" name="txtCountry" onchange="getStateList(this)">
+                                <select class="form-select" id="billing-cntry" name="txtCountry"
+                                    onchange="getStateList(this)">
                                     <?php
                                     if ($customerCountryId != '') {
                                         echo '<option selected disabled value="">Select</option>';
@@ -325,178 +402,12 @@ if(isset($_POST['btnSubmit'])){
                             <input type="hidden" name="btnSubmit" id="btnSubmit">
                             <!-- <button hidden name="" id="paybtn">paybtn</button> -->
                         </form>
-
-
-                        <?php	
-								} else {
-							?>
-                        <div class="text-block2">
-                            <p>Login Or Register</p>
-                        </div>
-                        <div class="fspace"></div>
-                        <div class="row">
-                            <!-- Start Row-->
-
-                            <a href="login.php?return_url=<?php echo $current_url; ?>" class="btn btn-success btn-block"
-                                onclick="loginForm()">Login</a>
-                            OR
-                            <a href="register.php?return_url=<?php echo $current_url; ?>"
-                                class="btn btn-primary btn-block" onclick="loginForm()">Register</a>
-                        </div>
-                        <?php	
-								}
-							?>
                     </div>
 
                     <!----------------------------------- eof Form login Area ----------------------------------->
                 </div>
-                <div class="col-lg-6">
-                    <?php
-						if(isset($_SESSION["domain"])){
-					?>
+                <!-- Customer Details End -->
 
-                    <?php		
-										$total 		= 0;
-										$totalAmt 	= 0;
-										//echo '<ol>';
-									foreach ($_SESSION["domain"] as $cart_itm)
-									{
-										$domainDtl		= $domain->showDomainsById($cart_itm['code']);
-										$subtotal 		= $cart_itm["qty"];
-										$total 			= ($total + $subtotal);
-										$nicheDtls	 	= $Niche->showBlogNichMst($domainDtl['niche']);
-										//$Amt			= $domainDtl[8];
-										$totalAmt		= $totalAmt + $domainDtl['sprice'];
-                                        // echo $domainDtl[17];
-								?>
-                    <!--Start Row-->
-
-
-                    <div class="row coutrow">
-                        <!--Start Row-->
-                        <div class="col-lg-10 card ckoutcol">
-
-                            <h2 class="stat-title text-center  pb-lg-3"><?php echo $domainDtl['domain']; ?></h2>
-                            <h3 class="sub-title2"><i class="fa-solid fa-angles-right"></i>URL :<a rel="nofollow"
-                                    href="<?php echo $domainDtl['durl'];?>" target="_blank">
-                                    <?php echo $domainDtl['durl'];?></a>
-                            </h3>
-                            <h3 class="sub-title1 fs-4 fw-bold"><i class="fa-solid fa-right-long"></i> Price :
-                                $<?php echo $domainDtl['price'];?></h3>
-
-                            <div class="ckoutdiv">
-
-                                <h3 class="sub-title1"><i class="fa-solid fa-right-long"></i> Niche :
-                                    <?php echo $nicheDtls[0][1];?></h3>
-                                <h3 class="sub-title1"><i class="fa-solid fa-right-long"></i> DA :
-                                    <?php echo $domainDtl['da'];?>
-                                </h3>
-                                <h3 class="sub-title1">
-                                    <i class="fa-solid fa-right-long"></i>
-                                    PA : <?php echo $domainDtl['pa'];?>
-                                </h3>
-                                <h3 class="sub-title1"><i class="fa-solid fa-right-long"></i> TF :
-                                    <?php echo $domainDtl['tf'];?>
-                                </h3>
-                                <h3 class="sub-title1">
-                                    <i class="fa-solid fa-right-long"></i>
-                                    CF : <?php echo $domainDtl['cf'];?>
-                                </h3>
-                                <h3 class="sub-title1"><i class="fa-solid fa-right-long"></i> Alexa :
-                                    <?php echo $domainDtl['alexa_traffic'];?>
-                                </h3>
-                                <h3 class="sub-title1">
-                                    <i class="fa-solid fa-right-long"></i> Organic
-                                    Traffic : <?= $domainDtl['organic_traffic'];?>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 pb-2">
-                            <a href="removecart.php?removep=<?php echo $domainDtl['id'];?>"
-                                class="btn btn-danger btn-sm">
-                                Remove
-                            </a>
-                        </div>
-                    </div>
-                    <!--end Row-->
-
-
-                    <?php
-							}
-								}
-						?>
-                    <p class="text-end fs-4 fw-bolder">
-                        Total: $<?php echo '<span id="totalAmount">'.$totalAmt.'</span>';
-								$_SESSION['tAmount']	= $totalAmt;
-							?>
-                    </p>
-                    <?php 
-								if($cusId !=""){
-							?>
-
-                    <div class="payment-sec d-flex flex-column">
-                        <div class="cl"></div>
-
-                        <div class="bGray"></div>
-
-
-                        <!-- <div id="smart-button-container">
-                            <div style="text-align: center;">
-                                <div id="paypal-button-container"></div>
-                            </div>
-                        </div> -->
-
-
-                        <div id="item-subbmit-btn">
-
-                            <p class="py-2 text-center"><input type="checkbox" id="checkForm" name="checkForm"
-                                    value="checkForm" onclick="checkForm()">
-                                I agree with <a href="#">Terms & conditiond</a> and <a href="#">Refund Policy</a>
-                            </p>
-                            <p class="text-center text-danger fs-6 fw-bold pb-2 d-none" id="acceptForm">Please read
-                                the terms and conditions</p>
-
-                            <div id="smart-button-container">
-                                <div style="text-align: center;">
-                                    <div id="paypal-button-container" onclick="paypalOrder()"></div>
-                                </div>
-                            </div>
-                            <!-- <div class="container"> -->
-                            <div class="form-group">
-                                <button type="submit"
-                                    class="btn border border-primary border-1 bg-transparent w-100 mt-2"
-                                    name="orderNowCcavenue" onclick="ccAvenueOrder()">
-                                    <span class="masterCard"><img src="images/payments/masterCard.png"></span>
-                                    <span class="visaCard"><img src="images/payments/visaCard.png"></span>
-                                    <span> Credit Card or Debit Card</span>
-                                </button>
-                            </div>
-
-                        </div>
-
-
-
-
-
-
-
-                        <!-- <div class="buttons d-flex justify-content-evenly">
-
-                                <a href="domains.php" class="btn btn-warning m-auto rounded-1"><i
-                                        class="fa fa-angle-left"></i> Continue
-                                    Shopping</a>
-
-                                <input type="submit" class="proceed-btn m-auto" id="btnSubmit" name="btnSubmit"
-                                    value="Proceed" />
-                            </div> -->
-                        <div class="cl"></div>
-                    </div>
-
-                    <?php 
-								}
-							?> <br>
-                    <!-- <a href="domains.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a> -->
-                </div>
             </div>
             <!-- end Row-->
 
@@ -504,10 +415,8 @@ if(isset($_POST['btnSubmit'])){
 
     </div>
     <!-- js-->
-    <!-- <script src="js/jquery-2.2.3.min.js"></script> -->
-    <script src="plugins/jquery-3.6.0.min.js"></script>
-    <script src="js/location.js"></script>
-    <script src="js/cregistration.js"></script>
+    <script src="<?= URL ?>plugins/jquery-3.6.0.min.js"></script>
+    <script src="<?= URL ?>js/location.js"></script>
 
     <script>
     $("#contact-no").keyup(function() {
@@ -634,7 +543,7 @@ if(isset($_POST['btnSubmit'])){
 
 
     <script
-        src="https://www.paypal.com/sdk/js?client-id=Ad-k2bukRixHHQ6YLq08lkeobaQU8EJtuiiW6vuuthWJIOdqEpUlpz73mKZBxU_pvTPy9q086XgtFw2d&disable-funding=credit,card&currency=USD"
+        src="https://www.paypal.com/sdk/js?client-id=<?= PAYPAL_CLIENT_ID;?>&disable-funding=credit,card&currency=USD"
         data-sdk-integration-source="button-factory"></script>
     <script>
     let totalAmount = document.getElementById('totalAmount').innerText;
@@ -720,15 +629,8 @@ if(isset($_POST['btnSubmit'])){
     }
     </script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
+    <script src="<?= URL?>plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
 
 </body>
 
 </html>
-
-
-<!-- sandbox details  -->
-<!-- https://www.paypal.com/sdk/js?client-id=Ad-k2bukRixHHQ6YLq08lkeobaQU8EJtuiiW6vuuthWJIOdqEpUlpz73mKZBxU_pvTPy9q086XgtFw2d&disable-funding=credit,card&currency=USD -->
-
-<!-- rahulmajumdar client-id  -->
-<!-- https://www.paypal.com/sdk/js?client-id=AZ_nrt4ttDxFLyCD6JFIM2lBKMLPTCyyVWY-_hREWz7keFGEQ3zPXeNMqmOVPUxCc1njzfdPG5-Ttcn1&enable-funding=venmo&disable-funding=credit,card&currency=USD -->
