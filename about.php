@@ -54,7 +54,7 @@ if(isset($_GET['seo_url']))
     <meta name="description" content="Leelija is an online product selling agency based in India. We are enhancing our business with the same tactics that we employ to our clients.">
     <meta name="keywords" content="Web Design, Web Development, Apps Development, SEO Services, Guest Post Services, Domain name with Ready Website, Ready website for business, High Quality website sales, High quality blogs sales, expired domain sales" />
     
-    <link rel="icon" href="images/logo/favicon.png" type="image/png">
+    <link rel="icon" href="<?php echo FAVCON_PATH; ?>" type="image/png">
     
     <script>
     addEventListener("load", function() {

@@ -60,7 +60,7 @@ $cusId		= $utility->returnSess('userid', 0);
         content="Leelija Web Solutions, Web Design, Web Development, Apps Development, SEO Services, Guest Post Services, Domain name with Ready Website, Ready website for business, High Quality website sales, blogs sales, expired domain sales, blogs platforms" />
 
 
-    <link rel="icon" href="images/logo/favicon.png" type="image/png">
+    <link rel="icon" href="<?php echo FAVCON_PATH; ?>" type="image/png">
     <!-- <link rel="shortcut icon" href="favicon.ico" />
     <link rel="apple-touch-icon" href="images/favicon.png" /> -->
 
