@@ -1,4 +1,3 @@
-<?php require ROOT_DIR.'/partials/top-bar.php';?>
 <nav class="navbar navbar-expand-lg navbar-dark text-light">
 
     <div class="container-fluid">
