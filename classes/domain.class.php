@@ -227,8 +227,7 @@ class Domain extends DatabaseConnection
 	*
 	*	@return array				
 	*/
-	function getAllDomains($seo_url)
-	{
+	function getDomainBySEOURL($seo_url){
 		//declare vars
 		$data = array();
 		

@@ -9,7 +9,7 @@ function AddToCart(id, t) {
             itemId: itemId,
         },
         success: function(response) {
-            alert(response);
+            // alert(response);
             if (response.includes('LOGIN-ERR')){
                 alert('Please Login First!');
             }

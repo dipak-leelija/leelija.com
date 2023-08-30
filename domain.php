@@ -43,7 +43,7 @@ if(isset($_GET['seo_url'])){
     // $return_url 	= base64_decode($_GET["return_url"]); //get return url
 }
 
-$domainDtl		= $domain->getAllDomains($seo_url);
+$domainDtl		= $domain->getDomainBySEOURL($seo_url);
 $nicheDtls	 	= $Niche->showBlogNichMst($domainDtl[1]);
 foreach($nicheDtls as $rownicheDtls){
 	$rownicheDtls[1];
@@ -100,8 +100,7 @@ $current_url 	= base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQ
                                             onclick="AddToCart(<?php echo $domainDtl[19]; ?>)" value="ADD TO CART" />
                                     </div>
                                     <div class="col-lg-5 addcartbttn buy-sec">
-                                        <input type="button" class="cart-btn purple-btn"
-                                            onclick="AddToCart(<?php echo $domainDtl[19]; ?>)" value="BUY NOW" />
+                                        <a class="cart-btn purple-btn" href="<?= USER_URL.'checkout.php?data='.$domainDtl[19]; ?>">BUY NOW</a>
                                     </div>
                                 </div>
                             </div>
