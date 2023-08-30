@@ -99,7 +99,7 @@ $allEmps = $Employee->allEmps();
 
             </div>
         </section>
-        <!-- <div class="container-fluid" style="overflow: hidden;">
+        <div class="container-fluid" style="overflow: hidden;">
             <div class="row w-100 m-0 my-3" onmouseleave="hideDetails()">
                 <div class="col-12 col-lg-6 mx-sm-0 py-4">
                     <div class="team_details aegean-blue-color" id="team_details">
@@ -117,39 +117,39 @@ $allEmps = $Employee->allEmps();
 
                         <?php
                     
-                    // $emps = $Employee->allEmps();
-                    // foreach ($emps as $emp) {
+                    $emps = $Employee->allEmps();
+                    foreach ($emps as $emp) {
                         
 
-                    // if ($emp['image'] == '') {
+                    if ($emp->image == '') {
                      
-                    //     if ($emp['gender'] == 'Male') {
-                    //         $img = 'images/icons/male-user.png';
-                    //     }else{
-                    //         $img = 'images/icons/female-user.png';
-                    //     }
+                        if ($emp->gender == 'Male') {
+                            $img = 'images/icons/male-user.png';
+                        }else{
+                            $img = 'images/icons/female-user.png';
+                        }
 
-                    // }else {
-                    //     $img = 'images/emps/'.$emp['image'];
-                    // }
+                    }else {
+                        $img = 'images/emps/'.$emp->image;
+                    }
 
-                    //     echo '<div class="col-6 col-sm-4 col-md-3 col-lg-3 d-flex flex-column align-items-center c_col"
-                    //         style="height: 12rem;">
-                    //         <img src="'.$img.'" class="team_thumnail m-2" alt="" onmouseover="showInfo(this)"
-                    //             onmouseleave="hideInfo(this)" onclick="showDetails(this)" data-name="'.$emp['name'].'"
-                    //             data-role="'.$emp['designation'].'" data-fb="#" data-wp="#">
-                    //         <div class="team_emp bg-primary w-100 p-auto d-none">
-                    //             <p class="text-light"><b>'.$emp['name'].'</b></p>
-                    //             <span><small>Click to See Details</small></span>
-                    //         </div>
-                    //     </div>';
-                    // }
+                        echo '<div class="col-6 col-sm-4 col-md-3 col-lg-3 d-flex flex-column align-items-center c_col"
+                            style="height: 12rem;">
+                            <img src="'.$img.'" class="team_thumnail m-2" alt="" onmouseover="showInfo(this)"
+                                onmouseleave="hideInfo(this)" onclick="showDetails(this)" data-name="'.$emp->name.'"
+                                data-role="'.$emp->designation.'" data-fb="#" data-wp="#">
+                            <div class="team_emp bg-primary w-100 p-auto d-none">
+                                <p class="text-light"><b>'.$emp->name.'</b></p>
+                                <span><small>Click to See Details</small></span>
+                            </div>
+                        </div>';
+                    }
                     ?>
 
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <section class="teaming-Member-section ">
             <h2>Let's Meet Our Team</h2>
@@ -194,7 +194,7 @@ $allEmps = $Employee->allEmps();
                 </div>
                 <?php } ?>
                 <!-- loop end -->
-                
+
             </div>
         </section>
 
