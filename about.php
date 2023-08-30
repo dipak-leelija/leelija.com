@@ -37,52 +37,31 @@ $typeM		= $utility->returnGetVar('typeM','');
 //user id
 $cusId		= $utility->returnSess('userid', 0);
 
-if(isset($_GET['seo_url']))
-	{
-		 $seo_url			  		= $_GET['seo_url'];
-		// $return_url 	= base64_decode($_GET["return_url"]); //get return url
-	}
-?>
-<?php
+
+$allEmps = $Employee->allEmps();
+
 ?>
 <!DOCTYPE HTML>
 <html lang="zxx" style="overflow: hidden;">
+
 <head>
     <meta charset="utf-8">
     <title>About Our Company :<?php echo COMPANY_S; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Leelija is an online product selling agency based in India. We are enhancing our business with the same tactics that we employ to our clients.">
-    <meta name="keywords" content="Web Design, Web Development, Apps Development, SEO Services, Guest Post Services, Domain name with Ready Website, Ready website for business, High Quality website sales, High quality blogs sales, expired domain sales" />
-    
-    <link rel="icon" href="<?php echo FAVCON_PATH; ?>" type="image/png">
-    
-    <script>
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
+    <meta name="description"
+        content="Leelija is an online product selling agency based in India. We are enhancing our business with the same tactics that we employ to our clients.">
+    <meta name="keywords"
+        content="Web Design, Web Development, Apps Development, SEO Services, Guest Post Services, Domain name with Ready Website, Ready website for business, High Quality website sales, High quality blogs sales, expired domain sales" />
 
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-    </script>
+    <link rel="icon" href="<?php echo FAVCON_PATH; ?>" type="image/png">
 
     <!-- Bootstrap Core CSS -->
-    <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
     <link rel="stylesheet" href="plugins/bootstrap-5.2.0/css/bootstrap.css">
     <link rel="stylesheet" href="plugins/fontawesome-6.1.1/css/all.css">
     <!-- Custom CSS -->
     <link href="css/style.css" rel='stylesheet' type='text/css' />
     <link href="css/about.css" rel='stylesheet' type='text/css' />
     <link href="css/leelija.css" rel='stylesheet' type='text/css' />
-
-    <!--webfonts-->
-    <!-- <link href="//fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
-
-    <link href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700,900" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Nunito+Sans:400,700,900" rel="stylesheet"> -->
-    <!--//webfonts-->
-
-
 </head>
 
 
@@ -179,14 +158,19 @@ if(isset($_GET['seo_url']))
                 doing their best.</p>
             <div class="row w-100 m-0 myteam_row">
 
+                <!-- loop start -->
+                <?php foreach ($allEmps as $eachEmp) {
+                        $eachEmp->image != '' ? $empIcon = 'emps/'.$eachEmp->image : $empIcon = 'default-icons/default-emp.png';
+                ?>
+
                 <div class="col-lg-2 col-md-3 col-sm-4 col-6 my-3">
                     <div class="team_member-profile p-0">
                         <div class="image_team_member-div">
-                            <img src="images/emps/humayun-kabir.jpg" height="260px" alt="">
+                            <img src="<?= IMG_PATH.$empIcon; ?>" height="260px" alt="">
                         </div>
                         <div class="member_infos d-flex flex-column align-items-center">
-                            <h4 class="pt-2">Humayun Kabir</h4>
-                            <h5>SEO Analyst</h5>
+                            <h4 class="pt-2"><?= $eachEmp->name ?></h4>
+                            <h5><?= $eachEmp->designation ?></h5>
 
                             <ul class="social-icons d-flex justify-content-center">
                                 <li style="--i:1">
@@ -208,327 +192,9 @@ if(isset($_GET['seo_url']))
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 my-3">
-                    <div class="team_member-profile p-0">
-                        <div class="image_team_member-div">
-                            <img src="images/emps/salina-khatun.jpg" height="260px" alt="">
-                        </div>
-                        <div class="member_infos d-flex flex-column align-items-center">
-                            <h4 class="pt-2">Salina Khatun</h4>
-                            <h5>SEO Expert</h5>
-
-                            <ul class="social-icons d-flex justify-content-center">
-                                <li style="--i:1">
-                                    <a href="#">
-                                        <span class="fab fa-facebook"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:2">
-                                    <a href="#">
-                                        <span class="fab fa-twitter"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:3">
-                                    <a href="#">
-                                        <span class="fab fa-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 my-3">
-                    <div class="team_member-profile p-0">
-                        <div class="image_team_member-div">
-                            <img src="images/emps/rofikul-islam.jpg" height="260px" alt="">
-                        </div>
-                        <div class="member_infos d-flex flex-column align-items-center">
-                            <h4 class="pt-2">Rofikul Islam</h4>
-                            <h5>Outreach Manager</h5>
-
-                            <ul class="social-icons d-flex justify-content-center">
-                                <li style="--i:1">
-                                    <a href="#">
-                                        <span class="fab fa-facebook"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:2">
-                                    <a href="#">
-                                        <span class="fab fa-twitter"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:3">
-                                    <a href="#">
-                                        <span class="fab fa-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 my-3">
-                    <div class="team_member-profile p-0">
-                        <div class="image_team_member-div">
-                            <img src="images/emps/bipasha-zaman.jpg" height="260px" alt="">
-                        </div>
-                        <div class="member_infos d-flex flex-column align-items-center">
-                            <h4 class="pt-2">Bipasha Zaman</h4>
-                            <h5>Content Writer & SEO Expert</h5>
-
-                            <ul class="social-icons d-flex justify-content-center">
-                                <li style="--i:1">
-                                    <a href="#">
-                                        <span class="fab fa-facebook"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:2">
-                                    <a href="#">
-                                        <span class="fab fa-twitter"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:3">
-                                    <a href="#">
-                                        <span class="fab fa-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 my-3">
-                    <div class="team_member-profile p-0">
-                        <div class="image_team_member-div">
-                            <img src="images/emps/samaun-kabir.jpg" height="260px" alt="">
-                        </div>
-                        <div class="member_infos d-flex flex-column align-items-center">
-                            <h4 class="pt-2">Samaun Kabir</h4>
-                            <h5>Outreach Expert</h5>
-
-                            <ul class="social-icons d-flex justify-content-center">
-                                <li style="--i:1">
-                                    <a href="#">
-                                        <span class="fab fa-facebook"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:2">
-                                    <a href="#">
-                                        <span class="fab fa-twitter"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:3">
-                                    <a href="#">
-                                        <span class="fab fa-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 my-3">
-                    <div class="team_member-profile p-0">
-                        <div class="image_team_member-div">
-                            <img src="images/emps/dipak-majumdar.jpg" height="260px" alt="">
-                        </div>
-                        <div class="member_infos d-flex flex-column align-items-center">
-                            <h4 class="pt-2">Dipak Majumdar</h4>
-                            <h5>Full Stack Developer</h5>
-
-                            <ul class="social-icons d-flex justify-content-center">
-                                <li style="--i:1">
-                                    <a href="#">
-                                        <span class="fab fa-facebook"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:2">
-                                    <a href="#">
-                                        <span class="fab fa-twitter"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:3">
-                                    <a href="#">
-                                        <span class="fab fa-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 my-3">
-                    <div class="team_member-profile p-0">
-                        <div class="image_team_member-div">
-                            <img src="images/emps/wasim-reja.jpg" height="260px" alt="">
-                        </div>
-                        <div class="member_infos d-flex flex-column align-items-center">
-                            <h4 class="pt-2">Wasim Reja</h4>
-                            <h5>SEO Expert</h5>
-
-                            <ul class="social-icons d-flex justify-content-center">
-                                <li style="--i:1">
-                                    <a href="#">
-                                        <span class="fab fa-facebook"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:2">
-                                    <a href="#">
-                                        <span class="fab fa-twitter"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:3">
-                                    <a href="#">
-                                        <span class="fab fa-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 my-3">
-                    <div class="team_member-profile p-0">
-                        <div class="image_team_member-div">
-                            <img src="images/emps/rozy-begum.jpg" height="260px" alt="">
-                        </div>
-                        <div class="member_infos d-flex flex-column align-items-center">
-                            <h4 class="pt-2">Rozy Begum</h4>
-                            <h5>Web Developer</h5>
-
-                            <ul class="social-icons d-flex justify-content-center">
-                                <li style="--i:1">
-                                    <a href="#">
-                                        <span class="fab fa-facebook"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:2">
-                                    <a href="#">
-                                        <span class="fab fa-twitter"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:3">
-                                    <a href="#">
-                                        <span class="fab fa-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 my-3">
-                    <div class="team_member-profile p-0">
-                        <div class="image_team_member-div">
-                            <img src="images/emps/santanu-bikash-das.jpg" height="260px" alt="">
-                        </div>
-                        <div class="member_infos d-flex flex-column align-items-center">
-                            <h4 class="pt-2">Santanu Bikash Das</h4>
-                            <h5>Content Writer</h5>
-
-                            <ul class="social-icons d-flex justify-content-center">
-                                <li style="--i:1">
-                                    <a href="#">
-                                        <span class="fab fa-facebook"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:2">
-                                    <a href="#">
-                                        <span class="fab fa-twitter"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:3">
-                                    <a href="#">
-                                        <span class="fab fa-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 my-3">
-                    <div class="team_member-profile p-0">
-                        <div class="image_team_member-div">
-                            <img src="images/emps/sabnam-hatun.jpeg" height="260px" alt="">
-                        </div>
-                        <div class="member_infos d-flex flex-column align-items-center">
-                            <h4 class="pt-2">Sabnam Khatun</h4>
-                            <h5>Content Writer</h5>
-
-                            <ul class="social-icons d-flex justify-content-center">
-                                <li style="--i:1">
-                                    <a href="#">
-                                        <span class="fab fa-facebook"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:2">
-                                    <a href="#">
-                                        <span class="fab fa-twitter"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:3">
-                                    <a href="#">
-                                        <span class="fab fa-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 my-3">
-                    <div class="team_member-profile p-0">
-                        <div class="image_team_member-div">
-                            <img src="images/emps/nooha-khatun.jpg" height="260px" alt="">
-                        </div>
-                        <div class="member_infos d-flex flex-column align-items-center">
-                            <h4 class="pt-2">Nooha Khatun</h4>
-                            <h5>Content Writer</h5>
-
-                            <ul class="social-icons d-flex justify-content-center">
-                                <li style="--i:1">
-                                    <a href="#">
-                                        <span class="fab fa-facebook"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:2">
-                                    <a href="#">
-                                        <span class="fab fa-twitter"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:3">
-                                    <a href="#">
-                                        <span class="fab fa-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 my-3">
-                    <div class="team_member-profile p-0">
-                        <div class="image_team_member-div">
-                            <img src="images/emps/hafijul-mondal.jpg" height="260px" alt="">
-                        </div>
-                        <div class="member_infos d-flex flex-column align-items-center">
-                            <h4 class="pt-2">Hafijul Mondal</h4>
-                            <h5>Video Editor</h5>
-
-                            <ul class="social-icons d-flex justify-content-center">
-                                <li style="--i:1">
-                                    <a href="#">
-                                        <span class="fab fa-facebook"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:2">
-                                    <a href="#">
-                                        <span class="fab fa-twitter"></span>
-                                    </a>
-                                </li>
-                                <li style="--i:3">
-                                    <a href="#">
-                                        <span class="fab fa-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
+                <!-- loop end -->
+                
             </div>
         </section>
 
@@ -549,14 +215,14 @@ if(isset($_GET['seo_url']))
                     </div>
                     <div class="col-6 col-md-3 col-lg-2 mt-2 mt-md-0 mb-sm-0 mb-2">
                         <div class="d-flex align-items-center justify-content-center">
-                            <span class="our_goals_img "><img class=" p-1"
-                                    src="images/icons/digital-marketing.png" width="45px" alt="">
+                            <span class="our_goals_img "><img class=" p-1" src="images/icons/digital-marketing.png"
+                                    width="45px" alt="">
                             </span>
                             <span class=""><a href="social-media-marketing-services.php"
                                     class="aegean-blue-color">Business<span class="br"></span>& Brandings</a></span>
                         </div>
                     </div>
-                    
+
                     <div class="col-6 col-md-3 col-lg-2 mt-2 mt-md-0 mb-sm-0 mb-2">
                         <div class="d-flex align-items-center justify-content-center">
                             <span class="our_goals_img "><img class="p-1" src="images/training.png" width="45px" alt="">
@@ -575,7 +241,8 @@ if(isset($_GET['seo_url']))
                     </div>
                     <div class="col-6 col-md-3 col-lg-2 mt-2 mt-md-0 mb-sm-0 mb-2">
                         <div class="d-flex align-items-center justify-content-center">
-                            <span class="our_goals_img "><img class=" p-1" src="images/icons/apps.png" width="45px" alt="">
+                            <span class="our_goals_img "><img class=" p-1" src="images/icons/apps.png" width="45px"
+                                    alt="">
                             </span>
                             <span class=""><a href="web-development-services.php"
                                     class="aegean-blue-color">Application<span class="br"></span>Development</a></span>
