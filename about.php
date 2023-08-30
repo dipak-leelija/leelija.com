@@ -138,33 +138,33 @@ if(isset($_GET['seo_url']))
 
                         <?php
                     
-                    $emps = $Employee->allEmps();
-                    foreach ($emps as $emp) {
+                    // $emps = $Employee->allEmps();
+                    // foreach ($emps as $emp) {
                         
 
-                    if ($emp['image'] == '') {
+                    // if ($emp['image'] == '') {
                      
-                        if ($emp['gender'] == 'Male') {
-                            $img = 'images/icons/male-user.png';
-                        }else{
-                            $img = 'images/icons/female-user.png';
-                        }
+                    //     if ($emp['gender'] == 'Male') {
+                    //         $img = 'images/icons/male-user.png';
+                    //     }else{
+                    //         $img = 'images/icons/female-user.png';
+                    //     }
 
-                    }else {
-                        $img = 'images/emps/'.$emp['image'];
-                    }
+                    // }else {
+                    //     $img = 'images/emps/'.$emp['image'];
+                    // }
 
-                        echo '<div class="col-6 col-sm-4 col-md-3 col-lg-3 d-flex flex-column align-items-center c_col"
-                            style="height: 12rem;">
-                            <img src="'.$img.'" class="team_thumnail m-2" alt="" onmouseover="showInfo(this)"
-                                onmouseleave="hideInfo(this)" onclick="showDetails(this)" data-name="'.$emp['name'].'"
-                                data-role="'.$emp['designation'].'" data-fb="#" data-wp="#">
-                            <div class="team_emp bg-primary w-100 p-auto d-none">
-                                <p class="text-light"><b>'.$emp['name'].'</b></p>
-                                <span><small>Click to See Details</small></span>
-                            </div>
-                        </div>';
-                    }
+                    //     echo '<div class="col-6 col-sm-4 col-md-3 col-lg-3 d-flex flex-column align-items-center c_col"
+                    //         style="height: 12rem;">
+                    //         <img src="'.$img.'" class="team_thumnail m-2" alt="" onmouseover="showInfo(this)"
+                    //             onmouseleave="hideInfo(this)" onclick="showDetails(this)" data-name="'.$emp['name'].'"
+                    //             data-role="'.$emp['designation'].'" data-fb="#" data-wp="#">
+                    //         <div class="team_emp bg-primary w-100 p-auto d-none">
+                    //             <p class="text-light"><b>'.$emp['name'].'</b></p>
+                    //             <span><small>Click to See Details</small></span>
+                    //         </div>
+                    //     </div>';
+                    // }
                     ?>
 
                     </div>
