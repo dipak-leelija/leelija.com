@@ -50,6 +50,7 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Skydash Admin</title>
     <!-- plugins:css -->
+    <link rel="stylesheet" href="<?= URL ?>css/style.css">
     <link rel="stylesheet" href="<?= URL ?>assets/vendors/feather/feather.css">
     <link rel="stylesheet" href="<?= URL ?>assets/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" href="<?= URL ?>assets/vendors/css/vendor.bundle.base.css">
@@ -80,17 +81,17 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
             <!-- SIDEBAR END -->
             <div class="main-panel">
                 <div class="content-wrapper">
-                    <div class="my_domain_section my-4">
-                    <!--<section class="py-5 branches position-relative" id="explore">-->
-                    <div class="container text-center">
-                        <div class="row justify-content-evenly">
+                    <div class="my_domain_section">
+                        <!--<section class="py-5 branches position-relative" id="explore">-->
+                            <div class="card">
+                        <div class="row justify-content-center">
                             <?php
 					if ($domainDtls != NULL) {
 						foreach($domainDtls as $eachRecord)
 							{
 								$nicheDtls	 	= $Niche->showBlogNichMst($eachRecord['niche']);
 						?>
-                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                 <div class="card indivisual_blogs my-3" style="border: none;">
                                     <!-- team-img -->
                                     <div class="prod-sec">
@@ -151,7 +152,7 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
                                                     ...
                                                 </p>
                                                 <!--<a href="product.php?seo_url=<?php echo $eachRecord['seo_url'];?>">View Details</a>-->
-                                                <div class="d-block py-5">
+                                                <div class="d-block py-2">
                                                     <a href="domain/<?php echo $eachRecord['seo_url'];?>"
                                                         class="btn  view_details" role="button">View Details</a>
                                                     <a href="#" class="btn edit_details float-right">Edit</a>
@@ -165,41 +166,41 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
 							}
 						}
 						?>
+                            </div>
+                     
                         </div>
                         <!-- end Row-->
 
                     </div>
                 </div>
-
+                <!-- content-wrapper ends -->
             </div>
-            <!-- content-wrapper ends -->
+            <!-- main-panel ends -->
         </div>
-        <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
+        <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
 
     <!-- plugins:js -->
-    <script src="vendors/js/vendor.bundle.base.js"></script>
+    <script src="<?= URL ?>assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="vendors/chart.js/Chart.min.js"></script>
-    <script src="vendors/datatables.net/jquery.dataTables.js"></script>
-    <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-    <script src="js/dataTables.select.min.js"></script>
+    <script src="<?= URL ?>assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="<?= URL ?>assets/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="<?= URL ?>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <script src="<?= URL ?>assets/js/dataTables.select.min.js"></script>
 
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="js/off-canvas.js"></script>
-    <script src="js/hoverable-collapse.js"></script>
-    <script src="js/template.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/todolist.js"></script>
+    <script src="<?= URL ?>assets/js/off-canvas.js"></script>
+    <script src="<?= URL ?>assets/js/hoverable-collapse.js"></script>
+    <script src="<?= URL ?>assets/js/template.js"></script>
+    <script src="<?= URL ?>assets/js/settings.js"></script>
+    <script src="<?= URL ?>assets/js/todolist.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page-->
-    <script src="js/dashboard.js"></script>
-    <script src="js/Chart.roundedBarCharts.js"></script>
+    <script src="<?= URL ?>assets/js/dashboard.js"></script>
+    <script src="<?= URL ?>assets/js/Chart.roundedBarCharts.js"></script>
     <!-- End custom js for this page-->
 </body>
 
