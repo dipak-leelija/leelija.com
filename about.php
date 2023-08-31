@@ -59,7 +59,7 @@ $allEmps = $Employee->allEmps();
     <link rel="stylesheet" href="plugins/bootstrap-5.2.0/css/bootstrap.css">
     <link rel="stylesheet" href="plugins/fontawesome-6.1.1/css/all.css">
     <!-- Custom CSS -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel='stylesheet' type='text/css' /> 
     <link href="css/about.css" rel='stylesheet' type='text/css' />
     <link href="css/leelija.css" rel='stylesheet' type='text/css' />
 </head>
@@ -322,51 +322,6 @@ $allEmps = $Employee->allEmps();
     var Scrollbar = window.Scrollbar;
     Scrollbar.init(document.querySelector('body'));
     </script>
-    <!-- ==== js for smooth scrollbar End ==== -->
-<!-- 
-    <script>
-    const showInfo = (t) => {
-        t.nextSibling.nextElementSibling.classList.remove("d-none");
-    }
-
-    const hideInfo = (t) => {
-        t.nextSibling.nextElementSibling.classList.add("d-none");
-    }
-
-    function showDetails(t) {
-        let image = t.getAttribute('src');
-        // alert(image);
-        let name = t.getAttribute('data-name');
-        let role = t.getAttribute('data-role');
-        let fbLink = t.getAttribute('data-fb');
-        let wpLink = t.getAttribute('data-wp');
-
-        let content = `<div>
-                            <h3 class="pb-0 mb-0">${name}</h3>
-                            <p><b>${role}</b></p>
-                            <div class="row team_social mt-3">
-                                <div class="col-3"><a href="#"><img src="images/icons/linkedIn_logo.png" alt=""></a></div>
-                                <div class="col-3"><a href="#"><img src="images/icons/email_logo.png" alt=""></a></div>
-                                <div class="col-3"><a href="#"><img src="images/icons/facebook-logo.png" alt=""></a></div>
-                                <div class="col-3"><a href="#"><img src="images/icons/whatsapp_logo.png" alt=""></a></div>
-
-                            </div>
-                        </div>`;
-
-
-        document.getElementById("team_details").innerHTML = content;
-    }
-
-    function hideDetails() {
-        let teamContent = `<div>
-                            <h2 class="about-ttilte ">Meet Our Team</h2>
-                            <p class="ps-2">None of us ever do great things individually but teamwork is always more fruitful toward organizational objectives. Our hardworking employees are focused on being productive and doing their best. </p>
-                        </div>`;
-
-        document.getElementById("team_details").innerHTML = teamContent;
-
-    }
-    </script> -->
 </body>
 
 </html>
