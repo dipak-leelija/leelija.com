@@ -53,15 +53,15 @@ class Employee extends DatabaseConnection{
         // first deleting the image
         $img = $this->getEmpImage($empId);
         $img = json_decode($img)->image;
-        $deleted = $this->unlinkFile(EMP_IMG_DIR.$img);
+        $this->unlinkFile(EMP_IMG_DIR.$img);
 
-        // after successfully deletion of the image 
-        if ($deleted == 'SU001') {
-            $sql = "DELETE FROM `employees` WHERE emp_id = '$empId'";
-            $res = $this->conn->query($sql);
-            if ($res == 1 ) {
-                return 'SU001';
-            }
+        /**
+         * it will execute if the image is not even exist or not delete
+         */
+        $sql = "DELETE FROM `employees` WHERE emp_id = '$empId'";
+        $res = $this->conn->query($sql);
+        if ($res == 1 ) {
+            return 'SU001';
         }
 
         return 'ER001';
