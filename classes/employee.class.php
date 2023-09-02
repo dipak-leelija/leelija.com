@@ -2,7 +2,8 @@
 
 class Employee extends DatabaseConnection{
 
-
+    // declare table name using in this class 
+    public $empTable = 'employees';
     
     public function addEmp($empId, $name, $designation, $doj, $gender, $phone, $email, $password, $added_on){
 
@@ -49,11 +50,20 @@ class Employee extends DatabaseConnection{
 
     public function deleteEmp($empId){
 
+        // first deleting the image
+        $img = $this->getEmpImage($empId);
+        $img = json_decode($img)->image;
+        $this->unlinkFile(EMP_IMG_DIR.$img);
+
+        /**
+         * it will execute if the image is not even exist or not delete
+         */
         $sql = "DELETE FROM `employees` WHERE emp_id = '$empId'";
         $res = $this->conn->query($sql);
         if ($res == 1 ) {
             return 'SU001';
         }
+
         return 'ER001';
     }
 
@@ -81,4 +91,21 @@ class Employee extends DatabaseConnection{
         return $newEmpId;
     }
 
+
+    // this function van be used to delete any data from the given path
+    function unlinkFile($path){
+        try {
+            if ($path != '') {
+                if (is_file($path)) {
+                    unlink($path);
+                    return 'SU001';
+                } else {
+                    return 'ER001';
+                }
+            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            return 'ER002';
+        }
+	}
 }

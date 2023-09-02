@@ -20,13 +20,14 @@ if(isset($_POST['empDelAction'])){
 
     $empId = url_dec($_POST['empDelAction']);
 
-    $image = $Employee->getEmpImage($empId);
-    $image = json_decode($image);
-    $path  = IMG_PATH.'emps/'.$image->image;
-    if ($image->image != '') {
-        $Utility->unlinkFile($path);
-    }      
-    $delReg = $Utility->deleteRecord($empId, 'emp_id', 'employees');
-    echo $delReg;
+    // $image = $Employee->getEmpImage($empId);
+    // $image = json_decode($image);
+    // $path  = IMG_PATH.'emps/'.$image->image;
+    // if ($image->image != '') {
+    //     $Utility->unlinkFile($path);
+    // }      
+    // $delReg = $Utility->deleteRecord($empId, 'emp_id', 'employees');
+    // echo $delReg;
+    echo $Employee->deleteEmp($empId);
 }
 ?>

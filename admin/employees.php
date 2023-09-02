@@ -174,7 +174,7 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                 },
                 success: function(response) {
                     // console.log(response);
-                    if (response.trim() == 'SU103') {
+                    if (response.trim() == 'SU001') {
                         $(`#${fadeTarget}`).closest("tr").fadeOut();
                         
                         // t.closest("tr").fadeOut();

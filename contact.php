@@ -1,34 +1,26 @@
 <?php
 session_start();
 require_once __DIR__ . "/includes/constant.inc.php";
-require_once ROOT_DIR . "/_config/dbconnect.php";
-include_once ROOT_DIR . "/includes/contact-us-email.inc.php";
-include_once ROOT_DIR . "/includes/user.inc.php";
+require_once ROOT_DIR."_config/dbconnect.php";
+include_once ROOT_DIR."includes/contact-us-email.inc.php";
+include_once ROOT_DIR."includes/alert-constant.inc.php";
 
-require_once("classes/date.class.php");
-require_once("classes/error.class.php");
-// require_once("classes/search.class.php");
-require_once("classes/customer.class.php");
-require_once("classes/login.class.php");
-require_once ROOT_DIR . "classes/email.class.php";
-require_once ROOT_DIR . "classes/contact.class.php";
-require_once("classes/utility.class.php");
-// require_once("classes/utilityMesg.class.php");
-// require_once("classes/utilityImage.class.php");
-// require_once("classes/utilityNum.class.php");
+require_once ROOT_DIR."classes/date.class.php";
+require_once ROOT_DIR."classes/error.class.php";
+require_once ROOT_DIR."classes/customer.class.php";
+require_once ROOT_DIR."classes/login.class.php";
+require_once ROOT_DIR."classes/email.class.php";
+require_once ROOT_DIR."classes/contact.class.php";
+require_once ROOT_DIR."classes/utility.class.php";
 
 /* INSTANTIATING CLASSES */
 $DateUtil      	= new DateUtil();
 $MyError 		= new MyError();
-// $search_obj		= new Search();
 $customer		= new Customer();
 $logIn			= new Login();
 $EmailObj		= new Email();
 $Contact		= new Contact();
 $utility		= new Utility();
-// $uMesg 			= new MesgUtility();
-// $uImg 			= new ImageUtility();
-// $uNum 			= new NumUtility();
 ######################################################################################################################
 $typeM		= $utility->returnGetVar('typeM','');
 //user id
