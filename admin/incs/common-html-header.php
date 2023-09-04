@@ -5,7 +5,6 @@
 <link href="<?= ADM_URL ?>assets/css/nucleo-icons.css" rel="stylesheet" />
 <link href="<?= ADM_URL ?>assets/css/nucleo-svg.css" rel="stylesheet" />
 
-<link href="<?= ADM_URL ?>assets/css/nucleo-svg.css" rel="stylesheet" />
 <!-- <link href="assets/css/soft-ui-dashboard.css.map" rel="stylesheet" /> -->
 <link href="<?= ADM_URL ?>assets/css/leelija-admin.css" rel="stylesheet" />
 <link href="<?= ADM_URL ?>assets/css/soft-ui-dashboard.css" rel="stylesheet" id="pagestyle" />

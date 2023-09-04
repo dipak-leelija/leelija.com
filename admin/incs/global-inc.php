@@ -13,3 +13,5 @@ require_once ROOT_DIR.'/classes/utility.class.php';
 $AdminLogin     = new AdminLogin();
 $DateUtil      	= new DateUtil();
 $Utility        = new Utility();
+
+$currentURL     = $Utility->currentUrl();
