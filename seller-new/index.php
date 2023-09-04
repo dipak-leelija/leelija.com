@@ -82,7 +82,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                     <div class="card-body">
                                         <div class="widget-stats-container d-flex">
                                             <div class="widget-stats-icon widget-stats-icon-primary">
-                                                <i class="material-icons-outlined">paid</i>
+                                                <i class="fa-solid fa-sack-dollar"></i>
                                             </div>
                                             <div class="widget-stats-content flex-fill">
                                                 <span class="widget-stats-title">Today's Sales</span>
@@ -90,7 +90,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                                 <span class="widget-stats-info">471 Orders Total</span>
                                             </div>
                                             <div class="widget-stats-indicator widget-stats-indicator-negative align-self-start">
-                                                <i class="material-icons">keyboard_arrow_down</i> 4%
+                                            <i class="fa-solid fa-chevron-down"></i> 4%
                                             </div>
                                         </div>
                                     </div>
@@ -101,7 +101,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                     <div class="card-body">
                                         <div class="widget-stats-container d-flex">
                                             <div class="widget-stats-icon widget-stats-icon-warning">
-                                                <i class="material-icons-outlined">person</i>
+                                            <i class="fa-regular fa-user"></i>
                                             </div>
                                             <div class="widget-stats-content flex-fill">
                                                 <span class="widget-stats-title">Active Users</span>
@@ -109,7 +109,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                                 <span class="widget-stats-info">790 unique </span>
                                             </div>
                                             <div class="widget-stats-indicator widget-stats-indicator-positive align-self-start">
-                                                <i class="material-icons">keyboard_arrow_up</i> 12%
+                                            <i class="fa-solid fa-chevron-up"></i> 12%
                                             </div>
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                     <div class="card-body">
                                         <div class="widget-stats-container d-flex">
                                             <div class="widget-stats-icon widget-stats-icon-danger">
-                                                <i class="material-icons-outlined">file_download</i>
+                                            <i class="fa-solid fa-download"></i>
                                             </div>
                                             <div class="widget-stats-content flex-fill">
                                                 <span class="widget-stats-title">Downloads</span>
@@ -128,7 +128,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                                 <span class="widget-stats-info">87 items </span>
                                             </div>
                                             <div class="widget-stats-indicator widget-stats-indicator-positive align-self-start">
-                                                <i class="material-icons">keyboard_arrow_up</i>7%</div>
+                                            <i class="fa-solid fa-chevron-up"></i>7%</div>
                                         </div>
                                     </div>
                                 </div>

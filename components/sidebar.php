@@ -12,9 +12,6 @@
     </div>
     <div class="app-menu" id="sidebar">
         <ul class="accordion-menu">
-            <!-- <li class="sidebar-title">
-                        Apps
-                    </li> -->
             <li class="">
                 <a href="<?= SELLER_URL?>" class=""><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a>
             </li>
@@ -46,9 +43,6 @@
                         <li>
                             <a href="<?= SELLER_URL?>invoice.php">Invoice</a>
                         </li>
-                        <!-- <li>
-                                <a href="settings.php">Settings</a>
-                            </li> -->
                         <li>
                             <a href="#">Authentication<i class="fa-solid fa-angle-right has-sub-menu"></i></a>
                             <ul class="sub-menu">

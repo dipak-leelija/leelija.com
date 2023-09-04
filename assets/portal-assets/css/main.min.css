@@ -4769,7 +4769,7 @@ body.modal-open {
 
 .widget-stats .widget-stats-container .widget-stats-icon i {
     line-height: 60px;
-    font-size: 28px
+    font-size: 22px
 }
 
 .widget-stats .widget-stats-container .widget-stats-icon.widget-stats-icon-primary {
@@ -4823,8 +4823,10 @@ body.modal-open {
 }
 
 .widget-stats .widget-stats-container .widget-stats-indicator i {
-    vertical-align: text-bottom;
-    font-size: 18px
+    /* vertical-align: text-bottom;
+    font-size: 18px */
+    font-size: 11px;
+    padding-right: 5px;
 }
 
 .widget-stats .widget-stats-container .widget-stats-content .widget-stats-title {
