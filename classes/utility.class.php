@@ -4311,5 +4311,22 @@ function word_teaser_end($string, $count){
 		return $result;	
 	}
 
+
+	function formatName($name) {
+		$name = basename($name);
+
+		// Remove the file extension if present
+		$name = preg_replace('/\\.[^.\\s]{3,4}$/', '', $name);
+	
+		// Replace special characters with spaces
+		$name = preg_replace('/[^a-zA-Z0-9]/', ' ', $name);
+	
+		// Capitalize the string
+		$name = ucwords($name);
+	
+		return $name;
+	}
+	
+
 }//eoc
 ?>
