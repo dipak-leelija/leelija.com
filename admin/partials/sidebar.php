@@ -44,6 +44,37 @@
                 </div>
             </li>
 
+
+            <li class="nav-item has-submenu">
+                <a class="nav-link  submenu-toggle <?php $page == "services" || $page == "service-types" ? "active": ""; ?>"
+                    href="my-guest-post.php" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-4"
+                    aria-expanded="<?php if($page == "services" || $page == "service-types"){echo "true";} else { echo "flase"; } ?>"
+                    aria-controls="submenu-4">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fas fa-cart-arrow-down"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Services Management</span>
+                </a>
+                <div id="submenu-4"
+                    class="collapse submenu submenu-4 <?php if($page == "services" || $page == "service-types"){echo "show";} ?>"
+                    data-bs-parent="#menu-accordion">
+                    <ul class="submenu-list list-unstyled">
+                        <li class="submenu-item">
+                            <a class="submenu-link <?php if($page == "service-types"){echo "active";} ?>"
+                                href="service-types.php">Service Types</a>
+                        </li>
+
+                        <li class="submenu-item">
+                            <a class="submenu-link <?php if($page == "services"){echo "active";} ?>"
+                                href="services.php">Services</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
+
             <li class="nav-item has-submenu">
                 <a class="nav-link  submenu-toggle <?php if($page == "Admin_employees-Details" || $page == "Admin_add-new-employees" ){echo "active";} ?> "
                     href="#" data-bs-toggle="collapse" data-bs-target="#submenu-2" aria-expanded="<?php if($page == "Admin_employees-Details" || $page == "Admin_add-new-employees"  ){echo "true";} else {
