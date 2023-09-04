@@ -32,211 +32,123 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Skydash Admin</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="<?= URL ?>assets/vendors/feather/feather.css">
-    <link rel="stylesheet" href="<?= URL ?>assets/vendors/ti-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="<?= URL ?>assets/vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="<?= URL ?>assets/vendors/font-awesome/free/css/all.min.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="<?= URL ?>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-    <link rel="stylesheet" href="<?= URL ?>assets/vendors/ti-icons/css/themify-icons.css">
-    <link rel="stylesheet" type="text/css" href="<?= URL ?>assets/js/select.dataTables.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="<?= URL ?>assets/css/vertical-layout-light/style.css">
-    <!-- endinject -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive Admin Dashboard Template">
+    <meta name="keywords" content="admin,dashboard">
+    <meta name="author" content="stacks">
+    <!-- Title -->
+    <title><?php echo COMPANY_FULL_NAME; ?>: Dashboard</title>
     <link rel="shortcut icon" href="<?= FAVCON_PATH ?>" />
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="<?= URL ?>assets/portal-assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= URL ?>assets/portal-assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
+    <link href="<?= URL ?>assets/portal-assets/plugins/fontawesome-6.1.1/css/all.min.css" rel="stylesheet">
+    <link href="<?= URL ?>assets/portal-assets/plugins/pace/pace.css" rel="stylesheet">
+
+    <!-- Theme Styles -->
+    <link href="<?= URL ?>assets/portal-assets/css/main.min.css" rel="stylesheet">
+
 </head>
-
 <body>
-    <div class="container-scroller">
-        <!-- NAVBAR -->
-        <?php require_once ROOT_DIR."components/navbar.php"; ?>
-        <!-- NAVBAR END -->
-        <div class="container-fluid page-body-wrapper">
-            <!-- SETTING PANEL -->
-            <?php require_once ROOT_DIR."components/settings-panel.php"; ?>
-            <!-- SETTING PANEL END-->
-            <!-- SIDEBAR -->
-            <?php require_once ROOT_DIR."components/sidebar.php"; ?>
-            <!-- SIDEBAR END -->
-            <div class="main-panel">
+    <div class="app align-content-stretch d-flex flex-wrap">
+        <?php require_once ROOT_DIR."components/sidebar.php"; ?>
+        <!-- sidebar ends -->
+        <div class="app-container">
+            <!-- navbar header starts -->
+            <?php require_once ROOT_DIR."components/navbar.php"; ?>
+            <!-- navbar header ends -->
+            <div class="app-content">
                 <div class="content-wrapper">
-                    <div class="row">
-                        <div class="col-md-12 grid-margin">
-                            <div class="row">
-                                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                                    <h3 class="font-weight-bold">Welcome Rozy!</h3>
-                                    <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span
-                                            class="text-primary">3 unread alerts!</span></h6>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="page-description">
+                                    <h1>Dashboard</h1>
                                 </div>
-                                <div class="col-12 col-xl-4">
-                                    <div class="justify-content-end d-flex">
-                                        <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                                            <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button"
-                                                id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="true">
-                                                <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right"
-                                                aria-labelledby="dropdownMenuDate2">
-                                                <a class="dropdown-item" href="#">January - March</a>
-                                                <a class="dropdown-item" href="#">March - June</a>
-                                                <a class="dropdown-item" href="#">June - August</a>
-                                                <a class="dropdown-item" href="#">August - November</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-4">
+                                <div class="card widget widget-stats">
+                                    <div class="card-body">
+                                        <div class="widget-stats-container d-flex">
+                                            <div class="widget-stats-icon widget-stats-icon-primary">
+                                                <i class="material-icons-outlined">paid</i>
+                                            </div>
+                                            <div class="widget-stats-content flex-fill">
+                                                <span class="widget-stats-title">Today's Sales</span>
+                                                <span class="widget-stats-amount">$38,211</span>
+                                                <span class="widget-stats-info">471 Orders Total</span>
+                                            </div>
+                                            <div class="widget-stats-indicator widget-stats-indicator-negative align-self-start">
+                                                <i class="material-icons">keyboard_arrow_down</i> 4%
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 grid-margin transparent">
-                            <div class="row">
-                                <div class="col-md-3 mb-4 stretch-card transparent">
-                                    <div class="card card-tale">
-                                        <div class="card-body">
-                                            <p class="mb-4">Today’s Bookings</p>
-                                            <p class="fs-30 mb-2">4006</p>
-                                            <p>10.00% (30 days)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-4 stretch-card transparent">
-                                    <div class="card card-dark-blue">
-                                        <div class="card-body">
-                                            <p class="mb-4">Total Bookings</p>
-                                            <p class="fs-30 mb-2">61344</p>
-                                            <p>22.00% (30 days)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-4 stretch-card transparent">
-                                    <div class="card card-light-blue">
-                                        <div class="card-body">
-                                            <p class="mb-4">Number of Meetings</p>
-                                            <p class="fs-30 mb-2">34040</p>
-                                            <p>2.00% (30 days)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-4 stretch-card transparent">
-                                    <div class="card card-light-danger">
-                                        <div class="card-body">
-                                            <p class="mb-4">Number of Clients</p>
-                                            <p class="fs-30 mb-2">47033</p>
-                                            <p>0.22% (30 days)</p>
+                            <div class="col-xl-4">
+                                <div class="card widget widget-stats">
+                                    <div class="card-body">
+                                        <div class="widget-stats-container d-flex">
+                                            <div class="widget-stats-icon widget-stats-icon-warning">
+                                                <i class="material-icons-outlined">person</i>
+                                            </div>
+                                            <div class="widget-stats-content flex-fill">
+                                                <span class="widget-stats-title">Active Users</span>
+                                                <span class="widget-stats-amount">23,491</span>
+                                                <span class="widget-stats-info">790 unique </span>
+                                            </div>
+                                            <div class="widget-stats-indicator widget-stats-indicator-positive align-self-start">
+                                                <i class="material-icons">keyboard_arrow_up</i> 12%
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                    </div>
-                    <div class="row justify-content-end">
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="card-title">Notifications</p>
-                                    <ul class="icon-data-list">
-                                        <li>
-                                            <div class="d-flex">
-                                                <img src="images/faces/face1.jpg" alt="user">
-                                                <div>
-                                                    <p class="text-info mb-1">Isabella Becker</p>
-                                                    <p class="mb-0">Sales dashboard have been created</p>
-                                                    <small>9:30 am</small>
-                                                </div>
+                            <div class="col-xl-4">
+                                <div class="card widget widget-stats">
+                                    <div class="card-body">
+                                        <div class="widget-stats-container d-flex">
+                                            <div class="widget-stats-icon widget-stats-icon-danger">
+                                                <i class="material-icons-outlined">file_download</i>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="d-flex">
-                                                <img src="images/faces/face2.jpg" alt="user">
-                                                <div>
-                                                    <p class="text-info mb-1">Adam Warren</p>
-                                                    <p class="mb-0">You have done a great job #TW111</p>
-                                                    <small>10:30 am</small>
-                                                </div>
+                                            <div class="widget-stats-content flex-fill">
+                                                <span class="widget-stats-title">Downloads</span>
+                                                <span class="widget-stats-amount">140,390</span>
+                                                <span class="widget-stats-info">87 items </span>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="d-flex">
-                                                <img src="images/faces/face3.jpg" alt="user">
-                                                <div>
-                                                    <p class="text-info mb-1">Leonard Thornton</p>
-                                                    <p class="mb-0">Sales dashboard have been created</p>
-                                                    <small>11:30 am</small>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="d-flex">
-                                                <img src="images/faces/face4.jpg" alt="user">
-                                                <div>
-                                                    <p class="text-info mb-1">George Morrison</p>
-                                                    <p class="mb-0">Sales dashboard have been created</p>
-                                                    <small>8:50 am</small>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="d-flex">
-                                                <img src="images/faces/face5.jpg" alt="user">
-                                                <div>
-                                                    <p class="text-info mb-1">Ryan Cortez</p>
-                                                    <p class="mb-0">Herbs are fun and easy to grow.</p>
-                                                    <small>9:00 am</small>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                            <div class="widget-stats-indicator widget-stats-indicator-positive align-self-start">
+                                                <i class="material-icons">keyboard_arrow_up</i>7%</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
-
                 </div>
-                <!-- content-wrapper ends -->
             </div>
-            <!-- main-panel ends -->
         </div>
-        <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-
-    <!-- plugins:js -->
-    <script src="<?= URL ?>assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="<?= URL ?>assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="<?= URL ?>assets/vendors/datatables.net/jquery.dataTables.js"></script>
-    <script src="<?= URL ?>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-    <script src="<?= URL ?>assets/js/dataTables.select.min.js"></script>
-
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="<?= URL ?>assets/js/off-canvas.js"></script>
+    
+    <!-- Javascripts -->
+    <script src="<?= URL ?>assets/portal-assets/plugins/jquery/jquery-3.5.1.min.js"></script>
+    <script src="<?= URL ?>assets/portal-assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?= URL ?>assets/portal-assets/plugins/perfectscroll/perfect-scrollbar.min.js"></script>
+    <script src="<?= URL ?>assets/portal-assets/plugins/pace/pace.min.js"></script>
+    <script src="<?= URL ?>assets/portal-assets/js/main.min.js"></script>
     <script src="<?= URL ?>assets/js/hoverable-collapse.js"></script>
-    <script src="<?= URL ?>assets/js/template.js"></script>
-    <script src="<?= URL ?>assets/js/settings.js"></script>
-    <script src="<?= URL ?>assets/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    <script src="<?= URL ?>assets/js/dashboard.js"></script>
-    <script src="<?= URL ?>assets/js/Chart.roundedBarCharts.js"></script>
-    <!-- End custom js for this page-->
- 
+    
+    
 </body>
-
 </html>
