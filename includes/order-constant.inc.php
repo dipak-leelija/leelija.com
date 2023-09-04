@@ -62,6 +62,10 @@ foreach ($allStatus as $value) {
 const SELF_INTEGRATION                     = '1';
 const LEELIJA_INTEGRATION                  = '2';
 
+const ACTIVECODE                           = '1';
+const ACTIVE                               = 'Active';
+const DEACTIVATEDCODE                      = '0';
+const DEACTIVATED                          = 'Deactivated';
 
 
 
