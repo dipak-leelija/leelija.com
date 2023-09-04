@@ -236,6 +236,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
     <script src="<?= URL ?>assets/js/dashboard.js"></script>
     <script src="<?= URL ?>assets/js/Chart.roundedBarCharts.js"></script>
     <!-- End custom js for this page-->
+ 
 </body>
 
 </html>
