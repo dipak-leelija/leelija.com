@@ -89,8 +89,8 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col">
-                                <div class="page-description">
-                                    <h1>Web Products Or Blogs</h1>
+                                <div class="card page-description">
+                                    <h2>Web Products Or Blogs</h2>
                                 </div>
                             </div>
                         </div>

@@ -49,8 +49,8 @@ require_once dirname(__DIR__)."/includes/constant.inc.php";
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col">
-                                <div class="page-description page-description-tabbed">
-                                    <h1>Settings</h1>
+                                <div class="card page-description page-description-tabbed">
+                                    <h2>Settings</h2>
 
                                     <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
                                         <li class="nav-item" role="presentation">

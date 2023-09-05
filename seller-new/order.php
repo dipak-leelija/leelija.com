@@ -91,8 +91,8 @@ if($cusDtl[0][0] == 1){
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col">
-                                <div class="page-description">
-                                    <h1>Products</h1>
+                                <div class="card page-description">
+                                    <h2>Products</h2>
                                 </div>
                             </div>
                         </div>
