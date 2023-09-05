@@ -1,5 +1,6 @@
 <?php
 session_start();
+$page = "Admin_settings";
 require_once dirname(__DIR__)."/includes/constant.inc.php";
 ?>
 <!DOCTYPE html>

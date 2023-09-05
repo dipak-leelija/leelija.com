@@ -12,25 +12,25 @@
     </div>
     <div class="app-menu" id="sidebar">
         <ul class="accordion-menu">
-            <li class="">
+            <li class="<?= $page == 'Admin_dashboard' ? 'active-page' : ''; ?>">
                 <a href="<?= SELLER_URL?>" class=""><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a>
             </li>
-            <li class="">
+            <li class="<?= $page == 'Admin_orders' ? 'active-page' : ''; ?>">
                 <a href="<?= SELLER_URL?>order.php" class=""><i class="fas fa-cart-arrow-down mr-3"></i>Order</a>
             </li>
-            <li class="">
+            <li class="<?= $page == 'Admin_my-blogs' ? 'active-page' : ''; ?>">
                 <a href="<?= SELLER_URL?>myblogs.php" class=""><i class="fa fa-globe mr-3" aria-hidden="true"></i>Web
                     Products Or Blogs</a>
             </li>
-            <li class="">
+            <li class="<?= $page == 'Admin_add-domin' ? 'active-page' : ''; ?>">
                 <a href="<?= SELLER_URL?>add-domain.php" class=""><i class="fa fa-plus mr-3" aria-hidden="true"></i>Sell
                     Products or Blogs</a>
             </li>
-            <li class="">
+            <li class="<?= $page == 'Admin_notification' ? 'active-page' : ''; ?>">
                 <a href="<?= SELLER_URL?>notification.php" class=""><i class="fa fa-user mr-3"
                         aria-hidden="true"></i>Notification</a>
             </li>
-            <li class="">
+            <li class="<?= $page == 'Admin_settings' ? 'active-page' : ''; ?>">
                 <a href="<?= SELLER_URL?>settings.php" class=""><i class="fa fa-cog mr-3"
                         aria-hidden="true"></i>Settings</a>
             </li>

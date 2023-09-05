@@ -996,11 +996,15 @@ h6 {
 }
 
 .app-menu>ul>li.active-page>a,
-.app-menu>ul>li.open>a,
-.app-menu>ul>li>a:hover {
-    color: #2269f5
+.app-menu>ul>li.open>a{
+    /* color: #2269f5;
+    background-color: #1f2433; */
+    color: white;
+    background-color: #9E4784;
 }
-
+/* .app-menu>ul>li>a:hover {
+    color: rgb(12, 11, 11);
+} */
 .app-menu>ul>li>a:hover {
     padding-left: 20px
 }

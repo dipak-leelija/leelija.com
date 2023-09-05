@@ -1,5 +1,6 @@
 <?php
 session_start();
+$page = "Admin_my-blogs";
 require_once dirname(__DIR__)."/includes/constant.inc.php";
 require_once ROOT_DIR."_config/dbconnect.php";
 require_once ROOT_DIR."classes/date.class.php";

@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+$page = "Admin_dashboard";
 require_once dirname(__DIR__)."/includes/constant.inc.php";
 require_once ROOT_DIR."_config/dbconnect.php";
 
