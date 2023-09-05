@@ -148,14 +148,16 @@ class Utility extends DatabaseConnection{
 	// 	}
 		
 	// }//eof
-	function fileUploadWithRename($fileName, $path){
+
+	
+	function fileUploadWithRename($FILE, $path){
 
 		/*GENERATING UNIQUE NAME*/
 		$randNum = $this->randomkeys(8);
 		
-		if(isset($fileName['name'])){
+		if(isset($FILE['name'])){
 
-			$file = explode('.',$fileName['name']);
+			$file = explode('.',$FILE['name']);
 			$file_name = $file[0];
 			
 			//count the number of element in array
@@ -168,7 +170,7 @@ class Utility extends DatabaseConnection{
 			//replace the file name with teh unique name
 			$newName = $file_name."-".$randNum.".".$file_extension;
 			
-			if (move_uploaded_file($fileName['tmp_name'], $path.$newName)) {
+			if (move_uploaded_file($FILE['tmp_name'], $path.$newName)) {
 				return $path.$newName;
 			}else {
 				return false;
