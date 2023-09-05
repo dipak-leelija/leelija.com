@@ -1,5 +1,6 @@
 <?php
 session_start();
+$page = "Admin_notification";
 require_once dirname(__DIR__)."/includes/constant.inc.php";
 require_once ROOT_DIR."_config/dbconnect.php";
 require_once ROOT_DIR."classes/search.class.php";
@@ -77,8 +78,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col">
-                                <div class="page-description">
-                                    <h1>Notifications</h1>
+                                <div class="card page-description">
+                                    <h2>Notifications</h2>
                                 </div>
                             </div>
                         </div>

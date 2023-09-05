@@ -1,5 +1,6 @@
 <?php
 session_start();
+$page = "Admin_add-domin";
 require_once dirname(__DIR__)."/includes/constant.inc.php";
 
 require_once ROOT_DIR."_config/dbconnect.php";
@@ -163,8 +164,8 @@ if(isset($_POST['btnAddDomain'])){
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col">
-                                <div class="page-description">
-                                    <h1>Sell Products or Blogs</h1>
+                                <div class="card page-description">
+                                    <h2>Sell Products or Blogs</h2>
                                 </div>
                             </div>
                         </div>

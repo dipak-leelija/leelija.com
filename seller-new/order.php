@@ -1,5 +1,6 @@
 <?php
 session_start();
+$page = "Admin_orders";
 require_once dirname(__DIR__)."/includes/constant.inc.php";
 require_once ROOT_DIR."_config/dbconnect.php";
 require_once ROOT_DIR."classes/encrypt.inc.php";
@@ -91,8 +92,8 @@ if($cusDtl[0][0] == 1){
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col">
-                                <div class="page-description">
-                                    <h1>Products</h1>
+                                <div class="card page-description">
+                                    <h2>Products</h2>
                                 </div>
                             </div>
                         </div>
