@@ -49,7 +49,6 @@ $allServices = json_decode($allServices);
                                     aria-label="Close"></button>
                             </div>
                             <?php } ?>
-                            <h6>Services</h6>
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
@@ -132,7 +131,7 @@ $allServices = json_decode($allServices);
                                                     class="text-secondary text-xs font-weight-bold"><?= $serviceAddOn; ?></span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <a href="employee-details.php?data=<?= $seviceID; ?>"
+                                                <a href="service-details.php?data=<?= $seviceID; ?>"
                                                     class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user">
                                                     <i class="fa-solid fa-eye pe-4"></i>

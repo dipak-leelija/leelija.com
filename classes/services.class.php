@@ -124,7 +124,6 @@ class Services extends DatabaseConnection{
 	
 
 	//  Display Services Type
-
 	public function ShowServicesCatData(){
 
 		$res = "SELECT * FROM `service_cat` order by id ASC";
@@ -224,7 +223,13 @@ class Services extends DatabaseConnection{
 	*	@return int
 	*/
 
-	function editServices($id, $service_cat_id,$service_name, $service_desc, $page_title, $seo_url, $meta_tags, $meta_desc, $modified_by){
+	function editServices($id, $service_cat_id,$service_name, $service_desc, $page_title, $seo_url, $meta_tags, $meta_desc, $img, $modified_by){
+
+		if (empty($img)) {
+			$img = 'services.image';
+		}else {
+			$img = "'".$img."'";
+		}
 
 		$id							=	addslashes(trim($id));
 		$service_cat_id				=	addslashes(trim($service_cat_id));
@@ -246,21 +251,21 @@ class Services extends DatabaseConnection{
 				  seo_url					='$seo_url',
 				  meta_tags					='$meta_tags',
 				  meta_desc					='$meta_desc',
+				  image						= $img,
 				  modified_on 				= now(),
 				  modified_by				='$modified_by'
 				  WHERE 
 				  id 						= '$id'";
 
 		//execute query
-		$query	= mysql_query($sql);
-		//echo $sql.mysql_error();exit;
+		// echo $sql.$this->conn->error;exit;
+		$query	= $this->conn->query($sql);
 
-		//echo $sql;exit;
 		$result = '';
 		if(!$query){
-			$result = "ER102";
+			$result = "ER001";
 		}else{
-			$result = "SU102";
+			$result = "SU001";
 		}
 
 		//return the result
