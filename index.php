@@ -70,15 +70,6 @@ $cusId		= $utility->returnSess('userid', 0);
     <link rel="stylesheet" href="css/testimonials.css">
     <link rel="stylesheet" href="css/partials.css">
     <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <script>
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-    </script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
