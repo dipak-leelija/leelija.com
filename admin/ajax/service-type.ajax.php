@@ -25,9 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } 
     };
 
-    $modified_by = $_SESSION['adminemail'];
 
-    $updated = $Services->editServicesCat($serviceTypeId, $serviceTypeName, $serviceTypeDsc, $status, $modified_by);
+    $updated = $Services->editServicesCat($serviceTypeId, $serviceTypeName, $serviceTypeDsc, $status, $loggedinAdminEmail);
     if ($updated == 'SU001') {
         $msg = 'Service Type is Updated!';
         $alertClasse    = 'alert-success';

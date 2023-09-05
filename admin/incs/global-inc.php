@@ -15,3 +15,5 @@ $DateUtil      	= new DateUtil();
 $Utility        = new Utility();
 
 $currentURL     = $Utility->currentUrl();
+
+$loggedinAdminEmail = $_SESSION['adminemail'];
