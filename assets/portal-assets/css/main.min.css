@@ -2271,9 +2271,9 @@ table.dataTable th {
     border-bottom: 1px solid #e1e7ed !important
 }
 
-table.dataTable th {
+/* table.dataTable th {
 text-align: center;
-}
+} */
 table.dataTable tfoot th {
     border-bottom: 0 !important
 }

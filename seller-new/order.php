@@ -76,7 +76,14 @@ if($cusDtl[0][0] == 1){
 
     <!-- Theme Styles -->
     <link href="<?= URL ?>assets/portal-assets/css/main.min.css" rel="stylesheet">
-
+    <!-- <link href="<?= URL ?>css/order-table.css" rel="stylesheet"> -->
+    <style>
+    .avatar {
+        border-radius: 5px;
+        width: 50px;
+        height: 50px;
+    }
+    </style>
 </head>
 
 <body>
@@ -100,103 +107,70 @@ if($cusDtl[0][0] == 1){
                         <div class="row">
                             <div class="col">
                                 <div class="card">
+                                    <!-- <div class="card-header">
+                                        <h5 class="card-title">Product Table</h5>
+                                    </div> -->
                                     <div class="card-body">
-                                        <table id="datatable3" class="display nowrap" style="width:100%">
-                                            <thead class="table-dark">
+                                        <table id="datatable1" class="display" style="width:100%">
+                                            <thead>
                                                 <tr>
-                                                    <th>Order</th>
-                                                    <th>Order ID</th>
-                                                    <th>Status</th>
-                                                    <th>Date</th>
+                                                    <th>Sl. No.</th>
+                                                    <th>Images</th>
+                                                    <th>Order Id</th>
+                                                    <th>Domian</th>
+                                                    <th>Order Date</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php
+                                                                $orderedData = $Order->getAllOrderDetails();
+                                                                // print_r($orderedData);
+                                                                // exit;
+                                                                foreach ($orderedData as $orderWise) {
+                                                                    $productId = $orderWise['product_id'];
+                                                                    $OrdrdProduct = $Domain->productSoldBySeller($productId, $cusDtl[0][3]);
+                                                                    // print_r($OrdrdProduct);
+                                                                    if ($OrdrdProduct > 0) {
+                                                                        foreach ($OrdrdProduct as $productWise) {
+                                                                    ?>
+
                                                 <tr>
-                                                    <td>Neybg blog item</td>
-                                                    <td>1234</td>
-                                                    <td><span class="badge bg-success">Ordered</span></td>
-                                                    <td>2023/08/25</td>
+                                                    <td>01</td>
+                                                    <td><img src="<?= URL ?>images/domains/<?php echo $productWise['dimage'];?>"
+                                                            alt="Dipak" class="avatar avatar-rounded"></td>
+                                                    <td><?php echo '#'.$orderWise['orders_id'];?></td>
+                                                    <td><?php echo $productWise['domain'];?></td>
+                                                    <td> <?php echo date("d.m.Y - h:i a", strtotime($orderWise['added_on']));?>
+                                                    </td>
+                                                    <?php 
+
+                                                         $productOrderViewUrl = '='.url_enc($orderWise['orders_id']).'&pdata='.url_enc($productId);
+                                                       ?>
                                                     <td>
-                                                        <a class="text-decoration-none " href="#">
-                                                            <i class="fa-regular fa-eye pe-3"></i>
-                                                        </a>
-                                                        <a href="#" class="text-decoration-none ">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </a>
+                                                        <a href="product-order-view.php?data=<?php echo $productOrderViewUrl;?>"
+                                                            title="Edit"><i class="fa-solid fa-pen-to-square"></i>
+                                                            <i class=" ps-3 fa-solid fa-trash"
+                                                                style="color: #ff0000a1;"></i></a>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Neybg blog item</td>
-                                                    <td>1234</td>
-                                                    <td><span class="badge bg-success">Ordered</span></td>
-                                                    <td>2023/08/25</td>
-                                                    <td>
-                                                        <a class="text-decoration-none " href="#">
-                                                            <i class="fa-regular fa-eye pe-3"></i>
-                                                        </a>
-                                                        <a href="#" class="text-decoration-none ">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Neybg blog item</td>
-                                                    <td>1234</td>
-                                                    <td><span class="badge bg-success">Ordered</span></td>
-                                                    <td>2023/08/25</td>
-                                                    <td>
-                                                        <a class="text-decoration-none " href="#">
-                                                            <i class="fa-regular fa-eye pe-3"></i>
-                                                        </a>
-                                                        <a href="#" class="text-decoration-none ">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Neybg blog item</td>
-                                                    <td>1234</td>
-                                                    <td><span class="badge bg-success">Ordered</span></td>
-                                                    <td>2023/08/25</td>
-                                                    <td>
-                                                        <a class="text-decoration-none " href="#">
-                                                            <i class="fa-regular fa-eye pe-3"></i>
-                                                        </a>
-                                                        <a href="#" class="text-decoration-none ">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Neybg blog item</td>
-                                                    <td>1234</td>
-                                                    <td><span class="badge bg-success">Ordered</span></td>
-                                                    <td>2023/08/25</td>
-                                                    <td>
-                                                        <a class="text-decoration-none " href="#">
-                                                            <i class="fa-regular fa-eye pe-3"></i>
-                                                        </a>
-                                                        <a href="#" class="text-decoration-none ">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Neybg blog item</td>
-                                                    <td>1234</td>
-                                                    <td><span class="badge bg-success">Ordered</span></td>
-                                                    <td>2023/08/25</td>
-                                                    <td>
-                                                        <a class="text-decoration-none " href="#">
-                                                            <i class="fa-regular fa-eye pe-3"></i>
-                                                        </a>
-                                                        <a href="#" class="text-decoration-none ">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                                <?php
+                                                                        }
+                                                                    }
+                                                                }
+
+                                                                ?>
                                             </tbody>
+                                            <!-- <tfoot>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Office</th>
+                                                    <th>Age</th>
+                                                    <th>Start date</th>
+                                                    <th>Salary</th>
+                                                </tr>
+                                            </tfoot> -->
                                         </table>
                                     </div>
                                 </div>
