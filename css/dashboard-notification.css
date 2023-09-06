@@ -51,7 +51,7 @@
     border: 1px solid #0d6efd;
 }
 .person-name{
-    font-size: 18px !important;
+    font-size: 14px !important;
     font-weight: 500;
 }
 .fa-shake  {
@@ -61,15 +61,16 @@
    
 }
 .notify-body{
-    line-height: 1.3;
-    font-size: 15px !important;
+    font-size: 13px !important;
     font-weight: 400;
+    margin: 0;
 }
 
 .notify-time{
     line-height: 1.3;
     font-size: 0.875em !important;
     font-weight: 400;
+    color: darkgray;
 }
 .coll-1{
     width: 8%;
