@@ -1,19 +1,20 @@
 <div class="app-sidebar">
     <div class="logo">
         <!-- <a href="index.php" class="logo-icon"><span class="logo-text">LEELIJA</span></a>  -->
-        <a href="index.php" class="logo-icon"><span class="logo-text"><img src="<?= LOGO_WITH_PATH ?>" height="40px" alt="logo"/></span></a>
+        <a href="index.php" class="logo-icon"><span class="logo-text"><img src="<?= LOGO_WITH_PATH ?>" height="40px"
+                    alt="logo" /></span></a>
         <div class="sidebar-user-switcher user-activity-online">
             <a href="#">
-            <img src="<?= URL ?>assets/images/faces/face28.jpg" alt="profile"/>
+                <img src="<?= URL ?>assets/images/faces/face28.jpg" alt="profile" />
                 <span class="activity-indicator"></span>
                 <span class="user-info-text">Rozy Begum<br><span class="user-state-info">Active</span></span>
             </a>
         </div>
     </div>
     <div class="app-menu" id="sidebar">
-      
+
         <ul class="accordion-menu">
-        <li class="sidebar-title">
+            <li class="sidebar-title">
                 Dashboard Pages
             </li>
             <li class="<?= $page == 'Admin_dashboard' ? 'active-page' : ''; ?>">
@@ -109,6 +110,11 @@
             </li> -->
 
         </ul>
+        <ul class="accordion-menu">
+        <div class="form-check form-switch bg-primary text-light rounded py-2 ps-2 mx-2 cutomer-switch w-md-100">
+            <input class="form-check-input ms-0" type="checkbox" role="switch" id="toClient">
+            <label class="form-check-label" for="toClient">Become a Client</label>
+        </div>
+        </ul>
     </div>
 </div>
-

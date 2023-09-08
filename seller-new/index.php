@@ -165,6 +165,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
     <script src="<?= URL ?>assets/portal-assets/plugins/pace/pace.min.js"></script>
     <script src="<?= URL ?>assets/portal-assets/js/main.min.js"></script>
     <script src="<?= URL ?>assets/js/hoverable-collapse.js"></script>
+    <script src="<?= URL ?>js/customerSwitchMode.js"></script>
 
 
 </body>
