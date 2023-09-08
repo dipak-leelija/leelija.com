@@ -77,63 +77,18 @@ $cusId		= $utility->returnSess('userid', 0);
         <!--======================================= Navigationbar Start =======================================-->
         <?php require_once "partials/navbar.php"?>
         <!------------------------------------------- Navigationbar End ------------------------------------------->
+
         <!--======================================== Main Banner Start ========================================-->
 
         <?php require_once "partials/main-banner.php"; ?>
 
         <!----------------------------------------- Main Banner End ----------------------------------------->
 
-        <!--======================================== SECTION-1 START =========================================-->
+        <!--==================================== Established Blogs Start ====================================-->
+        <?php // require_once 'components/main/items-card.php'; ?>
+        <!--------------------------------------- Established Blogs End --------------------------------------->
 
-        <section class="new_section text-center mt-5 pb-5">
 
-
-            <h1 class="fs-1 fw-bolder my-2">Established <span class="aegean-blue-color"> Blog</span> For <span
-                    class="aegean-blue-color">Sale</span></h1>
-            <!-- <div>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto fugit nemo ullam magnam veniam
-                voluptates repellendus magni accusamus consequuntur unde.
-            </div> -->
-            <div class="row my-2 justify-content-evenly">
-                <?php
-                    $limitedDomain = $domain->ShowlimitedData(4);
-                    foreach ($limitedDomain as $row) { 
-                ?>
-
-                <div class="text-center card-width">
-                    <div class="box1">
-                        <div class="conten contenbox">
-                            <img class="img-fluid myimg" src="images/domains/<?php echo $row['dimage']?>"
-                                alt="<?php echo $row['dimage']?>">
-                        </div>
-                        <div class="box_container">
-                            <h3 class="tittle"><a class="aegean-blue-color" href="domain.php?seo_url=<?php echo $row['seo_url'];?>">
-                                    <?php echo $row['domain'];?></a></h3>
-                            <span class="post">DA: <?php echo $row['da'];?> PA: <?php echo $row['pa'];?></span><br>
-                            <span class="post">Price: <?php echo '$'.$row['price'];?></span>
-                            <div class="d-flex justify-content-between">
-                                <!-- <button type="button" class="btn view-btn btn-sm"> -->
-                                <a class="btn view-btn btn-sm" 
-                                    href="domain.php?seo_url=<?php echo $row['seo_url'];?>">View</a>
-                                <!-- </button> -->
-                                <!-- <button type="button" class="btn buy-btn btn-sm "> -->
-                                <a class="btn buy-btn btn-sm ml-auto" class="aegean-blue-color"
-                                    href="domain.php?seo_url=<?php echo $row['seo_url'];?>">Buy Now</a>
-                                <!-- </button> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <?php	
-                    }
-                ?>
-            </div>
-            <button class="btn mt-5 explore_btn"><a href="domains.php" class="text-decoration-none aegean-blue-color">More Established
-                    Blogs</a></button>
-
-        </section>
-        <!----------------------------------------- SECTION-1 END ------------------------------------------->
         <!--============= Our Services SECTION-1 START ================================-->
         <!-- -------- wthfour_section-0 starts ++++++++ -------------- -->
         <section class="wthfour_section px-md-5  m-0">
@@ -257,7 +212,7 @@ $cusId		= $utility->returnSess('userid', 0);
                         Worker
                     </h6>
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <a href="#" class="btn btn-primary bbtnn ">Completed Projects</a>
+                        <a href="<?= URL?>contact.php" class="btn btn-primary bbtnn ">Let's Connect</a>
                     </div>
                 </div>
                 <div class="divvcs col-lg-3 col-md-12 col-sm-12 ">
@@ -267,18 +222,29 @@ $cusId		= $utility->returnSess('userid', 0);
                 </div>
             </div>
         </section>
-        <!-- ------------------------------------------------------------
-            -----++++++++++  section-image & paragraph ends ++++++++ 
-                ------------------------------------------------------------ -->
+        <!-- -------------------------------  section-image & paragraph ends ++++++++ ------------------------ -->
+
+                
+
+        <!-- ================================ OUR TEAM =================================== -->
+
+        <!-- ============================== OUR TEAM END ================================= -->
+
+
+        <!-- ================================ OUR TEAM =================================== -->
+
+        <!-- ============================== OUR TEAM END ================================= -->
 
 
         <!--================================== Market Explore Section Start ==================================-->
 
         <section class="wthree-row text-center mt-4">
-            <h1 class=" fs-1 fw-bolder my-2"><span class="aegean-blue-color fw-bold"></span>Explore</span> The <span
-                    class="aegean-blue-color fw-bold">Marketplace</span></h1>
+            <h1 class=" fs-1 fw-bolder my-2"><span class="aegean-blue-color fw-bold"></span>Explore</span> The
+                <span class="aegean-blue-color fw-bold">Marketplace</span>
+            </h1>
             <div class="">
-                You Are Not Small,<span class="aegean-blue-color"> Join</span> and <span class="aegean-blue-color">Build</span>
+                You Are Not Small,<span class="aegean-blue-color"> Join</span> and <span
+                    class="aegean-blue-color">Build</span>
                 Your <span class="aegean-blue-color">Business</span>
             </div>
 
