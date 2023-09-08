@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 $page = "Admin_dashboard";
@@ -35,6 +34,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,9 +47,13 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
     <link rel="shortcut icon" href="<?= FAVCON_PATH ?>" />
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/fontawesome-6.1.1/css/all.min.css" rel="stylesheet">
@@ -59,6 +63,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
     <link href="<?= URL ?>assets/portal-assets/css/main.min.css" rel="stylesheet">
 
 </head>
+
 <body>
     <div class="app align-content-stretch d-flex flex-wrap">
         <?php require_once ROOT_DIR."components/sidebar.php"; ?>
@@ -78,70 +83,81 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-4">
-                                <div class="card widget widget-stats">
+                            <div class="col-xl-3 col-md-6 my-2">
+                                <div class="card h-100 widget widget-stats">
                                     <div class="card-body">
-                                        <div class="widget-stats-container d-flex">
+                                        
+                                        <div class="widget-stats-container h-100 d-flex">
                                             <div class="widget-stats-icon widget-stats-icon-primary">
-                                                <i class="fa-solid fa-sack-dollar"></i>
+                                                <i class="fa fa-globe " aria-hidden="true"></i>
                                             </div>
                                             <div class="widget-stats-content flex-fill">
-                                                <span class="widget-stats-title">Today's Sales</span>
-                                                <span class="widget-stats-amount">$38,211</span>
-                                                <span class="widget-stats-info">471 Orders Total</span>
-                                            </div>
-                                            <div class="widget-stats-indicator widget-stats-indicator-negative align-self-start">
-                                            <i class="fa-solid fa-chevron-down"></i> 4%
+                                                <span class="widget-stats-title ">Blogs for Guest Service</span>
+                                                <span class="widget-stats-amount">$0</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4">
-                                <div class="card widget widget-stats">
+                            <div class="col-xl-3 col-md-6 my-2">
+                                <div class="card h-100 widget widget-stats">
                                     <div class="card-body">
-                                        <div class="widget-stats-container d-flex">
+                                        <div class="widget-stats-container d-flex h-100">
                                             <div class="widget-stats-icon widget-stats-icon-warning">
-                                            <i class="fa-regular fa-user"></i>
+                                            <i class="fa-solid fa-cart-plus"></i>
                                             </div>
                                             <div class="widget-stats-content flex-fill">
-                                                <span class="widget-stats-title">Active Users</span>
-                                                <span class="widget-stats-amount">23,491</span>
-                                                <span class="widget-stats-info">790 unique </span>
-                                            </div>
-                                            <div class="widget-stats-indicator widget-stats-indicator-positive align-self-start">
-                                            <i class="fa-solid fa-chevron-up"></i> 12%
+                                                <span class="widget-stats-title">Products Or Blogs for sales</span>
+                                                <span class="widget-stats-amount"><?php if ($domainDtls != null) {
+																		echo count($domainDtls); 
+																		}else {
+																			echo 0;
+																		}
+																?></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4">
-                                <div class="card widget widget-stats">
+                            <div class="col-xl-3 col-md-6 my-2">
+                                <div class="card h-100 widget widget-stats">
                                     <div class="card-body">
-                                        <div class="widget-stats-container d-flex">
-                                            <div class="widget-stats-icon widget-stats-icon-danger">
-                                            <i class="fa-solid fa-download"></i>
+                                        <div class="widget-stats-container d-flex h-100">
+                                            <div class="widget-stats-icon widget-stats-icon-success">
+                                            <i class="fa-solid fa-wallet"></i>
                                             </div>
                                             <div class="widget-stats-content flex-fill">
-                                                <span class="widget-stats-title">Downloads</span>
-                                                <span class="widget-stats-amount">140,390</span>
-                                                <span class="widget-stats-info">87 items </span>
+                                                <span class="widget-stats-title ">Balance</span>
+                                                <span class="widget-stats-amount">$0</span>
                                             </div>
-                                            <div class="widget-stats-indicator widget-stats-indicator-positive align-self-start">
-                                            <i class="fa-solid fa-chevron-up"></i>7%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 my-2">
+                                <div class="card h-100 widget widget-stats">
+                                    <div class="card-body">
+                                        <div class="widget-stats-container d-flex ">
+                                            <div class="widget-stats-icon widget-stats-icon-danger">
+                                            <i class="fa-solid fa-coins"></i>
+                                            </div>
+                                            <div class="widget-stats-content flex-fill">
+                                                <span class="widget-stats-title ">Reward</span>
+                                                <span class="widget-stats-amount">$0</span>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Javascripts -->
     <script src="<?= URL ?>assets/portal-assets/plugins/jquery/jquery-3.5.1.min.js"></script>
     <script src="<?= URL ?>assets/portal-assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -149,7 +165,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
     <script src="<?= URL ?>assets/portal-assets/plugins/pace/pace.min.js"></script>
     <script src="<?= URL ?>assets/portal-assets/js/main.min.js"></script>
     <script src="<?= URL ?>assets/js/hoverable-collapse.js"></script>
-    
-    
+
+
 </body>
+
 </html>

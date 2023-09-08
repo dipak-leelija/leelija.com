@@ -11,7 +11,11 @@
         </div>
     </div>
     <div class="app-menu" id="sidebar">
+      
         <ul class="accordion-menu">
+        <li class="sidebar-title">
+                Dashboard Pages
+            </li>
             <li class="<?= $page == 'Admin_dashboard' ? 'active-page' : ''; ?>">
                 <a href="<?= SELLER_URL?>" class=""><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a>
             </li>
@@ -34,7 +38,7 @@
                 <a href="<?= SELLER_URL?>settings.php" class=""><i class="fa fa-cog mr-3"
                         aria-hidden="true"></i>Settings</a>
             </li>
-            <li>
+            <!-- <li>
                 <a href=""><i class="fa-regular fa-star"></i>Pages<i class="fa-solid fa-angle-right has-sub-menu"></i>
                     <ul class="sub-menu">
                         <li>
@@ -57,8 +61,8 @@
                         </li>
 
                     </ul>
-            </li>
-            <li class="sidebar-title">
+            </li> -->
+            <!-- <li class="sidebar-title">
                 UI Elements
             </li>
 
@@ -71,9 +75,9 @@
                         <a href="<?= SELLER_URL?>tables-datatable.php">DataTable</a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
 
-            <li>
+            <!-- <li>
                 <a href="#"><i class="fa-solid fa-gift"></i>Components<i
                         class="fa-solid fa-angle-right has-sub-menu"></i></a>
                 <ul class="sub-menu">
@@ -83,9 +87,9 @@
                     </li>
 
                 </ul>
-            </li>
+            </li> -->
 
-            <li>
+            <!-- <li>
                 <a href="#"><i class="fa-solid fa-pen"></i>Forms<i class="fa-solid fa-angle-right has-sub-menu"></i></a>
                 <ul class="sub-menu">
 
@@ -102,7 +106,7 @@
                     </li>
 
                 </ul>
-            </li>
+            </li> -->
 
         </ul>
     </div>

@@ -110,7 +110,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 ps-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 m-auto image-column-div">
                                             <div>
-                                                <img src="<?= URL ?>images/emps/rozy-begum.jpg"
+                                                <img src="<?= URL ?>images/team/rozy-begum.jpg"
                                                     class="notify-person-img rounded me-2" alt="...">
                                             </div>
                                         </div>
@@ -130,8 +130,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 col-lg-2 col-md-2 col-sm-2 d-sm-inline-block    justify-content-end d-none m-auto">
                                             <div style=" text-align: end;">
-                                                <img src="<?= URL ?>images/team/2.jpg" class="notify-post-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/2.jpg"
+                                                    class="notify-post-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                     </div>
@@ -163,8 +163,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 col-lg-2 col-md-2 col-sm-2 d-sm-inline-block    justify-content-end d-none m-auto">
                                             <div style=" text-align: end;">
-                                                <img src="<?= URL ?>images/team/1.jpg" class="notify-post-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/1.jpg"
+                                                    class="notify-post-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                     </div>
@@ -176,8 +176,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 ps-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 m-auto image-column-div">
                                             <div>
-                                                <img src="<?= URL ?>images/team/2.jpg" class="notify-person-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/2.jpg"
+                                                    class="notify-person-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                         <div class="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-9 info-column-div">
@@ -196,7 +196,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 col-lg-2 col-md-2 col-sm-2 d-sm-inline-block    justify-content-end d-none m-auto">
                                             <div style=" text-align: end;">
-                                                <img src="<?= URL ?>images/emps/rozy-begum.jpg"
+                                                <img src="<?= URL ?>images/team/rozy-begum.jpg"
                                                     class="notify-post-img rounded me-2" alt="...">
                                             </div>
                                         </div>
@@ -209,8 +209,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 ps-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 m-auto image-column-div">
                                             <div>
-                                                <img src="<?= URL ?>images/team/1.jpg" class="notify-person-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/1.jpg"
+                                                    class="notify-person-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                         <div class="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-9 info-column-div">
@@ -242,7 +242,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 ps-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 m-auto image-column-div">
                                             <div>
-                                                <img src="<?= URL ?>images/emps/rozy-begum.jpg"
+                                                <img src="<?= URL ?>images/team/rozy-begum.jpg"
                                                     class="notify-person-img rounded me-2" alt="...">
                                             </div>
                                         </div>
@@ -262,8 +262,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 col-lg-2 col-md-2 col-sm-2 d-sm-inline-block    justify-content-end d-none m-auto">
                                             <div style=" text-align: end;">
-                                                <img src="<?= URL ?>images/team/2.jpg" class="notify-post-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/2.jpg"
+                                                    class="notify-post-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                     </div>
@@ -295,8 +295,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 col-lg-2 col-md-2 col-sm-2 d-sm-inline-block    justify-content-end d-none m-auto">
                                             <div style=" text-align: end;">
-                                                <img src="<?= URL ?>images/team/1.jpg" class="notify-post-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/1.jpg"
+                                                    class="notify-post-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                     </div>
@@ -308,8 +308,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 ps-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 m-auto image-column-div">
                                             <div>
-                                                <img src="<?= URL ?>images/team/2.jpg" class="notify-person-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/2.jpg"
+                                                    class="notify-person-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                         <div class="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-9 info-column-div">
@@ -328,7 +328,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 col-lg-2 col-md-2 col-sm-2 d-sm-inline-block    justify-content-end d-none m-auto">
                                             <div style=" text-align: end;">
-                                                <img src="<?= URL ?>images/emps/rozy-begum.jpg"
+                                                <img src="<?= URL ?>images/team/rozy-begum.jpg"
                                                     class="notify-post-img rounded me-2" alt="...">
                                             </div>
                                         </div>
@@ -341,8 +341,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 ps-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 m-auto image-column-div">
                                             <div>
-                                                <img src="<?= URL ?>images/team/1.jpg" class="notify-person-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/1.jpg"
+                                                    class="notify-person-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                         <div class="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-9 info-column-div">
@@ -374,7 +374,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 ps-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 m-auto image-column-div">
                                             <div>
-                                                <img src="<?= URL ?>images/emps/rozy-begum.jpg"
+                                                <img src="<?= URL ?>images/team/rozy-begum.jpg"
                                                     class="notify-person-img rounded me-2" alt="...">
                                             </div>
                                         </div>
@@ -394,8 +394,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 col-lg-2 col-md-2 col-sm-2 d-sm-inline-block    justify-content-end d-none m-auto">
                                             <div style=" text-align: end;">
-                                                <img src="<?= URL ?>images/team/2.jpg" class="notify-post-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/2.jpg"
+                                                    class="notify-post-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                     </div>
@@ -427,8 +427,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 col-lg-2 col-md-2 col-sm-2 d-sm-inline-block    justify-content-end d-none m-auto">
                                             <div style=" text-align: end;">
-                                                <img src="<?= URL ?>images/team/1.jpg" class="notify-post-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/1.jpg"
+                                                    class="notify-post-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                     </div>
@@ -440,8 +440,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 ps-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 m-auto image-column-div">
                                             <div>
-                                                <img src="<?= URL ?>images/team/2.jpg" class="notify-person-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/2.jpg"
+                                                    class="notify-person-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                         <div class="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-9 info-column-div">
@@ -460,7 +460,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 col-lg-2 col-md-2 col-sm-2 d-sm-inline-block    justify-content-end d-none m-auto">
                                             <div style=" text-align: end;">
-                                                <img src="<?= URL ?>images/emps/rozy-begum.jpg"
+                                                <img src="<?= URL ?>images/team/rozy-begum.jpg"
                                                     class="notify-post-img rounded me-2" alt="...">
                                             </div>
                                         </div>
@@ -473,8 +473,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 ps-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 m-auto image-column-div">
                                             <div>
-                                                <img src="<?= URL ?>images/team/1.jpg" class="notify-person-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/1.jpg"
+                                                    class="notify-person-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                         <div class="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-9 info-column-div">
@@ -506,7 +506,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 ps-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 m-auto image-column-div">
                                             <div>
-                                                <img src="<?= URL ?>images/emps/rozy-begum.jpg"
+                                                <img src="<?= URL ?>images/team/rozy-begum.jpg"
                                                     class="notify-person-img rounded me-2" alt="...">
                                             </div>
                                         </div>
@@ -526,8 +526,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 col-lg-2 col-md-2 col-sm-2 d-sm-inline-block    justify-content-end d-none m-auto">
                                             <div style=" text-align: end;">
-                                                <img src="<?= URL ?>images/team/2.jpg" class="notify-post-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/2.jpg"
+                                                    class="notify-post-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                     </div>
@@ -559,8 +559,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 col-lg-2 col-md-2 col-sm-2 d-sm-inline-block    justify-content-end d-none m-auto">
                                             <div style=" text-align: end;">
-                                                <img src="<?= URL ?>images/team/1.jpg" class="notify-post-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/1.jpg"
+                                                    class="notify-post-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                     </div>
@@ -572,8 +572,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 ps-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 m-auto image-column-div">
                                             <div>
-                                                <img src="<?= URL ?>images/team/2.jpg" class="notify-person-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/2.jpg"
+                                                    class="notify-person-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                         <div class="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-9 info-column-div">
@@ -592,7 +592,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 col-lg-2 col-md-2 col-sm-2 d-sm-inline-block    justify-content-end d-none m-auto">
                                             <div style=" text-align: end;">
-                                                <img src="<?= URL ?>images/emps/rozy-begum.jpg"
+                                                <img src="<?= URL ?>images/team/rozy-begum.jpg"
                                                     class="notify-post-img rounded me-2" alt="...">
                                             </div>
                                         </div>
@@ -605,8 +605,8 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                         <div
                                             class="col-xl-1 ps-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 m-auto image-column-div">
                                             <div>
-                                                <img src="<?= URL ?>images/team/1.jpg" class="notify-person-img rounded me-2"
-                                                    alt="...">
+                                                <img src="<?= URL ?>images/team/1.jpg"
+                                                    class="notify-person-img rounded me-2" alt="...">
                                             </div>
                                         </div>
                                         <div class="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-9 info-column-div">
