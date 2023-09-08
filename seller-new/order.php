@@ -148,7 +148,7 @@ if($cusDtl[0][0] == 1){
                                                          $productOrderViewUrl = '='.url_enc($orderWise['orders_id']).'&pdata='.url_enc($productId);
                                                        ?>
                                                     <td>
-                                                        <a href="product-order-view.php?data=<?php echo $productOrderViewUrl;?>"
+                                                        <a href="order-details.php?data=<?php echo $productOrderViewUrl;?>"
                                                             title="Edit"><i class="fa-solid fa-pen-to-square"></i>
                                                             <i class=" ps-3 fa-solid fa-trash"
                                                                 style="color: #ff0000a1;"></i></a>
