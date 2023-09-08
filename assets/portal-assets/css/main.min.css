@@ -4762,18 +4762,20 @@ body.modal-open {
 }
 
 .widget-stats .widget-stats-container .widget-stats-icon {
-    width: 60px;
-    height: 60px;
-    display: block;
+    width: 40px;
+    height: 40px;
+    display: flex;
     text-align: center;
-    margin-right: 20px;
+    margin-right: 10px;
     background: #f4f7fa;
-    border-radius: 10px
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .widget-stats .widget-stats-container .widget-stats-icon i {
-    line-height: 60px;
-    font-size: 22px
+    /* line-height: 60px; */
+    font-size: 17px;
 }
 
 .widget-stats .widget-stats-container .widget-stats-icon.widget-stats-icon-primary {
@@ -7098,3 +7100,87 @@ span.flatpickr-weekday {
         padding: 0;
     }
 }
+/* settingpage css */
+.genderingrow {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: .8rem;
+}
+
+.profile-hr {
+    color: black;
+}
+
+.profile-hr span {
+    background: #ff9500 none repeat scroll 0 0;
+    display: block;
+    height: 1px;
+    margin-bottom: 25px;
+    position: relative;
+    width: 15%;
+
+}
+
+.profile-hr span::after {
+    /* content: "\f004"; */
+    /* font-family: "Font Awesome 5 Free"; */
+    background: inherit;
+    content: "";
+    height: inherit;
+    position: absolute;
+    top: -4px;
+    width: 50%;
+}
+
+/* add domain page css */
+    /*Image upload*/
+    .prvw-img-wrap{
+        border: 1px solid #e3e6ea;
+        border-radius: .25em;
+        display: flex;
+        justify-content: center;
+    }
+        #image-preview {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            background-color: #ffffff;
+            color: #ecf0f1;
+            border: 1px solid;
+            border-radius: 7px;
+        }
+    
+        #image-preview input {
+            /* line-height: 200px;
+            font-size: 200px;
+            position: absolute; */
+            opacity: 0;
+            /* z-index: 10; */
+        }
+    
+        #image-preview label {
+            position: absolute;
+            z-index: 5;
+            opacity: 0.8;
+            cursor: pointer;
+            /* background-color: #1F81C1; */
+            background-color: #c8d5dd87;
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            line-height: 50px;
+            text-transform: uppercase;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
+            color:#0000006b;
+            font-size: 14px
+        }
+    
+    
+        /*//Image upload*/

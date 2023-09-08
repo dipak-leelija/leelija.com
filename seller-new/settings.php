@@ -2,7 +2,85 @@
 session_start();
 $page = "Admin_settings";
 require_once dirname(__DIR__)."/includes/constant.inc.php";
+
+require_once ROOT_DIR."_config/dbconnect.php";
+require_once ROOT_DIR. "classes/date.class.php";
+require_once ROOT_DIR. "classes/error.class.php";
+require_once ROOT_DIR. "classes/search.class.php";
+require_once ROOT_DIR. "classes/customer.class.php";
+require_once ROOT_DIR. "classes/login.class.php";
+require_once ROOT_DIR. "classes/niche.class.php";
+require_once ROOT_DIR. "classes/domain.class.php";
+require_once ROOT_DIR. "classes/utility.class.php";
+require_once ROOT_DIR. "classes/utilityMesg.class.php";
+require_once ROOT_DIR. "classes/utilityImage.class.php";
+require_once ROOT_DIR. "classes/utilityNum.class.php";
+
+
+/* INSTANTIATING CLASSES */
+$dateUtil      	= new DateUtil();
+$error 			= new Error();
+$search_obj		= new Search();
+$customer		= new Customer();
+$logIn			= new Login();
+
+//$ff				= new FrontPhoto();
+// $blogMst		= new BlogMst();
+$utility		= new Utility();
+$uMesg 			= new MesgUtility();
+$uImg 			= new ImageUtility();
+$uNum 			= new NumUtility();
+######################################################################################################################
+$typeM		= $utility->returnGetVar('typeM','');
+//user id
+$cusId		= $utility->returnSess('userid', 0);
+$cusDtl		= $customer->getCustomerData($cusId); 
+// print_r($cusDtl);
+// echo $cusDtl[0][5].' '.$cusDtl[0][6].' '.$cusDtl[0][7];
+// exit;
+if($cusId == 0)
+	{
+		header("Location: index.php");
+	}
+
+//echo $cusId;exit;
+//Edit Profile
+if(isset($_POST['btnSubmit']))
+{
+	$txtProfession			= $_POST['txtProfession'];
+	$txtDesc				= $_POST['txtDesc'];
+
+	//registering the post session variables
+	$sess_arr	= array( 'txtProfession', 'txtDesc');
+
+		$customer->editCustomer($cusId, $cusDtl[0][5], $cusDtl[0][6], $cusDtl[0][7],'a', '', $txtDesc, '', 'Y',
+		$txtProfession, '', 'Y', '');
+
+		//uploading images
+		if($_FILES['fileImg']['name'] != '')
+		{
+			//rename the file
+			$newName = $utility->getNewName4($_FILES['fileImg'], '', $cusId);
+
+			//upload and crop the file
+			$uImg->imgCropResize($_FILES['fileImg'], '', $newName,
+								 'images/user/', 200, 200,
+						         $cusId, 'image', 'customer_id','customer');
+		}
+
+		$utility->delSessArr($sess_arr);
+
+		//forward
+		$uMesg->showSuccessT('success', 0, '', 'dashboard.php', 'SUCUST201', 'SUCCESS'); //SUCUST201,
+
+}
+if(isset($_POST['btnCancel']))
+{
+	//forward
+	$uMesg->showSuccessT('success', $id, 'id', "dashboard.php", "", 'Cancel');
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,9 +99,13 @@ require_once dirname(__DIR__)."/includes/constant.inc.php";
 
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/fontawesome-6.1.1/css/all.min.css" rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
@@ -39,7 +121,7 @@ require_once dirname(__DIR__)."/includes/constant.inc.php";
 
 <body>
     <div class="app align-content-stretch d-flex flex-wrap">
-    <?php require_once ROOT_DIR."components/sidebar.php"; ?>
+        <?php require_once ROOT_DIR."components/sidebar.php"; ?>
         <!-- sidebar ends -->
         <div class="app-container">
             <!-- navbar header starts -->
@@ -55,14 +137,26 @@ require_once dirname(__DIR__)."/includes/constant.inc.php";
 
                                     <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link active" id="account-tab" data-bs-toggle="tab" data-bs-target="#account" type="button" role="tab" aria-controls="hoaccountme" aria-selected="true">Account</button>
+                                            <button class="nav-link active" id="overview-tab" data-bs-toggle="tab"
+                                                data-bs-target="#overview" type="button" role="tab"
+                                                aria-controls="overview" aria-selected="false">Overview</button>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="security-tab" data-bs-toggle="tab" data-bs-target="#security" type="button" role="tab" aria-controls="security" aria-selected="false">Security</button>
+                                            <button class="nav-link " id="account-tab" data-bs-toggle="tab"
+                                                data-bs-target="#account" type="button" role="tab"
+                                                aria-controls="hoaccountme" aria-selected="true">Edit Profile</button>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="integrations-tab" data-bs-toggle="tab" data-bs-target="#integrations" type="button" role="tab" aria-controls="integrations" aria-selected="false">Integrations</button>
+                                            <button class="nav-link" id="integrations-tab" data-bs-toggle="tab"
+                                                data-bs-target="#integrations" type="button" role="tab"
+                                                aria-controls="integrations" aria-selected="false">Edit Address</button>
                                         </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="security-tab" data-bs-toggle="tab"
+                                                data-bs-target="#security" type="button" role="tab"
+                                                aria-controls="security" aria-selected="false">Change Password</button>
+                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -70,227 +164,444 @@ require_once dirname(__DIR__)."/includes/constant.inc.php";
                         <div class="row">
                             <div class="col">
                                 <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+                                    <div class="tab-pane fade show active" id="overview" role="tabpanel"
+                                        aria-labelledby="overview-tab">
                                         <div class="card">
-                                            <div class="card-body">
+                                            <div class="card-body p-md-5">
+                                                <h4 class="profile-hr ">Profile Details <span></span></h4>
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="settingsInputEmail" class="form-label">Email address</label>
-                                                        <input type="email" class="form-control" id="settingsInputEmail" aria-describedby="settingsEmailHelp" placeholder="example@neptune.com">
-                                                        <div id="settingsEmailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                                    <div class="col-md-3">
+                                                        <label>Name</label>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <label for="settingsPhoneNumber" class="form-label">Phone Number</label>
-                                                        <input type="text" class="form-control" id="settingsPhoneNumber" placeholder="(xxx) xxx-xxxx">
+                                                    <div class="col-md-9">
+                                                        <p><?php echo $cusDtl[0][5]; ?> <?php echo $cusDtl[0][6]; ?></p>
                                                     </div>
                                                 </div>
-                                                <div class="row m-t-lg">
-                                                    <div class="col-md-6">
-                                                        <label for="settingsInputFirstName" class="form-label">First Name</label>
-                                                        <input type="text" class="form-control" id="settingsInputFirstName" placeholder="John">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>Email</label>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <label for="settingsInputLastName" class="form-label">Last Name</label>
-                                                        <input type="text" class="form-control" id="settingsInputLastName" placeholder="Doe">
+                                                    <div class="col-md-9">
+                                                        <p><?php echo $cusDtl[0][3]; ?></p>
                                                     </div>
                                                 </div>
-                                                <div class="row m-t-lg">
-                                                    <div class="col-md-6">
-                                                        <label for="settingsInputUserName" class="form-label">Username</label>
-                                                        <div class="input-group">
-                                                            <span class="input-group-text" id="settingsInputUserName-add">neptune.com/</span>
-                                                            <input type="text" class="form-control" id="settingsInputUserName" aria-describedby="settingsInputUserName-add" placeholder="username">
-                                                        </div>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>Gender</label>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <label for="settingsState" class="form-label">State</label>
-                                                        <select class="js-states form-control" id="settingsState" tabindex="-1" style="display: none; width: 100%">
-                                                            <optgroup label="Alaskan/Hawaiian Time Zone">
-                                                                <option value="AK">Alaska</option>
-                                                                <option value="HI">Hawaii</option>
-                                                            </optgroup>
-                                                            <optgroup label="Pacific Time Zone">
-                                                                <option value="CA">California</option>
-                                                                <option value="NV">Nevada</option>
-                                                                <option value="OR">Oregon</option>
-                                                                <option value="WA">Washington</option>
-                                                            </optgroup>
-                                                            <optgroup label="Mountain Time Zone">
-                                                                <option value="AZ">Arizona</option>
-                                                                <option value="CO">Colorado</option>
-                                                                <option value="ID">Idaho</option>
-                                                                <option value="MT">Montana</option>
-                                                                <option value="NE">Nebraska</option>
-                                                                <option value="NM">New Mexico</option>
-                                                                <option value="ND">North Dakota</option>
-                                                                <option value="UT">Utah</option>
-                                                                <option value="WY">Wyoming</option>
-                                                            </optgroup>
-                                                            <optgroup label="Central Time Zone">
-                                                                <option value="AL">Alabama</option>
-                                                                <option value="AR">Arkansas</option>
-                                                                <option value="IL">Illinois</option>
-                                                                <option value="IA">Iowa</option>
-                                                                <option value="KS">Kansas</option>
-                                                                <option value="KY">Kentucky</option>
-                                                                <option value="LA">Louisiana</option>
-                                                                <option value="MN">Minnesota</option>
-                                                                <option value="MS">Mississippi</option>
-                                                                <option value="MO">Missouri</option>
-                                                                <option value="OK">Oklahoma</option>
-                                                                <option value="SD">South Dakota</option>
-                                                                <option value="TX">Texas</option>
-                                                                <option value="TN">Tennessee</option>
-                                                                <option value="WI">Wisconsin</option>
-                                                            </optgroup>
-                                                            <optgroup label="Eastern Time Zone">
-                                                                <option value="CT">Connecticut</option>
-                                                                <option value="DE">Delaware</option>
-                                                                <option value="FL">Florida</option>
-                                                                <option value="GA">Georgia</option>
-                                                                <option value="IN">Indiana</option>
-                                                                <option value="ME">Maine</option>
-                                                                <option value="MD">Maryland</option>
-                                                                <option value="MA">Massachusetts</option>
-                                                                <option value="MI">Michigan</option>
-                                                                <option value="NH">New Hampshire</option>
-                                                                <option value="NJ">New Jersey</option>
-                                                                <option value="NY">New York</option>
-                                                                <option value="NC">North Carolina</option>
-                                                                <option value="OH">Ohio</option>
-                                                                <option value="PA">Pennsylvania</option>
-                                                                <option value="RI">Rhode Island</option>
-                                                                <option value="SC">South Carolina</option>
-                                                                <option value="VT">Vermont</option>
-                                                                <option value="VA">Virginia</option>
-                                                                <option value="WV">West Virginia</option>
-                                                            </optgroup>
-                                                        </select>
+                                                    <div class="col-md-9">
+                                                        <p class="text-capitalize">male</p>
                                                     </div>
                                                 </div>
-                                                <div class="row m-t-lg">
-                                                    <div class="col">
-                                                        <label for="settingsAbout" class="form-label">About</label>
-                                                        <textarea class="form-control" id="settingsAbout" maxlength="500" rows="4" aria-describedby="settingsAboutHelp"></textarea>
-                                                        <div id="emailHelp" class="form-text">Brief information about you to display on profile (max: 500 characters)</div>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>Address</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <p>
+                                                            <?php echo $cusDtl[0][24]; ?>, Barasat, Kolkata, West
+                                                            Bengal, India, 700124
+                                                        </p>
                                                     </div>
                                                 </div>
-                                                <div class="row m-t-lg">
-                                                    <div class="col">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="" id="SettingsNewsLetter">
-                                                            <label class="form-check-label" for="SettingsNewsLetter">
-                                                                Receive notifications about updates &amp; maintenances
-                                                            </label>
-                                                        </div>
-                                                        <a href="#" class="btn btn-primary m-t-sm">Update</a>
+
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>Phone</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <p>7699753019 <?php echo $cusDtl[0][34]; ?></p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>Profession</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <p><?php echo $cusDtl[0][14];?></p>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-3">
+                                                        <label>Joined On</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <p><?php echo date('l jS \of F Y h:i:s A', strtotime($cusDtl[0][22])); ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-0">
+                                                    <div class="col-md-12">
+                                                        <h4 class="profile-hr mb-0">About <span></span></h4>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                                            Temporibus nesciunt incidunt dolorum modi. Odit facilis ea
+                                                            fugit aspernatur nesciunt, provident nostrum vero soluta
+                                                            libero quibusdam inventore ipsum ex esse tempora. </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+
+                                    <div class="tab-pane fade " id="account" role="tabpanel"
+                                        aria-labelledby="account-tab">
                                         <div class="card">
-                                            <div class="card-body">
-                                                <div class="settings-security-two-factor">
-                                                    <h5>Two-Factor Authentication</h5>
-                                                    <span>Two-factor authentication is automatically enabled on your account, for security reasons we require all users to authenticate with SMS code or authorized third-party auth apps. Read more about our security policy <a href="#">here</a>.</span>
-                                                </div>
-                                                <div class="row m-t-xxl">
-                                                    <div class="col-md-6">
-                                                        <label for="settingsCurrentPassword" class="form-label">Current Password</label>
-                                                        <input type="password" class="form-control" aria-describedby="settingsCurrentPassword" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
-                                                        <div id="settingsCurrentPassword" class="form-text">Never share your password with anyone.</div>
-                                                    </div>
-                                                </div>
-                                                <div class="row m-t-xxl">
-                                                    <div class="col-md-6">
-                                                        <label for="settingsNewPassword" class="form-label">New Password</label>
-                                                        <input type="password" class="form-control" aria-describedby="settingsNewPassword" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
-                                                    </div>
-                                                </div>
-                                                <div class="row m-t-xxl">
-                                                    <div class="col-md-6">
-                                                        <label for="settingsConfirmPassword" class="form-label">Confirm Password</label>
-                                                        <input type="password" class="form-control" aria-describedby="settingsConfirmPassword" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
-                                                    </div>
-                                                </div>
-                                                <div class="row m-t-xxl">
-                                                    <div class="col-md-6">
-                                                        <label for="settingsSmsCode" class="form-label">SMS Code</label>
-                                                        <div class="input-group">
-                                                            <input type="password" class="form-control" aria-describedby="settingsSmsCode" placeholder="&#9679;&#9679;&#9679;&#9679;">
-                                                            <button class="btn btn-primary btn-style-light" id="settingsResentSmsCode">Resend</button>
+                                            <div class="card-body p-md-5">
+                                                <form class="form-horizontal" role="form"
+                                                    action="<?php echo $_SERVER['PHP_SELF'] ?>" name="formContactform"
+                                                    method="post" enctype="multipart/form-data" autocomplete="off">
+                                                    <div class="row ">
+                                                        <div class="col-md-6">
+                                                            <label for="settingsInputFirstName" class="form-label">First
+                                                                Name</label>
+                                                            <input type="text" class="form-control" name="fname"
+                                                                value="<?php echo $cusDtl[0][5]; ?>" required>
                                                         </div>
-                                                        <div id="settingsSmsCode" class="form-text">Code will be sent to the phone number from your account.</div>
-                                                    </div>
-                                                </div>
-                                                <div class="row m-t-lg">
-                                                    <div class="col">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="" id="settingsPasswordLogout" checked>
-                                                            <label class="form-check-label" for="settingsPasswordLogout">
-                                                                Log out from all current sessions
-                                                            </label>
+                                                        <div class="col-md-6">
+                                                            <label for="settingsInputLastName" class="form-label">Last
+                                                                Name</label>
+                                                            <input type="text" class="form-control" name="lname"
+                                                                value="<?php echo $cusDtl[0][6]; ?>" required>
                                                         </div>
-                                                        <a href="#" class="btn btn-primary m-t-sm">Change Password</a>
                                                     </div>
-                                                </div>
+                                                    <div class="row m-t-lg">
+                                                        <div class="col-md-6">
+                                                            <label for="settingsInputEmail" class="form-label">Email
+                                                                address</label>
+                                                            <input type="email" class="form-control" name="email_id"
+                                                                value="<?php echo $cusDtl[0][3]; ?>" required>
+
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label for="settingsPhoneNumber" class="form-label">Phone
+                                                                Number</label>
+                                                            <input type="number" class="form-control" name="mob_no"
+                                                                value="<?php echo $cusDtl[0][34]; ?>" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row m-t-lg">
+
+                                                        <div class="col-md-6">
+                                                            <label for="settingsInputLastName"
+                                                                class="form-label">Gender</label>
+                                                            <div class=" genderingrow ">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio"
+                                                                        name="gender" value="male" <?php 
+                                                                if ($cusDtl[0][7] == "male") {
+                                                                    echo 'checked';
+                                                                }
+                                                                ?> required>
+                                                                    <label class="form-check-label" for="gridRadios1">
+                                                                        Male
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio"
+                                                                        name="gender" value="Female" <?php 
+                                                                if ($cusDtl[0][7] == "female") {
+                                                                    echo 'checked';
+                                                                }
+                                                                ?>>
+                                                                    <label class="form-check-label" for="gridRadios2">
+                                                                        Female
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio"
+                                                                        name="gender" value="others" <?php 
+                                                                if ($cusDtl[0][7] == "others") {
+                                                                    echo 'checked';
+                                                                }
+                                                                ?>>
+                                                                    <label class="form-check-label" for="gridRadios2">
+                                                                        Transgender
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label for="settingsInputUserName"
+                                                                class="form-label">Profession</label>
+
+                                                            <select id="txtProfession" class="form-select myselectcss"
+                                                                name="txtProfession" required>
+                                                                <option value="<?php echo $cusDtl[0][14];?>"
+                                                                    selected="selected">
+                                                                    <?php echo $cusDtl[0][14];?>
+                                                                </option>
+                                                                <option value="Author">Author</option>
+                                                                <option value="Blogger">Blogger</option>
+                                                                <option value="Blogger">Blogger Outreach Manager
+                                                                </option>
+                                                                <option value="Business Analyser">Business Analyser
+                                                                </option>
+                                                                <option value="Marketing Manager">Marketing Manager
+                                                                </option>
+                                                                <option value="Web Developer">Web Developer</option>
+                                                                <option value="Others">Others</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-t-lg">
+                                                        <div class="col-md-6">
+                                                            <label class="form-label">About You</label>
+                                                            <textarea class="form-control" name="brief" maxlength="500"
+                                                                rows="3"
+                                                                aria-describedby="settingsAboutHelp"><?php echo $cusDtl[0][10]; ?></textarea>
+
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="form-label">Description</label>
+                                                            <textarea class="form-control" maxlength="500" rows="3"
+                                                                name="txtDesc"
+                                                                aria-describedby="settingsAboutHelp"><?php echo trim(stripslashes($cusDtl[0][11])); ?></textarea>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-t-lg">
+                                                        <div class="col-md-6">
+                                                            <label for="settingsAbout"
+                                                                class="form-label">Organization</label>
+                                                            <input class="form-control" name="organization"
+                                                                value="<?php echo $cusDtl[0][12]; ?>" readonly>
+
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label for="settingsAbout" class="form-label">Discount
+                                                                Offered</label>
+                                                            <input class="form-control" name="discount"
+                                                                value="<?php echo $cusDtl[0][19]; ?>" readonly>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-t-lg">
+                                                        <div class="col-md-6">
+                                                            <label for="settingsAbout"
+                                                                class="form-label">Featured</label>
+                                                            <input class="form-control" name="featured"
+                                                                value="<?php echo $cusDtl[0][13]; ?>" readonly>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row m-t-lg">
+                                                        <div
+                                                            class="d-grid gap-2   d-md-flex col-12 col-md-3 mx-auto my-3">
+                                                            <button type="submit" name="btnCancel"
+                                                                class="btn botton-midle btn-danger">Cancel</button>
+                                                            <button type="submit" name="btnSubmit"
+                                                                class="btn botton-midle btn-primary">Update</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="integrations" role="tabpanel" aria-labelledby="integrations-tab">
+
+                                    <div class="tab-pane fade" id="integrations" role="tabpanel"
+                                        aria-labelledby="integrations-tab">
                                         <div class="card">
-                                            <div class="card-body">
-                                                <div class="settings-integrations">
-                                                    <div class="settings-integrations-item">
-                                                        <div class="settings-integrations-item-info">
-                                                            <img src="assets/portal-assets/images/icons/jira_software.png" alt="">
-                                                            <span>Plan, track, and manage your agile and software development projects in Jira.</span>
+                                            <div class="card-body p-md-5">
+                                                <form class="form-horizontal" role="form"
+                                                    action="<?php echo $_SERVER['PHP_SELF'] ?>" name="formContactform"
+                                                    method="post" enctype="multipart/form-data" autocomplete="off">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="settingsInputFirstName"
+                                                                class="form-label">Address1</label>
+                                                            <input type="text" class="form-control" name="address1"
+                                                                value="<?php echo $cusDtl[0][24]; ?>" required>
                                                         </div>
-                                                        <div class="settings-integrations-item-switcher">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input form-control-md" type="checkbox" id="settingsIntegrationOneSwitcher" checked>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="settings-integrations-item">
-                                                        <div class="settings-integrations-item-info">
-                                                            <img src="assets/portal-assets/images/icons/confluence.png" alt="">
-                                                            <span>Build, organize, and collaborate on work in one place from virtually anywhere.</span>
-                                                        </div>
-                                                        <div class="settings-integrations-item-switcher">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input form-control-md" type="checkbox" id="settingsIntegrationTwoSwitcher" checked>
-                                                            </div>
+                                                        <div class="col-md-6">
+                                                            <label for="settingsInputLastName"
+                                                                class="form-label">Address2</label>
+                                                            <input type="text" class="form-control" name="address2"
+                                                                value="<?php echo $cusDtl[0][25]; ?>" required>
                                                         </div>
                                                     </div>
-                                                    <div class="settings-integrations-item">
-                                                        <div class="settings-integrations-item-info">
-                                                            <img src="assets/portal-assets/images/icons/bitbucket.png" alt="">
-                                                            <span>Build, test, and deploy with unlimited private or public space with Bitbucket.</span>
+                                                    <div class="row  m-t-lg">
+                                                        <div class="col-md-6">
+                                                            <label for="settingsInputFirstName"
+                                                                class="form-label">Town/City</label>
+                                                            <input type="text" class="form-control" name="town/city"
+                                                                value="<?php echo $cusDtl[0][27]; ?>" required>
                                                         </div>
-                                                        <div class="settings-integrations-item-switcher">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input form-control-md" type="checkbox" id="settingsIntegrationThreeSwitcher">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="settings-integrations-item">
-                                                        <div class="settings-integrations-item-info">
-                                                            <img src="assets/portal-assets/images/icons/sourcetree.png" alt="">
-                                                            <span>A Git GUI that offers a visual representation of your repositories.</span>
-                                                        </div>
-                                                        <div class="settings-integrations-item-switcher">
-                                                            <div class="form-check form-switch">
-                                                                <input class="form-check-input form-control-md" type="checkbox" id="settingsIntegrationFourSwitcher">
-                                                            </div>
+                                                        <div class="col-md-6">
+                                                            <label for="settingsInputLastName" class="form-label">Postal
+                                                                Code</label>
+                                                            <input type="number" class="form-control" name="postal_code"
+                                                                value="<?php echo $cusDtl[0][29]; ?>" required>
                                                         </div>
                                                     </div>
-                                                </div>
+
+                                                    <div class="row m-t-lg">
+                                                        <div class="col-md-6">
+                                                            <label for="settingsInputUserName"
+                                                                class="form-label">Country</label>
+
+                                                            <select id="txtProfession" class="form-select "
+                                                                name="txtProfession" required>
+                                                                <option value="" selected="selected">Select Country
+                                                                </option>
+                                                                <option value="Author">Afghanistan</option>
+                                                                <option value="Blogger">Brazil</option>
+                                                                <option value="Blogger">Canada
+                                                                </option>
+                                                                <option value="Business Analyser">Dominica
+                                                                </option>
+                                                                <option value="Marketing Manager"> Fiji
+                                                                </option>
+                                                                <option value="Web Developer">India</option>
+                                                                <option value="Web Developer">Indonesia</option>
+                                                                <option value="Web Developer"> Japan</option>
+                                                                <option value="Web Developer">Kazakhstan</option>
+                                                                <option value="Web Developer">Lebanon</option>
+                                                                <option value="Web Developer">Mexico</option>
+                                                                <option value="Others">Others</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label for="settingsInputUserName"
+                                                                class="form-label">State</label>
+                                                            <select id="txtProfession" class="form-select "
+                                                                name="txtProfession" required>
+                                                                <option value="" selected="selected">Select State
+                                                                </option>
+                                                                <option value="Author">Andhra Pradesh</option>
+                                                                <option value="Blogger">Bihar</option>
+                                                                <option value="Blogger">Chhattisgarh
+                                                                </option>
+                                                                <option value="Business Analyser">Haryana
+                                                                </option>
+                                                                <option value="Marketing Manager">Jharkhand
+                                                                </option>
+                                                                <option value="Web Developer">West Bengal</option>
+                                                                <option value="Others">Others</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-t-lg">
+                                                        <div class="col-md-6">
+                                                            <label for="Phone1" class="form-label">Phone1</label>
+                                                            <input type="number" class="form-control" name="postal_code"
+                                                                value="<?php echo $cusDtl[0][31]; ?>" required>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label for="Phone2" class="form-label">Phone2</label>
+                                                            <input type="number" class="form-control" name="postal_code"
+                                                                value="<?php echo $cusDtl[0][32]; ?>" required>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-t-lg">
+                                                        <div class="col-md-6">
+                                                            <label for="settingsAbout" class="form-label">Fax</label>
+                                                            <input type="number" class="form-control" name="postal_code"
+                                                                value="<?php echo $cusDtl[0][33]; ?>" required>
+
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label for="settingsAbout" class="form-label">joined</label>
+                                                            <input placeholder="12-09-2022" class="form-control"
+                                                                name="postal_code"
+                                                                value="<?php echo date('l jS \of F Y h:i:s A', strtotime($cusDtl[0][22])); ?>"
+                                                                readonly>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row m-t-lg">
+                                                        <div
+                                                            class="d-grid gap-2   d-md-flex col-12 col-md-3 mx-auto my-3">
+                                                            <button type="submit" name="btnCancel"
+                                                                class="btn botton-midle btn-danger">Cancel</button>
+                                                            <button type="submit" name="btnSubmit"
+                                                                class="btn botton-midle btn-primary">Update</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="tab-pane fade" id="security" role="tabpanel"
+                                        aria-labelledby="security-tab">
+                                        <div class="card">
+                                            <div class="card-body p-md-5">
+                                                <form class="form-horizontal" role="form"
+                                                    action="<?php echo $_SERVER['PHP_SELF'] ?>" name="formContactform"
+                                                    method="post" enctype="multipart/form-data" autocomplete="off">
+                                                    <div class="row ">
+                                                        <div class="col-md-6">
+                                                            <label for="settingsCurrentPassword"
+                                                                class="form-label">Current
+                                                                Password</label>
+                                                            <input type="password" class="form-control"
+                                                                aria-describedby="settingsCurrentPassword"
+                                                                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
+                                                            <div id="settingsCurrentPassword" class="form-text">Never
+                                                                share
+                                                                your password with anyone.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-t-xxl">
+                                                        <div class="col-md-6">
+                                                            <label for="settingsNewPassword" class="form-label">New
+                                                                Password</label>
+                                                            <input type="password" class="form-control"
+                                                                aria-describedby="settingsNewPassword"
+                                                                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-t-xxl">
+                                                        <div class="col-md-6">
+                                                            <label for="settingsConfirmPassword"
+                                                                class="form-label">Confirm
+                                                                Password</label>
+                                                            <input type="password" class="form-control"
+                                                                aria-describedby="settingsConfirmPassword"
+                                                                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-t-xxl">
+                                                        <div class="col-md-6">
+                                                            <label for="settingsSmsCode" class="form-label">SMS
+                                                                Code</label>
+                                                            <div class="input-group">
+                                                                <input type="password" class="form-control"
+                                                                    aria-describedby="settingsSmsCode"
+                                                                    placeholder="&#9679;&#9679;&#9679;&#9679;" required>
+                                                                <button class="btn btn-primary btn-style-light"
+                                                                    id="settingsResentSmsCode">Resend</button>
+                                                            </div>
+                                                            <div id="settingsSmsCode" class="form-text">Code will be
+                                                                sent to
+                                                                the phone number from your account.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-t-lg">
+                                                        <div class="col">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value=""
+                                                                    id="settingsPasswordLogout" checked>
+                                                                <label class="form-check-label"
+                                                                    for="settingsPasswordLogout">
+                                                                    Log out from all current sessions
+                                                                </label>
+                                                            </div>
+                                                            <a href="#" class="btn btn-primary m-t-sm">Change
+                                                                Password</a>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

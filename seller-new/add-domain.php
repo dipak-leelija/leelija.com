@@ -149,60 +149,7 @@ if(isset($_POST['btnAddDomain'])){
 
     <!-- Theme Styles -->
     <link href="<?= URL ?>assets/portal-assets/css/main.min.css" rel="stylesheet">
-    <!-- <link href="<?= URL ?>css/form.css" rel='stylesheet' type='text/css' /> -->
 
-    <style>
-    /*Image upload*/
-.prvw-img-wrap{
-    border: 1px solid #e3e6ea;
-    border-radius: .25em;
-    display: flex;
-    justify-content: center;
-}
-    #image-preview {
-        width: 200px;
-        height: 200px;
-        position: relative;
-        overflow: hidden;
-        background-color: #ffffff;
-        color: #ecf0f1;
-        border: 1px solid;
-        border-radius: 7px;
-    }
-
-    #image-preview input {
-        /* line-height: 200px;
-        font-size: 200px;
-        position: absolute; */
-        opacity: 0;
-        /* z-index: 10; */
-    }
-
-    #image-preview label {
-        position: absolute;
-        z-index: 5;
-        opacity: 0.8;
-        cursor: pointer;
-        /* background-color: #1F81C1; */
-        background-color: #c8d5dd87;
-        width: 100%;
-        height: 50px;
-        font-size: 20px;
-        line-height: 50px;
-        text-transform: uppercase;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        text-align: center;
-        color:#0000006b;
-        font-size: 14px
-    }
-
-
-    /*//Image upload*/
-    </style>
 </head>
 
 <body>
