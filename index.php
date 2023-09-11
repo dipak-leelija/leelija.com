@@ -70,6 +70,17 @@ $cusId		= $utility->returnSess('userid', 0);
     <link rel="stylesheet" href="css/testimonials.css">
     <link rel="stylesheet" href="css/partials.css">
     <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <style>
+    /* .row > div {
+      padding: 0 4px !important;
+}
+
+.img-fluid {
+    margin-top: 8px;
+    vertical-align: middle;
+  
+} */
+    </style>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -224,18 +235,75 @@ $cusId		= $utility->returnSess('userid', 0);
         </section>
         <!-- -------------------------------  section-image & paragraph ends ++++++++ ------------------------ -->
 
-                
 
-        <!-- ================================ OUR TEAM =================================== -->
 
+        <!-- ================================ ABOUT US SECTION  =================================== -->
+        <section>
+            <div class="row aBout_us-banner-section">
+                <h1>About Us</h1>
+                <div class="col-md-6 text-center text-md-start ps-md-0 ">
+                    <img src="images/aboutus_banner-home2.jpg" width="512px" height="624px" alt="">
+                </div>
+                <div class="col-md-6 m-auto mb-5">
+
+                    <p>Leelija Web Solutions, an ISO 9001:2015 certified online Marketplace. We are enhancing our
+                        business with the same tactics that we employ to our clients. Our aim is quite clear like
+                        crystal to help people grow their businesses through an effective and efficient way.</p>
+                    <p class="mt-4">
+                        Our main
+                        focus areas are numbers of online Applications, Business Development Software, Blogs, Guest Post
+                        Services, On-Page SEO, Blogs + Domain name + Content with good metrics, live ready website that
+                        includes a detailed description covering all aspects of your business and you as entrepreneurs,
+                        etc. In an industry where changes are being quite frequent, it’s our duty to stay always far
+                        from changes.
+                    </p>
+                    <div class="aBOUT_btn_div">
+                        <a href="about.php">
+                            <button value="Send" class="my-buttons-hover text-center mt-4 bn21">Know More</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ============================== ABOUT US SECTION END ================================= -->
+
+        <!-- ================================ OUR TEAM  =================================== -->
+
+        <section>
+            <div class="row R_team_section_div">
+
+                <div class="col-md-6">
+                    <div class="r-div-h1_wrap">
+                        <img src="images/r-team-small-icon-triangle.png" width="50px" class=" mb-3 img-fluid">
+                        <h1 style="border-bottom: 1px solid #80808063;"><span>Team</span></h1>
+                        <h1 style="border-bottom: 1px solid #80808063;">Section</h1>
+                        <h1>Slides</h1>
+                    </div>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, atque. </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-lg-5 col-sm-6 d-flex align-items-end justify-content-end  mt-2">
+                            <img src="images/team/r-team-dummy2.jpg"
+                                class="rounded-circle indivisual-size-wrap1 img-fluid">
+                        </div>
+
+                        <div class="col-lg-7 col-sm-6  mt-2">
+                            <img src="images/team/r-team-dummy3.jpg" class="rounded-circle indivisual-size-wrap2 img-fluid">
+                        </div>
+                        <div class="col-lg-7 col-sm-6 d-flex justify-content-end  mt-2">
+                            <img src="images/team/1.jpg" class="rounded-circle indivisual-size-wrap3 img-fluid">
+                        </div>
+                        <div class="col-lg-5 col-sm-6  mt-2">
+                            <img src="images/team/r-team-dummy1.jpg"
+                                class="rounded-circle indivisual-size-wrap4 img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- ============================== OUR TEAM END ================================= -->
-
-
-        <!-- ================================ OUR TEAM =================================== -->
-
-        <!-- ============================== OUR TEAM END ================================= -->
-
-
         <!--================================== Market Explore Section Start ==================================-->
 
         <section class="wthree-row text-center mt-4">

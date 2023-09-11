@@ -172,6 +172,7 @@
         margin-top: 3rem;
         padding: 0rem 3rem;
     }
+
     .main_banner h1 {
         font-size: 4.5rem;
     }
@@ -278,9 +279,7 @@
     }
 }
 
-@media (min-width: 1200px) {}
 
-@media (min-width: 1400px) {}
 
 /*----------------------------------- Recently Uploaded Section Start ----------------------------------- */
 /* ---------------------------------------------------------------
@@ -520,12 +519,14 @@
         height: 350px;
     }
 }
+
 @media (max-width: 1250px) {
 
     .colm1 {
         padding: 6rem 19rem 6rem 3rem !important;
     }
 }
+
 .colm1 {
     background-color: #d9edff;
     padding: 8rem 19rem 8rem 10rem;
@@ -562,7 +563,7 @@
 }
 
 .tickicn {
-    color:var(--aegean-blue);
+    color: var(--aegean-blue);
 }
 
 @media (max-width: 1009px) {
@@ -574,7 +575,7 @@
         padding: 2rem !important;
     }
 
-  
+
 
     .textinpicture {
         width: 100px;
@@ -717,10 +718,12 @@
         margin: 0 !important;
         margin-bottom: 1rem !important;
     }
+
     .textinpicture::after {
         display: none !important;
 
-      }
+    }
+
     /* .textinpicture::after {
             position: absolute;
             width: 140px;
@@ -754,7 +757,7 @@
         margin-bottom: 1rem !important;
     }
 
-    
+
 }
 
 /* <!-- ------------------------------------------------------------
@@ -941,3 +944,148 @@
     }
 }
 
+/* about us banner section */
+.aBout_us-banner-section {
+    padding: 7rem 4rem;
+}
+
+.aBout_us-banner-section img {
+    object-fit: cover;
+    object-position: top;
+    max-width: 100%;
+
+}
+
+.svg_side_banner_img {
+    position: absolute;
+    left: 0;
+    margin-left: 1.3rem;
+    margin-top: 5rem;
+}
+
+.aBout_us-banner-section h1 {
+    margin-top: 3rem;
+    font-size: 6rem;
+    text-align: center;
+    letter-spacing: 0.03em;
+    /* position: absolute; */
+    font-weight: 600;
+    font-family: 'Ubuntu', sans-serif;
+    overflow: hidden;
+    margin-bottom: -8rem;
+    z-index: 2;
+    text-transform: uppercase;
+
+}
+
+.aBout_us-banner-section p {
+    font-size: 15px;
+}
+
+
+/* our team section  */
+.R_team_section_div {
+    padding: 5rem 4rem;
+}
+
+.R_team_section_div h1 {
+    font-size: 4rem;
+    color: #06a0bac7;
+    text-transform: uppercase;
+    font-family: 'Ubuntu', sans-serif;
+
+
+}
+
+.R_team_section_div h1 span {
+    color: #779b9380;
+    /* border-bottom: 1px solid #80808063; */
+}
+
+.r-div-h1_wrap {
+    margin-bottom: 3rem;
+}
+
+.indivisual-size-wrap1 {
+    height: 210px;
+    width: 210px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.indivisual-size-wrap2 {
+    height: 270px;
+    width: 270px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.indivisual-size-wrap3 {
+    height: 190px;
+    width: 190px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.indivisual-size-wrap4 {
+    height: 229px;
+    width: 250px;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width: 998px) {
+    .aBout_us-banner-section h1 {
+        margin-top: 0rem;
+        font-size: 5rem;
+        margin-bottom: 2rem;
+    }
+
+    .aBout_us-banner-section {
+        padding: 4rem 1rem;
+    }
+
+    .indivisual-size-wrap1,
+    .indivisual-size-wrap2,
+    .indivisual-size-wrap3,
+    .indivisual-size-wrap4 {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .aBout_us-banner-section h1 {
+        font-size: 3rem;
+        font-weight: 600;
+    }
+    .R_team_section_div h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    .aBout_us-banner-section {
+        padding: 3rem 0.5rem 0;
+    }
+
+    .aBout_us-banner-section img {
+        margin-bottom: 2rem;
+        width: 100%;
+        object-position: center;
+        height: 500px;
+    }
+
+    .aBOUT_btn_div {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 360px) {
+    .aBout_us-banner-section h1 {
+        font-size: 2.4rem;
+    }
+
+    .aBout_us-banner-section img {
+        height: 378px;
+    }
+}
