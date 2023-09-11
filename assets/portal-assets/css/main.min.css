@@ -1062,6 +1062,14 @@ h6 {
     font-weight: 500
 }
 
+.app-menu .cutomer-switch{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width : auto!important;
+    z-index: 1000 !important ;
+    padding-right: 110px;
+}
 .accordion-menu li.sidebar-title {
     padding: 20px 15px 10px 30px;
     font-weight: 700;

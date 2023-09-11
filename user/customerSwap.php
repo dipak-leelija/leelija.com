@@ -1,5 +1,3 @@
-
 <?php
-   session_start();
-   require_once dirname(__DIR__).'/customerSwap.php';
+require_once dirname(__DIR__).'/customerSwap.php';
 ?>
