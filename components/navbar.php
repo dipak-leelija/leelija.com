@@ -105,7 +105,7 @@
                     </li>
                     <li class="nav-item hidden-on-mobile">
                         <a class="nav-link language-dropdown-toggle" href="#" id="languageDropDown"
-                            data-bs-toggle="dropdown">    <img src="<?= URL ?>assets/images/faces/face28.jpg" alt="profile"/></a>
+                            data-bs-toggle="dropdown">    <img src="<?= URL ?>images/user/<?= $cusDtl[0][9] ?>" alt="<?= $cusDtl[0][9] ?>"/></a>
                         <ul class="dropdown-menu dropdown-menu-end language-dropdown"
                             aria-labelledby="languageDropDown">
                             <li><a class="dropdown-item" href="settings.php"><i class="fa fa-cog me-3" aria-hidden="true"></i>Settings</a></li>
