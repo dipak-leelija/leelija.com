@@ -99,20 +99,20 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
                             <div class="col">
                                 <div class="card  px-3 py-5">
                                     <?php
-					                     if ($domainDtls != NULL) {
-						                foreach($domainDtls as $eachRecord)
-							            {
-								              $nicheDtls	 	= $Niche->showBlogNichMst($eachRecord['niche']);
-						                   ?>
+					                    if ($domainDtls != NULL) {
+						                foreach($domainDtls as $eachRecord){
+								            $nicheDtls	 	= $Niche->showBlogNichMst($eachRecord['niche']);
+						                ?>
 
                                     <div class="custom_row_fr_paginate">
+                                        <!-- row start -->
                                         <div class="row ">
-                                            <!-- 1 -->
+                                            <!-- col start -->
                                             <div class="col-md-4">
                                                 <div class="wrapping_div-blogcard ">
                                                     <div class="product-img">
                                                         <img
-                                                            src="<?= URL?>images/domains/eno_fruit_salt_powder_orange_flavour_5_gm_0-5455PB4w.jpg">
+                                                            src="<?= URL?>images/domains/<?= $eachRecord['dimage']?>">
                                                     </div>
                                                     <div class="product-info">
                                                         <div class="product-text">
@@ -156,263 +156,9 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- 1 end -->
-                                            <!-- 2 -->
-                                            <div class="col-md-4">
-                                                <div class="wrapping_div-blogcard ">
-                                                    <div class="product-img">
-                                                        <img
-                                                            src="<?= URL?>images/domains/<?php echo $eachRecord['dimage'];?>">
-                                                    </div>
-                                                    <div class="product-info">
-                                                        <div class="product-text">
-                                                            <h1><i
-                                                                    class="fa fa-angle-double-right"></i><?php echo $nicheDtls[0][1];?>
-                                                            </h1>
-                                                            <h2><a href="domain/<?php echo $eachRecord['seo_url'];?>">
-                                                                    <h2 class="prodName-Sec">
-                                                                        <?php echo $eachRecord['durl'];?>
-                                                                    </h2>
-                                                                </a></h2>
-                                                            <div class="py-1">
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Domain Authority:<span
-                                                                        class="float-right"><?php echo $eachRecord['da'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Page Authority: <span
-                                                                        class="float-right"><?php echo $eachRecord['pa'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Alexa Traffic:<span
-                                                                        class="float-right"><?php echo $eachRecord['alexa_traffic'];?>
-                                                                    </span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Organic Traffic:<span class="float-right">
-                                                                        <?php echo $eachRecord['organic_traffic'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i> Price
-                                                                    <span
-                                                                        class="float-right">$<?php echo $eachRecord['price'];?></span>
-                                                                </p>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="product-price-btn">
-                                                            <button type="button">View Details</button>
-                                                            <button type="button">Edit</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- 2 end -->
-                                            <!-- 3 -->
-                                            <div class="col-md-4">
-                                                <div class="wrapping_div-blogcard ">
-                                                    <div class="product-img">
-                                                        <img
-                                                            src="<?= URL?>images/domains/<?php echo $eachRecord['dimage'];?>">
-                                                    </div>
-                                                    <div class="product-info">
-                                                        <div class="product-text">
-                                                            <h1><i
-                                                                    class="fa fa-angle-double-right"></i><?php echo $nicheDtls[0][1];?>
-                                                            </h1>
-                                                            <h2><a href="domain/<?php echo $eachRecord['seo_url'];?>">
-                                                                    <h2 class="prodName-Sec">
-                                                                        <?php echo $eachRecord['durl'];?>
-                                                                    </h2>
-                                                                </a></h2>
-                                                            <div class="py-1">
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Domain Authority:<span
-                                                                        class="float-right"><?php echo $eachRecord['da'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Page Authority: <span
-                                                                        class="float-right"><?php echo $eachRecord['pa'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Alexa Traffic:<span
-                                                                        class="float-right"><?php echo $eachRecord['alexa_traffic'];?>
-                                                                    </span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Organic Traffic:<span class="float-right">
-                                                                        <?php echo $eachRecord['organic_traffic'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i> Price
-                                                                    <span
-                                                                        class="float-right">$<?php echo $eachRecord['price'];?></span>
-                                                                </p>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="product-price-btn">
-                                                            <button type="button">View Details</button>
-                                                            <button type="button">Edit</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- 3 end -->
+                                            <!-- col end -->
                                         </div>
-
-                                    </div>
-                                    <div class="custom_row_fr_paginate">
-                                        <div class="row ">
-                                            <!-- 4 -->
-                                            <div class="col-md-4">
-                                                <div class="wrapping_div-blogcard ">
-                                                    <div class="product-img">
-                                                        <img
-                                                            src="<?= URL?>images/domains/<?php echo $eachRecord['dimage'];?>">
-                                                    </div>
-                                                    <div class="product-info">
-                                                        <div class="product-text">
-                                                            <h1><i
-                                                                    class="fa fa-angle-double-right"></i><?php echo $nicheDtls[0][1];?>
-                                                            </h1>
-                                                            <h2><a href="domain/<?php echo $eachRecord['seo_url'];?>">
-                                                                    <h2 class="prodName-Sec">
-                                                                        <?php echo $eachRecord['durl'];?>
-                                                                    </h2>
-                                                                </a></h2>
-                                                            <div class="py-1">
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Domain Authority:<span
-                                                                        class="float-right"><?php echo $eachRecord['da'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Page Authority: <span
-                                                                        class="float-right"><?php echo $eachRecord['pa'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Alexa Traffic:<span
-                                                                        class="float-right"><?php echo $eachRecord['alexa_traffic'];?>
-                                                                    </span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Organic Traffic:<span class="float-right">
-                                                                        <?php echo $eachRecord['organic_traffic'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i> Price
-                                                                    <span
-                                                                        class="float-right">$<?php echo $eachRecord['price'];?></span>
-                                                                </p>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="product-price-btn">
-                                                            <button type="button">View Details</button>
-                                                            <button type="button">Edit</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- 4 end -->
-                                            <!-- 5 -->
-                                            <div class="col-md-4">
-                                                <div class="wrapping_div-blogcard ">
-                                                    <div class="product-img">
-                                                        <img
-                                                            src="<?= URL?>images/domains/<?php echo $eachRecord['dimage'];?>">
-                                                    </div>
-                                                    <div class="product-info">
-                                                        <div class="product-text">
-                                                            <h1><i
-                                                                    class="fa fa-angle-double-right"></i><?php echo $nicheDtls[0][1];?>
-                                                            </h1>
-                                                            <h2><a href="domain/<?php echo $eachRecord['seo_url'];?>">
-                                                                    <h2 class="prodName-Sec">
-                                                                        <?php echo $eachRecord['durl'];?>
-                                                                    </h2>
-                                                                </a></h2>
-                                                            <div class="py-1">
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Domain Authority:<span
-                                                                        class="float-right"><?php echo $eachRecord['da'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Page Authority: <span
-                                                                        class="float-right"><?php echo $eachRecord['pa'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Alexa Traffic:<span
-                                                                        class="float-right"><?php echo $eachRecord['alexa_traffic'];?>
-                                                                    </span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Organic Traffic:<span class="float-right">
-                                                                        <?php echo $eachRecord['organic_traffic'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i> Price
-                                                                    <span
-                                                                        class="float-right">$<?php echo $eachRecord['price'];?></span>
-                                                                </p>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="product-price-btn">
-                                                            <button type="button">View Details</button>
-                                                            <button type="button">Edit</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- 5 end -->
-                                            <!-- 6 -->
-                                            <div class="col-md-4">
-                                                <div class="wrapping_div-blogcard ">
-                                                    <div class="product-img">
-                                                        <img
-                                                            src="<?= URL?>images/domains/<?php echo $eachRecord['dimage'];?>">
-                                                    </div>
-                                                    <div class="product-info">
-                                                        <div class="product-text">
-                                                            <h1><i
-                                                                    class="fa fa-angle-double-right"></i><?php echo $nicheDtls[0][1];?>
-                                                            </h1>
-                                                            <h2><a href="domain/<?php echo $eachRecord['seo_url'];?>">
-                                                                    <h2 class="prodName-Sec">
-                                                                        <?php echo $eachRecord['durl'];?>
-                                                                    </h2>
-                                                                </a></h2>
-                                                            <div class="py-1">
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Domain Authority:<span
-                                                                        class="float-right"><?php echo $eachRecord['da'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Page Authority: <span
-                                                                        class="float-right"><?php echo $eachRecord['pa'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Alexa Traffic:<span
-                                                                        class="float-right"><?php echo $eachRecord['alexa_traffic'];?>
-                                                                    </span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i>
-                                                                    Organic Traffic:<span class="float-right">
-                                                                        <?php echo $eachRecord['organic_traffic'];?></span>
-                                                                </p>
-                                                                <p><i class="fas fa-long-arrow-alt-right"></i> Price
-                                                                    <span
-                                                                        class="float-right">$<?php echo $eachRecord['price'];?></span>
-                                                                </p>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="product-price-btn">
-                                                            <button type="button">View Details</button>
-                                                            <button type="button">Edit</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- 6 end -->
-                                        </div>
+                                        <!-- row end -->
                                     </div>
 
                                     <?php

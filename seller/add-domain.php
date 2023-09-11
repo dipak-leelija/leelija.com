@@ -20,7 +20,7 @@ require_once ROOT_DIR. "classes/utilityNum.class.php";
 /* INSTANTIATING CLASSES */
 
 $dateUtil      	= new DateUtil();
-$MyError 			= new MyError();
+$MyError 		= new MyError();
 $search_obj		= new Search();
 $customer		= new Customer();
 $logIn			= new Login();
@@ -42,6 +42,8 @@ $cusDtl		= $customer->getCustomerData($cusId);
 if($cusId == 0){
 	header("Location: index.php");
 }
+
+$currentURL = $utility->currentUrl();
 
 if(isset($_POST['btnAddDomain'])){
 
@@ -109,7 +111,7 @@ if(isset($_POST['btnAddDomain'])){
 			$utility->delSessArr($sess_arr);
 
 			//forward the web page
-			$uMesg->showSuccessT('success', 0, '', 'dashboard.php', "Domain Name Has been Successfully Added", 'SUCCESS');
+			$uMesg->showSuccessT('success', 0, '', 'add-domain.php', "Domain Name Has been Successfully Added", 'SUCCESS');
 
 		}
 
@@ -128,7 +130,7 @@ if(isset($_POST['btnAddDomain'])){
     <meta name="author" content="stacks">
 
     <!-- Title -->
-    <title><?php echo COMPANY_FULL_NAME; ?>: Sell Products or Blogs</title>
+    <title>Add Products or Blog for sell - <?= COMPANY_FULL_NAME; ?></title>
     <link rel="shortcut icon" href="<?= FAVCON_PATH ?>" />
 
     <!-- Styles -->
@@ -143,8 +145,6 @@ if(isset($_POST['btnAddDomain'])){
     <link href="<?= URL ?>assets/portal-assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/pace/pace.css" rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/highlight/styles/github-gist.css" rel="stylesheet">
-    <link href="<?= URL ?>assets/portal-assets/plugins/datatables/datatables.min.css" rel="stylesheet">
-    <link href="<?= URL ?>assets/portal-assets/plugins/dropzone/min/dropzone.min.css" rel="stylesheet">
 
 
     <!-- Theme Styles -->
@@ -174,7 +174,7 @@ if(isset($_POST['btnAddDomain'])){
                             <div class="col">
                                 <div class="card p-3">
                                     <div class="card-body">
-                                        <form class="row g-3">
+                                        <form class="row g-3" action="<?= $currentURL ?>" method="POST">
                                             <div class="col-md-6">
                                                 <label for="txtDomain" class="form-label">Domain Name</label>
                                                 <input type="text" class="form-control" id="txtDomain"
@@ -183,7 +183,7 @@ if(isset($_POST['btnAddDomain'])){
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtDomainUrl" class="form-label">Domain Url</label>
-                                                <input type="email" class="form-control" id="txtDomainUrl"
+                                                <input type="text" class="form-control" id="txtDomainUrl"
                                                     name="txtDomainUrl" placeholder="https://www.example.com"
                                                     value="<?php $utility->printSess2('txtDomainUrl',''); ?>" required>
                                             </div>
@@ -299,10 +299,7 @@ if(isset($_POST['btnAddDomain'])){
     <script src="<?= URL ?>assets/portal-assets/plugins/perfectscroll/perfect-scrollbar.min.js"></script>
     <script src="<?= URL ?>assets/portal-assets/plugins/pace/pace.min.js"></script>
     <script src="<?= URL ?>assets/portal-assets/plugins/highlight/highlight.pack.js"></script>
-    <script src="<?= URL ?>assets/portal-assets/plugins/datatables/datatables.min.js"></script>
     <script src="<?= URL ?>assets/portal-assets/js/main.min.js"></script>
-    <script src="<?= URL ?>assets/portal-assets/js/pages/datatables.js"></script>
-    <script src="<?= URL ?>assets/portal-assets/plugins/dropzone/min/dropzone.min.js"></script>
     <script src="<?= URL ?>js/jquery.uploadPreview.js"></script>
 
 
