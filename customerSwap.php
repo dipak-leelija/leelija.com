@@ -12,7 +12,7 @@
         $sql = "UPDATE `customer` SET `customer_type`='2' WHERE customer_id = '$userId'";
         //execute query
         $query	= mysqli_query($conn, $sql);
-        if(var_dump($query) == true){
+        if($query == 1){
             echo true;
         }
     }
@@ -23,7 +23,7 @@
         $sql = "UPDATE `customer` SET `customer_type`='1' WHERE customer_id = '$userId'";
         //execute query
         $query	= mysqli_query($conn, $sql);
-        if(var_dump($query) == true){
+        if($query == 1){
             echo true;
         }
     }
