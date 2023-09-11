@@ -5,7 +5,7 @@
                     alt="logo" /></span></a>
         <div class="sidebar-user-switcher user-activity-online">
             <a href="#">
-                <img src="<?= URL ?>images/user/<?= $cusDtl[0][9] ?>" alt="<?= $cusDtl[0][9] ?>" />
+                <img class="rounded-circle" src="<?= URL ?>images/user/<?= $cusDtl[0][9] ?>" alt="<?= $cusDtl[0][9] ?>" />
                 <span class="activity-indicator"></span>
                 <span class="user-info-text"><?= $cusDtl[0][5];?>
                     <br>
