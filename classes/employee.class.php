@@ -91,6 +91,18 @@ class Employee extends DatabaseConnection{
         return $newEmpId;
     }
 
+    function featuredEmp($limit){
+
+        $sql = "SELECT name, emp_id, image FROM `employees` ORDER BY RAND() LIMIT $limit";
+        $query  = $this->conn->query($sql);
+        if ($query->num_rows > 0) {
+            while ($data = $query->fetch_assoc()) {
+                $response[] = $data;
+            }
+            return json_encode($response);
+        }
+        return;
+    }
 
     // this function van be used to delete any data from the given path
     function unlinkFile($path){
