@@ -82,39 +82,3 @@ const copyText = (fieldId) => {
 //     window.location.href = "about.php";
 // //   location.replace("http://localhost/fastlinky/customer-packages.php")
 // }
-
-
-const getStateList = (t) => {
-    let countryId = t.value;
-
-    // alert(`countryId ${countryId}`);
-    $.ajax({
-        type: "POST",
-        url: 'ajax/location.ajax.php',
-        data: { countryId: countryId },
-        success:function(response){
-            // alert(response.trim());
-            document.getElementById('stateId').innerHTML = response.trim();
-        },
-        error:function(error) {
-            alert(`Error => ${error}`);
-        }
-    });
-}
-
-
-
-const getCitiesList = (t) => {
-    let stateId = t.value;
-    $.ajax({
-        url: "ajax/location.ajax.php",
-        type: "POST",
-        data: {
-            stateId: stateId
-        },
-        success: function(response) {
-            // console.log(response);
-            document.getElementById('city').innerHTML = response;
-        }
-    });
-}

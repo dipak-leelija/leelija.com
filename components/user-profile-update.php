@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body p-md-5">
-        <form class="form-horizontal" role="form" action="<?= $currentURL; ?>" name="formContactform"
+        <form class="form-horizontal" role="form" action="<?= PAGE; ?>" name="formContactform"
             method="post" enctype="multipart/form-data" autocomplete="off">
             <div class="row ">
                 <div class="col-md-6">

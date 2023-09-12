@@ -2,6 +2,7 @@
 session_start();
 $page = "Admin_settings";
 require_once dirname(__DIR__)."/includes/constant.inc.php";
+require_once dirname(__DIR__)."/includes/alert-constant.inc.php";
 
 require_once ROOT_DIR."_config/dbconnect.php";
 require_once ROOT_DIR. "classes/date.class.php";
@@ -37,7 +38,6 @@ $currentURL = $utility->currentUrl();
 $typeM		= $utility->returnGetVar('typeM','');
 //user id
 $cusId		= $utility->returnSess('userid', 0);
-$cusDtl		= $customer->getCustomerData($cusId);
 require_once "getSellerdata.php";
 // exit;
 if($cusId == 0){
@@ -62,11 +62,11 @@ if(isset($_POST['btnSubmit'])){
 
     $customer->editCustomerSingleData($cusId, 'mobile', $mobNumber, 'customer_address');
 
-	$customer->editCustomer($cusId, $fName, $lName, $gender, $brief, $desc, $organization, $cusDtl[0][13], $profession, $cusDtl[0][15], $cusDtl[0][13], $cusDtl[0][19]);
+	$customer->editCustomer($cusId, $fName, $lName, $gender, $brief, $desc, $organization, $userFeatured, $profession, $userSortOrder, $userAccVerified, $userDiscountOffered);
 
 	$utility->delSessArr($sess_arr);
 
-    $uMesg->showSuccessT('success', 0, '', 'settings.php', 'SUCUST201', 'SUCCESS'); //SUCUST201,
+    $uMesg->showSuccessT('success', 0, '', 'settings.php', SUU007, 'SUCCESS'); //SUCUST201,
 
 }
 
@@ -82,8 +82,10 @@ if(isset($_POST['addressUpdate'])){
 	$countryId		= $_POST['countryId'];
 	$phone1	        = $_POST['phone1'];
 	$phone2      	= $_POST['phone2'];
+	$userFax      	= $_POST['userfax'];
 
-	$customer->updateCusAddress($cusId, $address1, $address2, $cusDtl[0][26], $cityId, $stateId, $postalCode, $countryId, $phone1, $phone2, $cusDtl[0][33], $cusDtl[0][34]);
+	$customer->updateCusAddress($cusId, $address1, $address2, $userAddress3, $cityId, $stateId, $postalCode, $countryId, $phone1, $phone2, $userFax, $userMobile);
+    $uMesg->showSuccessT('success', 0, '', 'settings.php', SUU010, 'SUCCESS'); //SUCUST201,
 
 }
 
@@ -361,6 +363,8 @@ if(isset($_POST['btnCancel'])){
     <script src="<?= URL ?>assets/portal-assets/plugins/select2/js/select2.full.min.js"></script>
     <script src="<?= URL ?>assets/portal-assets/js/main.min.js"></script>
     <script src="<?= URL ?>assets/portal-assets/js/pages/settings.js"></script>
+    <script src="<?= URL ?>js/script.js"></script>
+    <script src="<?= URL ?>js/location.js"></script>
 </body>
 
 </html>
