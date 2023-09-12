@@ -12,6 +12,7 @@ require_once("classes/login.class.php");
 //require_once("../classes/front_photo.class.php");
 require_once("classes/blog_mst.class.php");
 require_once("classes/domain.class.php");
+require_once "classes/employee.class.php";
 require_once("classes/utility.class.php");
 require_once("classes/utilityMesg.class.php");
 require_once("classes/utilityImage.class.php");
@@ -25,6 +26,7 @@ $customer		= new Customer();
 $logIn			= new Login();
 //$ff				= new FrontPhoto();
 $blogMst		= new BlogMst();
+$Employee       = new Employee();
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
@@ -304,6 +306,10 @@ $cusId		= $utility->returnSess('userid', 0);
             </div>
         </section>
         <!-- ============================== OUR TEAM END ================================= -->
+
+
+        <?php require_once ROOT_DIR."components/main/featured-employees.php";?>
+
         <!--================================== Market Explore Section Start ==================================-->
 
         <section class="wthree-row text-center mt-4">
