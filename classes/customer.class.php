@@ -7,32 +7,21 @@
 *	UPDATE	Dec 10, 2017
 *	Customer type has been added to the system.
 *
-*
 *	UPDATE	Dec 10, 2017
 *	Customer verification has been added.
-*
-*
-*	@author		Safikul Islam
-*	@date		December 1, 2016
-*	@update		Dec 10, 2017
-*	@version	2.0
-*	@email		safikulislamwb@gmail.com
-* 
 */
 
-include_once('encrypt.inc.php'); 
-include_once('utility.class.php');
+include_once 'encrypt.inc.php'; 
+include_once 'utility.class.php';
 
 
-class Customer extends Utility
-{
+class Customer extends Utility{
 
 	use DBConnection;
 	/**
 	*	Register a new Customer.
 	*	
 	*	@update	September 10, 2010
-	*
 	*
 	*	@param
 	*			$user_name			User Name
@@ -104,6 +93,7 @@ class Customer extends Utility
 		//get the primary key
 		$id		= 	$this->conn->insert_id;
 		//echo $sql.mysql_error();exit;
+
 		// inserting into customer info table
 		$sql2	=   "INSERT INTO customer_info
 			(last_logon, no_logon, added_on, customer_id)
@@ -161,7 +151,7 @@ class Customer extends Utility
 		$rows 	= $query->num_rows;
 			
 		if($rows > 0){
-			header("Location: ".$_SERVER['PHP_SELF']."?action=add_client&message=Email already exists&typeM=ERROR#addCustomer");
+			return 'Email Already Exists!';
 		}else{
 			//statement	dob, '$dob',
 			$sql	 = 	 "INSERT INTO customer 
@@ -174,15 +164,12 @@ class Customer extends Utility
 						 '$acc_verified', '$verified_by', now(), '$discount_offered')";
 						 
 			//execute query
-			// $query	= 	mysql_query($sql);
 			$query	= $this->conn->query($sql);
 
 			
 			//get the primary key
 			$id		= 	$this->conn->insert_id;
-			// echo $id;
-			// exit;
-			//echo $sql.mysql_error();exit;			
+			// echo $id;	
 			//inserting into customer info table
 			$sql2	=   "INSERT INTO customer_info 
 						 (last_logon, no_logon, added_on, customer_id)
@@ -227,8 +214,8 @@ class Customer extends Utility
 	*	@return string
 	*/
 	function addCusAddress($customer_id, $address1, $address2, $address3, $town, $province, $postal_code, $countries_id, 
-							$phone1, $phone2, $fax, $mobile)
-	{
+							$phone1, $phone2, $fax, $mobile){
+
 		$customer_id	= addslashes(trim($customer_id)); 
 		$address1		= addslashes(trim($address1));  
 		$town			= addslashes(trim($town)); 
@@ -249,12 +236,9 @@ class Customer extends Utility
 		
 		
 		$result = '';
-		if(!$query)
-		{
+		if(!$query){
 			$result = 'ER101';
-		}
-		else
-		{
+		}else{
 			$result = 'SU101';
 		}
 		return $result;
@@ -267,8 +251,6 @@ class Customer extends Utility
 	*
 	*	@update November 22, 2011
 	*
-	*	@author	Mousumi Dey
-	*	
 	*	@param
 	*			$id						Primary key associated with the particular customer
 	*			$address1				1st address of the customer
@@ -287,14 +269,13 @@ class Customer extends Utility
 	*	@return null
 	*/
 	
-	function updateCusAddress($id, $address1, $address2, $address3, $town, $province, $postal_code, $countries_id, $phone1, $phone2, $fax, $mobile)
-	{
+	function updateCusAddress($cusid, $address1, $address2, $address3, $city, $state, $postal_code, $countries_id, $phone1, $phone2, $fax, $mobile){
 		//add security
 		$address1				= addslashes(trim($address1)); 
 		$address2				= addslashes(trim($address2));
 		$address3				= addslashes(trim($address3));
-		$town					= addslashes(trim($town));
-		$province				= addslashes(trim($province)); 
+		$city					= addslashes(trim($city));
+		$state					= addslashes(trim($state)); 
 		$postal_code			= addslashes(trim($postal_code));
 		$phone1					= addslashes(trim($phone1));
 		$phone2					= addslashes(trim($phone2));
@@ -308,16 +289,16 @@ class Customer extends Utility
 					address1				 =  '$address1',															
         			address2				 =	'$address2',																
 					address3				 =	'$address3',
-					town	            	 =	'$town',
-					province				 =	'$province',																
+					town	            	 =	'$city',
+					province				 =	'$state',					
 					postal_code	        	 =	'$postal_code',					
-					countries_id		     =  '$countries_id',	
-					phone1					 =  '$phone1',															
+					countries_id		     =  '$countries_id',
+					phone1					 =  '$phone1',														
         			phone2					 =	'$phone2',
 					fax				         =	'$fax',
-					mobile					 =	'$mobile'															
+					mobile					 =	'$mobile'														
 					WHERE
-			    	customer_id				 =  $id
+			    	customer_id				 =  $cusid
 					";
 				 
 				// echo $sql.mysql_error();exit;
@@ -344,7 +325,7 @@ class Customer extends Utility
 	*
 	*	@return	null
 	*/
-	function editCustomer($user_id, $cus_type, $fname, $lname, $gender,$status, 
+	function editCustomer($user_id, $fname, $lname, $gender, 
 						 $brief, $description, $organization, $featured, 
 					    $profession, $sort_order, $acc_verified, $discount_offered)
 	{
@@ -357,17 +338,14 @@ class Customer extends Utility
 		$organization	= addslashes(trim($organization));
 		$sort_order		= addslashes(trim($sort_order));
 		$profession		= addslashes(trim($profession));
-		$cus_type		= (int)$cus_type;
 		$discount_offered	= doubleval($discount_offered);
 		//statement
 		
 		$sql	 = 		"UPDATE customer 
 						SET
-						customer_type		= '$cus_type',
 						fname 				= '$fname',
 						lname 				= '$lname',
 						gender 				= '$gender',
-						status 				= '$status',
 						brief 				= '$brief',
 						description			= '$description',
 						organization		= '$organization',
@@ -386,7 +364,79 @@ class Customer extends Utility
 		return $query;
 		
 	}//eof
+
+	function updateAddrDuringPackOrd($cusid, $fname, $lname, $city, $pincode, $state, $country, $mobile){
+
+		$fname		= addslashes(trim($fname));
+		$lname		= addslashes(trim($lname));
+		$city		= addslashes(trim($city));
+		$pincode	= addslashes(trim($pincode));
+		$state		= addslashes(trim($state));
+		$country	= addslashes(trim($country));
+		$mobile		= addslashes(trim($mobile));
+
+		$cusSql = "UPDATE customer 
+				SET
+				fname 				= '$fname',
+				lname 				= '$lname'
+				WHERE
+				customer_id 		= $cusid
+				";
+		
+		$query1	= $this->conn->query($cusSql);
+
+		$addrSql = "UPDATE customer_address 
+				SET
+				town			= '$city',
+				province		= '$state',
+				postal_code		= '$pincode',
+				countries_id	= '$country',
+				mobile			= '$mobile'
+				WHERE
+				customer_id 	= $cusid
+				";
+		$query2	= $this->conn->query($addrSql);
+		
+		$res = '';
+		if ($query1 == 1) {
+			if ($query2 == 1) {
+				$res = 'SUU010';
+				return $res;
+			}else {
+				$res = 'ERU300';
+				return $res;
+			}
+		}else {
+			$res = 'ERU007';
+			return $res;
+		}
+		
+		
+	}
 	
+
+	/**
+	*	Edit registration information by one
+	*	@param
+	*	$user_id			Customer id or primary key
+	*	@return	null
+	*/
+	function editCustomerSingleData($user_id, $col, $val, $db){
+		//get the vars
+		$val 			= addslashes(trim($val));
+
+		//statement
+		$sql	 = 		"UPDATE $db 
+						SET
+						$col 				= '$val'
+						WHERE 
+						customer_id 		= $user_id
+						";
+						
+		$query	= $this->conn->query($sql);
+		return $query;
+		
+	}//eof
 	
 	/**
 	*	Edit Customer information
@@ -418,6 +468,7 @@ class Customer extends Utility
 
 
 
+
 	/**
 	*	UPDATE customer mobile number as phone 2 
 	*	
@@ -442,6 +493,8 @@ class Customer extends Utility
 		//echo $sql.mysql_error();exit;
 		
 	}//eof
+
+
 
 	/**
 	*	UPDATE customer mobile number as phone 2 
@@ -472,14 +525,11 @@ class Customer extends Utility
 	
 	/**
 	*	Update the date time, whenever the any data is updated.
-	*
 	*	@param
-	*			$cus_id		Customer id
-	*
+	*	$cus_id		Customer id
 	*	@return string
 	*/
-	function updateDate($cus_id)
-	{
+	function updateDate($cus_id){
 		//declare var
 		$result = '';
 		
@@ -489,15 +539,12 @@ class Customer extends Utility
 				  WHERE 	customer_id  = '$cus_id'";
 				  
 		//execute query		  
-		$query	= mysql_query($sql);
+		$query	= $this->conn->query($sql);
 		
 		//make the query
-		if(!$query)
-		{
+		if(!$query){
 			$result = "ER102";
-		}
-		else
-		{
+		}else{
 			$result = "SU102";
 		}
 		
@@ -506,76 +553,7 @@ class Customer extends Utility
 		
 	}//eof
 	
-	
-	
-	/**
-	*	Update a customer address
-	*	
-	*	@param
-	*			$cus_id		Customer id
-	*			$add1		Address 1
-	*			$add2		Address 2
-	*			$add3		Address 3
-	*			$t_id		Town id
-	*			$c_id		County id
-	*			$p_id		Province id
-	*			$p_code		Postal Code
-	*			$ph1		Phone 1
-	*			$ph2		Phone 2
-	*			$ph3		Phone 3
-	*			$fax		Fax
-	*			$mobile		Mobile phone number
-	*			$country	Country's Id
-	*
-	*	@return string
-	*/
-	
-	function updateCustomerAddr($cus_id, $add1, $add2, $add3, $cityId, $stateId, $pinCode, $ph1, $ph2, $fax, $mobile, $country){
-		$add1		= addslashes(trim($add1));
-		$add2		= addslashes(trim($add2)); 
-		$add3		= addslashes(trim($add3)); 
-		$t_id		= addslashes(trim($t_id)); 
-		$p_id		= addslashes(trim($p_id)); 
-		$p_code		= addslashes(trim($p_code)); 
-		$ph1		= addslashes(trim($ph1)); 
-		$ph2		= addslashes(trim($ph2)); 
-		$fax		= addslashes(trim($fax)); 
-		$mobile		= addslashes(trim($mobile));
-		$country	= (int)$country;
-		
-		//update directory address
-		$sql	= "UPDATE customer_address SET
-				  address1 			='$add1',
-				  address2 			='$add2',
-				  address3 			='$add3',
-				  town		 		='$cityId',				
-				  province	 		='$stateId',
-				  postal_code 		='$pinCode',
-				  phone1 			='$ph1',
-				  phone2 			='$ph2',
-				  fax 				='$fax',
-				  mobile 			='$mobile',
-				  countries_id 		='$country'
-				  WHERE 
-				  customer_id 	= '$cus_id'
-				  ";
-		$query	= $this->conn->query($sql);
-		//echo $sql.mysql_error();exit;
-		$result = '';
-		if(!$query)
-		{
-			$result = "ER102";
-		}
-		else
-		{
-			$result = "SU102";
-		}
-		
-		//return the result
-		return $result;
-		
-	}//eof
-	
+
 	
 	/**
 	*	Change the user password. As changing password is done by User, so he doesn't 
@@ -585,14 +563,27 @@ class Customer extends Utility
 	*			$id			User unique identity
 	*			$password	User New Password
 	*/
-	function changeUserPassword($id, $password)
-	{
-		//$x_password = md5_encrypt($password,USER_PASS);
-		$x_password = md5_encrypt($password,USER_PASS);
-		$update = "UPDATE customer SET password= '$x_password' WHERE customer_id='$id'";
-		$query  = mysql_query($update);
+	function changeUserPassword($userId, $currentPassword, $newPassword){
+
+		$msg = '';
+
+		$cPass = $this->getUserPass($userId);
+		if ($cPass == $currentPassword) {
+
+			$x_password = md5_encrypt($newPassword,USER_PASS);
+			$update = "UPDATE customer SET password= '$x_password' WHERE customer_id ='$userId'";
+			$query  = $this->conn->query($update);
+			if ($query) {
+				$msg = 'Password Updated'; 
+			}
+		}else {
+			$msg = 'Current Password is Wrong';
+		}
+
+		return $msg;
 	}//eof
 	
+
 	/**
 	*	Delete a client from the database
 	*
@@ -602,31 +593,27 @@ class Customer extends Utility
 	*
 	*	@return string
 	*/
-	function deleteCustomer($id, $path)
-	{
+	function deleteCustomer($id, $path){
 		//delete the image first
 		$this->deleteFile($id, 'customer_id' , $path, 'image', 'customer');
 		
 		//delete from customer or client's information
 		$sql	= "DELETE FROM customer_info WHERE customer_id='$id'";
-		$query	= mysql_query($sql);
+		$query	= $this->conn->query($sql);
 		
 		//delete from client's address
 		$sql	= "DELETE FROM customer_address WHERE customer_id='$id'";
-		$query	= mysql_query($sql);
+		$query	= $this->conn->query($sql);
 		
 		
 		//delete from client
 		$sql	= "DELETE FROM customer WHERE customer_id='$id'";
-		$query	= mysql_query($sql);
+		$query	= $this->conn->query($sql);
 		
 		$result = '';
-		if(!$query)
-		{
+		if(!$query){
 			$result = "ER103";
-		}
-		else
-		{
+		}else{
 			$result = "SU103";
 		}
 		
@@ -641,34 +628,34 @@ class Customer extends Utility
 	*
 	*	@return array
 	*/
-	function getAllCustomerId()
-	{
-		//Declare array
-		$data	= array();
+	// function getAllCustomerId()
+	// {
+	// 	//Declare array
+	// 	$data	= array();
 		
-		//
-		$sql	= "SELECT 		C.customer_id 
-				   FROM 		customer C, customer_info CI
-				   WHERE		C.customer_id = CI.customer_id
-				   ORDER BY 	CI.added_on 
-				   DESC";
+	// 	//
+	// 	$sql	= "SELECT 		C.customer_id 
+	// 			   FROM 		customer C, customer_info CI
+	// 			   WHERE		C.customer_id = CI.customer_id
+	// 			   ORDER BY 	CI.added_on 
+	// 			   DESC";
 		
-		//execute query
-		$query	= mysql_query($sql);
+	// 	//execute query
+	// 	$query	= mysql_query($sql);
 		
-		//fetch the data
-		if(mysql_num_rows($query) > 0)
-		{
-			while($result = mysql_fetch_object($query))
-			{
-				$data[] = $result->customer_id;
-			}
-		}
+	// 	//fetch the data
+	// 	if(mysql_num_rows($query) > 0)
+	// 	{
+	// 		while($result = mysql_fetch_object($query))
+	// 		{
+	// 			$data[] = $result->customer_id;
+	// 		}
+	// 	}
 		
-		//return data
-		return $data;
+	// 	//return data
+	// 	return $data;
 		
-	}//eof
+	// }//eof
 	
 	
 	/**
@@ -683,26 +670,22 @@ class Customer extends Utility
 	*	@return array
 	*/
 	
-	function getAllCustomer($num, $ordBy, $ordType)
-	{
+	function getAllCustomer($num, $ordBy, $ordType){
 		//declare vars
 		$data		= array();
 	
 		//generate the statement
-		if($num == 'ALL')
-		{
+		if($num == 'ALL'){
 			$select		= "SELECT 	CI.customer_id AS CUSID 
 						   FROM 	customer_info CI, customer C, customer_address CA 
 						   WHERE 	CI.customer_id = C.customer_id
 						   AND		CI.customer_id = CA.customer_id
 						   ORDER BY ".$ordBy." ".$ordType;
-		}
-		else if($num > 0)
-		{
+		}else if($num > 0){
+
 			$select		= "SELECT CI.customer_id AS CUSID FROM customer_info CI ORDER BY ".$ordBy." ".$ordType." LIMIT $num";
-		}
-		else
-		{
+		
+		}else{
 			$select		= "SELECT CI.customer_id AS CUSID  FROM customer_info CI ORDER BY ".$ordBy." ".$ordType;
 		}
 		
@@ -727,12 +710,11 @@ class Customer extends Utility
 	*	Show registration data
 	*
 	*	@param
-	*			$customer_id		Customer identity
+	*	$customer_id		Customer identity
 	*
 	*	@return array
 	*/
-	function getCustomerData($customer_id)
-	{	
+	function getCustomerData($customer_id){	
 		
 		//create the statement
 		$select		=   "SELECT * 
@@ -747,7 +729,7 @@ class Customer extends Utility
 		$query = $this->conn->query($select);
 		$rows = $query->num_rows;
 		// echo $rows;exit;
-		//fetch the rows
+
 		if ($rows > 0) {
 			while($result = $query->fetch_object()){
 					$data[]	=	array(
@@ -802,23 +784,108 @@ class Customer extends Utility
 
 	}//	eof
 
+	/**
+	*	Show registration data
+	*
+	*	@param
+	*	$customer_id		Customer identity
+	*
+	*	@return array
+	*/
+	function getCustomerAvatar($customer_id){	
+		
+		$select		=   "SELECT image FROM	customer WHERE customer_id = '$customer_id'";
+	
+		// echo $select.$this->conn->error;exit;
+		$query = $this->conn->query($select);
+
+		if ($query->num_rows > 0) {
+			while($result = $query->fetch_assoc()){
+					$data	=	$result['image'];
+			}
+			return $data;
+		}//if
+
+	}//	eof
+
+
+	/**
+	*	Show registration data
+	*
+	*	@param
+	*	$verificationNo		Customer verification code
+	*
+	*	@return array
+	*/
+	function getCustomerDataByVerCode($verificationNo){	
+		
+		//create the statement
+		$select		=   "SELECT * 
+						 FROM 	customer
+						 WHERE 	verification_no = '$verificationNo'";
+		
+
+		// echo $select.$this->conn->error;exit;
+		//execute query
+		$query = $this->conn->query($select);
+		$rows = $query->num_rows;
+		// echo $rows;exit;
+
+		if ($rows > 0) {
+			while($result = $query->fetch_assoc()){
+					$data	=	$result;
+			}//while
+			return $data;
+		}//if
+
+	}//	eof
+
 
  
 
 	function getCustomerByemail($email){	
-		
+		try {
 		//create the statement
-		$sql = "SELECT * FROM customer WHERE email = '$email'";
+		$sql = "SELECT * FROM customer C, customer_info CI, customer_address CD
+						WHERE C.customer_id = CI.customer_id
+							AND	C.customer_id = CD.customer_id
+							AND C.email = '$email'";
+
 		$query = $this->conn->query($sql);
 		$rows = $query->num_rows;
 		// echo $rows;exit;
+
 		//fetch the rows
 		if ($rows > 0) {
-			while($result = $query->fetch_array()){
-					$data[]	=	$result;
+			while($result = $query->fetch_assoc()){
+					$data	=	$result;
 			}
 			return $data;
-		}//if
+		}else {
+			//create the statement
+			$sql2 = "SELECT * FROM customer C, customer_info CI, customer_address CD
+			WHERE C.customer_id = CI.customer_id
+				AND	C.customer_id = CD.customer_id
+				AND C.user_name = '$email'";
+
+			$query2 = $this->conn->query($sql2);
+			$rows2 = $query->num_rows;
+			// echo $rows;exit;
+
+			//fetch the rows
+			if ($rows2 > 0) {
+				while($result2 = $query2->fetch_assoc()){
+						$data2	=	$result2;
+				}
+				return $data2;
+			}
+		}
+		
+		} catch (Exception $e) {
+			echo '<b>Error on:</b> '.__FILE__.', <b>On Line:</b>'.__LINE__.'<br>';
+			echo '<b>Error:</b> '.$e->getMessage();
+			exit;
+		}
 
 	}//	eof
 
@@ -827,15 +894,15 @@ class Customer extends Utility
 
 	
 	//Show Customer Details
-	public function getAllCust(){
-     $temp_arr = array();
-     $res = mysql_query("SELECT * FROM customer order by customer_id desc") or die(mysql_error());        
-     $count=mysql_num_rows($res);
-    
-    while($row = mysql_fetch_array($res)) {
-         $temp_arr[] =$row;
-		 
-     }
+	function getAllCust(){
+		$temp_arr = array();
+     	$sql = "SELECT * FROM customer order by customer_id desc";
+	 	$res = $this->conn->query($sql);
+	 	if ($res->num_rows > 0) {
+			while($row = $res->fetch_array()) {
+				$temp_arr[] =$row;
+			}
+	 	}        
      return $temp_arr;  
      }
 	
@@ -937,44 +1004,6 @@ class Customer extends Utility
 		}//else
 	}//eof
 	
-	###############################################################################################################
-	#
-	#										Email Subscription
-	#
-	###############################################################################################################
-	
-	/**
-	*	Check the status of email subscribed by the user
-	*
-	*	@param
-	*			$email		Email of the customer
-	*/
-	function checkEmailStat($email)
-	{
-		$sql	= "SELECT status FROM email_subscriber WHERE email='$email' ";
-		$query	= mysql_query($sql);
-		$data	= 'N';
-		if(mysql_num_rows($query) > 0)
-		{
-			$result = mysql_fetch_array($query);
-			$data	= $result['status'];
-		}
-		return $data;
-	}//eof
-	
-	/**
-	*	Update status
-	*/
-	function updateSubStat($status, $email)
-	{
-		//statement
-		$sql	= "UPDATE email_subscriber SET status='$status' WHERE email='$email' ";
-		$query	= mysql_query($sql);
-
-	}//eof
-	
-	
-	
 	
 	###############################################################################################################
 	#
@@ -994,8 +1023,7 @@ class Customer extends Utility
 	*			
 	*	@return  NULL
 	*/
-	function updateVerStatus($user_id, $accV, $user)
-	{
+	function updateVerStatus($user_id, $accV, $user){
 		//statement
 		$sql	= "UPDATE customer C SET
 				   C.acc_verified		= '$accV',
@@ -1011,6 +1039,29 @@ class Customer extends Utility
 		
 	}//eof
 	
+
+	/**
+	*	Work with verification status separately
+	*			$accV		Account verification
+	*			$user		Admin user or the user itself whoever has verified the account
+	*			
+	*	@return  NULL
+	*/
+	function updateVerStatusByCode($verification_no, $status, $verifiedBy){
+		//statement
+		$sql	= "UPDATE customer C SET
+				   C.acc_verified		= '$status',
+				   C.verified_by		= '$verifiedBy',
+				   C.verified_on		= now()	
+				   WHERE
+				   C.verification_no = '$verification_no'
+				   ";
+				   
+		//execute query
+		$query	= $this->conn->query($sql);
+		return $query;
+		
+	}//eof
 	
 	/**
 	*	Work with verification numbers separately
@@ -1076,38 +1127,38 @@ class Customer extends Utility
 	*
 	*	@return	string
 	*/
-	function getListOfUnverifiedcustomer($startDate, $endDate)
-	{
-		//declare vars
-		$cIds		= array();
-		$contList	= '';
+	// function getListOfUnverifiedcustomer($startDate, $endDate)
+	// {
+	// 	//declare vars
+	// 	$cIds		= array();
+	// 	$contList	= '';
 		
-		//list of customer 
-		$cIds		= $this->getcustomerBySEDate($startDate, $endDate);
+	// 	//list of customer 
+	// 	$cIds		= $this->getcustomerBySEDate($startDate, $endDate);
 		
-		if(count($cIds) > 0)
-		{
-			//start listing
-			$contList  .= "<ul>";
+	// 	if(count($cIds) > 0)
+	// 	{
+	// 		//start listing
+	// 		$contList  .= "<ul>";
 			
-			foreach($cIds as $z)
-			{
-				//get the contrator detail
-				$cusDtl	= $this->showRegInfo($z);
+	// 		foreach($cIds as $z)
+	// 		{
+	// 			//get the contrator detail
+	// 			$cusDtl	= $this->showRegInfo($z);
 				
-				$contList  .= "<li>".$cusDtl[0]." ".$cusDtl[1]."</li>";
-			}
+	// 			$contList  .= "<li>".$cusDtl[0]." ".$cusDtl[1]."</li>";
+	// 		}
 			
-			//end listing
-			$contList  .= "</ul>";
+	// 		//end listing
+	// 		$contList  .= "</ul>";
 			
-		}//if
+	// 	}//if
 		
 		
-		//return the string
-		return $contList;
+	// 	//return the string
+	// 	return $contList;
 		
-	}//eof
+	// }//eof
 	
 	
 	
@@ -1119,59 +1170,33 @@ class Customer extends Utility
 	*
 	*	@return string
 	*/
-	function getPasswordName($email)
-	{
+	function getUserPass($cusId){
+
 		//declare vars
-		$data  = array();
+		$data  = null;
 		
 		//statement
-		$sql = "SELECT password, fname FROM customer WHERE email='$email'";
+		$sql = "SELECT password FROM customer WHERE customer_id ='$cusId'";
 		
 		//execute query
-		$query = mysql_query($sql);
+		$query = $this->conn->query($sql);
 		
 		//check and fetch data
-		if(mysql_num_rows($query) > 0)
-		{
+		if($query->num_rows > 0){
 			//result
-			$result = mysql_fetch_array($query);
+			$result = $query->fetch_array();
 			
 			//hold in array
-			$data   = array($result['password'], $result['fname']);
+			$data   = $result['password'];
+			$password = md5_decrypt($data,USER_PASS);
+			
 		}
 		
 		//return data
-		return $data;
+		return $password;
 		
 	}//end of getting password
 	
-	
-	/**
-	*	Update for reference
-	*	
-	*	@date October 30, 2010
-	*
-	*	@param
-	*			$cusId			Customer Id
-	*			$refId			Reference or parent id, if parent id is zero, that refers to admin
-	*			$refWeb			Reference website
-	*
-	*	@return null
-	*/
-	function updateReferece($cusId, $refId, $refWeb)
-	{
-		//statement
-		$sql	= "UPDATE customer SET
-				   parent_id = '$refId',
-				   referred_website = '$refWeb'
-				   WHERE 
-				   customer_id = '$cusId'
-				   ";
-				   
-		//execute query
-		$query	= mysql_query($sql);
-		
-	}//eof
 	
 	
 	/**
@@ -1210,393 +1235,7 @@ class Customer extends Utility
 	
 	
 	
-	/**
-	*	Add to membership policy
-	*
-	*	@param
-	*			$cus_id				Customer Id
-	*			$packId				Package Id
-	*			$ordId				Orders id
-	*			$memType			Membership type
-	*			$amtPaid			Amount paid
-	*			$startDate			Date of starting membership
-	*			$expDate			Date of expiry
-	*
-	*	@return	int
-	*/
-	function joinMembershipProg($cus_id, $packId, $ordId, $memType, $amtPaid, $startDate, $expDate)
-	{
-		//declare var
-		$data	= 0;
-		
-		//check if that order id is already in the database
-		$omId   = $this->getMembershipId('ORD', $ordId);
-		
-		if(count($omId) > 0)
-		{
-			//statemnet
-			$sql	= "UPDATE customer_membership SET
-					   package_id 		= '$packId',
-					   membership_type	= '$memType',
-					   amount_paid		= '$amtPaid',
-					   start_date		= '$startDate',
-					   end_date			= '$expDate'
-					   WHERE 
-					   orders_id = '$ordId'
-					  ";
-		}
-		else
-		{
-			//statemnet
-			$sql	= "INSERT INTO customer_membership
-					   (customer_id, package_id, orders_id, membership_type, amount_paid, start_date, end_date) 
-					   VALUES
-					   ('$cus_id', '$packId', '$ordId', '$memType', '$amtPaid', '$startDate', '$expDate')
-					  ";
-		}
-				  
-		//execute query
-		$query	= mysql_query($sql);
-		
-	}//eof
 	
-	
-	/**
-	*	Get all membership id
-	*
-	*	@param
-	*			$type			Type or search criterion
-	*			$id				Foreign key value used against search
-	*
-	*	@return array
-	*/
-	function getMembershipId($type, $id)
-	{
-		//declare vars
-		$data	= array();
-		
-		//statement
-		switch ($type)
-		{
-			case 'CUS':
-				$sql	= "SELECT * FROM customer_membership WHERE customer_id = $id ORDER BY orders_id DESC";
-				break;
-				
-			case 'PACK':
-				$sql	= "SELECT * FROM customer_membership WHERE package_id = $id";
-				break;
-				
-			case 'MEMTYPE':
-				$sql	= "SELECT * FROM customer_membership WHERE membership_type = $id";
-				break;
-				
-			case 'ORD':
-				$sql	= "SELECT * FROM customer_membership WHERE orders_id = $id";
-				break;
-				
-			case 'CUSLATEST':
-				$sql	= "SELECT * FROM customer_membership WHERE  customer_id = $id ORDER BY orders_id DESC LIMIT 1";
-				break;
-				
-				
-			default:
-				$sql	= "SELECT * FROM customer_membership";
-				break;
-			
-		}//switch
-		
-		//execute statement
-		$query	= mysql_query($sql);
-		
-		//check and put in array
-		if(count($query) > 0)
-		{
-			while($result = mysql_fetch_object($query))
-			{
-				$data[] = $result->customer_membership_id;
-			}
-		}
-		
-		//return the data
-		return $data;
-		
-	}//eof
-	
-	
-	
-	/**
-	*	Return the order membership detail, associated with an order id
-	*
-	*	@date	October 17, 2010
-	*
-	*	@param
-	*			$id			Customer membership id
-	*
-	*	@return	array
-	*/
-	function getMembershipDetail($id)
-	{
-		//declare vars
-		$data	= array();
-		
-		//statement
-		$sql	= "SELECT 	* 
-				   FROM 	customer_membership
-				   WHERE  	customer_membership.customer_membership_id = '$id'";
-					
-		//execute query
-		$query	= mysql_query($sql);
-		
-		//get the resultset
-		$result = mysql_fetch_object($query);
-		
-		//check and hold in array
-		if(mysql_num_rows($query))
-		{
-			//hold data in array
-			$data	= array(
-						$result->customer_id,			//0
-						$result->package_id,			//1
-						$result->orders_id,				//2
-						$result->membership_type,		//3
-						$result->amount_paid,			//4
-						$result->start_date, 			//5
-						$result->end_date	    		//6
-						);
-		}
-		
-		//return the array
-		return $data;
-		
-	}//eof
-	
-	
-	/**
-	*	Check the membership type, whether new or renew
-	*
-	*	@param
-	*			$cusId			Customer id
-	*
-	*	@return char
-	*/
-	function getMembershipType($cusId)
-	{
-		//declare var
-		$res	= '';
-		
-		//check if any record exist
-		$cmIds	= $this->getMembershipId('CUS', $cusId);
-		
-		if(count($cmIds) > 0)
-		{
-			$res	= 'renew';
-		}
-		else
-		{
-			$res	= 'new';
-		}
-		
-		//return the result
-		return $res;
-		
-	}//eof
-	
-	
-	/**
-	*	Get verified customer dropdown
-	*
-	*	@param
-	*			$selected			If the user is already selected
-	*
-	*	@return null
-	*/
-	function getActiveUserList($selected)
-	{
-		//declare var
-		$today		= date("Y-m-d");
-		
-		//statement
-		$select		= "SELECT   C.customer_id, C.email, C.fname, C.lname 
-					   FROM 	customer C, customer_membership CM
-					   WHERE 	C.customer_id = CM.customer_id
-					   AND		CM.end_date >= $today
-					  ";
-					  
-		//execute query
-		$query		= mysql_query($select);
-		
-		if(mysql_num_rows($query) > 0)
-		{
-			while($result	= 	mysql_fetch_object($query))
-			{
-				$data_id	= $result->customer_id;
-				
-				if($data_id == $selected)
-				{
-					$select_string = 'selected';
-				}
-				else
-				{
-					$select_string = '';
-				}
-				
-				echo "<option value='".$data_id."' class='menuText' ".$select_string.">".
-				$result->email."</option>";
-				
-			}
-		}//if
-		
-	}//eof
-	
-	
-	
-	/**
-	*	Get the latest active member's order id
-	*
-	*	@param
-	*			$cusId			Customer Id
-	*
-	*	@return int
-	*/
-	function getActiveOrderIdByUser($cusId)
-	{
-		//declare var
-		$data		= 0;
-		
-		//statement
-		$sql	= "SELECT * FROM customer_membership WHERE customer_id = $cusId ORDER BY orders_id DESC LIMIT 1";
-		
-		//execute query
-		$query	= mysql_query($sql);
-		
-		if(mysql_num_rows($query) > 0)
-		{
-			//fetch the result set
-			$result	= mysql_fetch_object($query);
-			
-			//hold the data
-			$data	= $result->orders_id;			
-		}
-		
-		//return id
-		return $data;
-					  
-	}//eof
-		
-	
-	/**
-	*	Get verified customer dropdown
-	*
-	*
-	*	@return null
-	*/
-	function getActiveMembersId()
-	{
-		//declare var
-		$data		= array();
-		$today		= date("Y-m-d");
-		
-		//statement
-		$select		= "SELECT   C.customer_id
-					   FROM 	customer C, customer_membership CM
-					   WHERE 	C.customer_id = CM.customer_id
-					   AND		CM.end_date >= $today
-					  ";
-					  
-		//execute query
-		$query		= mysql_query($select);
-		
-		//check
-		if(mysql_num_rows($query) > 0)
-		{
-			//fetch
-			while($result = mysql_fetch_object($query))
-			{
-				$data[]	= $result->customer_id;
-			}
-		}
-		
-		//return result
-		return $data;
-		
-	}//eof
-	
-	
-	/**
-	*	Check if a member can post ads or not based whether his membership is active or not
-	*
-	*	@date	December 16, 2010
-	*
-	*	@param
-	*			$usrId			Current user id
-	*
-	*	@return char
-	*/
-	function isActiveMember($usrId)
-	{
-		//declare vars
-		$actUsrIds	= array();
-		$resChar	= 'N';
-		
-		//get the value
-		$actUsrIds	= $this->getActiveMembersId();
-		
-		
-		//checking
-		if(in_array($usrId, $actUsrIds))
-		{
-			$resChar	= 'Y';
-		}
-		else
-		{
-			$resChar	= 'N';
-		}
-	
-		//return the value
-		return $resChar;
-		
-	}//eof
-	
-	
-	/**
-	*	Get customer id by customer email. Usable to search for a client
-	*
-	*	@date November 12, 2010
-	*
-	*	@param
-	*			$email			User email
-	*	@return int
-	*/
-	function getCustomerIdByEmail($email)
-	{
-		//declare var
-		$data		= 0;
-		
-		
-		//statement
-		$select		= "SELECT   C.customer_id
-					   FROM 	customer C
-					   WHERE 	C.email = '$email'
-					  ";
-					  
-		//execute query
-		$query		= mysql_query($select);
-		
-		//check
-		if(mysql_num_rows($query) > 0)
-		{
-			//fetch
-			$result = mysql_fetch_object($query);
-			
-			//get the data
-			$data	= $result->customer_id;
-			
-		}
-		
-		//return result
-		return $data;
-		
-	}//eof
 	
 	
 	/**
@@ -1735,31 +1374,6 @@ class Customer extends Utility
      	 return $key;
     }//eof
 	
-	
-    /**
-    *    Get the latest id of order
-    */
-    function getLatestOrderId()
-    {
-        //declare vars
-        $id        = 0;
-       
-        //statement
-        $sql    = "SELECT MAX(customer_id) AS MOID FROM customer";
-       
-        //query
-        $query    = mysql_query($sql);
-       
-        //get the result
-        $result    = mysql_fetch_object($query);
-       
-        //assign the value
-        $id        = $result->MOID;
-       
-        //return the result
-        return $id;
-       
-    }//eof
 	
 	
 	############################################################################################################
@@ -2047,16 +1661,16 @@ class Customer extends Utility
 		
 		//delete from customer or client's information
 		$sql	= "DELETE FROM customer_info WHERE customer_id='$id'";
-		$query	= mysql_query($sql);
+		$query	= $this->conn->query($sql);
 		
 		//delete from client's address
 		$sql	= "DELETE FROM customer_address WHERE customer_id='$id'";
-		$query	= mysql_query($sql);
+		$query	= $this->conn->query($sql);
 		
 		
 		//delete from client
 		$sql	= "DELETE FROM customer WHERE customer_id='$id'";
-		$query	= mysql_query($sql);
+		$query	= $this->conn->query($sql);
 		
 		$result = '';
 		if(!$query)
@@ -2271,7 +1885,7 @@ class Customer extends Utility
 	*	This function will return all the product according to wishlist
 	*
 	*	@param
-	*			$cusId			User Id
+	*	$cusId			User Id
 	*
 	*	@return array
 	*	
@@ -2389,17 +2003,23 @@ class Customer extends Utility
 
 
 	function getCustomerByTypeId($type_id){
-
-		$data	= array();
-		$sql	= "SELECT * FROM customer_type WHERE customer_type_id = '$type_id'";
-		$query	= $this->conn->query($sql);
-		
-		if($query->num_rows > 0){
-			while($result = $query->fetch_array()){
-				$data[] = $result;
+		try {
+			$data 	= array();
+			$sql	= "SELECT * FROM customer_type WHERE customer_type_id = '$type_id'";
+			$query	= $this->conn->query($sql);
+			
+			if($query->num_rows > 0){
+				while($result = $query->fetch_assoc()){
+					$data = $result;
+				}
 			}
+			return $data;
+		
+		} catch (Exception $e) {
+			echo '<b>Error on:</b> '.__FILE__.', <b>On Line:</b>'.__LINE__.'<br>';
+			echo '<b>Error:</b> '.$e->getMessage();
+			exit;
 		}
-		return $data;
 	}
 
 
@@ -2621,211 +2241,16 @@ class Customer extends Utility
 	#																															#
 	#############################################################################################################################
 
+	function updateLastLogin($customer_id){
 
-	/**
-	*	Register a new Member.
-	*
-	*
-	*	@param
-	*			$first_name				First name of the member
-	*			$last_name				last name of the member
-	*			$email					email of the member
-	*			$address				address of the member
-	*			$province_id			province id
-	*			$town					town of the member
-	*			$post_code				post code
-	*			$favourite_resturant	favorite resturant of member
-	*			$description			Description of the member
-	*
-	*	@return int, 
-	*/
-	function addMember($first_name, $last_name, $email, $address, $province_id, $town, $post_code, $favourite_resturant, $description) 	  
-	{
-		//declare var
-		$id	= 0;
-		
-		
-		//get all email id to check if it is registered or not
-		$select = "SELECT * FROM club_member WHERE email = '$email'";
-		
-		//execute query
-		$query	= mysql_query($select);
-			
-		if(mysql_num_rows($query) > 0)
-		{
-			header("Location: ".$_SERVER['PHP_SELF']."?action=join_club&message=Email already exists&typeM=ERROR#joinClub");
-		}
-		else
-		{
-			//statement
-			$sql	 = 	 "INSERT INTO club_member 
-						 (first_name, last_name, email, address, province_id, town, post_code, favourite_resturant,  description, added_on)
-						 VALUES
-						 ('$first_name','$last_name', '$email', '$address', '$province_id', '$town', '$post_code', '$favourite_resturant',
-						 '$description',  now())";
-						 
-			//execute query
-			$query	= 	mysql_query($sql);
-			
-			//get the primary key
-			$id		= 	mysql_insert_id();
-						
-		
-		}
-		
-		//return id
-		return $id;
-		
-	}//eof
-	
-	/**
-	*	Edit club member
-	*	
-	*	@param
-	*			$member_id				Id of the member
-	*			$first_name				First name of the member
-	*			$last_name				last name of the member
-	*			$email					email of the member
-	*			$address				address of the member
-	*			$province_id			province id
-	*			$town					town of the member
-	*			$post_code				post code
-	*			$favourite_resturant	favorite resturant of member
-	*			$description			Description of the member
-	*
-	*	@return	null
-	*/
-	function editMember($member_id, $first_name, $last_name, $email, $address, $province_id, $town, $post_code, $favourite_resturant,
-						$description)
-	{
-	
-		
-		//statement
-		$sql	 = 		"UPDATE club_member 
-						SET
-						first_name				= '$first_name',
-						last_name 				= '$last_name',
-						email 					= '$email',
-						address 				= '$address',
-						province_id 			= '$province_id',
-						town 					= '$town',
-						post_code				= '$post_code',
-						favourite_resturant		= '$favourite_resturant',
-						description				= '$description',
-						modified_on				= now()
-						WHERE 
-						member_id		 		= $member_id
-						";
-			
-		//execute query			
-		$query	= mysql_query($sql);
-		//echo $sql.mysql_error();exit;
-		
-	}//eof
-	
-	/*
-	*	This funcion will return all the member id
-	*	
-	*	@param
-	*			$orderby		Order by clause in runtime
-	*			$orderType		Order type, either ascending or descending
-	*
-	*	@return array
-	*/
-	function getAllMemberId($orderby, $orderbyType)
-	{
-		//declare var
-		$data	= array();
-		
-		//statement
-		if($orderby == '' || $orderbyType == '')
-		{
-			$select	= "SELECT member_id FROM club_member";
-		}
-		else
-		{
-			$select	= "SELECT member_id FROM club_member
-				   	   ORDER BY ".$orderby." ".$orderbyType."";
-		}
-				   
-		//execute query
-		$query	= mysql_query($select);
-		
-		//fetch and hold the data
-		while($result	= mysql_fetch_array($query))
-		{
-			$data[]	= $result['member_id'];
-		}
-		
-		
-		//return the data
-		return $data;
-		
-	}//eof
-		
-	/**
-	*	Get the data associated with a member
-	*
-	*	@param
-	*			$mid		Member id
-	*
-	*	@return array				
-	*/
-	function getMemberData($mid)
-	{
-		//declare vars
-		$data = array();
-		
-		//statement
-		$select = "SELECT * FROM club_member
-				   WHERE member_id = '$mid'";
-				   
-		//execute query
-		$query	= mysql_query($select);
-		//echo $select.mysql_error();exit;
-		//holds the data
-		while($result = mysql_fetch_object($query))
-		{
-			$data  = array(
-					$result->first_name,			//0
-					$result->last_name,				//1
-					$result->email,					//2
-					$result->address,				//3
-					$result->province_id,			//4
-					$result->town,					//5
-					$result->post_code,				//6
-					$result->favourite_resturant,	//7
-					$result->description,			//8
-					$result->added_on,				//9
-					$result->modified_on,			//10
-					
-					);
-		}
-		
-		//return the data
-		return $data;
-		
-	}//eof
+		//update customer info
+		$update = "UPDATE customer_info 
+					SET last_logon = now(), no_logon = no_logon + 1
+					WHERE 	customer_id = '$customer_id'";
 
-	/**
-	*	This function will delete a member
-	*
-	*	@param
-	*			$mid			member id
-	*
-	*	@return null
-	*/	
-	
-	function deleteMember($mid)
-	{
+		$res =  $this->conn->query($update);
 		
-		//delete from product
-		$delete1 = "DELETE FROM club_member WHERE member_id='$mid'";
-		
-		//execute quary
-		$query1	= mysql_query($delete1);
-		
-	}//eof
+	}
 	
 	
 	############################################################################################################
@@ -2881,288 +2306,6 @@ class Customer extends Utility
 		
 	}//eof 
 	
-	
-	#############################################################################################################################
-	#																															#
-	#												Staff																		#
-	#																															#
-	#############################################################################################################################
-		
-	/**
-	*	Register a new Staff.
-	*
-	*
-	*	@param
-	*			$catId				Categiries id
-	*			$user_name			User Name
-	*			$email				Customers Email
-	*			$password			Access password, require later
-	*			$fname				First name of the staff
-	*			$lname				last name of the staff
-	*			$gender				Gender of the staff
-	*			$desg				Designation of the staff
-	*			$status				Status of the login which determine whether a clinets account is active or inactive
-	*			$brief				Brief introducttion of the staff
-	*			$description		Description of the staff
-	*			$organization		Organization associated with the staff
-	*			$featured			Whether featured staff or not
-	*			$sort_order			Sorting order
-	*
-	*	@return int  $dob, 
-	*/
-	function addStaff($catId, $user_name, $email, $password, $fname, $lname, $gender, $desg, $status, 
-					  $brief, $description, $organization, $featured, $sort_order)		  
-	{
-		//declare var
-		$id	= 0;
-		
-		//get the values
-		$email 				= trim($email);
-		$password 			= trim($password);
-		$fname 				= addslashes(trim($fname));
-		$lname 				= addslashes(trim($lname));
-		$user_name			= trim($user_name);
-		$brief 				= addslashes(trim($brief));
-		$description		= addslashes(trim($description));
-		$organization		= addslashes(trim($organization));
-		$sort_order			= (int)$sort_order;
-		
-		//Inserting in customer table
-		$x_password = md5_encrypt($password,USER_PASS);
-		
-		//get all email id to check if it is registered or not
-		$select = "SELECT * FROM staff WHERE email = '$email'";
-		
-		//execute query
-		$query	= mysql_query($select);
-			
-		if(mysql_num_rows($query) > 0)
-		{
-			header("Location: ".$_SERVER['PHP_SELF']."?action=add_staff&message=Email already exists&typeM=ERROR#addStaff");
-		}
-		else
-		{
-			//statement
-			$sql	 = 	 "INSERT INTO staff 
-						 (categories_id, user_name, email, password, fname, lname, gender,designation, status, 
-						 brief, description, organization, featured, sort_order, added_on)
-						 VALUES
-						 ('$catId', '$user_name', '$email', '$x_password', '$fname', '$lname', '$gender', '$desg', '$status', 
-						 '$brief', '$description', '$organization', '$featured','$sort_order', now())";
-						 
-			//execute query
-			$query	= 	mysql_query($sql);
-			//echo $query.mysql_error();exit;
-			//get the primary key
-			$id		= 	mysql_insert_id();
-		
-		}
-		
-		//return id
-		return $id;
-		
-	}//eof
-
-	/**
-	*	Edit registration information
-	*	
-	*	@param
-	*			$s_id				Staff id or primary key
-	*			$catId				Categiries id
-	*			$fname				First name of the staff
-	*			$lname				last name of the staff
-	*			$gender				Gender of the staff
-	*			$desg				Designation of the staff
-	*			$status				Status of the login which determine whether a clinets account is active or inactive
-	*			$brief				Brief introducttion of the staff
-	*			$description		Description of the staff
-	*			$organization		Organization associated with the staff
-	*			$featured			Whether featured staff or not
-	*			$sort_order			Sorting order
-	*
-	*	@return	null
-	*/
-	function editStaff($staff_id, $catId, $fname, $lname, $gender, $desg, $status, 
-					  	  $brief, $description, $organization, $featured, $sort_order)
-	{
-		//get the vars
-		$fname 				= addslashes(trim($fname));
-		$lname 				= addslashes(trim($lname));
-		$user_name			= trim($user_name);
-		$brief 				= addslashes(trim($brief));
-		$description		= addslashes(trim($description));
-		$organization		= addslashes(trim($organization));
-		$sort_order			= (int)$sort_order;
-		
-		
-		//statement
-		$sql	 = 	   "UPDATE staff 
-						SET
-						categories_id		= '$catId',
-						fname 				= '$fname',
-						lname 				= '$lname',
-						gender 				= '$gender',
-						status 				= '$status',
-						brief 				= '$brief',
-						description			= '$description',
-						organization		= '$organization',
-						featured			= '$featured',
-						sort_order			= '$sort_order',
-						modified_on			= now()
-						WHERE 
-						staff_id	 		= $staff_id
-						";
-			
-		//execute query			
-		$query	= mysql_query($sql);
-		//echo $sql.mysql_error();exit;
-		
-	}//eof
-
-	/**
-	*	Delete a staff from the database
-	*
-	*	@param 
-	*			$id				Staff id
-	*			$path			Path to the images
-	*
-	*	@return null
-	*/
-	function deleteStaff($id, $path)
-	{
-		//delete the image first
-		$this->deleteFile($id, 'staff_id' , $path, 'image', 'staff');
-				
-		//delete from client
-		$sql	= "DELETE FROM staff WHERE staff_id='$id'";
-		$query	= mysql_query($sql);
-		//echo $sql.mysql_error();exit;
-
-	}//eof
-	
-	
-	/*/**
-	*	Retrieve all staff id 
-	*
-	*	@return array
-	*/
-	function getAllStaffId()
-	{
-		//Declare array
-		$data	= array();
-		
-		//
-		$sql	= "SELECT 		staff_id
-				   FROM 		staff
-				   ORDER BY 	added_on 
-				   DESC";
-		
-		//execute query
-		$query	= mysql_query($sql);
-		
-		//fetch the data
-		if(mysql_num_rows($query) > 0)
-		{
-			while($result = mysql_fetch_object($query))
-			{
-				$data[] = $result->staff_id;
-			}
-		}
-		
-		//return data
-		return $data;
-		
-	}//eof
-	
-	/**
-	*	Show registration data
-	*
-	*	@param
-	*			$s_id		Staff identity
-	*
-	*	@return array
-	*/
-	function getStaffData($s_id)
-	{
-		//declare var
-		$data		= array();
-		
-		//create the statement
-		$select		=   "SELECT * 
-						 FROM 	staff
-						 WHERE 	staff_id = '$s_id'";
-		
-		//execute query
-		$query		= mysql_query($select);
-		//echo $select.mysql_error();exit;
-		//fetch the rows
-		if(mysql_num_rows($query) > 0)
-		{
-			while($result	= 	mysql_fetch_object($query))
-			{
-				$data	=	array(
-								  $result->categories_id,		//0			
-								  $result->user_name,			//1
-								  $result->email,				//2
-								  $result->password,			//3
-								  $result->fname,				//4
-								  $result->lname,				//5
-								  $result->gender,				//6
-								  $result->designation,			//7
-								  $result->status,				//8
-								  $result->image,				//9
-								  $result->brief ,			    //10
-								  $result->description ,		//11
-								  $result->organization,		//12 
-								  $result->featured,			//13
-								  $result->sort_order,			//14
-								  $result->added_on,			//15
-								  $result->modified_on			//16
-								  	  
-								);
-			}//while
-		}//if
-		
-		//return the data
-		return $data;	
-		
-	}//	eof
-	
-	/*/**
-	*	Retrieve all staff id  of a particular category
-	*
-	*	@param
-	*			$cId		Category identity
-	*
-	*	@return array
-	*/
-	function getStaffIdByCat($cId)
-	{
-		//Declare array
-		$data	= array();
-		
-		//
-		$sql	= "SELECT 		staff_id
-				   FROM 		staff
-				   WHERE	 	categories_id = '$cId'"; 
-
-		
-		//execute query
-		$query	= mysql_query($sql);
-		
-		//fetch the data
-		if(mysql_num_rows($query) > 0)
-		{
-			while($result = mysql_fetch_object($query))
-			{
-				$data[] = $result->staff_id;
-			}
-		}
-		
-		//return data
-		return $data;
-		
-	}//eof
 
 	/** 
 	*	Returns the list of client by type id
@@ -3201,12 +2344,5 @@ class Customer extends Utility
 	}//eof
 	
 }//eoc
-
-
-	
-
 	
 ?>
-
-
-

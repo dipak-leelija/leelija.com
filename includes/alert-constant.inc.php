@@ -56,7 +56,6 @@
 	define('ERU108', ' First name is empty.');
 	define('ERU109', ' Last name is empty.');
 
-	// Pijush : 21-11-2011
 
 	define('ERU120', ' GST No  is empty.');
 	define('ERU121', ' Licence No  is empty.');
@@ -114,9 +113,10 @@
 	define('SUU004', ' Thanking you for your registration. ');
 	define('SUU005', ' You have changed your email address. A mail has sent to your new email address.	');
 	define('SUU006', ' Your password has been changed. A mail has sent to your email address regarding the new changes.');
-	define('SUU007', ' Your information has been edited successfully');
+	const SUU007		= 'Your information has been edited successfully';
 	define('SUU008', ' Client has been added to the system');
 	define('SUU009', ' Image successfully uploaded');
+	const SUU010		= 'Your Address is Updated!';
 
 	#######################################################################################
 
