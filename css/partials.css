@@ -985,7 +985,7 @@
 
 /* our team section  */
 .R_team_section_div {
-    padding: 5rem 4rem;
+    padding: 2rem 4rem 5rem;
 }
 
 .R_team_section_div h1 {
@@ -993,8 +993,7 @@
     color: #06a0bac7;
     text-transform: uppercase;
     font-family: 'Ubuntu', sans-serif;
-
-
+    border-bottom: 1px solid #80808063;
 }
 
 .R_team_section_div h1 span {
@@ -1002,37 +1001,23 @@
     /* border-bottom: 1px solid #80808063; */
 }
 
+.R_team_section_div h1 strong {
+    font-weight: 500;
+}
+
 .r-div-h1_wrap {
     margin-bottom: 3rem;
 }
 
-.indivisual-size-wrap1 {
-    height: 210px;
-    width: 210px;
+.img__wrap_ratio {
+    /* height: 210px;
+    width: 210px; */
+    border-radius: 50% !important;
+    aspect-ratio: 1/1;
     object-fit: cover;
     object-position: center;
 }
 
-.indivisual-size-wrap2 {
-    height: 270px;
-    width: 270px;
-    object-fit: cover;
-    object-position: center;
-}
-
-.indivisual-size-wrap3 {
-    height: 190px;
-    width: 190px;
-    object-fit: cover;
-    object-position: center;
-}
-
-.indivisual-size-wrap4 {
-    height: 229px;
-    width: 250px;
-    object-fit: cover;
-    object-position: center;
-}
 
 @media (max-width: 998px) {
     .aBout_us-banner-section h1 {
@@ -1041,16 +1026,16 @@
         margin-bottom: 2rem;
     }
 
+    .R_team_section_div h1 {
+        font-size: 3.4rem;
+    }
+
     .aBout_us-banner-section {
         padding: 4rem 1rem;
     }
 
-    .indivisual-size-wrap1,
-    .indivisual-size-wrap2,
-    .indivisual-size-wrap3,
-    .indivisual-size-wrap4 {
-        height: 100%;
-        width: 100%;
+    .R_team_section_div {
+        padding: 3rem 1rem;
     }
 }
 
@@ -1059,10 +1044,24 @@
         font-size: 3rem;
         font-weight: 600;
     }
+
+    .R_team_section_div {
+        padding: 3rem 0rem;
+    }
+
     .R_team_section_div h1 {
         font-size: 3rem;
         text-align: center;
+        border-bottom: none;
+        font-weight: 600;
     }
+
+    .R_team_section_div h1 strong {
+        border-top: 1px solid #80808063;
+        border-bottom: 1px solid #80808063;
+        font-weight: 600;
+    }
+
     .aBout_us-banner-section {
         padding: 3rem 0.5rem 0;
     }
@@ -1080,6 +1079,12 @@
     }
 }
 
+@media (max-width: 575px) {
+    .R_team_section_div h1 {
+        font-size: 2.3rem;
+    }
+}
+
 @media (max-width: 360px) {
     .aBout_us-banner-section h1 {
         font-size: 2.4rem;
@@ -1087,5 +1092,16 @@
 
     .aBout_us-banner-section img {
         height: 378px;
+    }
+
+    .R_team_section_div h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 300px) {
+    .R_team_section_div h1 {
+        font-size: 1.8rem;
+        font-weight: 600;
     }
 }
