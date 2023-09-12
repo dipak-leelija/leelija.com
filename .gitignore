@@ -5,3 +5,4 @@ includes/constant.inc.php
 uploaded_cv
 *.log
 admin-old
+api
