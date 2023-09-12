@@ -98,9 +98,6 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
                         <div class="row">
                             <div class="col">
                                 <div class="card  px-3 py-5">
-
-
-                                    <!-- <div class="custom_row_fr_paginate"> -->
                                     <section class="gallery">
                                         <!-- row start -->
                                         <div class="row gallery-items">
@@ -157,16 +154,11 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
                                                         </div>
                                                     </div>
                                                 </div>
-
-
-
-
                                             </div>
                                             <?php
 							                          }
 						                             }
 						                            ?>
-                                            <!-- col start -->
                                         </div>
                                         <!-- row end -->
                                         <div class="d-flex justify-content-end mt-3">
@@ -185,16 +177,12 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
                                                 </ul>
                                             </nav>
                                         </div>
-
                                     </section>
-
-
-                                    <!-- </div> -->
-
                                 </div>
 
                             </div>
                         </div>
+                        <!-- main row end -->
                     </div>
                 </div>
             </div>
@@ -366,7 +354,7 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
         const prev = document.querySelector(".prev");
         const next = document.querySelector(".next");
         const page = document.querySelector(".page-num");
-        const maxItem = 6;
+        const maxItem = 3;
         let index = 1;
 
         const pagination = Math.ceil(galleryItems.length / maxItem);
