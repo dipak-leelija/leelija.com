@@ -73,3 +73,33 @@
 .product-price-btn button:hover {
     background-color: #6a2d58;
 }
+
+.gallery .gallery-items .item.hide {
+    display: none;
+}
+
+.gallery .gallery-items .item.show {
+    display: block;
+    min-width: 15rem;
+    animation: show .5s ease;
+}
+
+
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.gallery .pagination .prev.disabled,
+.gallery .pagination .next.disabled {
+    border-color: gray;
+    color: gray;
+    pointer-events: none;
+}
