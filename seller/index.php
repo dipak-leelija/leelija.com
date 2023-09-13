@@ -76,13 +76,6 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                 <div class="content-wrapper">
                     <div class="container">
                         <div class="row">
-                            <div class="col ">
-                                <div class="card page-description">
-                                    <h2>Dashboard</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-xl-3 col-md-6 my-2">
                                 <div class="card h-100 widget widget-stats">
                                     <div class="card-body">
@@ -92,7 +85,7 @@ $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
                                                 <i class="fa fa-globe " aria-hidden="true"></i>
                                             </div>
                                             <div class="widget-stats-content flex-fill">
-                                                <span class="widget-stats-title ">Blogs for Guest Service</span>
+                                                <span class="widget-stats-title ">Listed Blogs/Items</span>
                                                 <span class="widget-stats-amount">$0</span>
                                             </div>
                                         </div>
