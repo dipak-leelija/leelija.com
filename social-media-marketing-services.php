@@ -16,7 +16,6 @@ require_once("classes/utility.class.php");
 require_once("classes/utilityMesg.class.php");
 require_once("classes/utilityImage.class.php");
 require_once("classes/utilityNum.class.php");
-require_once("classes/gp-order.class.php");
 /* INSTANTIATING CLASSES */
 $dateUtil   = new DateUtil();
 $error 			= new Error();
@@ -29,7 +28,6 @@ $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
 $uNum 			= new NumUtility();
-$gp				  = new Gporder();
 ######################################################################################################################
 $typeM		= $utility->returnGetVar('typeM','');
 //user id
@@ -74,17 +72,7 @@ query_posts('showposts=3');
         content="LeeLija is an ✓Social Media Marketing service company, ✓Social Media Marketing service provider,✓SMM service agency,it provides an ✓affordable SMM services for small business, It also helps to grow your ✓social media marketing strategy." />
     <meta charset="utf-8">
     <meta name="keywords"
-        content="
-social media marketing strategy,social media marketing cost,social media marketing management,using social media for marketing,social media marketing ideas,nonprofit social media strategy,social media influencer marketing,social influencer marketing,how to create a social media strategy,creating a social media strategy,digital and social media marketing,facebook marketing company,what is a social media strategy,social media marketing facebook,social media strategy for business,social marketing companies,social media strategy for small business,social marketing strategy,local social media marketing,social media marketing agency for small business" />
-    <script>
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-    </script>
+        content="social media marketing strategy,social media marketing cost,social media marketing management,using social media for marketing,social media marketing ideas,nonprofit social media strategy,social media influencer marketing,social influencer marketing,how to create a social media strategy,creating a social media strategy,digital and social media marketing,facebook marketing company,what is a social media strategy,social media marketing facebook,social media strategy for business,social marketing companies,social media strategy for small business,social marketing strategy,local social media marketing,social media marketing agency for small business" />
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->

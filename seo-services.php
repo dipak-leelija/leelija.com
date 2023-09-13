@@ -16,7 +16,6 @@ require_once("classes/utility.class.php");
 require_once("classes/utilityMesg.class.php");
 require_once("classes/utilityImage.class.php");
 require_once("classes/utilityNum.class.php");
-require_once("classes/gp-order.class.php");
 /* INSTANTIATING CLASSES */
 $dateUtil   = new DateUtil();
 $error 			= new Error();
@@ -29,7 +28,6 @@ $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
 $uNum 			= new NumUtility();
-$gp				  = new Gporder();
 ######################################################################################################################
 $typeM		= $utility->returnGetVar('typeM','');
 //user id
@@ -49,8 +47,7 @@ $cusId		= $utility->returnSess('userid', 0);
 
 
 if(isset($_GET['seo_url'])){
-$seo_url			  		= $_GET['seo_url'];
-// $return_url 	= base64_decode($_GET["return_url"]); //get return url
+    $seo_url			  		= $_GET['seo_url'];
 }
 //$serviceDtl		= $service->showServicesSeoUrlWise($seo_url);
 //$servFeatDtls	= $service->ShowServcFrdDtls($serviceDtl[0]);
@@ -67,15 +64,6 @@ $seo_url			  		= $_GET['seo_url'];
     <meta charset="utf-8">
     <meta name="keywords"
         content="seo service seo service company,seo service companies,seo service provider,seo service agency,seo outsourcing service,small business seo service,affordable seo services for small business,seo service providers,seo consulting service,professional seo service,outsourcing seo service,affordable local seo services,local seo marketing company,seo reseller service,seo service uk,seo service USA,local seo service,seo consulting company,seo consulting firm,consultant seo,consultant seo servicesseo consulting,link building services,seo link building,seo link building services,link building company,link building strategies,what is link building,how to build links" />
-    <script>
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-    </script>
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->

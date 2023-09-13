@@ -103,7 +103,7 @@ if(isset($_POST['btnAddDomain'])){
 				$newName = $utility->getNewName4($_FILES['fileImg'], '', $domid);
 
 				//upload and crop the file
-				$uImg->imgCropResize($_FILES['fileImg'], '', $newName, '../images/domains/', 600, 600, $domid, 'dimage', 'id','domains');
+				$uImg->imgCropResize($_FILES['fileImg'], '', $newName, DOMAIN_IMG_DIR, 600, 600, $domid, 'dimage', 'id','domains');
 
 			}
 
@@ -163,18 +163,24 @@ if(isset($_POST['btnAddDomain'])){
             <div class="app-content">
                 <div class="content-wrapper">
                     <div class="container-fluid">
-                        <div class="row">
+
+                        <!-- <div class="row">
                             <div class="col">
                                 <div class="card page-description">
                                     <h2>Sell Products or Blogs</h2>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+
                         <div class="row">
                             <div class="col">
                                 <div class="card p-3">
+                                    <div class="card-header text-center pt-2 pb-4">
+                                        <h4>Add New Blog/Item</h4>
+                                    </div>
                                     <div class="card-body">
-                                        <form class="row g-3" action="<?= $currentURL ?>" method="POST">
+                                        <form class="row g-3" action="<?= $currentURL ?>" method="POST"
+                                            enctype="multipart/form-data">
                                             <div class="col-md-6">
                                                 <label for="txtDomain" class="form-label">Domain Name</label>
                                                 <input type="text" class="form-control" id="txtDomain"
@@ -261,13 +267,13 @@ if(isset($_POST['btnAddDomain'])){
                                             <div class="col-md-6">
                                                 <label for="txtPrice" class="form-label">Upload Blog
                                                     Image(600X600)</label>
-                                                    <div class="prvw-img-wrap">
+                                                <div class="prvw-img-wrap">
                                                     <div id="image-preview" class="col-md-6 my-3">
-                                                    <label for="image-upload" id="image-label">Choose Image</label>
-                                                    <input type="file" name="fileImg" id="image-upload" required />
-                                                </div>
+                                                        <label for="image-upload" id="image-label">Choose Image</label>
+                                                        <input type="file" name="fileImg" id="image-upload" required />
                                                     </div>
-                                               
+                                                </div>
+
                                             </div>
                                             <!-- <div class="col-md-6">
                                                 <label for="formFile" class="form-label">Default file input

@@ -5,31 +5,24 @@ require_once("includes/constant.inc.php");
 require_once("_config/dbconnect.php");
 require_once("classes/date.class.php");
 require_once("classes/error.class.php");
-require_once("classes/search.class.php");
 require_once("classes/customer.class.php");
 require_once("classes/login.class.php");
 require_once("classes/services.class.php");
 
-//require_once("../classes/front_photo.class.php");
-require_once("classes/blog_mst.class.php");
 require_once("classes/utility.class.php");
 require_once("classes/utilityMesg.class.php");
 require_once("classes/utilityImage.class.php");
 require_once("classes/utilityNum.class.php");
-require_once("classes/gp-order.class.php");
 /* INSTANTIATING CLASSES */
-$dateUtil   = new DateUtil();
+$dateUtil       = new DateUtil();
 $error 			= new Error();
-$search_obj	= new Search();
 $customer		= new Customer();
 $logIn			= new Login();
 $service		= new Services();
-$blogMst		= new BlogMst();
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
 $uNum 			= new NumUtility();
-$gp				  = new Gporder();
 ######################################################################################################################
 $typeM		= $utility->returnGetVar('typeM','');
 //user id
@@ -74,17 +67,7 @@ query_posts('showposts=3');
         content="Leelija is an effective content marketing agency,helps you to grow your content marketing plan,among many content marketing companies leelija provides best content marketing services." />
     <meta charset="utf-8">
     <meta name="keywords"
-        content="what is content marketing,content marketing strategy,content marketing agency,content marketing services,content marketing plan,
-what is content marketing strategy,content marketing companies,content marketing guide,content marketing for business,content marketing for small business,digital content strategy,seo content marketing,digital content marketing,content marketing for startups,seo and content marketing,creating a content strategy,content marketing firm,content planning strategy,content marketing,content marketing platform,content marketing consultancy" />
-    <script>
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-    </script>
+        content="what is content marketing,content marketing strategy,content marketing agency,content marketing services,content marketing plan, what is content marketing strategy,content marketing companies,content marketing guide,content marketing for business,content marketing for small business,digital content strategy,seo content marketing,digital content marketing,content marketing for startups,seo and content marketing,creating a content strategy,content marketing firm,content planning strategy,content marketing,content marketing platform,content marketing consultancy" />
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
