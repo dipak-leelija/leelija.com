@@ -109,7 +109,7 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
 						                    ?>
                                             <div class="item col-12 col-sm-6 col-md-4 px-4">
 
-                                                <div class="wrapping_div-blogcard">
+                                                <div class="blog-item-card">
                                                     <div class="product-img">
                                                         <img src="<?= URL?>images/domains/<?= $eachRecord['dimage']?>">
                                                     </div>
@@ -150,7 +150,7 @@ $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
                                                         </div>
                                                         <div class="product-price-btn">
                                                             <button type="button">View Details</button>
-                                                            <button type="button">Edit</button>
+                                                            <a href="edit-item.php?data=<?php echo $eachRecord['id'];?>">Edit</a>
                                                         </div>
                                                     </div>
                                                 </div>
