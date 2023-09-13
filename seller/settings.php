@@ -10,12 +10,11 @@ require_once ROOT_DIR. "classes/error.class.php";
 require_once ROOT_DIR. "classes/search.class.php";
 require_once ROOT_DIR. "classes/customer.class.php";
 require_once ROOT_DIR. "classes/login.class.php";
-require_once ROOT_DIR. "classes/niche.class.php";
-require_once ROOT_DIR. "classes/domain.class.php";
+require_once ROOT_DIR. "classes/location.class.php";
+
 require_once ROOT_DIR. "classes/utility.class.php";
 require_once ROOT_DIR. "classes/utilityMesg.class.php";
 require_once ROOT_DIR. "classes/utilityImage.class.php";
-require_once ROOT_DIR. "classes/utilityNum.class.php";
 
 
 /* INSTANTIATING CLASSES */
@@ -24,13 +23,12 @@ $error 			= new Error();
 $search_obj		= new Search();
 $customer		= new Customer();
 $logIn			= new Login();
-
+$Location       = new Location;
 //$ff				= new FrontPhoto();
 // $blogMst		= new BlogMst();
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
-$uNum 			= new NumUtility();
 ######################################################################################################################
 
 $currentURL = $utility->currentUrl();
@@ -94,6 +92,12 @@ if(isset($_POST['btnCancel'])){
 	//forward
 	$uMesg->showSuccessT('success', $id, 'id', "settings.php", "", 'Cancel');
 }
+
+
+
+$userCity       = $Location->getCityName($userCityId);
+$userState      = $Location->getStateName($userStateId);
+$userCountry    = $Location->getCountryName($userCountryId);
 ?>
 
 <!DOCTYPE html>
@@ -189,7 +193,7 @@ if(isset($_POST['btnCancel'])){
                                                         <label>Name</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <p><?php echo $cusDtl[0][5]; ?> <?php echo $cusDtl[0][6]; ?></p>
+                                                        <p><?= $userFname.' '.$userLname; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -197,7 +201,7 @@ if(isset($_POST['btnCancel'])){
                                                         <label>Email</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <p><?php echo $cusDtl[0][3]; ?></p>
+                                                        <p><?= $userEmail; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -205,7 +209,7 @@ if(isset($_POST['btnCancel'])){
                                                         <label>Gender</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <p class="text-capitalize">male</p>
+                                                        <p class="text-capitalize"><?= $userGender ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -214,8 +218,20 @@ if(isset($_POST['btnCancel'])){
                                                     </div>
                                                     <div class="col-md-9">
                                                         <p>
-                                                            <?php echo $cusDtl[0][24]; ?>, Barasat, Kolkata, West
-                                                            Bengal, India, 700124
+                                                            <?php
+                                                            $addressArr = array(
+                                                                'address1' => $userAddress1,
+                                                                'address2' => $userAddress2,
+                                                                'address3' => $userAddress3,
+                                                                'city' => $userCity,
+                                                                'state' => $userState,
+                                                                'country' => $userCountry,
+                                                                'zipcode' => $userPinCode
+                                                                
+                                                            );
+
+                                                            $Location->printAddress($addressArr);
+                                                            ?>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -225,7 +241,7 @@ if(isset($_POST['btnCancel'])){
                                                         <label>Phone</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <p>7699753019 <?php echo $cusDtl[0][34]; ?></p>
+                                                        <p><?= $userMobile; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -233,7 +249,7 @@ if(isset($_POST['btnCancel'])){
                                                         <label>Profession</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <p><?php echo $cusDtl[0][14];?></p>
+                                                        <p><?= $userProfession;?></p>
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3">
@@ -250,10 +266,7 @@ if(isset($_POST['btnCancel'])){
                                                         <h4 class="profile-hr mb-0">About <span></span></h4>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                                            Temporibus nesciunt incidunt dolorum modi. Odit facilis ea
-                                                            fugit aspernatur nesciunt, provident nostrum vero soluta
-                                                            libero quibusdam inventore ipsum ex esse tempora. </p>
+                                                        <p><?= $userBrief ?></p>
                                                     </div>
                                                 </div>
                                             </div>
