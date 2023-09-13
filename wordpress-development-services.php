@@ -16,7 +16,6 @@ require_once("classes/utility.class.php");
 require_once("classes/utilityMesg.class.php");
 require_once("classes/utilityImage.class.php");
 require_once("classes/utilityNum.class.php");
-require_once("classes/gp-order.class.php");
 /* INSTANTIATING CLASSES */
 $dateUtil   = new DateUtil();
 $error 			= new Error();
@@ -29,7 +28,6 @@ $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
 $uNum 			= new NumUtility();
-$gp				  = new Gporder();
 ######################################################################################################################
 $typeM		= $utility->returnGetVar('typeM','');
 //user id
@@ -75,15 +73,6 @@ query_posts('showposts=3');
     <meta charset="utf-8">
     <meta name="keywords"
         content="wordpress website builder,how to build a wordpress website,wordpress website design,hire wordpress developer,start a wordpress blog,create wordpress blog,wordpress theme development,wordpress local development,wordpress website development,freelance wordpress developer,wordpress development services,wordpress web design company,custom wordpress development,setting up a wordpress blog,wordpress best website builder,wordpress free website builder,wordpress web development,wordpress website design company,how to build a website using wordpress,wordpress website design services,custom wordpress website,hire dedicated wordpress developer,wordpress web development company,wordpress free website builder" />
-    <script>
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-    </script>
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->

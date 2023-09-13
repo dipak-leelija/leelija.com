@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once("includes/constant.inc.php");
-
 require_once "_config/dbconnect.php";
+
 require_once("classes/date.class.php");
 require_once("classes/error.class.php");
 require_once("classes/search.class.php");
@@ -16,7 +16,6 @@ require_once("classes/utility.class.php");
 require_once("classes/utilityMesg.class.php");
 require_once("classes/utilityImage.class.php");
 require_once("classes/utilityNum.class.php");
-require_once("classes/gp-order.class.php");
 /* INSTANTIATING CLASSES */
 $dateUtil   = new DateUtil();
 $error 			= new Error();
@@ -29,7 +28,6 @@ $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
 $uNum 			= new NumUtility();
-$gp				  = new Gporder();
 ######################################################################################################################
 $typeM		= $utility->returnGetVar('typeM','');
 //user id
@@ -75,15 +73,6 @@ query_posts('showposts=3');
     <meta charset="utf-8">
     <meta name="keywords"
         content="web design companies,web design company,what is web designing,web design and development,website development company,affordable web design,web design firm,best web design company,simple website design,web design company new york,ecommerce web design company,top web design companies,small business web design company,best website design company,web application development company,web development company in usa,web design company in usa,web development company in new york,top website design companies,web design and development company,website design firm,website development firm" />
-    <script>
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-    </script>
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
