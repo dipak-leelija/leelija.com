@@ -67,17 +67,7 @@ query_posts('showposts=3');
         content="Leelija is an effective content marketing agency,helps you to grow your content marketing plan,among many content marketing companies leelija provides best content marketing services." />
     <meta charset="utf-8">
     <meta name="keywords"
-        content="what is content marketing,content marketing strategy,content marketing agency,content marketing services,content marketing plan,
-what is content marketing strategy,content marketing companies,content marketing guide,content marketing for business,content marketing for small business,digital content strategy,seo content marketing,digital content marketing,content marketing for startups,seo and content marketing,creating a content strategy,content marketing firm,content planning strategy,content marketing,content marketing platform,content marketing consultancy" />
-    <script>
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-    </script>
+        content="what is content marketing,content marketing strategy,content marketing agency,content marketing services,content marketing plan, what is content marketing strategy,content marketing companies,content marketing guide,content marketing for business,content marketing for small business,digital content strategy,seo content marketing,digital content marketing,content marketing for startups,seo and content marketing,creating a content strategy,content marketing firm,content planning strategy,content marketing,content marketing platform,content marketing consultancy" />
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
