@@ -953,6 +953,8 @@
     object-fit: cover;
     object-position: top;
     max-width: 100%;
+    aspect-ratio: 1/1.2;
+    width: 650px;
 
 }
 
@@ -985,7 +987,7 @@
 
 /* our team section  */
 .R_team_section_div {
-    padding: 2rem 4rem 5rem;
+    padding: 2rem 5rem 5rem;
 }
 
 .R_team_section_div h1 {
@@ -1018,12 +1020,37 @@
     object-position: center;
 }
 
+@media (min-width: 1350px) {
+    .R_team_section_div {
+        padding: 2rem 7rem 5rem;
+    }
+
+    .aBout_us-banner-section h1 {
+        margin-bottom: -11rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .aBout_us-banner-section p {
+        margin-top: 7rem;
+    }
+}
+
+@media (min-width: 999px) and (max-width: 1050px) {
+    .aBout_us-banner-section p {
+        margin-top: 10rem;
+    }
+}
 
 @media (max-width: 998px) {
     .aBout_us-banner-section h1 {
         margin-top: 0rem;
         font-size: 5rem;
         margin-bottom: 2rem;
+    }
+
+    .aBout_us-banner-section p {
+        margin-top: 0rem;
     }
 
     .R_team_section_div h1 {
@@ -1070,7 +1097,7 @@
         margin-bottom: 2rem;
         width: 100%;
         object-position: center;
-        height: 500px;
+        /* height: 500px; */
     }
 
     .aBOUT_btn_div {
@@ -1103,5 +1130,85 @@
     .R_team_section_div h1 {
         font-size: 1.8rem;
         font-weight: 600;
+    }
+}
+
+/* CLIENTS LOGOS CSS */
+.clientsides-item {
+    padding: 2.5rem 0rem 3rem;
+    background: #EBF4FE;
+    margin: 4rem 0;
+}
+
+.clientsides-item h2 {
+    font-size: 2.4rem;
+    font-weight: 500;
+    /* font-family: "Poppins", Poppins; */
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.clientsides-item strong {
+    color: var(--aegean-blue);
+    font-weight: 500 !important;
+}
+
+.clientside-logo-row {
+    width: 75%;
+    margin: auto;
+}
+
+#clientslogo-item h2 {
+    font-size: 28px;
+    margin-top: 0;
+}
+
+#clientslogo-item img {
+    background-color: #FFFFFF;
+    border: 3px solid #999999;
+    padding: 7px;
+}
+
+.clientsides-logo-wrap {
+    position: relative;
+    padding: 0;
+    border: 1px solid;
+    border-color: #f3f3f3;
+}
+
+.cslogo-img-responsiving {
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    aspect-ratio: 3/2.5;
+    background-color: var(--pure-white);
+    mix-blend-mode: revert;
+    /* mix-blend-mode: difference; */
+}
+
+.cslogo-img-responsiving:hover {
+    /* background: #FDA33B; */
+    /* background: var(--aegean-blue); */
+    mix-blend-mode: difference;
+}
+
+@media (min-width:250px) and (max-width:451px) {
+
+    .clientside-logo-row {
+        width: 90% !important;
+    }
+}
+
+@media (max-width:600px) {
+
+    .clientsides-item h2 {
+        font-size: 1.6rem !important;
+    }
+}
+
+@media (max-width:575px) {
+    .clientsides-logo-wrap {
+        padding: 4px 0 !important;
     }
 }
