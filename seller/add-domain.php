@@ -103,7 +103,7 @@ if(isset($_POST['btnAddDomain'])){
 				$newName = $utility->getNewName4($_FILES['fileImg'], '', $domid);
 
 				//upload and crop the file
-				$uImg->imgCropResize($_FILES['fileImg'], '', $newName, '../images/domains/', 600, 600, $domid, 'dimage', 'id','domains');
+				$uImg->imgCropResize($_FILES['fileImg'], '', $newName, DOMAIN_IMG_DIR, 600, 600, $domid, 'dimage', 'id','domains');
 
 			}
 
@@ -174,7 +174,7 @@ if(isset($_POST['btnAddDomain'])){
                             <div class="col">
                                 <div class="card p-3">
                                     <div class="card-body">
-                                        <form class="row g-3" action="<?= $currentURL ?>" method="POST">
+                                        <form class="row g-3" action="<?= $currentURL ?>" method="POST" enctype="multipart/form-data">
                                             <div class="col-md-6">
                                                 <label for="txtDomain" class="form-label">Domain Name</label>
                                                 <input type="text" class="form-control" id="txtDomain"
