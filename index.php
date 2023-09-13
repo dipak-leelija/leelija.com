@@ -244,9 +244,9 @@ $cusId		= $utility->returnSess('userid', 0);
             <div class="row aBout_us-banner-section">
                 <h1>About Us</h1>
                 <div class="col-md-6 text-center text-md-start ps-md-0 ">
-                    <img src="images/aboutus_banner-home2.jpg" width="512px" height="624px" alt="">
+                    <img src="images/aboutus_banner-home2.jpg"  alt="">
                 </div>
-                <div class="col-md-6 m-auto mb-5">
+                <div class="col-md-6 m-auto">
 
                     <p>Leelija Web Solutions, an ISO 9001:2015 certified online Marketplace. We are enhancing our
                         business with the same tactics that we employ to our clients. Our aim is quite clear like
