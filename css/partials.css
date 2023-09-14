@@ -1019,6 +1019,11 @@
     object-fit: cover;
     object-position: center;
 }
+/*  */
+.market_place_main{
+    padding: 0 4rem 4rem;
+}
+
 
 @media (min-width: 1350px) {
     .R_team_section_div {
@@ -1064,6 +1069,9 @@
     .R_team_section_div {
         padding: 3rem 1rem;
     }
+    .market_place_main{
+        padding: 1rem;
+    }
 }
 
 @media (max-width: 767px) {
@@ -1103,6 +1111,9 @@
     .aBOUT_btn_div {
         display: flex;
         justify-content: center;
+    }
+    .market_place_main p{
+        margin-top: 2rem;
     }
 }
 
@@ -1188,9 +1199,7 @@
 }
 
 .cslogo-img-responsiving:hover {
-    /* background: #FDA33B; */
-    /* background: var(--aegean-blue); */
-    mix-blend-mode: difference;
+    background: var(--aegean-blue);
 }
 
 @media (min-width:250px) and (max-width:451px) {
@@ -1212,3 +1221,59 @@
         padding: 4px 0 !important;
     }
 }
+@media (min-width:992px) {
+    .cube {
+        width: 10px;
+        height: 10px;
+        border: solid 1px rgb(194 224 235 / 72%);
+        transform-origin: top left;
+        transform: scale(0) rotate(960deg) translate(-50%, -50%);
+        animation: cube 30s ease-in forwards infinite;
+    }
+
+    .cube:nth-child(2) {
+        animation-delay: 0s;
+        width: 12px;
+        height: 12px;
+        margin-left: 2rem;
+    }
+    @keyframes cube {
+        from {
+            transform: scale(5) rotate(0deg) translate(-50%, -50%);
+            opacity: 1;
+        }
+
+        to {
+            transform: scale(15) rotate(960deg) translate(-50%, -50%);
+            opacity: 0;
+        }
+    }
+    /* .shape-Circle {
+        width: 10px;
+        height: 10px;
+        border: solid 1px rgb(194 224 235 / 72%);
+        transform-origin: top left;
+        transform: scale(0) rotate(960deg) translate(-50%, -50%);
+        animation: shape-Circle 30s ease-in forwards infinite;
+        border-radius: 50%;
+    }
+
+    .shape-Circle:nth-child(2) {
+        animation-delay: 0s;
+        width: 12px;
+        height: 12px;
+        margin-left: 2rem;
+    }
+    @keyframes shape-Circle {
+        from {
+            transform: scale(5) rotate(0deg) translate(-50%, -50%);
+            opacity: 1;
+        }
+    
+        to {
+            transform: scale(15) rotate(960deg) translate(-50%, -50%);
+            opacity: 0;
+        }
+    } */
+}
+
