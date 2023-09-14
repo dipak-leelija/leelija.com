@@ -278,10 +278,14 @@ $cusId		= $utility->returnSess('userid', 0);
         <!-- -------------------------------  section-image & paragraph ends ++++++++ ------------------------ -->
 
 
+        <!-- ================================ OUR TEAM  =================================== -->
 
+        <?php require_once ROOT_DIR."components/main/featured-employees.php";?>
+
+        <!-- ============================== OUR TEAM END ================================= -->
         <!-- ================================ ABOUT US SECTION  =================================== -->
         <section>
-            <div class="row aBout_us-banner-section">
+            <div class="row aBout_us-banner-section pt-md-2">
                 <h1>About Us</h1>
                 <div class="col-md-6 text-center text-md-start ps-md-0 ">
                     <img src="images/aboutus_banner-home2.jpg" alt="">
@@ -309,13 +313,6 @@ $cusId		= $utility->returnSess('userid', 0);
         </section>
         <!-- ============================== ABOUT US SECTION END ================================= -->
 
-        <!-- ================================ OUR TEAM  =================================== -->
-
-
-        <!-- ============================== OUR TEAM END ================================= -->
-
-
-        <?php require_once ROOT_DIR."components/main/featured-employees.php";?>
 
         <!--================================== Market Explore Section Start ==================================-->
 
