@@ -10,12 +10,11 @@ require_once ROOT_DIR. "classes/error.class.php";
 require_once ROOT_DIR. "classes/search.class.php";
 require_once ROOT_DIR. "classes/customer.class.php";
 require_once ROOT_DIR. "classes/login.class.php";
-require_once ROOT_DIR. "classes/niche.class.php";
-require_once ROOT_DIR. "classes/domain.class.php";
+require_once ROOT_DIR. "classes/location.class.php";
+
 require_once ROOT_DIR. "classes/utility.class.php";
 require_once ROOT_DIR. "classes/utilityMesg.class.php";
 require_once ROOT_DIR. "classes/utilityImage.class.php";
-require_once ROOT_DIR. "classes/utilityNum.class.php";
 
 
 /* INSTANTIATING CLASSES */
@@ -24,13 +23,12 @@ $error 			= new Error();
 $search_obj		= new Search();
 $customer		= new Customer();
 $logIn			= new Login();
-
+$Location       = new Location;
 //$ff				= new FrontPhoto();
 // $blogMst		= new BlogMst();
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
-$uNum 			= new NumUtility();
 ######################################################################################################################
 
 $currentURL = $utility->currentUrl();
@@ -90,10 +88,40 @@ if(isset($_POST['addressUpdate'])){
 }
 
 
+//Change Password
+if (isset($_POST['currentPassword'])  && isset($_POST['newPassword']) && isset($_POST['confirmPassword'])) {
+
+    $oldPass = $_POST['currentPassword'];
+    $newPass = $_POST['newPassword'];
+    $cnfPass = $_POST['confirmPassword'];
+
+    $msg = $customer->editPassword($oldPass, $newPass, $cnfPass, $cusId);
+    // print_r($_POST);exit;
+}
+
+
 if(isset($_POST['btnCancel'])){
 	//forward
 	$uMesg->showSuccessT('success', $id, 'id', "settings.php", "", 'Cancel');
 }
+
+if (isset($_GET['typeM'])) {
+    if ($_GET['typeM'] == 'SUCCESS') {
+        $color ='primary';
+        $type   = 'Success!';
+    }else {
+        $color ='danger';
+        $type   = 'Sorry!';
+    }
+}
+if (isset($_GET['msg'])) {
+    $msg = $_GET['msg'];
+}
+
+
+$userCity       = $Location->getCityName($userCityId);
+$userState      = $Location->getStateName($userStateId);
+$userCountry    = $Location->getCountryName($userCountryId);
 ?>
 
 <!DOCTYPE html>
@@ -126,7 +154,6 @@ if(isset($_POST['btnCancel'])){
     <link href="<?= URL ?>assets/portal-assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/pace/pace.css" rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/highlight/styles/github-gist.css" rel="stylesheet">
-    <link href="<?= URL ?>assets/portal-assets/plugins/select2/css/select2.min.css" rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/fontawesome-6.1.1/css/all.min.css" rel="stylesheet">
 
     <!-- Theme Styles -->
@@ -148,9 +175,15 @@ if(isset($_POST['btnCancel'])){
                         <div class="row">
                             <div class="col">
                                 <div class="card page-description page-description-tabbed">
-                                    <h2>Settings</h2>
+                                    <?php if (isset($msg)) { ?>
+                                    <div class="alert alert-<?= $color ?> alert-dismissible fade show" role="alert">
+                                        <strong><?= $type ?></strong> <?= $msg ?>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <?php }?>
 
-                                    <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                                    <ul class="nav nav-tabs mb-3 mt-0" id="myTab" role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="overview-tab" data-bs-toggle="tab"
                                                 data-bs-target="#overview" type="button" role="tab"
@@ -189,7 +222,7 @@ if(isset($_POST['btnCancel'])){
                                                         <label>Name</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <p><?php echo $cusDtl[0][5]; ?> <?php echo $cusDtl[0][6]; ?></p>
+                                                        <p><?= $userFname.' '.$userLname; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -197,7 +230,7 @@ if(isset($_POST['btnCancel'])){
                                                         <label>Email</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <p><?php echo $cusDtl[0][3]; ?></p>
+                                                        <p><?= $userEmail; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -205,7 +238,7 @@ if(isset($_POST['btnCancel'])){
                                                         <label>Gender</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <p class="text-capitalize">male</p>
+                                                        <p class="text-capitalize"><?= $userGender ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -214,8 +247,20 @@ if(isset($_POST['btnCancel'])){
                                                     </div>
                                                     <div class="col-md-9">
                                                         <p>
-                                                            <?php echo $cusDtl[0][24]; ?>, Barasat, Kolkata, West
-                                                            Bengal, India, 700124
+                                                            <?php
+                                                            $addressArr = array(
+                                                                'address1' => $userAddress1,
+                                                                'address2' => $userAddress2,
+                                                                'address3' => $userAddress3,
+                                                                'city' => $userCity,
+                                                                'state' => $userState,
+                                                                'country' => $userCountry,
+                                                                'zipcode' => $userPinCode
+                                                                
+                                                            );
+
+                                                            $Location->printAddress($addressArr);
+                                                            ?>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -225,7 +270,7 @@ if(isset($_POST['btnCancel'])){
                                                         <label>Phone</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <p>7699753019 <?php echo $cusDtl[0][34]; ?></p>
+                                                        <p><?= $userMobile; ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -233,7 +278,7 @@ if(isset($_POST['btnCancel'])){
                                                         <label>Profession</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <p><?php echo $cusDtl[0][14];?></p>
+                                                        <p><?= $userProfession;?></p>
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3">
@@ -250,10 +295,7 @@ if(isset($_POST['btnCancel'])){
                                                         <h4 class="profile-hr mb-0">About <span></span></h4>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                                            Temporibus nesciunt incidunt dolorum modi. Odit facilis ea
-                                                            fugit aspernatur nesciunt, provident nostrum vero soluta
-                                                            libero quibusdam inventore ipsum ex esse tempora. </p>
+                                                        <p><?= $userBrief ?></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -272,76 +314,7 @@ if(isset($_POST['btnCancel'])){
 
                                     <div class="tab-pane fade" id="security" role="tabpanel"
                                         aria-labelledby="security-tab">
-                                        <div class="card">
-                                            <div class="card-body p-md-5">
-                                                <form class="form-horizontal" role="form"
-                                                    action="<?php echo $_SERVER['PHP_SELF'] ?>" name="formContactform"
-                                                    method="post" enctype="multipart/form-data" autocomplete="off">
-                                                    <div class="row ">
-                                                        <div class="col-md-6">
-                                                            <label for="settingsCurrentPassword"
-                                                                class="form-label">Current
-                                                                Password</label>
-                                                            <input type="password" class="form-control"
-                                                                aria-describedby="settingsCurrentPassword"
-                                                                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
-                                                            <div id="settingsCurrentPassword" class="form-text">Never
-                                                                share
-                                                                your password with anyone.</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row m-t-xxl">
-                                                        <div class="col-md-6">
-                                                            <label for="settingsNewPassword" class="form-label">New
-                                                                Password</label>
-                                                            <input type="password" class="form-control"
-                                                                aria-describedby="settingsNewPassword"
-                                                                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row m-t-xxl">
-                                                        <div class="col-md-6">
-                                                            <label for="settingsConfirmPassword"
-                                                                class="form-label">Confirm
-                                                                Password</label>
-                                                            <input type="password" class="form-control"
-                                                                aria-describedby="settingsConfirmPassword"
-                                                                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row m-t-xxl">
-                                                        <div class="col-md-6">
-                                                            <label for="settingsSmsCode" class="form-label">SMS
-                                                                Code</label>
-                                                            <div class="input-group">
-                                                                <input type="password" class="form-control"
-                                                                    aria-describedby="settingsSmsCode"
-                                                                    placeholder="&#9679;&#9679;&#9679;&#9679;" required>
-                                                                <button class="btn btn-primary btn-style-light"
-                                                                    id="settingsResentSmsCode">Resend</button>
-                                                            </div>
-                                                            <div id="settingsSmsCode" class="form-text">Code will be
-                                                                sent to
-                                                                the phone number from your account.</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row m-t-lg">
-                                                        <div class="col">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value=""
-                                                                    id="settingsPasswordLogout" checked>
-                                                                <label class="form-check-label"
-                                                                    for="settingsPasswordLogout">
-                                                                    Log out from all current sessions
-                                                                </label>
-                                                            </div>
-                                                            <a href="#" class="btn btn-primary m-t-sm">Change
-                                                                Password</a>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
+                                        <?php require_once ROOT_DIR."components/user-password-form.php" ?>
                                     </div>
 
                                 </div>
@@ -360,7 +333,6 @@ if(isset($_POST['btnCancel'])){
     <script src="<?= URL ?>assets/portal-assets/plugins/perfectscroll/perfect-scrollbar.min.js"></script>
     <script src="<?= URL ?>assets/portal-assets/plugins/pace/pace.min.js"></script>
     <script src="<?= URL ?>assets/portal-assets/plugins/highlight/highlight.pack.js"></script>
-    <script src="<?= URL ?>assets/portal-assets/plugins/select2/js/select2.full.min.js"></script>
     <script src="<?= URL ?>assets/portal-assets/js/main.min.js"></script>
     <script src="<?= URL ?>assets/portal-assets/js/pages/settings.js"></script>
     <script src="<?= URL ?>js/script.js"></script>

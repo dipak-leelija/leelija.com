@@ -54,7 +54,7 @@ $userMemberId           = $cusDtl[0][1];
 $userName               = $cusDtl[0][2];
 $userEmail              = $cusDtl[0][3];
 $userPass               = $cusDtl[0][4];
-$useFname               = $cusDtl[0][5];
+$userFname               = $cusDtl[0][5];
 $userLname              = $cusDtl[0][6];
 $userGender             = $cusDtl[0][7];
 $userStatus             = $cusDtl[0][8];
@@ -87,4 +87,5 @@ $userMobile            = $cusDtl[0][34];
 $userAccVerified       = $cusDtl[0][35];
 $userDob               = $cusDtl[0][36];
 $userBillingName       = $cusDtl[0][37];
+
 ?>

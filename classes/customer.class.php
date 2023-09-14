@@ -921,19 +921,20 @@ class Customer extends Utility{
 	*	
 	*	@return NULL
 	*/
-	function editPassword($old_pass, $new_pass, $cnf_pass, $user_type, $user_id)
-	{
+	function editPassword($old_pass, $new_pass, $cnf_pass, $user_id, $user_type=''){
 		
+		// echo $new_pass.'<br>';
+
 		//CHECK THE LENGTH OF THE NEW PASSWORD
 		if(strlen($new_pass) < 6) {
 
 			$msg = "Password is too short";
-			header("Location: ".$_SERVER['PHP_SELF']."?user_id=".$user_id."&action=edit_pass&msg=".$msg."&typeM=ERROR");
+			header("Location: ".$_SERVER['PHP_SELF']."?typeM=ERROR&msg=".$msg);
 		
 		}else if($new_pass != $cnf_pass){
 
 			$msg = "Password does not match with the confirm password";
-			header("Location: ".$_SERVER['PHP_SELF']."?user_id=".$user_id."&action=edit_pass&msg=".$msg."&typeM=ERROR");
+			header("Location: ".$_SERVER['PHP_SELF']."?typeM=ERROR&msg=".$msg);
 		
 		}else{
 			
@@ -951,7 +952,7 @@ class Customer extends Utility{
 			}else{
 
 				$msg = "No such user exist";
-				header("Location: ".$_SERVER['PHP_SELF']."?user_id=".$user_id."&action=edit_pass&msg=".$msg."&typeM=ERROR");
+				header("Location: ".$_SERVER['PHP_SELF']."?typeM=ERROR&msg=".$msg);
 			
 			}
 			
@@ -960,48 +961,42 @@ class Customer extends Utility{
 				if(!isset($_SESSION[ADM_SESS])){
 
 					header("Location: index.php");
-				}//extra security
-				else
-				{
+				}else{
 					$update	= "UPDATE customer SET password = '$new_pass' WHERE customer_id='$user_id'";
 					$query	= $this->conn->query($update);
-					$msg = "Password has changed  successfully";
-					header("Location: ".$_SERVER['PHP_SELF']."?action=success&msg=".$msg."&typeM=SUCCESS");
+					$msg = "Password has changed successfully";
+					header("Location: ".$_SERVER['PHP_SELF']."?typeM=SUCCESS&msg=".$msg);
 					
 				}//else
 				
-			}//admin user
-			else
-			{
-				//echo "else ".$x_password." ".$old_pass;exit;
-				if($x_password != $old_pass)
-				{
+			}else{
+				// echo "else ".$x_password." ".$old_pass;exit;
+				if($x_password != $old_pass){
 					//echo $x_password." ".$old_pass;exit;
-					$msg = "Old password does not match with the entered value";
-					header("Location: ".$_SERVER['PHP_SELF']."?action=edit_key&msg=".$msg."&typeM=ERROR");
+					$msg = "Current Password Not Matched!";
+					header("Location: ".$_SERVER['PHP_SELF']."?typeM=ERROR&msg=".$msg);
 					
-				}//else check old password
-				elseif(!isset($_SESSION[USR_SESS]))
-				{
-					$msg = "Logon before change your password";
-					header("Location: ".$_SERVER['PHP_SELF']."?action=edit_key&msg=".$msg."&typeM=ERROR");
-					
-				}//whether the user is logged on or not
-				else
+					//else check old password
+				}elseif(!isset($_SESSION[USR_SESS])){
 
-				{
+					$msg = "Logon before change your password";
+					header("Location: ".$_SERVER['PHP_SELF']."?typeM=ERROR&msg=".$msg);
+					
+					//whether the user is logged on or not
+				}else{
 					$update	= "UPDATE customer SET password = '$new_pass' WHERE customer_id='$user_id'";
 					$query	= $this->conn->query($update);
+
 					$msg 	= " Password has been changed successfully";
+					header("Location: user_account.php?typeM=SUCCESS&msg=".$msg);
 					
-					header("Location: user_account.php?action=success&msg=".$msg."&typeM=SUCCESS");
-					
-				}//else
+				}
 				
 			}//normal user
 
 			
 		}//else
+
 	}//eof
 	
 	

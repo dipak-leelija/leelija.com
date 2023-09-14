@@ -7045,69 +7045,6 @@ span.flatpickr-weekday {
 
 
 
-/* custom jquery pagination css */
-.custom_pagination {
-    /* display: block; */
-    width: 75%;
-    margin: 1em auto;
-    text-align: center;
-    justify-content: center;
-}
-
-.custom_pagination:after {
-    content: '';
-    clear: both;
-}
-
-.custom_pagination-button {
-    display: inline-block;
-    padding: 5px 13px;
-    border: 1px solid #e0e0e0;
-    background-color: #fff;
-    color: #36c;
-    cursor: pointer;
-    transition: background 0.1s, color 0.1s;
-    border-radius: 56px;
-}
-
-.custom_pagination-button:hover {
-    background-color: #ddd;
-    color: #36c;
-}
-
-.custom_pagination-button.active {
-    background-color: #36c;
-    border-color: #bbb;
-    color: #fff;
-}
-
-.custom_pagination-button:first-of-type {
-    border-radius: 56px;
-}
-
-.custom_pagination-button:last-of-type {
-    border-radius: 56px;
-}
-
-@media (min-width:250px) and (max-width:359px) {
-    .custom_pagination {
-        width: max-content;
-        padding: 0;
-    }
-
-    @media (min-width:250px) and (max-width:420px) {
-        .custom_pagination-button {
-            padding: 2px 9px;
-        }
-    }
-
-
-    @media (max-width: 767px) {}
-
-    .custom_pagination-items {
-        padding: 0;
-    }
-}
 /* settingpage css */
 .genderingrow {
     margin: auto;

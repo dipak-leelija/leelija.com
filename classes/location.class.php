@@ -123,7 +123,7 @@ class Location extends DatabaseConnection{
 	*			$id		id of the county
 	*
 	*/
-	function getCountyById($id)
+	function getCountryById($id)
 	{
 		$data	= array();
 		$sql	= 	"SELECT * 
@@ -142,6 +142,21 @@ class Location extends DatabaseConnection{
 	}//eof
 	
 	
+	function getCountryName($id){
+
+		$sql	= 	"SELECT name 
+					 FROM countries
+					 WHERE id = '$id'";
+		$query	= $this->conn->query($sql);
+		
+		if($query->num_rows == 1){
+			$result = $query->fetch_assoc();
+			$result = $result['name']; 						
+			return $result;
+		}
+		return;
+	}//eof
+
 	
 	////////////////////////////////////////////////////////////////////////////////////////////
 	//
