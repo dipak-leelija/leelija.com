@@ -7,22 +7,11 @@
 *	New function has been added to display product price in different format in runtime. The 
 *	coder or implementor would be able to change the rendering style in runtime.
 *
-*	
-*
-*
-*	@author		Safikul Islam
-*	@date		Oct 17, 2018
-*	@update		
-*	@version	3.0
-*	@copyright	WebTechHelp
-*	@url		https://webtechhelp.org
-*	@email		safikulislamwb@gmail.com
 * 
 */
 
 
-class Domain extends DatabaseConnection
-{
+class Domain extends DatabaseConnection{
 
 	#####################################################################################################
 	#
@@ -52,13 +41,14 @@ class Domain extends DatabaseConnection
 	*
 	*	@return int
 	*/
-	function addDomain($domain, $niche, $da, $pa, $cf, $tf, $alexa_traffic, $organic_traffic, $price, $sprice, $durl,
+	function addDomain($domain, $niche, $da, $dr,$pa, $cf, $tf, $alexa_traffic, $organic_traffic, $price, $sprice, $durl,
 						 $selling_status, $seo_url, $approved, $added_by)
 						
 	{
 		$domain				=	addslashes(trim($domain));
 		$niche				=	addslashes(trim($niche)); 
 		$da					=	addslashes(trim($da));
+		$dr					=	addslashes(trim($dr));
 		$pa					=	addslashes(trim($pa));
 		$cf					=	addslashes(trim($cf));
 		$tf					=	addslashes(trim($tf));
@@ -117,16 +107,15 @@ class Domain extends DatabaseConnection
 	*			$price					Domain Price
 	*			$durl					Domain Url
 	*			$dimage					Domain Screen Shot
-	*			$selling_status			Domain Selling Status
-	*			$approved				Domain Approved
 	*	@return int
 	*/
-	function editDomain($id, $domain,$niche, $da, $pa, $cf, $tf, $alexa_traffic,$organic_traffic, $price, $durl,
-						 $selling_status, $approved, $modified_by){
+	function updateDomain($id, $domain, $niche, $da, $dr, $pa, $cf, $tf, $alexa_traffic, $organic_traffic, $price, $durl,
+						  $modified_by){
 		$id					=	addslashes(trim($id));
 		$domain				=	addslashes(trim($domain));
 		$niche				=	addslashes(trim($niche));
 		$da					=	addslashes(trim($da));
+		$dr					=	addslashes(trim($dr));
 		$pa					=	addslashes(trim($pa));
 		$cf					=	addslashes(trim($cf));
 		$tf					=	addslashes(trim($tf));
@@ -134,15 +123,14 @@ class Domain extends DatabaseConnection
 		$organic_traffic	=	addslashes(trim($organic_traffic));
 		$price				=	addslashes(trim($price));
 		$durl				=	addslashes(trim($durl));
-		$selling_status		=	addslashes(trim($selling_status));
-		$approved			=	addslashes(trim($approved));
 		$modified_by		=	addslashes(trim($modified_by));
 		
 		//statement
 		$sql	= "UPDATE domains SET
 				  domain			='$domain',
 				  niche				='$niche',
-				  da				= '$da',
+				  da				='$da',
+				  dr				='$dr',
 				  pa 				='$pa',
 				  cf				='$cf',
 				  tf				='$tf',
@@ -150,26 +138,21 @@ class Domain extends DatabaseConnection
 				  organic_traffic	='$organic_traffic',
 				  price				='$price',
 				  durl				='$durl',
-				  selling_status	='$selling_status',
-				  approved			='$approved',
-				  updated_on 		= now(),
+				  modified_on 		= now(),
 				  modified_by		='$modified_by'
 				  WHERE 
 				  id 				= '$id'
 				  ";
 				  
 		//execute query
-		$query	= mysql_query($sql);
+		$query	= $this->conn->query($sql);
 		//echo $sql.mysql_error();exit;
 		//echo $sql;exit;
 		$result = '';
-		if(!$query)
-		{
-			$result = "ER102";
-		}
-		else
-		{
-			$result = "SU102";
+		if(!$query){
+			$result = "ER001";
+		}else{
+			$result = "SU001";
 		}
 		
 		//return the result
@@ -341,6 +324,36 @@ class Domain extends DatabaseConnection
 				return 0;
 			}
 		}
+
+	/**
+	*	This function will check whether the username is already in use or not
+	*
+	*	@param
+	*			$id 			User name or id
+	*			$fieldName		Column Name
+	*			$tableName 		Table to make query
+	*
+	*	@return string
+	*/
+	function duplicateDomain($url, $id=''){
+		if (!empty($id)) {
+			$select = "SELECT * FROM domains WHERE  durl = '$url' AND id <> $id";
+		}else {	
+			$select = "SELECT * FROM domains WHERE  durl = '$url'";
+		}
+		
+		$query  = $this->conn->query($select);
+		$rows   =  $query->num_rows;
+		
+		$msg = '';
+
+		if($rows > 0 ){
+			$msg = 'ER001';
+		}
+	
+		return $msg;
+
+	}//eof
 	#####################################################################################################
 	#
 	#										Domain Featurds
@@ -429,22 +442,48 @@ class Domain extends DatabaseConnection
      return $temp_arr;  
      }
 	
-	/*// 
-		* Display domain featured
-	*///
-	public function ShowDfeattwo($domain_id	){
-    //  $temp_arr = array();
-     $res = "SELECT * FROM domain_featured where domain_id	 = '$domain_id'";
-	 $query = $this->conn->query($res);
-	$rows = $query->num_rows;
-    //  $count=mysql_num_rows($res);
-	if ($rows > 0) {
-		while($row = $query->fetch_array()) {
-			$temp_arr[] =$row;
+
+	/**
+	 * 
+	 * Display domain features
+	 * 
+	 */
+	function ShowDomainfeatures($domain_id){
+
+		$sql = "SELECT * FROM domain_featured where domain_id	 = '$domain_id'";
+	 	$query = $this->conn->query($sql);
+		$rows = $query->num_rows;
+		
+		if ($rows > 0) {
+			while($row = $query->fetch_object()) {
+				$temp_arr[] =$row;
+			}
+			return json_encode($temp_arr);  
 		}
-		return $temp_arr;  
+
+	}//eof
+
+
+
+	// blog Niche details update
+	function domainSingleValueUpdate($id, $column, $value){
+
+		$id		= addslashes(trim($value));
+
+		$sql	= "UPDATE domains SET $column = '$value', modified_on = now() WHERE id = '$id' ";
+		$query	= $this->conn->query($sql);
+		$result = '';
+		if(!$query){
+			$result = "ER001";
+		}else{
+			$result = "SU001";
 		}
-	}
+		
+		//return the result
+		return $result;
+	}//eof
+
+
 }
 
 ?>	

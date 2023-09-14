@@ -25,7 +25,7 @@ $search_obj		= new Search();
 $customer		= new Customer();
 $logIn			= new Login();
 $Niche		    = new Niche();
-$domain			= new Domain();
+$Domain			= new Domain();
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
@@ -45,77 +45,121 @@ if($cusId == 0){
 
 $currentURL = $utility->currentUrl();
 
-if(isset($_POST['btnAddDomain'])){
+if (isset($_GET['data'])) {
+    $domainId = $_GET['data'];
+}
 
-		$txtDomain			= $_POST['txtDomain'];
-		$txtDomainUrl		= $_POST['txtDomainUrl'];
-		$txtNicheId			= $_POST['txtNicheId'];
-		$txtDa				= $_POST['txtDa'];
-		$txtPa				= $_POST['txtPa'];
-		$txtCf				= $_POST['txtCf'];
-		$txtTf				= $_POST['txtTf'];
-		$txtAlxTraffic		= $_POST['txtAlxTraffic'];
-		$txtOrgTraffic		= $_POST['txtOrgTraffic'];
-		$txtPrice			= $_POST['txtPrice'];
+if (isset($_GET['action'])) {
+    $actionTitle  = $_GET['action'];
 
-		//convert it into seo friendly url
-		$txtSeoUrl			= $utility->createContentSEOURL($txtDomain, $txtNicheId,'niche','durl','niche_master', 'seo_url', 'domains');
+    if ($actionTitle == 'SUCCESS') {
+        $actionColor  = 'primary';
+    }
 
-		//add Blog post session variables
-		$sess_arr				= array('txtDomain','txtDomainUrl', 'txtNicheId', 'txtDa','txtPa','txtCf','txtTf','txtAlxTraffic','txtOrgTraffic','txtPrice');
-
-		$utility->addPostSessArr($sess_arr);
+    if ($actionTitle == 'ERROR') {
+        $actionColor  = 'danger';
+    }
+}
+if (isset($_GET['msg'])) {
+    $msg = $_GET['msg'];
+}
 
 
-		//defining error variables
-		$action		= 'add_domain';
-		$url		= $_SERVER['PHP_SELF'];
-		$id			= 0;
-		$id_var		= '';
-		$anchor		= 'addDomain';
-		$typeM		= 'ERROR';
-		$msg = '';
+if(isset($_POST['updateBtn'])){
 
-		$duplicateId	= $MyError->duplicateUser($txtDomainUrl, 'durl', 'domains');
+    // print_r($_POST);exit;
+	$txtDomain			= $_POST['txtDomain'];
+	$txtDomainUrl		= $_POST['txtDomainUrl'];
+	$txtNicheId			= $_POST['txtNicheId'];
+	$txtDa				= $_POST['txtDa'];
+	$txtDR				= '';
+	$txtPa				= $_POST['txtPa'];
+	$txtCf				= $_POST['txtCf'];
+	$txtTf				= $_POST['txtTf'];
+	$txtAlxTraffic		= $_POST['txtAlxTraffic'];
+	$txtOrgTraffic		= $_POST['txtOrgTraffic'];
+	$txtPrice			= $_POST['txtPrice'];
 
-		if(preg_match("^ER^",$duplicateId)){
-
-			//echo "<span class='orangeLetter'>Error: Domain is already taken</span >";
-			$MyError->showErrorTA($action, $id, $id_var, $url, 'Domain Url is already taken', $typeM, $anchor);
-
-		}else{
-
-		    //add Domain
-		    $domid = $domain->addDomain($txtDomain, $txtNicheId, $txtDa, $txtPa, $txtCf, $txtTf, $txtAlxTraffic,$txtOrgTraffic, $txtPrice, $txtPrice, $txtDomainUrl, 'No', $txtSeoUrl, 'No', $cusDtl[0][2]);
-
-			// Domain Featured Add
-			for($i=0; $i < count($_POST['txtFeatured']); $i++){
-				//add the Featured
-				$domain->addDomainFeatured($domid, $_POST['txtFeatured'][$i]);
-			}
+        // [txtFeatured]
 
 
+	//convert it into seo friendly url
+	$txtSeoUrl	= $utility->createContentSEOURL($txtDomain, $txtNicheId,'niche','durl','niche_master', 'seo_url', 'domains');
 
-			//uploading images
+	//add Blog post session variables
+	$sess_arr	    = array('txtDomain','txtDomainUrl', 'txtNicheId', 'txtDa','txtPa','txtCf','txtTf','txtAlxTraffic','txtOrgTraffic','txtPrice');
+
+	$utility->addPostSessArr($sess_arr);
+
+	$duplicateId	= $Domain->duplicateDomain($txtDomainUrl, $domainId);
+
+	if(preg_match("^ER^",$duplicateId)){
+
+        $utility->redirectURL($currentURL, 'ERROR', 'Domain Url is already taken');
+        exit;
+	}else{
+
+	    //update Domain
+        $updated = $Domain->updateDomain($domainId, $txtDomain, $txtNicheId, $txtDa, $txtDR, $txtPa, $txtCf, $txtTf, $txtAlxTraffic, $txtOrgTraffic, $txtPrice, $txtDomainUrl, $cusDtl[0][2]);
+
+        if ($updated == 'SU001') {
+            // start the code what you want to do after successfuly updating the details
+
+
+
+
+            	//uploading images
 			if($_FILES['fileImg']['name'] != ''){
 
 				//rename the file
 				$newName = $utility->getNewName4($_FILES['fileImg'], '', $domid);
 
 				//upload and crop the file
-				$uImg->imgCropResize($_FILES['fileImg'], '', $newName, DOMAIN_IMG_DIR, 600, 600, $domid, 'dimage', 'id','domains');
+				$uImg->imgCropResize($_FILES['fileImg'], '', $newName, DOMAIN_IMG_DIR, 600, 600, $domainId, 'dimage', 'id','domains');
 
 			}
 
 			//deleting the sessions
 			$utility->delSessArr($sess_arr);
 
-			//forward the web page
-			$uMesg->showSuccessT('success', 0, '', 'add-domain.php', "Domain Name Has been Successfully Added", 'SUCCESS');
+            $utility->redirectURL($currentURL, 'SUCCESS', 'Domain Has been Successfully Updated!');
 
-		}
+        }
+
+		// // Domain Featured Add
+		// for($i=0; $i < count($_POST['txtFeatured']); $i++){
+		// 	//add the Featured
+		// 	$Domain->addDomainFeatured($domid, $_POST['txtFeatured'][$i]);
+		// }
+		
+	}
 
 }
+
+
+$domain = $Domain->showDomainsById($domainId);
+$domainFeaturs = $Domain->ShowDomainfeatures($domainId);
+
+$itemName           = $domain['domain'];          
+$itemNiche          = $domain['niche'];
+$itemDA             = $domain['da'];
+$itemPA             = $domain['pa'];
+$itemCF             = $domain['cf'];
+$itemTF             = $domain['tf'];
+$itemAlexaTraffic   = $domain['alexa_traffic'];
+$itemOrgTraffic     = $domain['organic_traffic'];
+$itemPrice          = $domain['price'];
+$itemSPrice         = $domain['sprice'];
+$itemURL            = $domain['durl'];
+$itemImage          = $domain['dimage'];
+$itemStatus         = $domain['selling_status'];
+$itemSEOURL         = $domain['seo_url'];
+$itemApproved       = $domain['approved'];
+$itemAddedBy        = $domain['added_by'];
+$itemAddedOn        = $domain['added_on'];
+$itemModifiedBy     = $domain['modified_by'];          ;
+$itemModifiedOn     = $domain['modified_on'];
+
 
 ?>
 <!DOCTYPE html>
@@ -178,20 +222,29 @@ if(isset($_POST['btnAddDomain'])){
                                     <div class="card-header text-center pt-2 pb-4">
                                         <h4>Add New Blog/Item</h4>
                                     </div>
+
+                                    <?php if (isset($msg)) { ?>
+                                    <div class="alert alert-<?= $actionColor?> alert-dismissible fade show" role="alert">
+                                        <strong><?= $actionTitle?>!</strong> <?= $msg ?>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <?php } ?>
+
                                     <div class="card-body">
                                         <form class="row g-3" action="<?= $currentURL ?>" method="POST"
                                             enctype="multipart/form-data">
                                             <div class="col-md-6">
                                                 <label for="txtDomain" class="form-label">Domain Name</label>
                                                 <input type="text" class="form-control" id="txtDomain"
-                                                    placeholder="example" name="txtDomain"
-                                                    value="<?php $utility->printSess2('txtDomain',''); ?>" required>
+                                                    placeholder="example" name="txtDomain" value="<?= $itemName; ?>"
+                                                    required>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="txtDomainUrl" class="form-label">Domain Url</label>
+                                                <label for="txtDomainUrl" class="form-label">Domain URL</label>
                                                 <input type="text" class="form-control" id="txtDomainUrl"
                                                     name="txtDomainUrl" placeholder="https://www.example.com"
-                                                    value="<?php $utility->printSess2('txtDomainUrl',''); ?>" required>
+                                                    value="<?=  $itemURL; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtNicheId" class="form-label">Niche</label>
@@ -200,7 +253,10 @@ if(isset($_POST['btnAddDomain'])){
                                                     <?php
 														$Niches  = $Niche->ShowBlogNichMast();
 														foreach($Niches as $eachNiche){
-															echo '<option value="'.$eachNiche['niche_id'].'">'.$eachNiche['niche_name'].'</option>';
+                                                            if (trim($itemNiche) == trim($eachNiche['niche_id'])) {
+                                                                $selected   = 'selected';
+                                                            }
+                                                                echo '<option value="'.$eachNiche['niche_id'].'" '.$selected.'>'.$eachNiche['niche_name'].'</option>';
 														}
 													?>
                                                 </select>
@@ -208,44 +264,38 @@ if(isset($_POST['btnAddDomain'])){
                                             <div class="col-md-6">
                                                 <label for="txtDa" class="form-label">DA</label>
                                                 <input type="text" placeholder="Domain Authority" class="form-control"
-                                                    id="txtDa" name="txtDa"
-                                                    value="<?php $utility->printSess2('txtDa',''); ?>" required>
+                                                    id="txtDa" name="txtDa" value="<?= $itemDA; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtPa" class="form-label">PA</label>
                                                 <input type="text" class="form-control" id="txtPa"
-                                                    placeholder="Page Authority" name="txtPa"
-                                                    value="<?php $utility->printSess2('txtPa',''); ?>" required>
+                                                    placeholder="Page Authority" name="txtPa" value="<?= $itemPA; ?>"
+                                                    required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtCf" class="form-label">CF</label>
                                                 <input type="text" class="form-control" placeholder="Citation Flow"
-                                                    id="txtCf" name="txtCf"
-                                                    value="<?php $utility->printSess2('txtCf',''); ?>" required>
+                                                    id="txtCf" name="txtCf" value="<?= $itemCF; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtTf" class="form-label">TF</label>
                                                 <input placeholder="Trust Flow" type="text" class="form-control"
-                                                    id="txtTf" name="txtTf"
-                                                    value="<?php $utility->printSess2('txtTf',''); ?>" required>
+                                                    id="txtTf" name="txtTf" value="<?= $itemTF; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtAlxTraffic" class="form-label">Alexa Traffic</label>
                                                 <input type="text" class="form-control" id="txtAlxTraffic"
-                                                    name="txtAlxTraffic"
-                                                    value="<?php $utility->printSess2('txtAlxTraffic',''); ?>" required>
+                                                    name="txtAlxTraffic" value="<?= $itemAlexaTraffic; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtOrgTraffic" class="form-label">Organic Traffic</label>
                                                 <input type="text" class="form-control" id="txtOrgTraffic"
-                                                    name="txtOrgTraffic"
-                                                    value="<?php $utility->printSess2('txtOrgTraffic',''); ?>" required>
+                                                    name="txtOrgTraffic" value="<?= $itemOrgTraffic; ?>" required>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="txtPrice" class="form-label">price</label>
+                                                <label for="txtPrice" class="form-label">Price</label>
                                                 <input placeholder="Enter Price in USD" type="text" class="form-control"
-                                                    id="txtPrice" name="txtPrice"
-                                                    value="<?php $utility->printSess2('txtPrice',''); ?>" required>
+                                                    id="txtPrice" name="txtPrice" value="<?= $itemPrice; ?>" required>
                                             </div>
 
 
@@ -256,19 +306,23 @@ if(isset($_POST['btnAddDomain'])){
                                                 <label class="form-label" for="field1">Domain Featured </label>
                                                 <div class="controls" id="profs">
 
-                                                    <div id="field"><input autocomplete="off" class="input form-control"
-                                                            id="field1" name="txtFeatured[]" type="text"
-                                                            placeholder="Write your domain featured" /></div>
+                                                    <div id="field">
+                                                        <input autocomplete="off" class="input form-control" id="field1"
+                                                            name="txtFeatured[]" type="text"
+                                                            placeholder="Write your domain featured" />
+                                                    </div>
+
                                                 </div>
-                                                <button style="background-color:#1f81c1;" id="b1"
-                                                    class="btn add-more my-2" type="button">+</button>
+                                                <button id="b1" class="btn btn-sm btn-primary add-more my-2"
+                                                    type="button">+</button>
                                                 <small>Press + to add another Feaured :)</small>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtPrice" class="form-label">Upload Blog
                                                     Image(600X600)</label>
                                                 <div class="prvw-img-wrap">
-                                                    <div id="image-preview" class="col-md-6 my-3">
+                                                    <div id="image-preview" class="col-md-6 my-3"
+                                                        style="<?= empty($itemImage) == false ? 'background-image: url('.IMG_PATH.'domains/'.$itemImage.'); background-size: cover; background-position: center center;':''; ?>">
                                                         <label for="image-upload" id="image-label">Choose Image</label>
                                                         <input type="file" name="fileImg" id="image-upload" required />
                                                     </div>
@@ -283,8 +337,8 @@ if(isset($_POST['btnAddDomain'])){
                                             <div class="col-md-6 mt-5 d-flex m-auto justify-content-evenly">
                                                 <button type="button" class="btn  btn-danger" onclick="history.back()"
                                                     id="btn_start_test" role="button">Cancel</button>
-                                                <button type="submit" name="btnAddDomain" class="btn btn-primary">Add
-                                                    for Sell</button>
+                                                <button type="submit" name="updateBtn"
+                                                    class="btn btn-primary">Update</button>
                                             </div>
                                         </form>
                                     </div>
@@ -335,43 +389,28 @@ if(isset($_POST['btnAddDomain'])){
             e.preventDefault();
 
             var addto = "#field" + next;
-
             var addRemove = "#field" + (next);
 
             next = next + 1;
-
             var newIn = '<input autocomplete="off" class="input form-control" id="field' + next +
                 '" name="txtFeatured[]' + next + '" type="text">';
 
             var newInput = $(newIn);
-
             var removeBtn = '<button id="remove' + (next - 1) +
-                '" class="btn btn-danger remove-me my-2" >-</button></div><div id="field">';
+                '" class="btn btn-sm btn-danger remove-me my-2" >-</button></div><div id="field">';
 
             var removeButton = $(removeBtn);
-
             $(addto).after(newInput);
-
             $(addRemove).after(removeButton);
-
             $("#field" + next).attr('data-source', $(addto).attr('data-source'));
-
             $("#count").val(next);
 
-
-
             $('.remove-me').click(function(e) {
-
                 e.preventDefault();
-
                 var fieldNum = this.id.charAt(this.id.length - 1);
-
                 var fieldID = "#field" + fieldNum;
-
                 $(this).remove();
-
                 $(fieldID).remove();
-
             });
 
         });

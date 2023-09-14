@@ -4233,6 +4233,34 @@ function word_teaser_end($string, $count){
 	}
 
 
+	/**
+	*	Advanced version of redirecting as compare to the other functions. This function
+	*	will accept all the URL variables
+	*
+	*	@param
+	*			$url			URL or web address to forward to, generally it is 
+	*							$_SERVER['PHP_SELF']
+	*			$actionType		This variable define the action SUCCESS or ERROR
+	*			$msg			Message id/code or messages to display
+	*			$name			Anchor name to show
+	*
+	*	@return NULL
+	*/
+	function redirectURL($url, $actionType, $msg, $name=''){
+
+		$parsedURL 	= parse_url($url);
+		$name 	= empty($name) == false ? "#".$name : '';
+
+		if (isset($parsedURL['query'])) {
+			// $pattern does not exist in the URL
+			header("Location: ".$url."&action=".$actionType."&msg=".$msg.$name);
+		}else {
+			// $pattern does not exist in the URL
+			header("Location: ".$url."?action=".$actionType."&msg=".$msg.$name);
+		}
+
+	}//eof
+
 
 	/*****************************************************************************
 	*																			 *
