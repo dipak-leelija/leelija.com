@@ -278,10 +278,14 @@ $cusId		= $utility->returnSess('userid', 0);
         <!-- -------------------------------  section-image & paragraph ends ++++++++ ------------------------ -->
 
 
+        <!-- ================================ OUR TEAM  =================================== -->
 
+        <?php require_once ROOT_DIR."components/main/featured-employees.php";?>
+
+        <!-- ============================== OUR TEAM END ================================= -->
         <!-- ================================ ABOUT US SECTION  =================================== -->
         <section>
-            <div class="row aBout_us-banner-section">
+            <div class="row aBout_us-banner-section pt-md-2">
                 <h1>About Us</h1>
                 <div class="col-md-6 text-center text-md-start ps-md-0 ">
                     <img src="images/aboutus_banner-home2.jpg" alt="">
@@ -309,17 +313,10 @@ $cusId		= $utility->returnSess('userid', 0);
         </section>
         <!-- ============================== ABOUT US SECTION END ================================= -->
 
-        <!-- ================================ OUR TEAM  =================================== -->
-
-
-        <!-- ============================== OUR TEAM END ================================= -->
-
-
-        <?php require_once ROOT_DIR."components/main/featured-employees.php";?>
 
         <!--================================== Market Explore Section Start ==================================-->
 
-        <section class="wthree-row text-center mt-4">
+        <section class="market_place_main  text-center mt-4">
             <h1 class=" fs-1 fw-bolder my-2"><span class="aegean-blue-color fw-bold"></span>Explore</span> The
                 <span class="aegean-blue-color fw-bold">Marketplace</span>
             </h1>
@@ -328,79 +325,30 @@ $cusId		= $utility->returnSess('userid', 0);
                     class="aegean-blue-color">Build</span>
                 Your <span class="aegean-blue-color">Business</span>
             </div>
-
-            <div class="container mt-4">
-                <div id="services" class="container-fluid text-center">
-                    <div class="row slideanim">
-                        <div class="col-md-4 col-sm-6 ">
-                            <div class="indivisual-service">
-                                <a href="domains.php">
-                                    <span>
-                                        <img src="images/icons/blog.png" alt="Domains & Blogs" class="services-icon" />
-                                    </span>
-                                    <h4>Domains & Blogs</h4>
-                                    <p>Domain Name, Design Blog With contents </p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="indivisual-service">
-                                <span>
-                                    <img src="images/icons/website.png" alt="website-design" alt="website-design"
-                                        class="services-icon" />
-                                </span>
-                                <h4>Website & eCommerce</h4>
-                                <p>Business, Professional and eCommerce Website & Lots More</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="indivisual-service">
-                                <span>
-                                    <img src="images/icons/software.png" alt="website-design" class="services-icon" />
-                                </span>
-                                <h4>Business Software</h4>
-                                <p>Accounting, Production, Sales, Analytics & Lots More </p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="indivisual-service">
-                                <span>
-                                    <img src="images/icons/apps.png" alt="website-design" class="services-icon" />
-                                </span>
-                                <h4>Apps & Tools</h4>
-                                <p>Apps for Your Business, SEO & Business Tools & Lots More</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="indivisual-service">
-                                <span>
-                                    <img src="images/icons/digital-marketing.png" alt="website-design"
-                                        class="services-icon" />
-                                </span>
-                                <h4>Digital Marketing</h4>
-                                <p>SEO, Social Media, Guest Posting Services & Lots More</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="indivisual-service">
-                                <span>
-                                    <img src="images/icons/graphic-design.png" alt="website-design"
-                                        class="services-icon" />
-                                </span>
-                                <h4 style="color:#303030;">Graphics & Design</h4>
-                                <p>Logo Design, Website Template & Lots More</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <a href="services.php" class="text-uppercase btn-explore-banner btn blue_btn">explore now</a> -->
-                    <button class="btn mt-3 explore_btn text-center "><a href="services.php"
-                            class="aegean-blue-color text-decoration-none">Explore Now</a></button>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="cube "></div>
+                    <div class="cube "></div>
+                    <img src="images/banner-new.png" class="w-75" alt="">
                 </div>
+                <div class="col-md-6 text-start m-auto">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sunt quos doloremque
+                        qui quo eaque alias modi, nesciunt eligendi quisquam quibusdam odio magni deserunt
+                        voluptate corporis, hic ratione aliquam possimus.</p>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn mt-3 explore_btn text-center "><a href="domains.php"
+                                class="aegean-blue-color text-decoration-none">Explore Now</a></button>
+                    </div>
+                </div>
+
             </div>
+            <!-- <a href="services.php" class="text-uppercase btn-explore-banner btn blue_btn">explore now</a> -->
+
         </section>
+        <!-- NEW Market Explore Section starts  -->
 
 
-        <!------------------------------------ Market Explore Section End ------------------------------------>
+        <!------------------------------------ NEW  Market Explore Section End ------------------------------------>
         <?php require_once "partials/testimonials.php"?>
 
         <!--===================================== Our Blogs Section Start =====================================-->

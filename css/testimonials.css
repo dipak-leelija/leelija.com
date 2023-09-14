@@ -16,20 +16,21 @@
     color: var(--darkblue);
 }
 .what-others-say-testimonial {
-    color:#fff ;
+    color:var(--pinkish-red);
     font-size: 1.1rem;
     font-weight: 800;
     /* font-family: "Poppins", Poppins; */
 }
 
 .sliderbar {
-    background-image: linear-gradient(120deg, #0673ba 0%, #0d5381 100%);
+    background-image: linear-gradient(120deg, #0673ba0a 0%, #0d538117 100%);
+    /* background-image: linear-gradient(120deg, #0673ba 0%, #0d5381 100%); */
     padding: 7rem 3rem 8.5rem;
 }
 
 .what-others-say-bo-slider-h1 {
     font-size: 3.2rem;
-    color: #FFFFFF;
+    color: var(--aegean-blue);
     /* font-family: "Poppins", Poppins; */
 }
 
@@ -71,7 +72,8 @@
 }
 
 .carousel {
-	background: var(--pure-white);
+	background: lavender;
+    /* background: rosybrown; */
 	border-radius: 16px;
     padding: 2.5rem 1rem 2rem;
 	margin-top: 0rem;
@@ -83,7 +85,7 @@
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
 	/* background-color: rgb(100, 126, 151); */
-	background-color: var(--aegean-blue);
+	background-color: var(--pure-white);
 	border-radius: 100px;
 	width: 55px;
 	height: 55px;
@@ -111,13 +113,13 @@
 }
 
 .carousel-indicators [data-bs-target] {
-	/* background-color: black; */
+	background-color: var(--aegean-blue);
 	/* border-bottom: 69px solid transparent; */
 }
 
 .iconbutton {
 	vertical-align: -20px;
-	color: var(--pure-white);
+	color: var(--pinkish-red);
 	font-size: 1.5rem;
 }
 
