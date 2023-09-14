@@ -324,7 +324,7 @@ $itemModifiedOn     = $domain['modified_on'];
                                                     <div id="image-preview" class="col-md-6 my-3"
                                                         style="<?= empty($itemImage) == false ? 'background-image: url('.IMG_PATH.'domains/'.$itemImage.'); background-size: cover; background-position: center center;':''; ?>">
                                                         <label for="image-upload" id="image-label">Choose Image</label>
-                                                        <input type="file" name="fileImg" id="image-upload" required />
+                                                        <input type="file" name="fileImg" id="image-upload" />
                                                     </div>
                                                 </div>
 
