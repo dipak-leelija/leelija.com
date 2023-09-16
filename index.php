@@ -495,5 +495,4 @@ const myModal = new bootstrap.Modal(document.getElementById('myModal'), options)
 const myModalAlternative = new bootstrap.Modal('#myModal', options)
 </script>
 </body>
-
 </html>
