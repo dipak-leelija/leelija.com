@@ -373,8 +373,8 @@ class Domain extends DatabaseConnection{
 	*
 	*	@return int
 	*/
-	function addDomainFeatured($domain_id, $featured)
-	{
+	function addDomainFeatured($domain_id, $featured){
+		
 		$domain_id						=	addslashes(trim($domain_id));
 		$featured						=	addslashes(trim($featured));
 		//$added_on						=	addslashes(trim($added_on));
@@ -386,21 +386,20 @@ class Domain extends DatabaseConnection{
 						";
 		//execute query
 		$query = $this->conn->query($sql);
-		//echo $sql.$this->conn->error;exit;
-		//get the primary key
-		$id		= $this->conn->insert_id;
-		
-		//return the blog_niche_id
-		return $id;
+		if ($query) {
+			return 'SU001';
+		}else {
+			return 'ER001';
+		}
 		
 	}//eof
 	
 	
 	// blog Niche details update
-	function editDomainFeatured($id,$featured, $modified_on){
+	function editDomainFeatured($id, $feature, $modified_on){
 
 		$id									=	addslashes(trim($id));
-		$featured							=	addslashes(trim($featured));
+		$featured							=	addslashes(trim($feature));
 		$modified_on						=	addslashes(trim($modified_on));
 		
 		//statement
@@ -412,35 +411,75 @@ class Domain extends DatabaseConnection{
 				  ";
 				  
 		//execute query
-		$query	= mysql_query($sql);
+		$query	= $this->conn->query($sql);
 		//echo $sql.mysql_error();exit;
 		//echo $sql;exit;
 		$result = '';
-		if(!$query)
-		{
-			$result = "ER102";
-		}
-		else
-		{
-			$result = "SU102";
+		if(!$query){
+			$result = "ER001";
+		}else{
+			$result = "SU001";
 		}
 		
 		//return the result
 		return $result;
 	}//eof
 
-	
-	
-	//  Display Blog Niches
-	public function ShowDfeaturedData(){
-     $temp_arr = array();
-     $res = mysql_query("SELECT * FROM domain_featured order by added_on desc") or die(mysql_error());        
-     $count=mysql_num_rows($res);
-    while($row = mysql_fetch_array($res)) {
-         $temp_arr[] =$row;
-     }
-     return $temp_arr;  
-     }
+
+	/**
+	 * This Funtions pass 4 parameters where 2 parameters are array
+	 * These array parameters contains domain feature's id and the feature
+	 *  # Each feature will be update which is contain in the ids array 
+	 *  # If there is more existing features in the database excluding the existing ids of array
+	 *  # Then the features will be deleted
+	 *  # If there is more features value avilable in the array then Ids
+	 *  # Then the features will be added to database as new feature/data
+	 * 
+	 *  $itemId 	= itemID Means Domain id, which feature is updating
+	 *  $ids    	= Feature primary key as ARRAY
+	 * 	$features 	= Feature of the domain as ARRAY
+	 */
+
+	// blog Niche details update
+	function updateDomainFeatured($itemId, array $ids, array $features, $modified_on=""){
+
+		$feaureIdNos = count($ids);
+		$feaureNos   = count($features);
+
+		$idString = '';
+		// Delete the features which are not required
+		for ($i=0; $i <= $feaureIdNos-1 ; $i++) {
+			$idString .= ' id <> '.$ids[$i];
+			if ($i < $feaureIdNos-1) {
+				$idString .= ' AND';
+			}
+		}
+		
+		$deleteSql = "DELETE FROM domain_featured WHERE domain_id = '$itemId' AND $idString";
+		$delRes    = $this->conn->query($deleteSql);
+		if (!$delRes) {
+			return "Feature Updating Failed!";
+		}
+
+
+		// Domain Features Add
+		for ($i = 0; $i < max($feaureNos, $feaureIdNos); $i++) {
+
+			// Check if the current index is within the bounds of both arrays
+			if ($i < $feaureIdNos && $i < $feaureNos) {
+				// echo "Update Data: Both arrays have data at this index";
+				$this->editDomainFeatured($ids[$i], $features[$i], $modified_on);
+
+			}else {
+				// echo "New Data: Only Feature has data at this index";
+				$this->addDomainFeatured($itemId, $features[$i]);
+
+			}
+		}
+
+
+	}//eof
+
 	
 
 	/**
@@ -460,6 +499,7 @@ class Domain extends DatabaseConnection{
 			}
 			return json_encode($temp_arr);  
 		}
+		return json_encode(array());
 
 	}//eof
 

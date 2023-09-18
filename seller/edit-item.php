@@ -1,46 +1,46 @@
 <?php
 session_start();
 $page = "Admin_my-blogs";
-require_once dirname(__DIR__)."/includes/constant.inc.php";
+require_once dirname(__DIR__) . "/includes/constant.inc.php";
 
-require_once ROOT_DIR."_config/dbconnect.php";
-require_once ROOT_DIR. "classes/date.class.php";
-require_once ROOT_DIR. "classes/error.class.php";
-require_once ROOT_DIR. "classes/search.class.php";
-require_once ROOT_DIR. "classes/customer.class.php";
-require_once ROOT_DIR. "classes/login.class.php";
-require_once ROOT_DIR. "classes/niche.class.php";
-require_once ROOT_DIR. "classes/domain.class.php";
-require_once ROOT_DIR. "classes/utility.class.php";
-require_once ROOT_DIR. "classes/utilityMesg.class.php";
-require_once ROOT_DIR. "classes/utilityImage.class.php";
-require_once ROOT_DIR. "classes/utilityNum.class.php";
+require_once ROOT_DIR . "_config/dbconnect.php";
+require_once ROOT_DIR . "classes/date.class.php";
+require_once ROOT_DIR . "classes/error.class.php";
+require_once ROOT_DIR . "classes/search.class.php";
+require_once ROOT_DIR . "classes/customer.class.php";
+require_once ROOT_DIR . "classes/login.class.php";
+require_once ROOT_DIR . "classes/niche.class.php";
+require_once ROOT_DIR . "classes/domain.class.php";
+require_once ROOT_DIR . "classes/utility.class.php";
+require_once ROOT_DIR . "classes/utilityMesg.class.php";
+require_once ROOT_DIR . "classes/utilityImage.class.php";
+require_once ROOT_DIR . "classes/utilityNum.class.php";
 
 
 /* INSTANTIATING CLASSES */
 
-$dateUtil      	= new DateUtil();
-$MyError 		= new MyError();
-$search_obj		= new Search();
-$customer		= new Customer();
-$logIn			= new Login();
-$Niche		    = new Niche();
-$Domain			= new Domain();
-$utility		= new Utility();
-$uMesg 			= new MesgUtility();
-$uImg 			= new ImageUtility();
-$uNum 			= new NumUtility();
+$dateUtil          = new DateUtil();
+$MyError         = new MyError();
+$search_obj        = new Search();
+$customer        = new Customer();
+$logIn            = new Login();
+$Niche            = new Niche();
+$Domain            = new Domain();
+$utility        = new Utility();
+$uMesg             = new MesgUtility();
+$uImg             = new ImageUtility();
+$uNum             = new NumUtility();
 
 ######################################################################################################################
 
-$typeM		= $utility->returnGetVar('typeM','');
+$typeM        = $utility->returnGetVar('typeM', '');
 
 //user id
-$cusId		= $utility->returnSess('userid', 0);
-$cusDtl		= $customer->getCustomerData($cusId);
+$cusId        = $utility->returnSess('userid', 0);
+$cusDtl        = $customer->getCustomerData($cusId);
 
-if($cusId == 0){
-	header("Location: index.php");
+if ($cusId == 0) {
+    header("Location: index.php");
 }
 
 $currentURL = $utility->currentUrl();
@@ -65,82 +65,85 @@ if (isset($_GET['msg'])) {
 }
 
 
-if(isset($_POST['updateBtn'])){
+if (isset($_POST['updateBtn'])) {
 
     // print_r($_POST);exit;
-	$txtDomain			= $_POST['txtDomain'];
-	$txtDomainUrl		= $_POST['txtDomainUrl'];
-	$txtNicheId			= $_POST['txtNicheId'];
-	$txtDa				= $_POST['txtDa'];
-	$txtDR				= '';
-	$txtPa				= $_POST['txtPa'];
-	$txtCf				= $_POST['txtCf'];
-	$txtTf				= $_POST['txtTf'];
-	$txtAlxTraffic		= $_POST['txtAlxTraffic'];
-	$txtOrgTraffic		= $_POST['txtOrgTraffic'];
-	$txtPrice			= $_POST['txtPrice'];
+    $txtDomain            = $_POST['txtDomain'];
+    $txtDomainUrl        = $_POST['txtDomainUrl'];
+    $txtNicheId            = $_POST['txtNicheId'];
+    $txtDa                = $_POST['txtDa'];
+    $txtDR                = '';
+    $txtPa                = $_POST['txtPa'];
+    $txtCf                = $_POST['txtCf'];
+    $txtTf                = $_POST['txtTf'];
+    $txtAlxTraffic        = $_POST['txtAlxTraffic'];
+    $txtOrgTraffic        = $_POST['txtOrgTraffic'];
+    $txtPrice            = $_POST['txtPrice'];
 
-        // [txtFeatured]
+    // [txtFeatured]
 
 
-	//convert it into seo friendly url
-	$txtSeoUrl	= $utility->createContentSEOURL($txtDomain, $txtNicheId,'niche','durl','niche_master', 'seo_url', 'domains');
+    //convert it into seo friendly url
+    $txtSeoUrl    = $utility->createContentSEOURL($txtDomain, $txtNicheId, 'niche', 'durl', 'niche_master', 'seo_url', 'domains');
 
-	//add Blog post session variables
-	$sess_arr	    = array('txtDomain','txtDomainUrl', 'txtNicheId', 'txtDa','txtPa','txtCf','txtTf','txtAlxTraffic','txtOrgTraffic','txtPrice');
+    //add Blog post session variables
+    $sess_arr        = array('txtDomain', 'txtDomainUrl', 'txtNicheId', 'txtDa', 'txtPa', 'txtCf', 'txtTf', 'txtAlxTraffic', 'txtOrgTraffic', 'txtPrice');
 
-	$utility->addPostSessArr($sess_arr);
+    $utility->addPostSessArr($sess_arr);
 
-	$duplicateId	= $Domain->duplicateDomain($txtDomainUrl, $domainId);
+    $duplicateId    = $Domain->duplicateDomain($txtDomainUrl, $domainId);
 
-	if(preg_match("^ER^",$duplicateId)){
+    if (preg_match("^ER^", $duplicateId)) {
 
         $utility->redirectURL($currentURL, 'ERROR', 'Domain Url is already taken');
         exit;
-	}else{
+    } else {
 
-	    //update Domain
+        //update Domain
         $updated = $Domain->updateDomain($domainId, $txtDomain, $txtNicheId, $txtDa, $txtDR, $txtPa, $txtCf, $txtTf, $txtAlxTraffic, $txtOrgTraffic, $txtPrice, $txtDomainUrl, $cusDtl[0][2]);
 
         if ($updated == 'SU001') {
+
             // start the code what you want to do after successfuly updating the details
+            if (isset($_POST['featuresId']) && isset($_POST['features'])) {
 
+                $featureIds = $_POST['featuresId'];
+                $features   = $_POST['features'];
 
+                $Domain->updateDomainFeatured($domainId, $featureIds, $features);
+            }else {
+                if ($_POST['features']) {
+                    foreach($_POST['features'] as $eachFeature){
+                        $Domain->addDomainFeatured($domainId, $eachFeature);
+                    }
+                }
+            }
+            
+            //uploading images
+            if ($_FILES['fileImg']['name'] != '') {
 
+                //rename the file
+                $newName = $utility->getNewName4($_FILES['fileImg'], '', $domid);
 
-            	//uploading images
-			if($_FILES['fileImg']['name'] != ''){
+                //upload and crop the file
+                $uImg->imgCropResize($_FILES['fileImg'], '', $newName, DOMAIN_IMG_DIR, 600, 600, $domainId, 'dimage', 'id', 'domains');
+            }
 
-				//rename the file
-				$newName = $utility->getNewName4($_FILES['fileImg'], '', $domid);
-
-				//upload and crop the file
-				$uImg->imgCropResize($_FILES['fileImg'], '', $newName, DOMAIN_IMG_DIR, 600, 600, $domainId, 'dimage', 'id','domains');
-
-			}
-
-			//deleting the sessions
-			$utility->delSessArr($sess_arr);
+            //deleting the sessions
+            $utility->delSessArr($sess_arr);
 
             $utility->redirectURL($currentURL, 'SUCCESS', 'Domain Has been Successfully Updated!');
 
         }
-
-		// // Domain Featured Add
-		// for($i=0; $i < count($_POST['txtFeatured']); $i++){
-		// 	//add the Featured
-		// 	$Domain->addDomainFeatured($domid, $_POST['txtFeatured'][$i]);
-		// }
-		
-	}
-
+    }
 }
 
 
 $domain = $Domain->showDomainsById($domainId);
-$domainFeaturs = $Domain->ShowDomainfeatures($domainId);
+$domainFeaturs  = $Domain->ShowDomainfeatures($domainId);
+$domainFeaturs  = json_decode($domainFeaturs);
 
-$itemName           = $domain['domain'];          
+$itemName           = $domain['domain'];
 $itemNiche          = $domain['niche'];
 $itemDA             = $domain['da'];
 $itemPA             = $domain['pa'];
@@ -157,7 +160,7 @@ $itemSEOURL         = $domain['seo_url'];
 $itemApproved       = $domain['approved'];
 $itemAddedBy        = $domain['added_by'];
 $itemAddedOn        = $domain['added_on'];
-$itemModifiedBy     = $domain['modified_by'];          ;
+$itemModifiedBy     = $domain['modified_by'];;
 $itemModifiedOn     = $domain['modified_on'];
 
 
@@ -179,11 +182,8 @@ $itemModifiedOn     = $domain['modified_on'];
 
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/fontawesome-6.1.1/css/all.min.css" rel="stylesheet">
     <link href="<?= URL ?>assets/portal-assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
@@ -198,11 +198,11 @@ $itemModifiedOn     = $domain['modified_on'];
 
 <body>
     <div class="app align-content-stretch d-flex flex-wrap">
-        <?php require_once ROOT_DIR."components/sidebar.php"; ?>
+        <?php require_once ROOT_DIR . "components/sidebar.php"; ?>
         <!-- sidebar ends -->
         <div class="app-container">
             <!-- navbar header starts -->
-            <?php require_once ROOT_DIR."components/navbar.php"; ?>
+            <?php require_once ROOT_DIR . "components/navbar.php"; ?>
             <!-- navbar header ends -->
             <div class="app-content">
                 <div class="content-wrapper">
@@ -224,78 +224,64 @@ $itemModifiedOn     = $domain['modified_on'];
                                     </div>
 
                                     <?php if (isset($msg)) { ?>
-                                    <div class="alert alert-<?= $actionColor?> alert-dismissible fade show" role="alert">
-                                        <strong><?= $actionTitle?>!</strong> <?= $msg ?>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
-                                    </div>
+                                        <div class="alert alert-<?= $actionColor ?> alert-dismissible fade show" role="alert">
+                                            <strong><?= $actionTitle ?>!</strong> <?= $msg ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
                                     <?php } ?>
 
                                     <div class="card-body">
-                                        <form class="row g-3" action="<?= $currentURL ?>" method="POST"
-                                            enctype="multipart/form-data">
+                                        <form class="row g-3" action="<?= $currentURL ?>" method="POST" enctype="multipart/form-data">
                                             <div class="col-md-6">
                                                 <label for="txtDomain" class="form-label">Domain Name</label>
-                                                <input type="text" class="form-control" id="txtDomain"
-                                                    placeholder="example" name="txtDomain" value="<?= $itemName; ?>"
-                                                    required>
+                                                <input type="text" class="form-control" id="txtDomain" placeholder="example" name="txtDomain" value="<?= $itemName; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtDomainUrl" class="form-label">Domain URL</label>
-                                                <input type="text" class="form-control" id="txtDomainUrl"
-                                                    name="txtDomainUrl" placeholder="https://www.example.com"
-                                                    value="<?=  $itemURL; ?>" required>
+                                                <input type="text" class="form-control" id="txtDomainUrl" name="txtDomainUrl" placeholder="https://www.example.com" value="<?= $itemURL; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtNicheId" class="form-label">Niche</label>
                                                 <select class="form-select" id="txtNicheId" name="txtNicheId" required>
                                                     <option value="" selected="selected">Select</option>
                                                     <?php
-														$Niches  = $Niche->ShowBlogNichMast();
-														foreach($Niches as $eachNiche){
-                                                            if (trim($itemNiche) == trim($eachNiche['niche_id'])) {
-                                                                $selected   = 'selected';
-                                                            }
-                                                                echo '<option value="'.$eachNiche['niche_id'].'" '.$selected.'>'.$eachNiche['niche_name'].'</option>';
-														}
-													?>
+                                                    $Niches  = $Niche->ShowBlogNichMast();
+                                                    foreach ($Niches as $eachNiche) {
+                                                        if (trim($itemNiche) == trim($eachNiche['niche_id'])) {
+                                                            $selected   = 'selected';
+                                                        }
+                                                        echo '<option value="' . $eachNiche['niche_id'] . '" ' . $selected . '>' . $eachNiche['niche_name'] . '</option>';
+                                                    }
+                                                    ?>
                                                 </select>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtDa" class="form-label">DA</label>
-                                                <input type="text" placeholder="Domain Authority" class="form-control"
-                                                    id="txtDa" name="txtDa" value="<?= $itemDA; ?>" required>
+                                                <input type="text" placeholder="Domain Authority" class="form-control" id="txtDa" name="txtDa" value="<?= $itemDA; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtPa" class="form-label">PA</label>
-                                                <input type="text" class="form-control" id="txtPa"
-                                                    placeholder="Page Authority" name="txtPa" value="<?= $itemPA; ?>"
-                                                    required>
+                                                <input type="text" class="form-control" id="txtPa" placeholder="Page Authority" name="txtPa" value="<?= $itemPA; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtCf" class="form-label">CF</label>
-                                                <input type="text" class="form-control" placeholder="Citation Flow"
-                                                    id="txtCf" name="txtCf" value="<?= $itemCF; ?>" required>
+                                                <input type="text" class="form-control" placeholder="Citation Flow" id="txtCf" name="txtCf" value="<?= $itemCF; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtTf" class="form-label">TF</label>
-                                                <input placeholder="Trust Flow" type="text" class="form-control"
-                                                    id="txtTf" name="txtTf" value="<?= $itemTF; ?>" required>
+                                                <input placeholder="Trust Flow" type="text" class="form-control" id="txtTf" name="txtTf" value="<?= $itemTF; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtAlxTraffic" class="form-label">Alexa Traffic</label>
-                                                <input type="text" class="form-control" id="txtAlxTraffic"
-                                                    name="txtAlxTraffic" value="<?= $itemAlexaTraffic; ?>" required>
+                                                <input type="text" class="form-control" id="txtAlxTraffic" name="txtAlxTraffic" value="<?= $itemAlexaTraffic; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtOrgTraffic" class="form-label">Organic Traffic</label>
-                                                <input type="text" class="form-control" id="txtOrgTraffic"
-                                                    name="txtOrgTraffic" value="<?= $itemOrgTraffic; ?>" required>
+                                                <input type="text" class="form-control" id="txtOrgTraffic" name="txtOrgTraffic" value="<?= $itemOrgTraffic; ?>" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="txtPrice" class="form-label">Price</label>
-                                                <input placeholder="Enter Price in USD" type="text" class="form-control"
-                                                    id="txtPrice" name="txtPrice" value="<?= $itemPrice; ?>" required>
+                                                <input placeholder="Enter Price in USD" type="text" class="form-control" id="txtPrice" name="txtPrice" value="<?= $itemPrice; ?>" required>
                                             </div>
 
 
@@ -303,26 +289,36 @@ $itemModifiedOn     = $domain['modified_on'];
                                             <div class="col-md-6">
                                                 <input type="hidden" name="count" value="1" />
 
-                                                <label class="form-label" for="field1">Domain Featured </label>
-                                                <div class="controls" id="profs">
-
-                                                    <div id="field">
-                                                        <input autocomplete="off" class="input form-control" id="field1"
-                                                            name="txtFeatured[]" type="text"
-                                                            placeholder="Write your domain featured" />
-                                                    </div>
+                                                <label class="form-label" for="field1">Domain Features </label>
+                                                <div id="field">
+                                                    <?php
+                                                    if (count($domainFeaturs) > 0) {
+                                                        foreach ($domainFeaturs as $eachFeatur) {
+                                                    ?>
+                                                            <div class="input-group mb-3">
+                                                                <input type="hidden" name="featuresId[]" value="<?= $eachFeatur->id; ?>">
+                                                                <input type="text" class="form-control" name="features[]" value="<?= $eachFeatur->featured ?>">
+                                                                <button class="btn btn-secondary" type="button" onclick="removeFeature(this)">Remove</button>
+                                                            </div>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?>
 
                                                 </div>
-                                                <button id="b1" class="btn btn-sm btn-primary add-more my-2"
-                                                    type="button">+</button>
-                                                <small>Press + to add another Feaured :)</small>
+
+                                                <div class="text-end">
+                                                    <button id="add-feature" class="btn btn-sm btn-primary my-2" type="button" onclick="addFeature()"> Add New Feature </button>
+                                                </div>
                                             </div>
+
+
+
                                             <div class="col-md-6">
                                                 <label for="txtPrice" class="form-label">Upload Blog
                                                     Image(600X600)</label>
                                                 <div class="prvw-img-wrap">
-                                                    <div id="image-preview" class="col-md-6 my-3"
-                                                        style="<?= empty($itemImage) == false ? 'background-image: url('.IMG_PATH.'domains/'.$itemImage.'); background-size: cover; background-position: center center;':''; ?>">
+                                                    <div id="image-preview" class="col-md-6 my-3" style="<?= empty($itemImage) == false ? 'background-image: url(' . IMG_PATH . 'domains/' . $itemImage . '); background-size: cover; background-position: center center;' : ''; ?>">
                                                         <label for="image-upload" id="image-label">Choose Image</label>
                                                         <input type="file" name="fileImg" id="image-upload" />
                                                     </div>
@@ -335,10 +331,8 @@ $itemModifiedOn     = $domain['modified_on'];
                                                 <input class="form-control" type="file" id="formFile">
                                             </div> -->
                                             <div class="col-md-6 mt-5 d-flex m-auto justify-content-evenly">
-                                                <button type="button" class="btn  btn-danger" onclick="history.back()"
-                                                    id="btn_start_test" role="button">Cancel</button>
-                                                <button type="submit" name="updateBtn"
-                                                    class="btn btn-primary">Update</button>
+                                                <button type="button" class="btn  btn-danger" onclick="history.back()" id="btn_start_test" role="button">Cancel</button>
+                                                <button type="submit" name="updateBtn" class="btn btn-primary">Update</button>
                                             </div>
                                         </form>
                                     </div>
@@ -365,59 +359,56 @@ $itemModifiedOn     = $domain['modified_on'];
 
 
     <script type="text/javascript">
-    $(document).ready(function() {
+        $(document).ready(function() {
 
-        $.uploadPreview({
+            $.uploadPreview({
 
-            input_field: "#image-upload",
+                input_field: "#image-upload",
+                preview_box: "#image-preview",
+                label_field: "#image-label"
 
-            preview_box: "#image-preview",
-
-            label_field: "#image-label"
-
-        });
-
-    });
-    </script>
-    <script>
-    $(document).ready(function() {
-
-        var next = 1;
-
-        $(".add-more").click(function(e) {
-
-            e.preventDefault();
-
-            var addto = "#field" + next;
-            var addRemove = "#field" + (next);
-
-            next = next + 1;
-            var newIn = '<input autocomplete="off" class="input form-control" id="field' + next +
-                '" name="txtFeatured[]' + next + '" type="text">';
-
-            var newInput = $(newIn);
-            var removeBtn = '<button id="remove' + (next - 1) +
-                '" class="btn btn-sm btn-danger remove-me my-2" >-</button></div><div id="field">';
-
-            var removeButton = $(removeBtn);
-            $(addto).after(newInput);
-            $(addRemove).after(removeButton);
-            $("#field" + next).attr('data-source', $(addto).attr('data-source'));
-            $("#count").val(next);
-
-            $('.remove-me').click(function(e) {
-                e.preventDefault();
-                var fieldNum = this.id.charAt(this.id.length - 1);
-                var fieldID = "#field" + fieldNum;
-                $(this).remove();
-                $(fieldID).remove();
             });
 
         });
 
+        const addFeature = () => {
 
+            // Create a new div element
+            var newDiv = document.createElement("div");
+            newDiv.className = "input-group mb-3";
 
-    });
+            // Create the input element
+            var input = document.createElement("input");
+            input.type = "text";
+            input.name = "features[]";
+            input.className = "form-control";
+
+            // Create the button element
+            var button = document.createElement("button");
+            button.className = "btn btn-secondary";
+            button.type = "button";
+            button.innerHTML = "Remove";
+
+            // Add an onclick function to the Remove button
+            button.onclick = function() {
+                newDiv.remove(); // Remove the parent div when the button is clicked
+            };
+
+            // Append the input and button elements to the new div
+            newDiv.appendChild(input);
+            newDiv.appendChild(button);
+
+            // Get the "field" element by its id
+            var field = document.getElementById("field");
+
+            // Append the new div to the "field" element
+            field.appendChild(newDiv);
+        }
+
+        const removeFeature=(elem)=>{
+            console.log(elem.parentElement.remove());
+        }
+
     </script>
 </body>
 
