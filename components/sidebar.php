@@ -115,7 +115,7 @@
         </ul>
         <ul class="accordion-menu">
         <div class="form-check form-switch text-dark rounded py-2 ps-2 mx-2 cutomer-switch w-md-100">
-            <input class="form-check-input ms-0" type="checkbox" role="switch" id="toClient">
+            <input class="form-check-input border-opacity-50 ms-0" type="checkbox" role="switch" id="toClient">
             <label class="form-check-label" for="toClient">Become a Client</label>
         </div>
         </ul>
