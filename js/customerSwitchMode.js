@@ -8,7 +8,7 @@ let rootPath = sellerPath.substring(0, sellerPath.lastIndexOf('/')+1);
 // Switch to seller
 $(document).ready(function() {
     $('#toSeller').click(function() {
-        urlCustomerSwap = `${rootPath}/seller/`;
+        urlCustomerSwap = `${rootPath}seller/`;
         $.ajax({
             url: "customerSwap.php",
             type: "GET",
@@ -30,7 +30,7 @@ $(document).ready(function() {
 $(document).ready(function() {
 
     $('#toClient').click(function() {
-        urlCustomerSwap = `${rootPath}/user/app.client.php`;
+        urlCustomerSwap = `${rootPath}user/app.client.php`;
         $.ajax({
             url: 'customerSwap.php',
             type: "GET",
