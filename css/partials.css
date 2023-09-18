@@ -1200,6 +1200,8 @@
 
 .cslogo-img-responsiving:hover {
     background: var(--aegean-blue);
+    mix-blend-mode: difference;
+    background: #d79c57;
 }
 
 @media (min-width:250px) and (max-width:451px) {
