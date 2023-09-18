@@ -74,7 +74,7 @@ class Login extends Utility{
 
 					}elseif($_SESSION['customer_type'] == 1){
 
-						header("Location: seller/dashboard.php");
+						header("Location: seller");
 
 					}elseif($_SESSION['customer_type'] == 2){
 
