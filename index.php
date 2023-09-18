@@ -131,10 +131,6 @@ $cusId		= $utility->returnSess('userid', 0);
     </div>
     <!-- Container End  -->
 
-
-
-
-
     <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
     <script src="plugins/jquery-3.6.0.min.js"></script>
 
