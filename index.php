@@ -51,7 +51,8 @@ $cusId		= $utility->returnSess('userid', 0);
     <?php //include('head-section.php');?>
     <title><?php echo COMPANY_FULL_NAME; ?>: Create website, blogs sales, blogs for beginners</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Business solution to grow online. create a beautiful website, blogs for beginners, blogs sales, buy a domain name, digital marketing services, guest post and 24/7 support.">
+    <meta name="description"
+        content="Business solution to grow online. create a beautiful website, blogs for beginners, blogs sales, buy a domain name, digital marketing services, guest post and 24/7 support.">
     <meta name="google-site-verification" content="yms7bEjruHA_-HFI2PfRho01yJhjM2PUQMuyYpXlZLM">
     <!-- <link rel="canonical" href="https://www.leelija.com" /> -->
 
@@ -119,8 +120,19 @@ $cusId		= $utility->returnSess('userid', 0);
         <!-- ============================== Testimonial Section Start ============================== -->
         <?php require_once "components/main/testimonials.inc"?>
         <!-- ============================== Testimonial Section End ============================== -->
-
-
+        <!-- ------------------------------------------------------------------- -->
+        <!-- contact section for index page  -->
+        <section class="indexpage_contactus-show ">
+            <h1> How can we help? </h1>
+            <p>Send us a message!</p>
+            <a href="contact.php">
+                <button type="button" class="btn btn-success mt-3 px-3 py-2 rounded-5">Contact Us
+                    <i class="fa-solid fa-comments"></i>
+                </button>
+            </a>
+        </section>
+        <!-- contact section for index page  -->
+        <!-- ------------------------------------------------------------------- -->
         <!-- ============================== Our Blogs Section Start ============================== -->
         <?php // require_once "components/main/latest-blogs.inc"; ?>
         <!-- ============================== Our Blogs Section End ============================== -->

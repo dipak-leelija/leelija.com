@@ -1019,11 +1019,32 @@
     object-fit: cover;
     object-position: center;
 }
+
 /*  */
-.market_place_main{
+.market_place_main {
     padding: 0 4rem 4rem;
 }
 
+/* ------------------------------------contact us section for index page---------------------------- */
+.indexpage_contactus-show {
+    padding: 5rem;
+    background-image: url(../images/Information-bg.jpg);
+    color: white;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.indexpage_contactus-show h1 {
+    text-transform: capitalize;
+}
+
+.indexpage_contactus-show p {
+    font-size: 1.2rem;
+    color: #ffffffc2;
+    text-transform: capitalize;
+}
 
 @media (min-width: 1350px) {
     .R_team_section_div {
@@ -1069,7 +1090,8 @@
     .R_team_section_div {
         padding: 3rem 1rem;
     }
-    .market_place_main{
+
+    .market_place_main {
         padding: 1rem;
     }
 }
@@ -1078,6 +1100,10 @@
     .aBout_us-banner-section h1 {
         font-size: 3rem;
         font-weight: 600;
+    }
+
+    .indexpage_contactus-show {
+        padding: 4rem 1rem;
     }
 
     .R_team_section_div {
@@ -1112,7 +1138,8 @@
         display: flex;
         justify-content: center;
     }
-    .market_place_main p{
+
+    .market_place_main p {
         margin-top: 2rem;
     }
 }
@@ -1223,6 +1250,7 @@
         padding: 4px 0 !important;
     }
 }
+
 @media (min-width:992px) {
     .cube {
         width: 10px;
@@ -1239,6 +1267,7 @@
         height: 12px;
         margin-left: 2rem;
     }
+
     @keyframes cube {
         from {
             transform: scale(5) rotate(0deg) translate(-50%, -50%);
@@ -1250,6 +1279,7 @@
             opacity: 0;
         }
     }
+
     /* .shape-Circle {
         width: 10px;
         height: 10px;
@@ -1278,4 +1308,3 @@
         }
     } */
 }
-

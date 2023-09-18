@@ -17,8 +17,9 @@
                 range of products and find something special just for you. Unbeatable deals and friendly customer
                 service. Join us today for an unforgettable shopping experience.</p>
             <div class="d-flex justify-content-center">
-                <button class="btn mt-3 explore_btn text-center "><a href="domains.php"
-                        class="aegean-blue-color text-decoration-none">Explore Now</a></button>
+          <a href="domains.php">
+                    <button value="Send" class="my-buttons-hover text-center mt-4 bn21">Explore Now</button>
+                     </a>
             </div>
         </div>
 
