@@ -453,11 +453,18 @@ $cusId		= $utility->returnSess('userid', 0);
 
         </section> -->
         <!------------------------------------ Our Blogs Section End ------------------------------------>
+
+
         <!--============================================  Footer Section Start ============================================-->
         <?php  require_once "partials/footer.php"?>
         <!-----------------------------------------------  Footer Section End ------------------------------------------------>
     </div>
     <!-- Container End  -->
+
+
+
+
+
     <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
     <script src="plugins/jquery-3.6.0.min.js"></script>
 
@@ -489,10 +496,6 @@ $cusId		= $utility->returnSess('userid', 0);
 
     // });
     </script>
-<script>
-const myModal = new bootstrap.Modal(document.getElementById('myModal'), options)
-// or
-const myModalAlternative = new bootstrap.Modal('#myModal', options)
-</script>
+
 </body>
 </html>
