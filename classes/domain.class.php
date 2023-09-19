@@ -297,17 +297,16 @@ class Domain extends DatabaseConnection{
 
 
 	 //Domain display
-	function ShowDomainData(){
+	function ShowBlogItems(){
 
 		$res = "SELECT * FROM domains order by id desc ";
 		$query = $this->conn->query($res);
-		while($row = $query->fetch_array()) {
+		while($row = $query->fetch_object()) {
 			 $temp_arr[] =$row;
-	
-		 }
-		 return $temp_arr;
-	
-		 }
+		}
+		return json_encode($temp_arr);
+
+	}//eof
 	
 	 //Display Domain as as Limited
 	 public function ShowlimitedData($limit){
@@ -354,6 +353,129 @@ class Domain extends DatabaseConnection{
 		return $msg;
 
 	}//eof
+
+	function changeStatus($domainId, $newStatus) {
+		try {
+			// Update the status
+			$updateQuery = "UPDATE domains SET selling_status = ? WHERE id = ?";
+			$updateStmt = $this->conn->prepare($updateQuery);
+			if (!$updateStmt) {
+				throw new Exception("Error preparing UPDATE statement: " . $this->conn->error);
+			}
+	
+			$updateStmt->bind_param("si", $newStatus, $domainId);
+			$result = $updateStmt->execute();
+	
+			if (!$result) {
+				throw new Exception("Error updating status: " . $updateStmt->error);
+			}
+	
+			$updateStmt->close();
+	
+			return true;
+		} catch (Exception $e) {
+			echo $e->getMessage();
+			return false;
+		}
+	}
+	
+
+	// Function to toggle the status of a row
+	function toggleSellingStatus($domainId) {
+		$currentStatus = '-1';
+		try {
+			// Check the current status
+			$query = "SELECT selling_status FROM domains WHERE id = ?";
+			$stmt = $this->conn->prepare($query);
+			if (!$stmt) {
+				throw new Exception("Error preparing statement: " . $this->conn->error);
+			}
+
+			$stmt->bind_param("i", $domainId);
+			$stmt->execute();
+			$stmt->bind_result($currentStatus);
+			$stmt->fetch();
+			$stmt->close();
+
+			// Toggle the status
+			$newStatus = $currentStatus == 1 ? 0 : 1;
+
+			// Update the status
+			$updated = $this->changeStatus($domainId, $newStatus);
+			if ($updated) {
+				return 'SU001';
+			}else {
+				return 'ER001';
+			}
+
+		} catch (Exception $e) {
+			echo $e->getMessage();
+			return false;
+		}
+	}
+
+
+
+	function changeApproval($domainId, $approval) {
+		try {
+			// Update the status
+			$updateQuery = "UPDATE domains SET approved = ? WHERE id = ?";
+			$updateStmt = $this->conn->prepare($updateQuery);
+			if (!$updateStmt) {
+				throw new Exception("Error preparing UPDATE statement: " . $this->conn->error);
+			}
+	
+			$updateStmt->bind_param("si", $approval, $domainId);
+			$result = $updateStmt->execute();
+	
+			if (!$result) {
+				throw new Exception("Error updating status: " . $updateStmt->error);
+			}
+	
+			$updateStmt->close();
+	
+			return true;
+		} catch (Exception $e) {
+			echo $e->getMessage();
+			return false;
+		}
+	}
+
+
+	// Function to toggle the status of a row
+	function toggleApproval($domainId) {
+		$currentStatus = '-1';
+		try {
+			// Check the current status
+			$query = "SELECT approved FROM domains WHERE id = ?";
+			$stmt = $this->conn->prepare($query);
+			if (!$stmt) {
+				throw new Exception("Error preparing statement: " . $this->conn->error);
+			}
+
+			$stmt->bind_param("i", $domainId);
+			$stmt->execute();
+			$stmt->bind_result($currentStatus);
+			$stmt->fetch();
+			$stmt->close();
+
+			// Toggle the status
+			$approval = $currentStatus == 1 ? 0 : 1;
+
+			// Update the status
+			$updated = $this->changeApproval($domainId, $approval);
+			if ($updated) {
+				return 'SU001';
+			}else {
+				return 'ER001';
+			}
+
+		} catch (Exception $e) {
+			echo $e->getMessage();
+			return false;
+		}
+	}
+
 	#####################################################################################################
 	#
 	#										Domain Featurds
@@ -508,8 +630,6 @@ class Domain extends DatabaseConnection{
 	// blog Niche details update
 	function domainSingleValueUpdate($id, $column, $value){
 
-		$id		= addslashes(trim($value));
-
 		$sql	= "UPDATE domains SET $column = '$value', modified_on = now() WHERE id = '$id' ";
 		$query	= $this->conn->query($sql);
 		$result = '';
@@ -526,5 +646,4 @@ class Domain extends DatabaseConnection{
 
 }
 
-?>	
-	
+?>
