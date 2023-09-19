@@ -74,6 +74,35 @@
             </li>
 
 
+            <li class="nav-item has-submenu">
+                <a class="nav-link  submenu-toggle <?php if($page == "blog-items" ){echo "active";} ?> "
+                    href="#" data-bs-toggle="collapse" data-bs-target="#blog-items-menu" aria-expanded="<?php if($page == "blog-items" ){echo "true";} else {
+                echo "flase"; 
+             } ?>" aria-controls="blog-items-menu">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-users-line"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Blogs/Items</span>
+                </a>
+                <div id="blog-items-menu"
+                    class="collapse submenu blog-items-menu  <?php if($page == "blog-items" ){echo "show";} ?>"
+                    data-bs-parent="#menu-accordion">
+                    <ul class="submenu-list list-unstyled">
+                        <li class="submenu-item">
+                            <a class="submenu-link <?php if($page == "blog-items"  ){echo "active";} ?>"
+                                href="blog-items.php">Blogs</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a class="submenu-link  <?php if($page == "Admin_add-new-employees"  ){echo "active";} ?>"
+                                href="add-employees.php">Add New Employee</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
+
 
             <li class="nav-item has-submenu">
                 <a class="nav-link  submenu-toggle <?php if($page == "Admin_employees-Details" || $page == "Admin_add-new-employees" ){echo "active";} ?> "
@@ -128,17 +157,17 @@
 
             <li class="nav-item has-submenu">
                 <a class="nav-link  submenu-toggle <?php if($page == "Admin_Email-group" ){echo "active";} ?>"
-                    href="my-guest-post.php" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-4"
+                    href="my-guest-post.php" href="#" data-bs-toggle="collapse" data-bs-target="#marketing-menu"
                     aria-expanded="<?php if($page == "Admin_Email-group"){echo "true";} else { echo "flase"; } ?>"
-                    aria-controls="submenu-4">
+                    aria-controls="marketing-menu">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fas fa-cart-arrow-down"></i>
                     </div>
                     <span class="nav-link-text ms-1">Markerting Tools</span>
                 </a>
-                <div id="submenu-4"
-                    class="collapse submenu submenu-4 <?php if($page == "Admin_Email-group" ){echo "show";} ?>"
+                <div id="marketing-menu"
+                    class="collapse submenu marketing-menu <?php if($page == "Admin_Email-group" ){echo "show";} ?>"
                     data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
                         <li class="submenu-item"><a
