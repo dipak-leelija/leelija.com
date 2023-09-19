@@ -9,8 +9,7 @@ $feature4 = $featuredEmps[3];
 ?>
 
 <section>
-    <div class="row R_team_section_div">
-
+    <div class="row R_team_section_div reveal">
         <div class="col-md-6 m-auto">
             <!-- display only for lg-screen -->
             <div class="r-div-h1_wrap d-md-block d-none">
@@ -61,6 +60,5 @@ $feature4 = $featuredEmps[3];
                 </a>
             </div>
         </div>
-
     </div>
 </section>
