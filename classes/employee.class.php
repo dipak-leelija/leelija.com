@@ -36,6 +36,83 @@ class Employee extends DatabaseConnection{
         }
     }
 
+    // public function getEmpById($empId) {
+    //     $data = array(); // Initialize an array to store the data
+    
+    //     // Prepare the SQL query with a WHERE clause to select a specific employee by emp_id
+    //     $sql = "SELECT * FROM `employees` WHERE emp_id = ?";
+    //     $stmt = $this->conn->prepare($sql);
+    //     if (!$stmt) {
+    //         return json_encode(array('error' => 'Error preparing SQL statement: ' . $this->conn->error));
+    //     }
+    
+    //     // Bind the emp_id parameter
+    //     $stmt->bind_param("s", $empId);
+        
+    //     // Execute the query
+    //     $stmt->execute();
+    //     $res = $stmt->get_result();
+    
+    //     if ($res->num_rows > 0) {
+    //         // Fetch the data for the specific employee
+    //         $result = $res->fetch_object();
+    //         $data['status'] = true;
+    //         $data['message'] = "Customer data retrieved successfully.";
+    //         $data['employee'] = $result;
+    //     } else {
+    //         $data['status'] = false;
+    //         $data['message'] = "Customer not found.";
+    //         $data['employee'] = '';
+    //     }
+    
+    //     // Close the statement
+    //     $stmt->close();
+    
+    //     // Convert the data to JSON format
+    //     return json_encode($data);
+    // }
+
+    public function getEmpById($empId) {
+        // Initialize an array to store the data
+        $data = array();
+    
+        // Prepare the SQL query with a LEFT JOIN to select data from both tables
+        $sql = "SELECT employees.*, employee_address.*, employee_address.updated_on AS address_update 
+                FROM `employees`
+                LEFT JOIN `employee_address`
+                ON employees.emp_id = employee_address.emp_id
+                WHERE employees.emp_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        if (!$stmt) {
+            return json_encode(array('error' => 'Error preparing SQL statement: ' . $this->conn->error));
+        }
+    
+        // Bind the emp_id parameter
+        $stmt->bind_param("s", $empId);
+    
+        // Execute the query
+        $stmt->execute();
+        $res = $stmt->get_result();
+    
+        if ($res->num_rows > 0) {
+            // Fetch the data for the specific employee
+            $result = $res->fetch_assoc();
+            $data['status'] = true;
+            $data['message'] = 'Employee data retrive successfuly.';
+            $data['employee'] = $result;
+        } else {
+            $data['status'] = false;
+            $data['message'] = 'Employee data not found.';
+        }
+    
+        // Close the statement
+        $stmt->close();
+    
+        // Convert the data to JSON format
+        return json_encode($data);
+    }
+    
+    
 
     public function getEmpImage($empId){
 
