@@ -1,4 +1,4 @@
-<div class="light_blue_bg py-sm-4 orienta-font">
+<div class="light_blue_bg py-sm-4 orienta-font reveal">
 
   <div class="container">
 

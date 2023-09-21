@@ -181,6 +181,7 @@ $cusId		= $utility->returnSess('userid', 0);
 
     // });
     </script>
+    <!-- /* CUSTOM ANIMATION FOR ALL SECTIONS IN PAGES */ -->
     <script>
     function reveal() {
         var reveals = document.querySelectorAll(".reveal");
@@ -192,8 +193,6 @@ $cusId		= $utility->returnSess('userid', 0);
 
             if (elementTop < windowHeight - elementVisible) {
                 reveals[i].classList.add("active");
-            } else {
-                reveals[i].classList.remove("active");
             }
         }
     }

@@ -41,7 +41,7 @@ if(isset($_POST["action"])){
 			$nicheDtls	 	= $Niche->showBlogNichMst($row['niche']);
 			foreach ($nicheDtls as $rowNicheDtls) {
 			$output .= '
-				<div class=" col-lg-4 col-md-6 col-sm-6">
+				<div class=" col-lg-3 col-md-6 col-sm-6 my-2">
 					<div class="card prod-sec text-left">
 						<div class="prod-dtls">
 							<div class="prod-img">
@@ -61,10 +61,10 @@ if(isset($_POST["action"])){
 							<div class="prod-content-sec">
 								<h3><i class="fa fa-angle-double-right"></i>'. $rowNicheDtls[1] .'</h3>
 								<a href="domain.php?seo_url='.$row['seo_url'].'"><h2 class="prodName-Sec">'. $row['durl'] .'</h2></a>
-								<p>DA:'. $row['da'] .'</p>'.'<p> PA: '. $row['pa'] .'</p>
-								<p>Alexa Traffic: '. $row['alexa_traffic'] .'</p>
-								<p>Organic Traffic: '. $row['organic_traffic'] .'</p>
-								<h3>Price $'. $row['price'] .'</h3>
+								<p><i class="fas fa-long-arrow-alt-right"></i> DA:'. $row['da'] .'</p>'.'<p><i class="fas fa-long-arrow-alt-right"></i> PA: '. $row['pa'] .'</p>
+								<p><i class="fas fa-long-arrow-alt-right"></i> Alexa Traffic: '. $row['alexa_traffic'] .'</p>
+								<p><i class="fas fa-long-arrow-alt-right"></i> Organic Traffic: '. $row['organic_traffic'] .'</p>
+								<h3><i class="fas fa-long-arrow-alt-right"></i> Price $'. $row['price'] .'</h3>
 							</div>
 						</div>
 						<div class="buy-sec d-flex justify-content-evenly">
@@ -73,6 +73,7 @@ if(isset($_POST["action"])){
 						</div>
 					</div>
 				</div>
+				
 			';
 			}
 		}

@@ -42,8 +42,8 @@ $allEmps = $Employee->allEmps();
 
 ?>
 <!DOCTYPE HTML>
-<html lang="zxx" style="overflow: hidden;">
-
+<!-- <html lang="zxx"> -->
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>About Our Company :<?php echo COMPANY_S; ?></title>
@@ -68,8 +68,8 @@ $allEmps = $Employee->allEmps();
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <?php require_once "partials/navbar.php"; ?>
 
-    <div class="about_us">
-        <section class="about_banner-section">
+    <div class="about_us row m-0 w-100 animate_only_for_scroll">
+        <section class="about_banner-section projects-animation_on_text">
 
             <div class="row align-items-center">
                 <div class="col-md-6">
@@ -98,8 +98,9 @@ $allEmps = $Employee->allEmps();
                 </div>
 
             </div>
+            <div class="overlay"></div>
         </section>
-        <section class="teaming-Member-section" id="Meet_R_Team">
+        <section class="teaming-Member-section reveal" id="Meet_R_Team">
             <h2>Let's Meet Our Team</h2>
             <p class="text-center mb-4 px-lg-5">None of us ever do great things individually but teamwork is always more
                 fruitful toward organizational objectives. Our hardworking employees are focused on being productive and
@@ -148,7 +149,7 @@ $allEmps = $Employee->allEmps();
         </section>
 
         <!-- =============================================================================== -->
-        <div class="our_passion">
+        <div class="our_passion reveal">
             <div class="container">
                 <h4 class="py-4 blue_color_class text-uppercase text-center aegean-blue-color font-weight-bold">Our Main
                     Goals are</h4>
@@ -203,7 +204,7 @@ $allEmps = $Employee->allEmps();
         <!-- ====================================================================================== -->
 
         <!-- =============================================================================================== -->
-        <div class="what_we_do ">
+        <div class="what_we_do reveal">
             <div class="row m-0 w-100 text-center text-md-start align-items-center">
                 <div class="col-md-6">
                     <div class="">
@@ -225,7 +226,7 @@ $allEmps = $Employee->allEmps();
             </div>
         </div>
         <!-- =============================================================================================== -->
-        <div class="what_we_do">
+        <div class="what_we_do reveal" >
             <div class="row m-0 w-100 align-items-center text-center text-md-start align-items-center">
                 <div class="col-md-6 order-md-1 order-2">
                     <img src="images/about-our-mission.png" class="w-100" alt="Our Mission">
@@ -252,7 +253,7 @@ $allEmps = $Employee->allEmps();
             </div>
         </div>
         <!-- =============================================================================================== -->
-        <div class="light_blue_bg">
+        <div class="light_blue_bg reveal">
             <div class="container text-center">
                 <h2 class="text-uppercase fw-bolder py-5"><strong>Our Advantage</strong></h2>
                 <div class="row ">
@@ -282,7 +283,7 @@ $allEmps = $Employee->allEmps();
         <!-- =============================================================================================== -->
 
         <!-- =============================================================================================== -->
-        <div class="our_passion">
+        <div class="our_passion reveal">
             <div class="container p-2 p-md-5">
                 <h3 class="text-center pinkish-red-color">Wesite Development <span class="aegean-blue-color">|</span>
                     Business Branding
@@ -315,12 +316,29 @@ $allEmps = $Employee->allEmps();
     <!-- </div> -->
 
     <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
-
+    <script src="plugins/jquery-3.6.0.min.js"></script>
     <!-- ==== js for smooth scrollbar ==== -->
     <!-- <script src="plugins/smooth-scrollbar.js"></script> -->
     <script>
     var Scrollbar = window.Scrollbar;
     Scrollbar.init(document.querySelector('body'));
+    </script>
+      <script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
     </script>
 </body>
 
