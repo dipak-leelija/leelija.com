@@ -112,11 +112,13 @@
                 <form action="<?= $currentURL ?>" method="POST">
                     <div class="form-group">
                         <label for="address1" class="form-control-label">Address 1</label>
-                        <input class="form-control" type="text" id="address1" name="address1" value="<?= $empAddress1 ?>" />
+                        <input class="form-control" type="text" id="address1" name="address1"
+                            value="<?= $empAddress1 ?>" />
                     </div>
                     <div class="form-group">
                         <label for="address2" class="form-control-label">Address 2</label>
-                        <input class="form-control" type="text" id="address2" name="address2" value="<?= $empAddress2 ?>" />
+                        <input class="form-control" type="text" id="address2" name="address2"
+                            value="<?= $empAddress2 ?>" />
                     </div>
                     <div class="form-group">
                         <label for="city" class="form-control-label">City</label>
@@ -137,8 +139,7 @@
                     <div class="form-group">
                         <label for="stateId" class="form-control-label">State</label>
                         <!-- <input class="form-control" type="text" value="<?= $empState?>" id="example-url-input" /> -->
-                        <select id="stateId" class="form-select " name="stateId"
-                            onchange="getCitiesList(this)">
+                        <select id="stateId" class="form-select " name="stateId" onchange="getCitiesList(this)">
                             <option value="" selected disabled> Select </option>
                             <?php
                                 if (!empty($empCountryId) && !empty($empStateId)) {
@@ -152,7 +153,8 @@
                     </div>
                     <div class="form-group">
                         <label for="pin-code" class="form-control-label">PIN Code</label>
-                        <input class="form-control" type="number" id="pin-code" name="pin-code" value="<?= $empPinCode ?>" />
+                        <input class="form-control" type="number" id="pin-code" name="pin-code"
+                            value="<?= $empPinCode ?>" />
                     </div>
                     <div class="form-group">
                         <label for="example-password-input" class="form-control-label">Country</label>
@@ -180,56 +182,41 @@
             </div>
             <div class="card-body p-3">
                 <ul class="list-group">
+
                     <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                        <div class="avatar me-3">
-                            <img src=" assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow" />
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <img src=" assets/img/kal-visuals-square.jpg" alt="kal"
+                                        class="border-radius-lg" />
+                                </span>
+                            </div>
+                            <input type="url" class="form-control">
                         </div>
-                        <div class="d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Sophie B.</h6>
-                            <p class="mb-0 text-xs">Hi! I need more information..</p>
-                        </div>
-                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                    </li>
-                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                        <div class="avatar me-3">
-                            <img src=" assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow" />
-                        </div>
-                        <div class="d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Anne Marie</h6>
-                            <p class="mb-0 text-xs">Awesome work, can you..</p>
-                        </div>
-                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
                     </li>
                     <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                        <div class="avatar me-3">
-                            <img src=" assets/img/ivana-square.jpg" alt="kal" class="border-radius-lg shadow" />
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <img src=" assets/img/kal-visuals-square.jpg" alt="kal"
+                                        class="border-radius-lg" />
+                                </span>
+                            </div>
+                            <input type="email" class="form-control">
                         </div>
-                        <div class="d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Ivanna</h6>
-                            <p class="mb-0 text-xs">About files I can..</p>
-                        </div>
-                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
                     </li>
                     <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                        <div class="avatar me-3">
-                            <img src=" assets/img/team-4.jpg" alt="kal" class="border-radius-lg shadow" />
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <img src=" assets/img/kal-visuals-square.jpg" alt="kal"
+                                        class="border-radius-lg" />
+                                </span>
+                            </div>
+                            <input type="email" class="form-control">
                         </div>
-                        <div class="d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Peterson</h6>
-                            <p class="mb-0 text-xs">Have a great afternoon..</p>
-                        </div>
-                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
                     </li>
-                    <li class="list-group-item border-0 d-flex align-items-center px-0">
-                        <div class="avatar me-3">
-                            <img src=" assets/img/team-3.jpg" alt="kal" class="border-radius-lg shadow" />
-                        </div>
-                        <div class="d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Nick Daniel</h6>
-                            <p class="mb-0 text-xs">Hi! I need more information..</p>
-                        </div>
-                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                    </li>
+                    
                 </ul>
             </div>
         </div>
