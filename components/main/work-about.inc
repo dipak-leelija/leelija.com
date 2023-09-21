@@ -1,4 +1,4 @@
-<section class="secxn">
+<section class="secxn reveal">
     <div class="row w-100 m-0" style="overflow: hidden;">
         <div class="  col-lg-9 col-md-12 col-sm-12 colm1">
             <h5 class="aegean-blue-color mb-3 "> &#8213; WORKS ABOUT</h5>

@@ -1,6 +1,6 @@
 <section class="wthfour_section px-md-5  m-0">
 
-    <div class="row  justify-content-center m-auto ">
+    <div class="row  justify-content-center m-auto reveal">
         <div class="col-lg-3 col-md-12  col-sm-12 xm-12 justify-content-center m-auto card-width3 ">
             <div class="card cd_background">
                 <div class="card-body cd_body">

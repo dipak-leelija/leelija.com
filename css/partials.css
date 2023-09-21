@@ -1027,22 +1027,18 @@
 
 /* ------------------------------------contact us section for index page---------------------------- */
 .indexpage_contactus-show {
-    padding: 5rem;
-    background-image: url(../images/Information-bg.jpg);
-    color: white;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
+    margin-top: 2rem;
+    padding:2rem 5rem;
     text-align: center;
 }
 
 .indexpage_contactus-show h1 {
     text-transform: capitalize;
+    color: var(--aegean-blue);
 }
 
 .indexpage_contactus-show p {
     font-size: 1.2rem;
-    color: #ffffffc2;
     text-transform: capitalize;
 }
 
@@ -1226,7 +1222,7 @@
 }
 
 .cslogo-img-responsiving:hover {
-    background: var(--aegean-blue);
+    /* background: var(--aegean-blue); */
     mix-blend-mode: difference;
     background: #d79c57;
 }
@@ -1280,31 +1276,4 @@
         }
     }
 
-    /* .shape-Circle {
-        width: 10px;
-        height: 10px;
-        border: solid 1px rgb(194 224 235 / 72%);
-        transform-origin: top left;
-        transform: scale(0) rotate(960deg) translate(-50%, -50%);
-        animation: shape-Circle 30s ease-in forwards infinite;
-        border-radius: 50%;
-    }
-
-    .shape-Circle:nth-child(2) {
-        animation-delay: 0s;
-        width: 12px;
-        height: 12px;
-        margin-left: 2rem;
-    }
-    @keyframes shape-Circle {
-        from {
-            transform: scale(5) rotate(0deg) translate(-50%, -50%);
-            opacity: 1;
-        }
-    
-        to {
-            transform: scale(15) rotate(960deg) translate(-50%, -50%);
-            opacity: 0;
-        }
-    } */
 }

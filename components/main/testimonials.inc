@@ -1,7 +1,7 @@
 <!--================================= Client Review section Start =================================-->
 
-<section class="sliderbar  text-center mt-5">
-        <h2 class="what-others-say-testimonial  mt-0 mb-0">TESTIMONIAL</h2>
+<section class="sliderbar text-center mt-5 reveal">
+<h2 class="what-others-say-testimonial  mt-0 mb-0">TESTIMONIAL</h2>
         <h1 class="what-others-say-bo-slider-h1   my-3 my-md-2">What <span>Our Client</span> Says</h1>
         <div class="container" style="max-width: 1100px; padding: 0;">
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -109,7 +109,7 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-        </div>
+        </div>  
     </section>
 
     <!------------------------------------ Client Review section End ------------------------------------->

@@ -40,7 +40,7 @@ $cusDtl			= $customer->getCustomerData($cusId);
 
 ?>
 <!DOCTYPE HTML>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -70,24 +70,94 @@ $cusDtl			= $customer->getCustomerData($cusId);
     <link href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700,900" rel="stylesheet">
     <!-- <link href="//fonts.googleapis.com/css?family=Nunito+Sans:400,700,900" rel="stylesheet"> -->
     <!--//webfonts-->
+    <style>
+    .offcanvas.offcanvas-end {
+        z-index: 99999;
+    }
 
+    .offcanvas-header {
+        justify-content: end;
+    }
+
+    .offcanvas.offcanvas-end {
+        width: 320px;
+    }
+
+    .offcanvas-backdrop.show {
+        opacity: 0.1;
+    }
+    </style>
 </head>
 
 <body id="page-top" data-scrollbar data-target=".navbar-fixed-top">
-    <div id="home">
+    <div id="home" class="row m-0 w-100 animate_only_for_scroll">
         <!-- header -->
         <?php require_once "partials/navbar.php"; ?>
 
         <!-- main container start  -->
-        <div class="container-fluid py-3 text-center">
+        <div class="container-fluid doMain_page_maindiv">
+            <div class="projects-animation_on_text">
+                <h2 class="pb-2 text-uppercase text-center"><span class="">Start</span> Your <span
+                        class="color-blue font-weight-bold">Online Business</span> with ready Products</h2>
+                <h4 class="text-center">Pick any Domain name with <span class="color-blue"> Ready website or blog</span>
+                    and
+                    <span class="color-blue">Build</span> Your <span class="color-blue font-weight-bold">Business</span>
+                </h4>
+                <div class="overlay"></div>
+            </div>
 
-            <h2 class="pb-2 text-uppercase"><span class="">Start</span> Your <span
-                    class="color-blue font-weight-bold">Online Business</span> with ready Products</h2>
-            <h4>Pick any Domain name with <span class="color-blue"> Ready website or blog</span> and <span
-                    class="color-blue">Build</span> Your <span class="color-blue font-weight-bold">Business</span> </h4>
             <br>
-            <div class="row">
-                <div class="col-lg-3">
+            <!-- section for filters and button  -->
+            <section class="p-4 px-md-4 px-2 reveal" style="background: aliceblue;">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="list-group">
+                            <div class="row align-items-end">
+                                <div class="col-2">
+                                    <h3 class="mb-0">DA</h3>
+                                </div>
+                                <div class="col-10">
+                                    <input type="hidden" id="hidden_minimum_da" value="0" />
+                                    <input type="hidden" id="hidden_maximum_da" value="100" />
+                                    <p id="da_show">1 - 100</p>
+                                    <div id="da_range"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="list-group">
+                            <div class="row align-items-end">
+                                <div class="col-2">
+                                    <h3 class="mb-0">DR</h3>
+                                </div>
+                                <div class="col-10">
+                                    <input type="hidden" id="hidden_minimum_da" value="0" />
+                                    <input type="hidden" id="hidden_maximum_da" value="100" />
+                                    <p id="dr_show">1 - 100</p>
+                                    <div id="dr_range"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 d-flex justify-content-center mt-4 mt-md-2">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> Filter <i
+                                class="ps-2 fa-solid fa-bars-staggered"></i> </button>
+                    </div>
+                </div>
+
+            </section>
+            <!-- section for filters and button  -->
+            <hr class="reveal" style="border-top: 1px solid darkgray;">
+            <!-- division for filters  Offcanvas body -->
+            <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
                     <div class="list-group">
                         <h3>DA</h3>
                         <input type="hidden" id="hidden_minimum_da" value="0" />
@@ -95,10 +165,11 @@ $cusDtl			= $customer->getCustomerData($cusId);
                         <p id="da_show">1 - 100</p>
                         <div id="da_range"></div>
                     </div>
+                    <!--Sort and Search section start -->
                     <div class="list-group">
                         <h3>Niches</h3>
                         <div class="nichdiv"
-                            style="height: 380px; overflow-y: auto; overflow-x: hidden; text-align: start;"
+                            style="height: 440px; overflow-y: auto; overflow-x: hidden; text-align: start;"
                             id="list-niches" data-scrollbar>
                             <?php
 								$niches  = $Niche->ShowBlogNichMast();
@@ -116,12 +187,13 @@ $cusDtl			= $customer->getCustomerData($cusId);
 							?>
                         </div>
                     </div>
-
+                    <!--Sort and Search section end-->
                 </div>
-                <!--Sort and Search section end-->
-
+            </div>
+            <!-- division for filters  Offcanvas body end -->
+            <div class="row reveal">
                 <!--Start Content Section-->
-                <div class="col-lg-9">
+                <div class="col-lg-12">
                     <br />
                     <div class="row filter_data">
 
@@ -200,13 +272,42 @@ $cusDtl			= $customer->getCustomerData($cusId);
                 filter_data();
             }
         });
+        $('#dr_range').slider({
+            range: true,
+            min: 0,
+            max: 100,
+            values: [1, 100],
+            step: 2,
+            stop: function(event, ui) {
+                $('#da_show').html(ui.values[0] + ' - ' + ui.values[1]);
+                $('#hidden_minimum_da').val(ui.values[0]);
+                $('#hidden_maximum_da').val(ui.values[1]);
+                filter_data();
+            }
+        });
 
     });
     </script>
     <!--end fetching DATA-->
     <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
 
+    <script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
 
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
+    </script>
 </body>
 
 </html>

@@ -71,7 +71,7 @@ $cusId		= $utility->returnSess('userid', 0);
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <div class="row m-0 w-100 ">
+    <div class="row m-0 w-100 animate_only_for_scroll">
         <!--======================================= Navigationbar Start =======================================-->
         <?php require_once "partials/navbar.php"?>
         <!------------------------------------------- Navigationbar End ------------------------------------------->
@@ -81,7 +81,6 @@ $cusId		= $utility->returnSess('userid', 0);
         <?php require_once "partials/main-banner.php"; ?>
 
         <!----------------------------------------- Main Banner End ----------------------------------------->
-
         <!-- _____________________________________________________________________________________ -->
 
         <!-- Trusted by top brands & SEO agencies for first page results SLIDER -->
@@ -122,14 +121,22 @@ $cusId		= $utility->returnSess('userid', 0);
         <!-- ============================== Testimonial Section End ============================== -->
         <!-- ------------------------------------------------------------------- -->
         <!-- contact section for index page  -->
-        <section class="indexpage_contactus-show ">
-            <h1> How can we help? </h1>
-            <p>Send us a message!</p>
-            <a href="contact.php">
-                <button type="button" class="btn btn-success mt-3 px-3 py-2 rounded-5">Contact Us
-                    <i class="fa-solid fa-comments"></i>
-                </button>
-            </a>
+        <section class="indexpage_contactus-show reveal">
+            <div class="row">
+                <div class="col-md-8 m-auto">
+                    <div>
+                        <h1> How can we help? </h1>
+                        <p>Send us a message!</p>
+                        <a href="contact.php">
+                            <button value="Send" class="my-buttons-hover text-center mt-4 bn21">Contact Us
+                                <i class="fa-solid fa-comments"></i></button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 m-auto">
+                    <img src="images/mvm-bhopal-1-contact.png" class="w-75" alt="">
+                </div>
+            </div>
         </section>
         <!-- contact section for index page  -->
         <!-- ------------------------------------------------------------------- -->
@@ -174,7 +181,24 @@ $cusId		= $utility->returnSess('userid', 0);
 
     // });
     </script>
+    <!-- /* CUSTOM ANIMATION FOR ALL SECTIONS IN PAGES */ -->
+    <script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
 
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
+    </script>
 </body>
 
 </html>

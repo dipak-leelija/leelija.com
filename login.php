@@ -65,7 +65,7 @@ if(isset($_POST['btnLogin'])){
 
 ?>
 <!DOCTYPE HTML>
-<html lang="zxx">
+<html lang="en">
 
 <head>
 <?php include('head-section.php');?>
@@ -89,16 +89,15 @@ Ready website for business, High Quality website sales, High quality blogs sales
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <div id="home">
+    <div id="home" class=" row m-0 w-100 animate_only_for_scroll">
         <!-- header -->
         <?php require_once "partials/navbar.php"; ?>
         <!-- //header -->
         <!-- banner -->
-
-        <div class=" d-flex align-items-center justify-content-center mt-3">
+        <div class=" d-flex align-items-center justify-content-center my-5">
             <div id="main-wrapper" class="container ">
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
+                <div class="row justify-content-center reveal">
+                    <div class="col-xl-10 ">
                         <div class="card border-0" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
                             <div class="card-body p-0">
                                 <div class="row w-100 m-0 no-gutters">
@@ -353,14 +352,23 @@ Ready website for business, High Quality website sales, High quality blogs sales
             })
     })()
     </script>
-    <!-- ==== js for smooth scrollbar ==== -->
-    <!-- <script src="plugins/smooth-scrollbar.js"></script>
     <script>
-    var Scrollbar = window.Scrollbar;
-    Scrollbar.init(document.querySelector('body'));
-    </script> -->
-    <!-- ==== js for smooth scrollbar End ==== -->
-    <!-- //Bootstrap Core JavaScript -->
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
+    </script>
 </body>
 
 </html>

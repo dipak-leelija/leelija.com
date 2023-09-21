@@ -158,12 +158,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta name="keywords"
         content="contact for SEO, contact for web development, support for on page SEO, support for technical SEO, contact for guest post" />
     <link href="css/contact.css" rel='stylesheet' type='text/css' />
-
 </head>
 
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <div id="home">
+    <div id="home" class="row m-0 w-100 animate_only_for_scroll">
         <!-- header -->
         <?php require_once "partials/navbar.php"; ?>
         <!-- //header -->
@@ -172,10 +171,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <?php //require_once "partials/contact-section.php"; ?>
 
 
-        <div class="contact-page-section px-3 py-5" id="contact">
+        <div class="contact-page-section px-3 py-5  " id="contact">
 
-            <section class="contact-mainpage">
-                <div class="contact-box col-12 col-xl-10">
+            <section class="contact-mainpage reveal ">
+                <div class="contact-box col-12 col-xl-10 projects-animation_on_text">
                     <div class="contact-social-div">
                         <div class="d-flex h-100">
                             <div class="links">
@@ -263,8 +262,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     </div>
                 </div>
 
+                <div class="overlay"></div>
             </section>
-
         </div>
         <!-- //contact -->
 
@@ -295,6 +294,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 }, false)
             })
     })()
+    </script>
+
+    <script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
     </script>
 </body>
 

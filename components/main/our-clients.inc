@@ -1,5 +1,5 @@
-<section class="clientsides-item" id="clientslogo">
-    <div class="containering">
+<section class="clientsides-item reveal" id="clientslogo">
+    <div class="containering ">
         <div>
             <h2 class="px-3 px-md-0">Our clients earned brand mentions from <strong>publications
                     like...</strong></h2>

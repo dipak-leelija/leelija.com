@@ -1,5 +1,5 @@
 <section>
-    <div class="row aBout_us-banner-section pt-md-2">
+    <div class="row aBout_us-banner-section reveal pt-md-2">
         <h1>About Us</h1>
         <div class="col-md-6 text-center text-md-start ps-md-0 ">
             <img src="images/aboutus_banner-home2.jpg" alt="">

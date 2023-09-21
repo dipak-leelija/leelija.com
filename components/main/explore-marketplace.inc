@@ -1,4 +1,4 @@
-<section class="market_place_main  text-center mt-4">
+<section class="market_place_main reveal  text-center mt-4">
     <h1 class=" fs-1 fw-bolder my-2"><span class="aegean-blue-color fw-bold"></span>Explore</span> The
         <span class="aegean-blue-color fw-bold">Marketplace</span>
     </h1>
