@@ -2830,9 +2830,8 @@ class Utility extends DatabaseConnection{
 	function populateDropDown2($selected, $id, $populate, $foreign_key, $key_value, $table){
 		// $cusDetail[0][27], 'id', 'city',  'state_id', $cusDetail[0][28], 'cities'
 
-		$select		= "SELECT * FROM ".$table." WHERE ".$foreign_key." = ".$key_value.
-		" ORDER BY ".$populate."";
-		// exit;
+		$select		= "SELECT * FROM ".$table." WHERE ".$foreign_key." = ".$key_value." ORDER BY ".$populate."";
+		// echo $select; exit;
 		$query		= $this->conn->query($select);
 		
 		if($query->num_rows > 0){
@@ -4357,7 +4356,30 @@ function word_teaser_end($string, $count){
 		return $name;
 	}
 	
+	// function arrTostr(){
 
+	// 	// Declare an array
+	// 	$arr = array("Welcome","to", "GeeksforGeeks",
+	// 		"A", "Computer","Science","Portal");
+			
+	// 	// Converting array elements into
+	// 	// strings using implode function
+	// 	echo implode(" ",$arr);
+		
+	// }
+
+	function assArrToStr($array, $separator = ', ') {
+		$result = '';
+		foreach ($array as $key => $value) {
+			$result .= $value . $separator;
+		}
+		// Remove the trailing separator
+		if (!empty($result)) {
+			$result = rtrim($result, $separator);
+		}
+		return $result;
+	}
+	
 	/*****************************************************************************
 	*																			 *
 	*									API REQUESTS							 *

@@ -17,14 +17,59 @@ if (isset($_GET['data'])) {
 }
 
 
-print_r($_REQUEST);
-if (isset($_POST['profile-form'])) {
+if (isset($_POST['emp-name'])) {
     $empName        = $_POST['emp-name'];
     $empGender      = $_POST['gender'];
-    $empDesignation = $_POST['designation']; // array type
     $empPhone       = $_POST['emp-phone'];
     $empEmail       = $_POST['emp-email'];
     $empDOJ         = $_POST['doj'];
+    $empDesignation = '';
+
+    if (isset($_POST['designation'])) {
+        $empDesignations = $_POST['designation'];
+        $empDesignation = $Utility->assArrToStr($empDesignations);
+    }
+    $response = $Employee->updateEmpProfile($empId, $empName, $empGender, $empDesignation, $empPhone, $empEmail, $empDOJ);
+    if ($response) {
+        $msg = 'Profile Updated Successfuly.';
+        $Utility->redirectURL($currentURL, 'SUCCESS', $msg);
+    }else {
+        $msg = 'Failed to update profile.';
+        $Utility->redirectURL($currentURL, 'ERROR', $response);
+    }
+}
+
+// update address
+
+if (isset($_POST['countryId'])) {
+
+    $address1   = $_POST['address1'];
+    $address2   = $_POST['address2'];
+    $city       = $_POST['city'];
+    $state      = $_POST['stateId'];
+    $pin        = $_POST['pin-code'];
+    $countryId  = $_POST['countryId'];
+
+    $response = $Employee->updateEmpAddress($empId, $address1, $address2, $city, $state, $pin, $countryId);
+    if ($response) {
+        $msg = 'Address Updated Successfuly.';
+        $Utility->redirectURL($currentURL, 'SUCCESS', $msg);
+    }else {
+        $msg = 'Failed to update address.';
+        $Utility->redirectURL($currentURL, 'ERROR', $msg);
+    }
+}
+
+if (isset($_GET['action'])) {
+    if ($_GET['action'] == 'SUCCESS') {
+        $alertTitle = $_GET['action']; 
+        $alertColor = 'primary';
+        $msg        = $_GET['msg'];
+    }else {
+        $alertTitle = $_GET['action']; 
+        $alertColor = 'danger';
+        $msg        = $_GET['msg'];
+    }
 }
 
 
@@ -75,12 +120,9 @@ if ($response->status == 1) {
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
-    <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
-    <!-- <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script> -->
+    <link id="pagestyle" href="assets/css/soft-ui-dashboard.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="<?= URL ?>assets/vendors/select2/select2.min.css">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.css" integrity="sha512-p209YNS54RKxuGVBVhL+pZPTioVDcYPZPYYlKWS9qVvQwrlzxBxkR8/48SCP58ieEuBosYiPUS970ixAfI/w/A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -90,6 +132,15 @@ if ($response->status == 1) {
         <?php require_once "partials/navbar.php"; ?>
         <!-- End Navbar -->
         <div class="container-fluid">
+            <!-- start alert      -->
+            <?php if (isset($msg) && isset($alertColor)): ?>
+            <div class="alert alert-<?= $alertColor ?> alert-dismissible fade show" role="alert">
+                <strong><?= $alertTitle ?>!</strong> <?= $msg ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php endif; ?>
+            <!-- end alert  -->
+
             <div class="card card-body blur shadow-blur overflow-hidden mt-4">
                 <div class="row gx-4">
                     <div class="col-auto">
@@ -209,401 +260,14 @@ if ($response->status == 1) {
             <!-- tab 1 start -->
             <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
                 tabindex="0">
-                <div class="row">
-                    <div class="col-12 col-xl-4">
-                        <div class="card h-100">
-                            <div class="card-header pb-0 p-3">
-                                <div class="row">
-                                    <div class="col-md-8 d-flex align-items-center">
-                                        <h6 class="mb-0">Profile Information</h6>
-                                    </div>
-                                    <div class="col-md-4 text-end">
-                                        <a href="javascript:;">
-                                            <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip"
-                                                data-bs-placement="top" title="Edit Profile"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body p-3">
-                                <p class="text-sm">
-                                    Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two
-                                    equally
-                                    difficult paths, choose the one more painful in the short term (pain avoidance is
-                                    creating an illusion of equality).
-                                </p>
-                                <hr class="horizontal gray-light my-4">
-                                <ul class="list-group">
-                                    <li class="list-group-item border-0 ps-0 pt-0 pb-0 text-sm">
-                                        <strong class="text-dark">Full Name:</strong> &nbsp; <?=$empName?>
-                                    </li>
-                                    <li class="list-group-item border-0 ps-0 pt-0 pb-0 text-sm">
-                                        <strong class="text-dark">EMP ID:</strong> &nbsp; <?=$empId?>
-                                    </li>
-                                    <li class="list-group-item border-0 ps-0 text-sm">
-                                        <strong class="text-dark">Mobile:</strong> &nbsp; <?=$empPhone?>
-                                    </li>
-                                    <li class="list-group-item border-0 ps-0 text-sm">
-                                        <strong class="text-dark">Email:</strong> &nbsp; <?=$empEmail?>
-                                    </li>
-                                    <li class="list-group-item border-0 ps-0 text-sm">
-                                        <strong class="text-dark">Location:</strong> &nbsp; <?=$empCountry?>
-                                    </li>
-                                    <li class="list-group-item border-0 ps-0 pb-0">
-                                        <strong class="text-dark text-sm">Social:</strong> &nbsp;
-                                        <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                                            <i class="fab fa-facebook fa-lg"></i>
-                                        </a>
-                                        <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                                            <i class="fab fa-twitter fa-lg"></i>
-                                        </a>
-                                        <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                                            <i class="fab fa-instagram fa-lg"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-xl-4">
-                        <div class="card h-100">
-                            <div class="card-header pb-0 p-3">
-                                <h6 class="mb-0">Platform Settings</h6>
-                            </div>
-                            <div class="card-body p-3">
-                                <h6 class="text-uppercase text-body text-xs font-weight-bolder">Account</h6>
-                                <ul class="list-group">
-                                    <li class="list-group-item border-0 px-0">
-                                        <div class="form-check form-switch ps-0">
-                                            <input class="form-check-input ms-auto" type="checkbox"
-                                                id="flexSwitchCheckDefault" checked>
-                                            <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                                for="flexSwitchCheckDefault">Email me when someone follows me</label>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item border-0 px-0">
-                                        <div class="form-check form-switch ps-0">
-                                            <input class="form-check-input ms-auto" type="checkbox"
-                                                id="flexSwitchCheckDefault1">
-                                            <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                                for="flexSwitchCheckDefault1">Email me when someone answers on my
-                                                post</label>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item border-0 px-0">
-                                        <div class="form-check form-switch ps-0">
-                                            <input class="form-check-input ms-auto" type="checkbox"
-                                                id="flexSwitchCheckDefault2" checked>
-                                            <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                                for="flexSwitchCheckDefault2">Email me when someone mentions me</label>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Application</h6>
-                                <ul class="list-group">
-                                    <li class="list-group-item border-0 px-0">
-                                        <div class="form-check form-switch ps-0">
-                                            <input class="form-check-input ms-auto" type="checkbox"
-                                                id="flexSwitchCheckDefault3">
-                                            <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                                for="flexSwitchCheckDefault3">New launches and projects</label>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item border-0 px-0">
-                                        <div class="form-check form-switch ps-0">
-                                            <input class="form-check-input ms-auto" type="checkbox"
-                                                id="flexSwitchCheckDefault4" checked>
-                                            <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                                for="flexSwitchCheckDefault4">Monthly product updates</label>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item border-0 px-0 pb-0">
-                                        <div class="form-check form-switch ps-0">
-                                            <input class="form-check-input ms-auto" type="checkbox"
-                                                id="flexSwitchCheckDefault5">
-                                            <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                                for="flexSwitchCheckDefault5">Subscribe to newsletter</label>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-xl-4">
-                        <div class="card h-100">
-                            <div class="card-header pb-0 p-3">
-                                <h6 class="mb-0">Conversations</h6>
-                            </div>
-                            <div class="card-body p-3">
-                                <ul class="list-group">
-                                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                        <div class="avatar me-3">
-                                            <img src=" assets/img/kal-visuals-square.jpg" alt="kal"
-                                                class="border-radius-lg shadow">
-                                        </div>
-                                        <div class="d-flex align-items-start flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Sophie B.</h6>
-                                            <p class="mb-0 text-xs">Hi! I need more information..</p>
-                                        </div>
-                                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                                    </li>
-                                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                        <div class="avatar me-3">
-                                            <img src=" assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
-                                        </div>
-                                        <div class="d-flex align-items-start flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Anne Marie</h6>
-                                            <p class="mb-0 text-xs">Awesome work, can you..</p>
-                                        </div>
-                                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                                    </li>
-                                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                        <div class="avatar me-3">
-                                            <img src=" assets/img/ivana-square.jpg" alt="kal"
-                                                class="border-radius-lg shadow">
-                                        </div>
-                                        <div class="d-flex align-items-start flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Ivanna</h6>
-                                            <p class="mb-0 text-xs">About files I can..</p>
-                                        </div>
-                                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                                    </li>
-                                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                        <div class="avatar me-3">
-                                            <img src=" assets/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
-                                        </div>
-                                        <div class="d-flex align-items-start flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Peterson</h6>
-                                            <p class="mb-0 text-xs">Have a great afternoon..</p>
-                                        </div>
-                                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                                    </li>
-                                    <li class="list-group-item border-0 d-flex align-items-center px-0">
-                                        <div class="avatar me-3">
-                                            <img src=" assets/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
-                                        </div>
-                                        <div class="d-flex align-items-start flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Nick Daniel</h6>
-                                            <p class="mb-0 text-xs">Hi! I need more information..</p>
-                                        </div>
-                                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php include_once "components/emp-profile-view.inc.php"; ?>
             </div>
             <!-- tab 1 end -->
 
 
             <!-- tab 2 start -->
             <div class="tab-pane fade" id="setting-tab-pane" role="tabpanel" aria-labelledby="setting-tab" tabindex="0">
-                <div class="row">
-                    <div class="col-12 col-xl-4">
-                        <div class="card h-100">
-                            <div class="card-header pb-0 p-3">
-                                <div class="row">
-                                    <div class="col-md-8 d-flex align-items-center">
-                                        <h6 class="mb-0">Profile Information</h6>
-                                    </div>
-                                    <div class="col-md-4 text-end">
-                                        <a href="javascript:;">
-                                            <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip"
-                                                data-bs-placement="top" title="Edit Profile"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body p-3">
-                                <form action="<?= $currentURL ?>" method="POST" name="profile-form">
-                                    <div class="form-group">
-                                        <label for="emp-name" class="form-control-label">Name</label>
-                                        <input class="form-control" type="text" value="<?= $empName ?>"
-                                        id="emp-name" name="emp-name" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="emp-gender" class="form-label">Gender</label>
-                                        <div class="d-flex align-item-center justify-content-between">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gender"
-                                                id="emp-gender" value="male" required
-                                                    <?= $empGender == 'male' ? 'checked': ''?> >
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    Male
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gender"
-                                                    id="emp-gender" value="female" required
-                                                    <?= $empGender == 'female' ? 'checked': ''?>>
-                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                    Female
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gender"
-                                                    id="emp-gender" value="others" required
-                                                    <?= $empGender == 'others' ? 'checked': ''?>>
-                                                <label class="form-check-label" for="flexRadioDefault3">
-                                                    Others
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="designation" class="form-control-label">Designation</label>
-                                        <select class="js-states form-select" tabindex="-1" aria-label="designation"
-                                            style="display: none; width: 100%" multiple="multiple" id="designation"
-                                            name="designation[]" required>
-                                            <!-- <optgroup label="Alaskan/Hawaiian Time Zone"> -->
-                                                <option value="AK">Content Writer</option>
-                                                <option value="HI">SEO Specialist</option>
-                                                <option value="HI">SEO Execitive</option>
-                                                <option value="HI">Outreach Specialist</option>
-                                                <option value="HI">Outreach Manager</option>
-                                                <option value="CA">Video Editor</option>
-                                                <option value="NV">Frontend Developer</option>
-                                                <option value="OR">Backend Developer</option>
-                                                <option value="WA">Full Stack Developer</option>
-                                            <!-- </optgroup> -->
-                                        </select>
-
-
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="emp-phone" class="form-control-label">Phone</label>
-                                        <input class="form-control" type="tel" maxlength="10" minlength="10"
-                                            value="<?= $empPhone?>" name="emp-phone" id="emp-phone" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="emp-email" class="form-control-label">Email</label>
-                                        <input class="form-control" type="email" value="<?= $empEmail ?>"
-                                            id="emp-email" name="emp-email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="doj" class="form-control-label">Date of
-                                            Joining</label>
-                                        <input class="form-control" type="date" value="<?= $empDOJ?>"
-                                            name="doj" id="doj" required>
-                                    </div>
-                                    <div class="text-end">
-                                        <button class="btn btn-sm btn-primary" type="submit">Update</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-xl-4">
-                        <div class="card h-100">
-                            <div class="card-header pb-0 p-3">
-                                <h6 class="mb-0">Platform Settings</h6>
-                            </div>
-                            <div class="card-body p-3">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Address 1</label>
-                                        <input class="form-control" type="text" value="<?= $empAddress1 ?>"
-                                            id="example-text-input">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-search-input" class="form-control-label">Address 2</label>
-                                        <input class="form-control" type="email" value="<?= $empAddress2 ?>"
-                                            id="example-search-input">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-email-input" class="form-control-label">City</label>
-                                        <input class="form-control" type="text" value="<?= $empCity?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-url-input" class="form-control-label">State</label>
-                                        <input class="form-control" type="text" value="<?= $empState?>"
-                                            id="example-url-input">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-tel-input" class="form-control-label">PIN Code</label>
-                                        <input class="form-control" type="number" value="<?= $empPinCode ?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-password-input" class="form-control-label">Country</label>
-                                        <input class="form-control" type="text" value="<?= $empPassword ?>"
-                                            id="example-password-input">
-                                    </div>
-                                    <div class="text-end">
-                                        <button class="btn btn-sm btn-primary" type="submit">Update</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-xl-4">
-                        <div class="card h-100">
-                            <div class="card-header pb-0 p-3">
-                                <h6 class="mb-0">Conversations</h6>
-                            </div>
-                            <div class="card-body p-3">
-                                <ul class="list-group">
-                                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                        <div class="avatar me-3">
-                                            <img src=" assets/img/kal-visuals-square.jpg" alt="kal"
-                                                class="border-radius-lg shadow">
-                                        </div>
-                                        <div class="d-flex align-items-start flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Sophie B.</h6>
-                                            <p class="mb-0 text-xs">Hi! I need more information..</p>
-                                        </div>
-                                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                                    </li>
-                                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                        <div class="avatar me-3">
-                                            <img src=" assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
-                                        </div>
-                                        <div class="d-flex align-items-start flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Anne Marie</h6>
-                                            <p class="mb-0 text-xs">Awesome work, can you..</p>
-                                        </div>
-                                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                                    </li>
-                                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                        <div class="avatar me-3">
-                                            <img src=" assets/img/ivana-square.jpg" alt="kal"
-                                                class="border-radius-lg shadow">
-                                        </div>
-                                        <div class="d-flex align-items-start flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Ivanna</h6>
-                                            <p class="mb-0 text-xs">About files I can..</p>
-                                        </div>
-                                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                                    </li>
-                                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                        <div class="avatar me-3">
-                                            <img src=" assets/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
-                                        </div>
-                                        <div class="d-flex align-items-start flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Peterson</h6>
-                                            <p class="mb-0 text-xs">Have a great afternoon..</p>
-                                        </div>
-                                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                                    </li>
-                                    <li class="list-group-item border-0 d-flex align-items-center px-0">
-                                        <div class="avatar me-3">
-                                            <img src=" assets/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
-                                        </div>
-                                        <div class="d-flex align-items-start flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Nick Daniel</h6>
-                                            <p class="mb-0 text-xs">Hi! I need more information..</p>
-                                        </div>
-                                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php include_once "components/emp-profile-settings.inc.php"; ?>
             </div>
             <!-- tab 2 end -->
 
@@ -812,6 +476,8 @@ if ($response->status == 1) {
         <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
         <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
         <script src="<?= URL ?>/assets/vendors/select2/select2.min.js"></script>
+        <script src="<?= URL ?>js/location.js"></script>
+
         <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 
@@ -824,7 +490,7 @@ if ($response->status == 1) {
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
 
-        $('select').select2();
+        $('#designation').select2();
         </script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="assets/js/soft-ui-dashboard.min.js"></script>

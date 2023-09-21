@@ -35,7 +35,7 @@ $typeM			= $utility->returnGetVar('typeM','');
 //user id
 $cusId			= $utility->returnSess('userid', 0);
 $cusDtl			= $customer->getCustomerData($cusId);
-$domainDtls		= $domain->ShowDomainData();
+// $domainDtls		= $domain->ShowDomainData();
 
 
 ?>
