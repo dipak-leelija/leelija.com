@@ -6,7 +6,7 @@
             <p class=" mt-3 mb-4 py-0 py-md-2"> We’re a team of SEO and development experts <br> who provide a complete
                 set of integrated services to scale your company’s digital growth.
             </p>
-           
+
             <!-- We’re a team of design and development experts <br> who help you transform and scale
                 your organization. -->
             <div class=" buttonsinfo ">
@@ -19,8 +19,8 @@
             </div>
             <div class="overlay"></div>
         </div>
-        <div class="col-12 col-lg-5 vid-col">
-        <!-- d-flex align-items-center justify-content-center -->
+        <div class="col-12 col-lg-5 vid-col projects-animation_on_text">
+            <!-- d-flex align-items-center justify-content-center -->
             <figure class="figure">
                 <video width="100%" id="vid" loop>
                     <!-- <source src="images/videos/banner.mp4" type="video/mp4"> -->
@@ -28,6 +28,7 @@
                     Your browser does not support the video tag.
                 </video>
             </figure>
+            <div class="overlay"></div>
         </div>
     </div>
 

@@ -3096,6 +3096,7 @@ table .btn-explore-banner {
 
 .doMain_page_maindiv {
     padding: 4rem 1rem 0;
+    overflow: hidden;
 }
 
 @media screen and (min-width: 1200px) {
@@ -5935,7 +5936,8 @@ font-size: 25px
 .projects-animation_on_text h1,
 .projects-animation_on_text h2,
 .projects-animation_on_text h4,
-.projects-animation_on_text h5 {
+.projects-animation_on_text h5,
+ .projects-animation_on_text video{
     /* transform: translateY(0px); */
     animation: .9s slideIn cubic-bezier(0.27, 0.28, 1, 1.03) forwards 1s;
     z-index: 10;
@@ -5946,7 +5948,10 @@ font-size: 25px
 .projects-animation_on_text p,
 .projects-animation_on_text h3,
 .projects-animation_on_text h6,
-.projects-animation_on_text img {
+.projects-animation_on_text img,
+.projects-animation_on_text .ui-slider, 
+.projects-animation_on_text hr,
+.projects-animation_on_text .card {
     transform: translateY(50px);
     animation: .7s slideIn ease-in-out forwards 1s;
     z-index: 10;

@@ -60,8 +60,8 @@ $cusDtl			= $customer->getCustomerData($cusId);
     <link rel="stylesheet" href="plugins/fontawesome-6.1.1/css/all.css">
 
     <!-- Custom CSS -->
-    <link href="css/leelija.css" rel='stylesheet' type='text/css' />
     <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/leelija.css" rel='stylesheet' type='text/css' />
 
     <!-- //Custom Theme files -->
     <link href="css/jquery-ui.css" rel="stylesheet">
@@ -90,119 +90,121 @@ $cusDtl			= $customer->getCustomerData($cusId);
 </head>
 
 <body id="page-top" data-scrollbar data-target=".navbar-fixed-top">
-    <div id="home" class="row m-0 w-100 animate_only_for_scroll">
+    <div id="home" class="row m-0 w-100">
         <!-- header -->
         <?php require_once "partials/navbar.php"; ?>
 
         <!-- main container start  -->
-        <div class="container-fluid doMain_page_maindiv">
-            <div class="projects-animation_on_text">
-                <h2 class="pb-2 text-uppercase text-center"><span class="">Start</span> Your <span
-                        class="color-blue font-weight-bold">Online Business</span> with ready Products</h2>
-                <h4 class="text-center">Pick any Domain name with <span class="color-blue"> Ready website or blog</span>
-                    and
-                    <span class="color-blue">Build</span> Your <span class="color-blue font-weight-bold">Business</span>
-                </h4>
-                <div class="overlay"></div>
-            </div>
+        <div class="doMain_page_maindiv projects-animation_on_text">
+            <div class="">
+                <div class="">
+                    <h2 class="pb-2 text-uppercase text-center"><span class="">Start</span> Your <span
+                            class="color-blue font-weight-bold">Online Business</span> with ready Products</h2>
+                    <h4 class="text-center">Pick any Domain name with <span class="color-blue"> Ready website or
+                            blog</span>
+                        and
+                        <span class="color-blue">Build</span> Your <span
+                            class="color-blue font-weight-bold">Business</span>
+                    </h4>
+                </div>
 
-            <br>
-            <!-- section for filters and button  -->
-            <section class="p-4 px-md-4 px-2 reveal" style="background: aliceblue;">
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="list-group">
-                            <div class="row align-items-end">
-                                <div class="col-2">
-                                    <h3 class="mb-0">DA</h3>
-                                </div>
-                                <div class="col-10">
-                                    <input type="hidden" id="hidden_minimum_da" value="0" />
-                                    <input type="hidden" id="hidden_maximum_da" value="100" />
-                                    <p id="da_show">1 - 100</p>
-                                    <div id="da_range"></div>
+                <br>
+                <!-- section for filters and button  -->
+                <section class="p-4 px-md-4 px-2">
+                    <div class="row ">
+                        <div class="col-md-5 mb-3">
+                            <div class="list-group">
+                                <div class="row align-items-end">
+                                    <div class="col-2">
+                                        <h3 class="mb-0">DA</h3>
+                                    </div>
+                                    <div class="col-10">
+                                        <input type="hidden" id="hidden_minimum_da" value="0" />
+                                        <input type="hidden" id="hidden_maximum_da" value="100" />
+                                        <p class="mb-2" id="da_show">1 - 100</p>
+                                        <div id="da_range"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="list-group">
-                            <div class="row align-items-end">
-                                <div class="col-2">
-                                    <h3 class="mb-0">DR</h3>
-                                </div>
-                                <div class="col-10">
-                                    <input type="hidden" id="hidden_minimum_da" value="0" />
-                                    <input type="hidden" id="hidden_maximum_da" value="100" />
-                                    <p id="dr_show">1 - 100</p>
-                                    <div id="dr_range"></div>
+                        <div class="col-md-5 mb-3">
+                            <div class="list-group">
+                                <div class="row align-items-end">
+                                    <div class="col-2">
+                                        <h3 class="mb-0">DR</h3>
+                                    </div>
+                                    <div class="col-10">
+                                        <input type="hidden" id="hidden_minimum_da" value="0" />
+                                        <input type="hidden" id="hidden_maximum_da" value="100" />
+                                        <p class="mb-2" id="dr_show">1 - 100</p>
+                                        <div id="dr_range"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-2 d-flex justify-content-center mt-4 mt-md-2">
+                        <!-- <a href="contact.php"> -->
+                            <button value="Send" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="my-buttons-hover text-center w-100 bn21">Filter <i
+                                    class=" fa-solid fa-sliders"></i></button>
+                        <!-- </a> -->
+                            <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> Filter <i
+                                    class="ps-2 fa-solid fa-sliders"></i> </button> -->
+                        </div>
                     </div>
-                    <div class="col-md-2 d-flex justify-content-center mt-4 mt-md-2">
-                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> Filter <i
-                                class="ps-2 fa-solid fa-bars-staggered"></i> </button>
-                    </div>
-                </div>
 
-            </section>
-            <!-- section for filters and button  -->
-            <hr class="reveal" style="border-top: 1px solid darkgray;">
-            <!-- division for filters  Offcanvas body -->
-            <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight"
-                aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div class="list-group">
-                        <h3>DA</h3>
-                        <input type="hidden" id="hidden_minimum_da" value="0" />
-                        <input type="hidden" id="hidden_maximum_da" value="100" />
-                        <p id="da_show">1 - 100</p>
-                        <div id="da_range"></div>
+                </section>
+                <!-- section for filters and button  -->
+                <hr class="" style="border-top: 1px solid darkgray;">
+                <!-- division for filters  Offcanvas body -->
+                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
                     </div>
-                    <!--Sort and Search section start -->
-                    <div class="list-group">
-                        <h3>Niches</h3>
-                        <div class="nichdiv"
-                            style="height: 440px; overflow-y: auto; overflow-x: hidden; text-align: start;"
-                            id="list-niches" data-scrollbar>
-                            <?php
+                    <div class="offcanvas-body">
+                        <!--Sort and Search section start -->
+                        <div class="list-group">
+                            <h3>Niches</h3>
+                            <div class="nichdiv"
+                                style="height: 500px; overflow-y: auto; overflow-x: hidden; text-align: start;"
+                                id="list-niches" data-scrollbar>
+                                <?php
 								$niches  = $Niche->ShowBlogNichMast();
 								foreach($niches as $eachNice){
 							?>
-                            <div class="list-group-item checkbox">
-                                <label>
-                                    <input type="checkbox" class="common_selector niche"
-                                        value="<?= $eachNice['niche_id']; ?>">
-                                    <?= $eachNice['niche_name']; ?>
-                                </label>
-                            </div>
-                            <?php
+                                <div class="list-group-item checkbox">
+                                    <label>
+                                        <input type="checkbox" class="common_selector niche"
+                                            value="<?= $eachNice['niche_id']; ?>">
+                                        <?= $eachNice['niche_name']; ?>
+                                    </label>
+                                </div>
+                                <?php
 								}
 							?>
+                            </div>
+                        </div>
+                        <!--Sort and Search section end-->
+                    </div>
+                </div>
+                <!-- division for filters  Offcanvas body end -->
+                <div class="row ">
+                    <!--Start Content Section-->
+                    <div class="col-lg-12">
+                        <br />
+                        <div class="row filter_data">
+
                         </div>
                     </div>
-                    <!--Sort and Search section end-->
-                </div>
-            </div>
-            <!-- division for filters  Offcanvas body end -->
-            <div class="row reveal">
-                <!--Start Content Section-->
-                <div class="col-lg-12">
-                    <br />
-                    <div class="row filter_data">
+                    <!--end Content Section-->
 
-                    </div>
                 </div>
-                <!--end Content Section-->
-
+                <!-- end Row-->
             </div>
-            <!-- end Row-->
+            <div class="overlay"></div>
         </div>
         <!-- //Main contener end -->
 
@@ -211,9 +213,14 @@ $cusDtl			= $customer->getCustomerData($cusId);
         <!-- /Footer -->
     </div>
     <!-- js-->
-    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
     <!-- <script src="js/jQuery/jquery.js"></script> -->
+    <script src="plugins/jquery-3.6.0.min.js"></script>
 
+    <script>
+    var Scrollbar = window.Scrollbar;
+    Scrollbar.init(document.querySelector('body'));
+    </script>
     <!-- js-->
     <script src="js/jquery-ui.js"></script>
     <script src="js/ajax.js"></script>
@@ -289,7 +296,7 @@ $cusDtl			= $customer->getCustomerData($cusId);
     });
     </script>
     <!--end fetching DATA-->
-    <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
+
 
     <script>
     function reveal() {

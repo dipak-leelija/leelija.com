@@ -174,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <div class="contact-page-section px-3 py-5  " id="contact">
 
             <section class="contact-mainpage reveal ">
-                <div class="contact-box col-12 col-xl-10 projects-animation_on_text">
+                <div class="contact-box col-12 col-xl-10 ">
                     <div class="contact-social-div">
                         <div class="d-flex h-100">
                             <div class="links">
@@ -262,7 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     </div>
                 </div>
 
-                <div class="overlay"></div>
+                <!-- <div class="overlay"></div> -->
             </section>
         </div>
         <!-- //contact -->
