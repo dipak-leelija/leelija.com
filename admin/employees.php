@@ -3,14 +3,11 @@ $page = "Admin_employees-Details";
 require_once dirname(__DIR__) ."/includes/constant.inc.php";
 require_once ADM_DIR . "incs/global-inc.php";
 
-require_once ROOT_DIR . "classes/encrypt.inc.php";
 
 require_once ROOT_DIR . "classes/employee.class.php";
-require_once ROOT_DIR . "classes/utility.class.php";
 
 
 $Employee	= new Employee();
-$Utility    = new Utility();
 
 $Utility->setCurrentPageSession();
 
@@ -83,7 +80,7 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                     </thead>
                                     <tbody>
                                         <?php foreach ($allEmps as $eachEmp) {
-                                            
+                                            // print_r($eachEmp);
                                         $empId = url_enc($eachEmp->emp_id);
 
                                         $empIcon = IMG_PATH.'default-icons/default-emp.png';
@@ -100,7 +97,7 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm"><?= $eachEmp->name ?></h6>
-                                                        <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                                                        <p class="text-xs text-secondary mb-0"><?= $eachEmp->email ?></p>
                                                     </div>
                                                 </div>
                                             </td>

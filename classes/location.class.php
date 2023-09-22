@@ -28,7 +28,7 @@ class Location extends DatabaseConnection{
 
 	function getStateName($id){
 		
-		$result	= array();
+		$result	= '';
 		//create the statement
 		$sql	= "SELECT name FROM states WHERE id='$id'";
 		
@@ -51,7 +51,7 @@ class Location extends DatabaseConnection{
 
 	function getCityName($id){
 		
-		$result	= array();
+		$result	= '';
 		//create the statement
 		$sql	= "SELECT name FROM cities WHERE id='$id'";
 		

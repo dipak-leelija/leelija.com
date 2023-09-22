@@ -3338,7 +3338,12 @@ textarea.form-control-lg {
   white-space: nowrap;
   background-color: #fff;
   border: 1px solid #d2d6da;
-  border-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.input-group-text img{
+  width: 2rem;
 }
 
 .input-group-lg>.form-control,
