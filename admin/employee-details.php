@@ -4,9 +4,12 @@ require_once 'incs/global-inc.php';
 
 
 require_once ROOT_DIR . "classes/employee.class.php";
+require_once ROOT_DIR . "classes/utilityImage.class.php";
 
 
 $Employee	= new Employee();
+$ImgUtil    = new ImageUtility;
+
 
 $Utility->setCurrentPageSession();
 
@@ -30,9 +33,24 @@ if (isset($_POST['emp-name'])) {
         $empDesignation = $Utility->assArrToStr($empDesignations);
     }
     $response = $Employee->updateEmpProfile($empId, $empName, $empGender, $empDesignation, $empPhone, $empEmail, $empDOJ);
+
     if ($response) {
-        $msg = 'Profile Updated Successfuly.';
-        $Utility->redirectURL($currentURL, 'SUCCESS', $msg);
+
+        if(!empty($_FILES['profile-picture']['name'])){
+            $newName = $Utility->getNewName4($_FILES['profile-picture'], '', '');
+            $res = $ImgUtil->imgUpdload($_FILES['profile-picture'], $newName, '../images/emps/', $empId, 'image', 'emp_id', 'employees');
+            if (!preg_match('/ERR001/', $res)) {
+                $msg = 'Profile updated successfuly with profile image.';
+                $Utility->redirectURL($currentURL, 'SUCCESS', $msg);
+            }else {
+                $msg = 'Details updated successfuly but image not updated.';
+                $Utility->redirectURL($currentURL, 'WARNING', $msg);
+            }
+        }else {
+            $msg = 'Profile updated successfuly but image not found.';
+            $Utility->redirectURL($currentURL, 'WARNING', $msg);
+        }
+
     }else {
         $msg = 'Failed to update profile.';
         $Utility->redirectURL($currentURL, 'ERROR', $response);
@@ -40,7 +58,6 @@ if (isset($_POST['emp-name'])) {
 }
 
 // update address
-
 if (isset($_POST['countryId'])) {
 
     $address1   = $_POST['address1'];
@@ -65,7 +82,12 @@ if (isset($_GET['action'])) {
         $alertTitle = $_GET['action']; 
         $alertColor = 'primary';
         $msg        = $_GET['msg'];
-    }else {
+    }elseif($_GET['action'] == 'WARNING') {
+        $alertTitle = $_GET['action']; 
+        $alertColor = 'warning';
+        $msg        = $_GET['msg'];
+    }
+    else {
         $alertTitle = $_GET['action']; 
         $alertColor = 'danger';
         $msg        = $_GET['msg'];
@@ -84,7 +106,7 @@ if ($response->status == 1) {
     $empDesignation = $theEmp->designation;
     $empDOJ         = $theEmp->doj;
     $empGender      = $theEmp->gender;
-    $empImage       = $theEmp->image;
+    $empImage       = $theEmp->image != '' ? $theEmp->image : 'default-emp.png';
     $empPhone       = $theEmp->phone;
     $empEmail       = $theEmp->email;
     $empPassword    = $theEmp->password;
@@ -124,6 +146,7 @@ if ($response->status == 1) {
     <link id="pagestyle" href="assets/css/soft-ui-dashboard.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="<?= URL ?>assets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="<?= URL ?>assets/vendors/img-uv/img-uv.css">
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -478,10 +501,6 @@ if ($response->status == 1) {
         <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
         <script src="<?= URL ?>/assets/vendors/select2/select2.min.js"></script>
         <script src="<?= URL ?>js/location.js"></script>
-
-        <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-
         <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -493,6 +512,7 @@ if ($response->status == 1) {
 
         $('#designation').select2();
         </script>
+        <script src="<?=URL?>assets/vendors/img-uv/img-uv.js"></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="assets/js/soft-ui-dashboard.min.js"></script>
 </body>

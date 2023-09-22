@@ -15,7 +15,29 @@
                 </div>
             </div>
             <div class="card-body p-3">
-                <form action="<?= $currentURL ?>" method="POST" name="profile-form">
+                <form action="<?= $currentURL ?>" method="POST" name="profile-form" enctype="multipart/form-data">
+
+                    <div class="row w-100 m-0 mb-2">
+                        <div class="col-6 col-sm-auto mb-3">
+                            <div class="mx-auto">
+                                <div class="d-flex justify-content-center align-items-center rounded"
+                                    style="height: 80px; background-color: rgb(233, 236, 239); aspect-ratio: 1/1;">
+                                    <img class="img-uv-view" src="<?= EMP_IMG_PATH.$empImage ?>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex align-items-center">
+                            <div class="input-group mt-2">
+                                <input type="file" class="d-none" id="img-uv-input" name="profile-picture" accept="image/*">
+                                <label class="input-group-text btn btn-sm btn-primary rounded" for="img-uv-input">
+                                    <i class="fa fa-fw fa-camera pe-2"></i>
+                                    Recent Photo
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="form-group">
                         <label for="emp-name" class="form-control-label">Name</label>
                         <input class="form-control" type="text" value="<?= $empName ?>" id="emp-name" name="emp-name"
@@ -187,8 +209,7 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">
-                                    <img src=" assets/img/kal-visuals-square.jpg" alt="kal"
-                                        class="border-radius-lg" />
+                                    <img src=" assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg" />
                                 </span>
                             </div>
                             <input type="url" class="form-control">
@@ -198,8 +219,7 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">
-                                    <img src=" assets/img/kal-visuals-square.jpg" alt="kal"
-                                        class="border-radius-lg" />
+                                    <img src=" assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg" />
                                 </span>
                             </div>
                             <input type="email" class="form-control">
@@ -209,14 +229,13 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">
-                                    <img src=" assets/img/kal-visuals-square.jpg" alt="kal"
-                                        class="border-radius-lg" />
+                                    <img src=" assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg" />
                                 </span>
                             </div>
                             <input type="email" class="form-control">
                         </div>
                     </li>
-                    
+
                 </ul>
             </div>
         </div>
