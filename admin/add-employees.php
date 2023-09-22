@@ -18,19 +18,12 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> Leelija - Add New Employees </title>
     <?php require_once ADM_DIR."incs/common-html-header.php"?>
+    <link rel="stylesheet" href="<?= URL ?>assets/vendors/img-uv/img-uv.css">
 </head>
 <style>
-.editingimg {
-    width: 100%;
-    border-radius: 13px !important;
-    height: 100%;
-    border: 1px solid lightgray;
-}
-
 .error-message {
     color: #fd5c70 !important;
 }
-
 .success-message {
     color: #66d432 !important;
 }
@@ -63,15 +56,15 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                         <div class="mx-auto" style="width: 130px;">
                                             <div class="d-flex justify-content-center align-items-center rounded"
                                                 style="height: 130px; background-color: rgb(233, 236, 239);">
-                                                <img class="profile-pic rounded editingimg" src="../images/emps/2.jpg">
+                                                <img class="img-uv-view" src="<?= IMG_PATH ?>default-icons/default-emp.png">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-6 d-flex align-items-center">
                                         <div class="input-group mt-2">
-                                            <input type="file" class="form-control file-upload d-none" id="img-select"
-                                                name="profile-picture" id="fileImg" accept="image/*">
-                                            <label class="input-group-text btn btn-primary rounded" for="img-select">
+                                            <input type="file" class="d-none" id="img-uv-input"
+                                                name="profile-picture" accept="image/*">
+                                            <label class="input-group-text btn btn-primary rounded" for="img-uv-input">
                                                 <i class="fa fa-fw fa-camera pe-2"></i>
                                                 Recent Photo
                                             </label>
@@ -207,6 +200,7 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
     <script src="../plugins/data-table/simple-datatables.js"></script>
     <script src="../plugins/tinymce/tinymce.js"></script>
     <script src="../plugins/main.js"></script>
+    <script src="<?=URL?>assets/vendors/img-uv/img-uv.js"></script>
     <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -217,7 +211,7 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
     }
     </script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+    <script src="assets/js/soft-ui-dashboard.min.js"></script>
 
     <script>
     (function() {
@@ -254,26 +248,6 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
         }
     });
 
-    </script>
-    
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        var readURL = (input) => {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = (e) => {
-                    document.querySelector(".profile-pic").src = e.target.result;
-                }
-
-                reader.readAsDataURL(input.files[0]);
-                document.querySelector("#upload-btn").classList.remove("d-none");
-            }
-        };
-        document.querySelector("#img-select").addEventListener("change", function() {
-            readURL(this);
-        });
-    });
     </script>
 </body>
 
