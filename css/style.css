@@ -143,8 +143,15 @@ textarea::disabled,
     --bs-btn-disabled-bg: #ed507d;
     --bs-btn-disabled-border-color: #ed507d;
 }
-
-
+::-ms-reveal {
+    display: none
+  }
+.input-group .btn {
+    border-radius: 0 !important;
+    background: aliceblue !important;
+    color: var(--black) !important;
+    border: 1px solid #3134355c !important;
+}
 /* header */
 
 header.main_header_section {
@@ -2028,10 +2035,10 @@ textarea {
     padding: 2%
 }
 
-#txtProfession,
+/* #txtProfession,
 #txtProfession option {
     font-weight: 500;
-}
+} */
 
 #txtProfession option:hover {
     cursor: pointer;

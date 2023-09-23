@@ -196,7 +196,17 @@ Ready website for business, High Quality website sales, High quality blogs sales
 
     <link href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700,900" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Nunito+Sans:400,700,900" rel="stylesheet">
+    <style>
+    form .form-group label {
+        padding-bottom: 0px;
+        font-weight: 400;
+        color: var(--black);
+    }
 
+    .form-group {
+        padding-bottom: 0px;
+    }
+    </style>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -229,67 +239,66 @@ Ready website for business, High Quality website sales, High quality blogs sales
                                                         action="<?php echo $_SERVER['PHP_SELF'] ?>" name="regUserForm"
                                                         method="post" enctype="multipart/form-data" autocomplete="off"
                                                         id="regUserForm" novalidate>
-
                                                         <div class="row">
-                                                            <div class="col-sm-6">
-                                                                <div class="form-floating mb-2">
+                                                            <div class="col-sm-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <label class="required-field" for="firstname">First
+                                                                        Name</label>
                                                                     <input type="text" placeholder="firstname"
                                                                         minlength="3" id="firstName" name="firstName"
                                                                         class="form-control" required>
-                                                                    <label class="required-field">First Name</label>
                                                                     <div class="invalid-feedback">
-                                                                        Please Enter First your Name!
+                                                                        Please Enter your first Name!
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-6">
-                                                                <div class="form-floating mb-2">
+
+                                                            <div class="col-sm-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="lastName">Last Name</label>
                                                                     <input type="text" placeholder="lastname"
                                                                         minlength="3" id="lastName" name="lastName"
                                                                         class="form-control" required>
-                                                                    <label class="required-field">Last Name</label>
                                                                     <div class="invalid-feedback">
-                                                                        Please Enter your Last Name!
+                                                                        Please Enter your last Name!
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-sm-6">
-                                                                <div class="form-floating mb-2">
+
+                                                            <div class="col-sm-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="floatingInput"> Contact Number </label>
                                                                     <input type="text"
                                                                         onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                                                                         minlength="10" pattern="[0-9]+" maxlength="10"
                                                                         class="form-control" id="mobNumber"
-                                                                        placeholder=" " name="mobNumber" required>
-                                                                    <label for="floatingInput"> Contact Number </label>
+                                                                        placeholder="0123456789" name="mobNumber"
+                                                                        required>
                                                                     <div class="invalid-feedback">
                                                                         Please enter your contact number!
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-6">
-                                                                <div class="form-floating mb-2">
+
+                                                            <div class="col-sm-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <label class="required-field">Email</label>
                                                                     <input type="email" id="txtemail" name="txtemail"
                                                                         placeholder="example@email.com"
                                                                         inputmode="email"
                                                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                                                         autofill="off" autocomplete="false"
                                                                         class="form-control" required>
-                                                                    <label class="required-field">Email</label>
                                                                     <div class="invalid-feedback">
                                                                         Please enter your email!
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-sm-6">
-                                                                <div class="form-floating mb-2">
+                                                            <div class="col-sm-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="profession">Profession</label>
                                                                     <select class="form-select" name="txtProfession"
-                                                                        id="txtProfession"
-                                                                        aria-label="Floating label select example"
-                                                                        required>
+                                                                        id="txtProfession" required>
                                                                         <option value="" selected="selected">Select
                                                                             Profession</option>
                                                                         <option value="Author">Author</option>
@@ -306,38 +315,34 @@ Ready website for business, High Quality website sales, High quality blogs sales
                                                                         </option>
                                                                         <option value="Others">Others</option>
                                                                     </select>
-                                                                    <label for="profession">Profession</label>
                                                                     <div class="invalid-feedback">
                                                                         Please choose a profession!
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-6">
-                                                                <div class="form-floating mb-2">
+                                                            <div class="col-sm-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="floatingSelect">Country</label>
                                                                     <select class="form-select" id="selectCountry"
                                                                         name="txtCountry" required>
                                                                         <option value="" selected="selected">Select
                                                                             Country</option>
-                                                                            <option value="101">India</option>
-
+                                                                        <option value="101">India</option>
                                                                     </select>
-                                                                    <label for="floatingSelect">Country</label>
                                                                     <div class="invalid-feedback">
                                                                         Please choose a country!
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-sm-6">
-                                                                <div class="form-floating mb-2">
+                                                            <div class="col-sm-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <label class="required-field">Password </label>
                                                                     <input type="password" minlength="8"
                                                                         id="txtPassword" name="txtPassword"
                                                                         placeholder="(username)123"
-                                                                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
-                                                                        autocomplete="new-password" class="form-control"
-                                                                        required>
-                                                                    <label class="required-field">Password </label>
+                                                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                                                        autocomplete="new-password"
+                                                                        class="form-control custm_pv" required>
                                                                     <div class="invalid-feedback">
                                                                         Must be a combination of
                                                                         (A-Z),(a-z),(0-9),(!@#$%^&*=+-_) and >8
@@ -348,16 +353,20 @@ Ready website for business, High Quality website sales, High quality blogs sales
                                                                     </div>
                                                                 </div>
                                                             </div>
-
-                                                            <div class="col-sm-6">
-                                                                <div class="form-floating mb-2">
-                                                                    <input type="password" id="txtPasswordConfirm"
-                                                                        name="txtPasswordConfirm" minlength="8"
-                                                                        placeholder="Confirm Password"
-                                                                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
-                                                                        class="form-control " required>
+                                                            <div class="col-sm-6 mb-2">
+                                                                <div class="form-group">
                                                                     <label class="required-field">Confirm
                                                                         Password</label>
+                                                                    <div class="input-group ">
+                                                                        <input type="password" id="txtPasswordConfirm"
+                                                                            name="txtPasswordConfirm" minlength="8"
+                                                                            placeholder="Confirm Password"
+                                                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                                                            class="form-control " required>
+                                                                        <button class="btn" type="button"><i
+                                                                                class="fas fa-eye-slash show"></i></button>
+
+                                                                    </div>
                                                                     <div class="form-text confirm-message"></div>
                                                                 </div>
                                                             </div>
@@ -369,14 +378,15 @@ Ready website for business, High Quality website sales, High quality blogs sales
                                                                         id="gridCheck1" required>
                                                                     <label class="form-check-label" for="gridCheck1">
                                                                         I Agree with the <a class="term-n-policy"
-                                                                            href="">Terms of service</a>
+                                                                            href="">Terms
+                                                                            of service</a>
                                                                         and <a class="term-n-policy" href="">Privacy
                                                                             Policy</a> .
                                                                     </label>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-12 mb-3 submit-divclass  text-center">
+                                                        <div class="col-sm-12 mb-2 submit-divclass  text-center">
                                                             <a href="/"><button class="my-buttons-hover bn21"
                                                                     type="submit" id="userRegisterBtn"
                                                                     name="btnSubmit"><i
@@ -385,14 +395,15 @@ Ready website for business, High Quality website sales, High quality blogs sales
                                                         </div>
                                                         <div class=" sign-up-btn pr-3 text-right">
                                                             <span>Already have an account?</span> <a href="login.php"
-                                                                class=""> Sign in
+                                                                class="">
+                                                                Sign in
                                                                 Now</a>
                                                         </div>
 
                                                     </form>
                                                 </div>
-
                                             </div>
+                                            <!-- section group -->
                                         </div>
                                     </div>
 
@@ -443,222 +454,27 @@ Ready website for business, High Quality website sales, High quality blogs sales
             }
         });
         </script>
-        <!-- <div class="register_section_design">
-            <div class="container-fluid">
-                <h2></h2>
-                <h4> </h4>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="registerImg">
-                            <div class="login-logo text-center p-2">
-                                <a href="index.php"> <img src="images/logo/logo.png" alt="logo-leelija" srcset=""></a>
-                            </div>
-                            <img src="images/Register.png" alt="login-image" class="w-100">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="features_grids form_shadow">
-                            <div class="section group">
-                                <div class="bfrom">
-                                    <form class="form-horizontal" role="form"
-                                        action="<?php echo $_SERVER['PHP_SELF'] ?>" name="formContactform" method="post"
-                                        enctype="multipart/form-data" autocomplete="off" id="regUserForm">
-                                        <b
-                                            style="color: #05ba4d; text-align: center;"><?php $uMesg->dispMessage($typeM, '../images/icon/', 'blackLarge');?></b>
-                                        <h3
-                                            class="text-center pb-3 purple-text text-capitalize register_section_header">
-                                            Join With Leelija</h3>
-                                        <div class="form-group">
-                                            <div class="row">
 
-                                                <div class="col-12">
-                                                    <label class="required-field">Name</label>
-                                                    <input type="text" id="firstName" name="firstName"
-                                                        placeholder="Your First Name" class="form-control" autofocus>
-                                                    <p id="fNameErr" class="regusererr">first name must be 4 charactar
-                                                        long</p>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <label class="required-field">Email</label>
-                                                    <input type="email" id="txtemail" name="txtemail"
-                                                        placeholder="Email (yourname@email.com)" class="form-control">
-                                                    <p id="emailErr" class="regusererr">please enter your valid email
-                                                    </p>
-                                                </div>
-                                                <div class="col-12 ">
-                                                    <div class="already_a_member">
-                                                        <span style="color:rgb(155, 155, 155);">Already a member?</span>
-                                                        <a href="login.php" class="purple-text ">login</a>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <label class="required-field">Password</label>
-                                                    <input type="password" id="txtPassword" name="txtPassword"
-                                                        placeholder="Password (Must Have 6 Characters)"
-                                                        class="form-control">
-                                                    <span class="help-block d-none">At Least 6 Character</span>
-                                                    <p id="passErr" class="regusererr">password should be 6 charactar
-                                                        long</p>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <label class="required-field">Confirm Password</label>
-                                                    <input type="password" id="txtPasswordConfirm"
-                                                        name="txtPasswordConfirm" placeholder="Confirm Password"
-                                                        class="form-control">
-                                                    <span class="help-block d-none">At Least 6 Character</span>
-                                                    <p id="cpassErr" class="regusererr">confirm password should be 6
-                                                        charactar long</p>
-                                                    <span id='Confirmmessage'></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <label for="country" class="control-label mb-3 required-field">Please Select
-                                                Your Country</label>
-                                        </div>
-                                        <div class="col-sm-12 mb-3">
-                                            <select id="selectCountry" name="txtCountry" class="form-control w-75"
-                                                required>
-                                                <option value="0">-- Select Country --</option>
-                                                <?php
-												if(isset($_SESSION['userid'])){
-											
-												$utility->populateDropDown($cusDtl[24], 'countries_id', 'countries_name', 'countries');
-												}else{
-											
-												$utility->populateDropDown(0, 'countries_id', 'countries_name', 'countries');
-												}
-												?>
-                                            </select>
-
-                                            <p id="selectCountryErr" class="regusererr">Please choose any country from
-                                                this list</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group mt-3">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <label for="profession" class="control-label required-field ">Please Select
-                                                Your Profession</label>
-                                        </div>
-
-                                        <div class="col-sm-12">
-                                            <select id="txtProfession" class="form-control select2 w-75 mb-3"
-                                                name="txtProfession" required>
-                                                <option value="" selected="selected">Select Profession</option>
-                                                <option value="Author">Author</option>
-                                                <option value="Blogger">Blogger</option>
-                                                <option value="Blogger">Blogger Outreach Manager</option>
-                                                <option value="Business Analyser">Business Analyser</option>
-                                                <option value="Marketing Manager">Marketing Manager</option>
-                                                <option value="Web Developer">Web Developer</option>
-                                                <option value="Others">Others</option>
-                                            </select>
-
-                                            <p id="selectProfessionErr" class="regusererr">Please choose any profession
-                                                from this list</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-12 p-0">
-                                        <button type="submit" name="btnSubmit" class="btn btn-primary font-weight-bold"
-                                            id="userRegisterBtn"><i
-                                                class="fas fa-sign-in-alt pr-2"></i>Register</button>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class=" sign-up-btn pr-3 text-right">
-                                        <span>Already have an account?</span> <a href="login.php" class=""> Sign in
-                                            Now</a>
-                                    </div>
-                                </div>
-                                </form>
-
-                                <br>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div> -->
-        <!-- //end container sec -->
     </div>
     <!-- js-->
-    <script src="js/jquery-2.2.3.min.js"></script>
-    <!-- js-->
-    <!-- Scrolling Nav JavaScript -->
-    <script src="js/scrolling-nav.js"></script>
-    <!-- //fixed-scroll-nav-js -->
-    <!-- <script>
-    $(window).scroll(function() {
-        if ($(document).scrollTop() > 70) {
-            $('nav.pagescrollfix,nav.RWDpagescrollfix').addClass('shrink');
+    <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
+    <script src="plugins/jquery-3.6.0.min.js"></script>
+    <script>
+    const createPw = document.querySelector("#txtPassword"),
+        confirmPw = document.querySelector("#txtPasswordConfirm"),
+        pwShow = document.querySelector(".show");
+    pwShow.addEventListener("click", () => {
+        if ((createPw.type === "password") && (confirmPw.type === "password")) {
+            createPw.type = "text";
+            confirmPw.type = "text";
+            pwShow.classList.replace("fa-eye-slash", "fa-eye");
         } else {
-            $('nav.pagescrollfix,nav.RWDpagescrollfix').removeClass('shrink');
+            createPw.type = "password";
+            confirmPw.type = "password";
+            pwShow.classList.replace("fa-eye", "fa-eye-slash");
         }
     });
-    </script> -->
-    <!-- Banner text Responsiveslides -->
-    <script src="js/responsiveslides.min.js"></script>
-    <script>
-    // You can also use"$(window).load(function() {"
-    // $(function() {
-    //     // Slideshow 4
-    //     $("#slider3").responsiveSlides({
-    //         auto: true,
-    //         pager: true,
-    //         nav: false,
-    //         speed: 500,
-    //         namespace: "callbacks",
-    //         before: function() {
-    //             $('.events').append("<li>before event fired.</li>");
-    //         },
-    //         after: function() {
-    //             $('.events').append("<li>after event fired.</li>");
-    //         }
-    //     });
-
-    // });
-    // 
     </script>
-    <!-- //Banner text  Responsiveslides -->
-    <!-- start-smooth-scrolling -->
-
-    <script src="js/SmoothScroll.min.js"></script>
-    <!-- //smooth-scrolling-of-move-up -->
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.js">
-    </script>
-    <!-- //Bootstrap Core JavaScript -->
-    <!-- 
-    <script src="js/regUser.js"></script>
-    <script src="js/regChk.js"></script>
-    <script src="js/jquery.validate.js"></script> -->
 </body>
 
 </html>
