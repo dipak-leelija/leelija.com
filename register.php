@@ -286,7 +286,7 @@ Ready website for business, High Quality website sales, High quality blogs sales
                                                                     <input type="email" id="txtemail" name="txtemail"
                                                                         placeholder="example@email.com"
                                                                         inputmode="email"
-                                                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                                                        pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
                                                                         autofill="off" autocomplete="false"
                                                                         class="form-control" required>
                                                                     <div class="invalid-feedback">

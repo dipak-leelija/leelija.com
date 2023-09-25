@@ -132,7 +132,7 @@ Ready website for business, High Quality website sales, High quality blogs sales
                                                 <div class="form-group">
                                                     <label>Email address</label>
                                                     <input type="email" placeholder="example@gmail.com" id="txtUser"
-                                                        name="txtUser" class="form-control" required>
+                                                        name="txtUser" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Please enter your email address!
                                                     </div>

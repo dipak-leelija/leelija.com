@@ -1,4 +1,0 @@
-(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}
-
-
-pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   for password pattern valdaion

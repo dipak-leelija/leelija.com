@@ -226,7 +226,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="email" name="contactEmail" id="contactEmail" inputmode="email"
-                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
                                     value="<?php if(isset($_SESSION['txtEmail'])){ echo $_SESSION['txtEmail'];}?>"
                                     class="form-control" placeholder="name@example.com" required>
                                 <label for="floatingInput">Email Address</label>
