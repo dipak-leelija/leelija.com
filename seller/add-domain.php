@@ -179,8 +179,8 @@ if(isset($_POST['btnAddDomain'])){
                                         <h4>Add New Blog/Item</h4>
                                     </div>
                                     <div class="card-body">
-                                        <form class="row g-3" action="<?= $currentURL ?>" method="POST"
-                                            enctype="multipart/form-data">
+                                        <form class="row g-3 needs-validation" action="<?= $currentURL ?>" method="POST"
+                                            enctype="multipart/form-data" novalidate>
                                             <div class="col-md-6">
                                                 <label for="txtDomain" class="form-label">Domain Name</label>
                                                 <input type="text" class="form-control" id="txtDomain"
@@ -251,14 +251,14 @@ if(isset($_POST['btnAddDomain'])){
 
 
                                             <div class="col-md-6">
-                                                <input type="hidden" name="count" value="1" />
+                                                <input type="hidden" name="count" value="1" required/>
 
                                                 <label class="form-label" for="field1">Domain Featured </label>
                                                 <div class="controls" id="profs">
 
                                                     <div id="field"><input autocomplete="off" class="input form-control"
                                                             id="field1" name="txtFeatured[]" type="text"
-                                                            placeholder="Write your domain featured" /></div>
+                                                            placeholder="Write your domain featured" required /></div>
                                                 </div>
                                                 <button style="background-color:#1f81c1;" id="b1"
                                                     class="btn add-more my-2" type="button">+</button>
@@ -308,7 +308,23 @@ if(isset($_POST['btnAddDomain'])){
     <script src="<?= URL ?>assets/portal-assets/js/main.min.js"></script>
     <script src="<?= URL ?>js/jquery.uploadPreview.js"></script>
 
+    <script>
+    (function() {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
 
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+    </script>
 
     <script type="text/javascript">
     $(document).ready(function() {
