@@ -512,6 +512,92 @@ if ($response->status == 1) {
 
         $('#designation').select2();
         </script>
+        <script>
+        (function() {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+        </script>
+        <!-- ---------------------------------------------- -->
+        <!-- for current password view icon hideshow -->
+        <!-- ------------------------------------------- -->
+        <script>
+        var password = document.getElementById('currentPassword');
+        var toggler = document.getElementById('toggler');
+        showHidePassword = () => {
+            if (password.type == 'password') {
+                toggler.classList.replace("fa-eye-slash", "fa-eye");
+                password.setAttribute('type', 'text');
+            } else {
+                password.setAttribute('type', 'password');
+                toggler.classList.replace("fa-eye", "fa-eye-slash");
+            }
+        };
+        toggler.addEventListener('click', showHidePassword);
+        </script>
+        <!-- ---------------------------------------------- -->
+        <!-- for current password view icon hideshow end -->
+        <!-- ------------------------------------------- -->
+
+
+        <!-- ---------------------------------------------- -->
+        <!-- for new and confirm password view icon hideshow -->
+        <!-- ------------------------------------------- -->
+        <script>
+        const createPw = document.querySelector("#newPassword"),
+            confirmPw = document.querySelector("#confirmPassword"),
+            pwShow = document.querySelector("#toggle-show");
+        showHidePassword = () => {
+            if ((createPw.type === "password") && (confirmPw.type === "password")) {
+                createPw.type = "text";
+                confirmPw.type = "text";
+                pwShow.classList.replace("fa-eye-slash", "fa-eye");
+            } else {
+                createPw.type = "password";
+                confirmPw.type = "password";
+                pwShow.classList.replace("fa-eye", "fa-eye-slash");
+            }
+        };
+        pwShow.addEventListener('click', showHidePassword);
+        </script>
+        <!-- ---------------------------------------------- -->
+        <!-- for new and confirm password view icon hideshow end -->
+        <!-- ------------------------------------------- -->
+        <!-- ------------------------------------- -->
+        <!-- funtion for password validation -->
+        <!-- ------------------------------------- -->
+        <script>
+        $('#newPassword, #confirmPassword').on('keyup', function() {
+            'use strict'
+            $('.confirm-message').removeClass('success-message').removeClass('error-message');
+            let password = $('#newPassword').val();
+            let confirm_password = $('#confirmPassword').val();
+            if (password === "") {
+                $('.confirm-message').text("Password Field cannot be empty!").addClass('error-message');
+            } else if (confirm_password === "") {
+                $('.confirm-message').text("Confirm Password Field cannot be empty!").addClass('error-message');
+            } else if (confirm_password === password) {
+                $('.confirm-message').text('Password Match!').addClass('success-message');
+            } else {
+                $('.confirm-message').text("Password Doesn't Match!").addClass('error-message');
+                // $('#txtPasswordConfirm').addClass('is-invalid');
+            }
+        });
+        </script>
+        <!-- ------------------------------------- -->
+        <!-- funtion for password validation end -->
+        <!-- ------------------------------------- -->
         <script src="<?=URL?>assets/vendors/img-uv/img-uv.js"></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="assets/js/soft-ui-dashboard.min.js"></script>

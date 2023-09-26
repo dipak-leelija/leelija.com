@@ -15,7 +15,8 @@
                 </div>
             </div>
             <div class="card-body p-3">
-                <form action="<?= $currentURL ?>" method="POST" name="profile-form" enctype="multipart/form-data">
+                <form class="needs-validation" action="<?= $currentURL ?>" method="POST" name="profile-form"
+                    enctype="multipart/form-data" novalidate>
 
                     <div class="row w-100 m-0 mb-2">
                         <div class="col-6 col-sm-auto mb-3">
@@ -28,7 +29,8 @@
                         </div>
                         <div class="col-6 d-flex align-items-center">
                             <div class="input-group mt-2">
-                                <input type="file" class="d-none" id="img-uv-input" name="profile-picture" accept="image/*">
+                                <input type="file" class="d-none" id="img-uv-input" name="profile-picture"
+                                    accept="image/*">
                                 <label class="input-group-text btn btn-sm btn-primary rounded" for="img-uv-input">
                                     <i class="fa fa-fw fa-camera pe-2"></i>
                                     Recent Photo
@@ -131,20 +133,20 @@
                 <h6 class="mb-0">Address Information</h6>
             </div>
             <div class="card-body p-3">
-                <form action="<?= $currentURL ?>" method="POST">
+                <form class="needs-validation" action="<?= $currentURL ?>" method="POST" novalidate>
                     <div class="form-group">
                         <label for="address1" class="form-control-label">Address 1</label>
                         <input class="form-control" type="text" id="address1" name="address1"
-                            value="<?= $empAddress1 ?>" />
+                            value="<?= $empAddress1 ?>" required />
                     </div>
                     <div class="form-group">
                         <label for="address2" class="form-control-label">Address 2</label>
                         <input class="form-control" type="text" id="address2" name="address2"
-                            value="<?= $empAddress2 ?>" />
+                            value="<?= $empAddress2 ?>" required />
                     </div>
                     <div class="form-group">
                         <label for="city" class="form-control-label">City</label>
-                        <select class="form-select" name="city" id="city">
+                        <select class="form-select" name="city" id="city" required>
                             <?php
                             if (empty($empCityId) && empty($empStateId) && empty($empCountryId)) {
                                 echo '<option value="" disabled> Select Country and State First </option>';
@@ -161,7 +163,8 @@
                     <div class="form-group">
                         <label for="stateId" class="form-control-label">State</label>
                         <!-- <input class="form-control" type="text" value="<?= $empState?>" id="example-url-input" /> -->
-                        <select id="stateId" class="form-select " name="stateId" onchange="getCitiesList(this)">
+                        <select id="stateId" class="form-select " name="stateId" required
+                            onchange="getCitiesList(this)">
                             <option value="" selected disabled> Select </option>
                             <?php
                                 if (!empty($empCountryId) && !empty($empStateId)) {
@@ -176,7 +179,7 @@
                     <div class="form-group">
                         <label for="pin-code" class="form-control-label">PIN Code</label>
                         <input class="form-control" type="number" id="pin-code" name="pin-code"
-                            value="<?= $empPinCode ?>" />
+                            value="<?= $empPinCode ?>" required />
                     </div>
                     <div class="form-group">
                         <label for="example-password-input" class="form-control-label">Country</label>
@@ -237,6 +240,70 @@
                     </li>
 
                 </ul>
+
+
+                <form class="form-horizontal needs-validation" role="form" action="" name="" method="post"
+                    enctype="multipart/form-data" autocomplete="off" novalidate>
+                    <div class="row ">
+                        <div class="col-12">
+                            <div class="form-group ">
+                                <label class="form-label">Current Password</label>
+                                <div class="input-group">
+                                    <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                        placeholder="Current Password" minlength="6" id="currentPassword"
+                                        name="currentPassword" class="form-control custom_view_pass" required>
+                                    <button class="btn custom-toggle-icon" type="button"><i
+                                            class="fa-solid fa-eye-slash custm-confirm "
+                                            id="toggler"></i></button>
+                                    <div class="invalid-feedback">
+                                        Please enter your Current Password!
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="newPassword" class="form-label">New Password</label>
+                                <input type="password" minlength="8" id="newPassword" name="newPassword"
+                                    placeholder="New Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    autocomplete="new-password" class="form-control custm_pv" required>
+                                <div class="invalid-feedback">
+                                    Must be a combination of
+                                    (A-Z),(a-z),(0-9),(!@#$%^&*=+-_) and >8
+                                    characters long!
+                                </div>
+                                <div class="valid-feedback">
+                                    Strong password!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <div class="input-group ">
+                                    <input type="password" id="confirmPassword" name="confirmPassword" minlength="8"
+                                        placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                        class="form-control " required>
+                                    <button class="btn custom-toggle-icon" type="button"><i class="fas fa-eye-slash custm-confirm "
+                                            id="toggle-show"></i></button>
+
+                                </div>
+                                <div class="form-text confirm-message"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="text-end">
+                        <button class="btn btn-sm btn-primary" type="submit">Update</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

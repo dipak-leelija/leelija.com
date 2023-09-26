@@ -52,9 +52,19 @@ if(isset($_POST)){
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="../plugins/fontawesome-6.1.1/css/all.css" rel="stylesheet" type="text/css">
+    <!-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> -->
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
     <link id="pagestyle" href="assets/css/soft-ui-dashboard.css" rel="stylesheet" />
+    <style>
+    .custm-confirm {
+        color: #a6a6a6;
+        transition: all 0.3s ease;
+        margin: 0 !important;
+        font-size: 16px !important;
+        z-index: 99;
+    }
+    </style>
 </head>
 
 <body class="">
@@ -86,19 +96,34 @@ if(isset($_POST)){
                                     <p class="mb-0">Enter your email and password to sign in</p>
                                 </div>
                                 <div class="card-body">
-                                    <form  action="<?= $_SERVER['PHP_SELF']; ?>" method="POST">
+                                    <form class="needs-validation" action="<?= $_SERVER['PHP_SELF']; ?>" method="POST"
+                                        novalidate>
                                         <label>Username</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" placeholder="Username"
-                                                aria-label="Username" aria-describedby="username-addon" name="username">
+                                                aria-label="Username" aria-describedby="username-addon" name="username"
+                                                required>
                                         </div>
-                                        <label>Password</label>
-                                        <div class="mb-3">
-                                            <input type="password" class="form-control" placeholder="Password"
-                                                aria-label="Password" aria-describedby="password-addon" name="password">
+
+                                        <div class="form-group ">
+                                            <label>Password</label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control" placeholder="Password"
+                                                    aria-label="Password"  id="cpass" aria-describedby="password-addon"
+                                                    name="password" required>
+
+                                                <button class="btn custom-toggle-icon" type="button"> <i
+                                                        class="fa-solid fa-eye-slash custm-confirm "
+                                                        id="toggler"></i></button>
+                                                <div class="invalid-feedback">
+                                                    Please enter your Password!
+                                                </div>
+                                            </div>
+
                                         </div>
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
+                                            <input class="form-check-input" type="checkbox" id="rememberMe" checked=""
+                                                required>
                                             <label class="form-check-label" for="rememberMe">Remember me</label>
                                         </div>
                                         <div class="text-center">
@@ -110,17 +135,13 @@ if(isset($_POST)){
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <p class="mb-4 text-sm mx-auto">
                                         Don't have an account?
-                                        <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign
+                                        <a href="sign-up.php" class="text-info text-gradient font-weight-bold">Sign
                                             up</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="col-md-6">
-              <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('assets/img/curved-images/curved6.jpg')"></div>
-              </div>
-            </div> -->
+
                     </div>
                 </div>
             </div>
@@ -140,6 +161,43 @@ if(isset($_POST)){
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
     </script>
+    <script>
+    (function() {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+    </script>
+    <!-- ---------------------------------------------- -->
+    <!-- for current password view icon hideshow -->
+    <!-- ------------------------------------------- -->
+    <script>
+    var password = document.getElementById('cpass');
+    var toggler = document.getElementById('toggler');
+    showHidePassword = () => {
+        if (password.type == 'password') {
+            toggler.classList.replace("fa-eye-slash", "fa-eye");
+            password.setAttribute('type', 'text');
+        } else {
+            password.setAttribute('type', 'password');
+            toggler.classList.replace("fa-eye", "fa-eye-slash");
+        }
+    };
+    toggler.addEventListener('click', showHidePassword);
+    </script>
+    <!-- ---------------------------------------------- -->
+    <!-- for current password view icon hideshow end -->
+    <!-- ------------------------------------------- -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="assets/js/soft-ui-dashboard.min.js"></script>
 </body>

@@ -24,6 +24,7 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
 .error-message {
     color: #fd5c70 !important;
 }
+
 .success-message {
     color: #66d432 !important;
 }
@@ -56,14 +57,15 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                         <div class="mx-auto" style="width: 130px;">
                                             <div class="d-flex justify-content-center align-items-center rounded"
                                                 style="height: 130px; background-color: rgb(233, 236, 239);">
-                                                <img class="img-uv-view" src="<?= IMG_PATH ?>default-icons/default-emp.png">
+                                                <img class="img-uv-view"
+                                                    src="<?= IMG_PATH ?>default-icons/default-emp.png">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-6 d-flex align-items-center">
                                         <div class="input-group mt-2">
-                                            <input type="file" class="d-none" id="img-uv-input"
-                                                name="profile-picture" accept="image/*">
+                                            <input type="file" class="d-none" id="img-uv-input" name="profile-picture"
+                                                accept="image/*">
                                             <label class="input-group-text btn btn-primary rounded" for="img-uv-input">
                                                 <i class="fa fa-fw fa-camera pe-2"></i>
                                                 Recent Photo
@@ -128,7 +130,7 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                 <div class="row w-100 m-0 mb-2">
                                     <div class="col-6 ">
                                         <label for="designation" class="form-label">Designation</label>
-                                        <select class="form-select" name="designation" id="designation">
+                                        <select class="form-select" name="designation" id="designation" required>
                                             <option value="" disabled selected>Select</option>
                                             <option value="Manager">Manager</option>
                                             <option value="Human Resource">Human Resource</option>
@@ -157,27 +159,36 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
 
                                 <div class="row w-100 m-0 mb-2">
                                     <div class="col-6 ">
-                                        <label for="text" class="form-label">Password</label>
-                                        <input type="password" minlength="8" id="txtPassword" name="password"
-                                            placeholder="Password"
-                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                            autocomplete="new-password" class="form-control" required>
-                                        <div class="invalid-feedback">
-                                            Must be a combination of
-                                            (A-Z),(a-z),(0-9),(!@#$%^&*=+-_) and >8
-                                            characters long!
-                                        </div>
-                                        <div class="valid-feedback">
-                                            Strong password!
+                                        <div class="form-group">
+                                            <label for="newPassword" class="form-label">New Password</label>
+                                            <input type="password" minlength="8" id="txtPassword" name="password"
+                                                placeholder="New Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                                autocomplete="new-password" class="form-control custm_pv" required>
+                                            <div class="invalid-feedback">
+                                                Must be a combination of
+                                                (A-Z),(a-z),(0-9),(!@#$%^&*=+-_) and >8
+                                                characters long!
+                                            </div>
+                                            <div class="valid-feedback">
+                                                Strong password!
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <label for="text" class="form-label">Confirm Password</label>
-                                        <input type="password" id="txtPasswordConfirm" name="confirmPassword"
-                                            minlength="8" placeholder="Confirm Password"
-                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                            class="form-control " required>
-                                        <div class="form-text confirm-message"></div>
+                                        <div class="form-group">
+                                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                            <div class="input-group ">
+                                                <input type="password" id="txtPasswordConfirm" name="confirmPassword"
+                                                    minlength="8" placeholder="Confirm Password"
+                                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control "
+                                                    required>
+                                                <button class="btn custom-toggle-icon" type="button"><i
+                                                        class="fas fa-eye-slash custm-confirm "
+                                                        id="toggle-show"></i></button>
+
+                                            </div>
+                                            <div class="form-text confirm-message"></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 text-center mt-4 ">
@@ -247,8 +258,31 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
             // $('#txtPasswordConfirm').addClass('is-invalid');
         }
     });
-
     </script>
+
+    <!-- ---------------------------------------------- -->
+    <!-- for new and confirm password view icon hideshow -->
+    <!-- ------------------------------------------- -->
+    <script>
+    const createPw = document.querySelector("#txtPassword"),
+        confirmPw = document.querySelector("#txtPasswordConfirm"),
+        pwShow = document.querySelector("#toggle-show");
+    showHidePassword = () => {
+        if ((createPw.type === "password") && (confirmPw.type === "password")) {
+            createPw.type = "text";
+            confirmPw.type = "text";
+            pwShow.classList.replace("fa-eye-slash", "fa-eye");
+        } else {
+            createPw.type = "password";
+            confirmPw.type = "password";
+            pwShow.classList.replace("fa-eye", "fa-eye-slash");
+        }
+    };
+    pwShow.addEventListener('click', showHidePassword);
+    </script>
+    <!-- ---------------------------------------------- -->
+    <!-- for new and confirm password view icon hideshow end -->
+    <!-- ------------------------------------------- -->
 </body>
 
 </html>
