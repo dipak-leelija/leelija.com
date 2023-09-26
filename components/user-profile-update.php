@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body p-md-5">
-        <form class="form-horizontal" role="form" action="<?= PAGE; ?>" name="formContactform"
-            method="post" enctype="multipart/form-data" autocomplete="off">
+        <form class="form-horizontal needs-validation" role="form" action="<?= PAGE; ?>" name="formContactform"
+            method="post" enctype="multipart/form-data" autocomplete="off" novalidate>
             <div class="row ">
                 <div class="col-md-6">
                     <label for="settingsInputFirstName" class="form-label">First Name</label>
@@ -16,7 +16,7 @@
                 <div class="col-md-6">
                     <label for="settingsInputEmail" class="form-label">Email address</label>
                     <input type="email" class="form-control" value="<?php echo $cusDtl[0][3]; ?>"
-                        required disabled>
+                         disabled>
 
                 </div>
                 <div class="col-md-6">
@@ -75,20 +75,20 @@
                 <div class="col-md-6">
                     <label class="form-label">About You</label>
                     <textarea class="form-control" name="brief" maxlength="500" rows="3"
-                        aria-describedby="settingsAboutHelp"><?php echo $cusDtl[0][10]; ?></textarea>
+                        aria-describedby="settingsAboutHelp" required><?php echo $cusDtl[0][10]; ?></textarea>
 
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Description</label>
                     <textarea class="form-control" maxlength="500" rows="3" name="txtDesc"
-                        aria-describedby="settingsAboutHelp"><?php echo trim(stripslashes($cusDtl[0][11])); ?></textarea>
+                        aria-describedby="settingsAboutHelp" required><?php echo trim(stripslashes($cusDtl[0][11])); ?></textarea>
 
                 </div>
             </div>
             <div class="row m-t-lg">
                 <div class="col-md-6">
                     <label for="settingsAbout" class="form-label">Organization</label>
-                    <input class="form-control" name="organization" value="<?php echo $cusDtl[0][12]; ?>">
+                    <input class="form-control" name="organization" required value="<?php echo $cusDtl[0][12]; ?>">
                 </div>
             </div>
            

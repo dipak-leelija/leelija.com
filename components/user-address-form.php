@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body p-md-5">
-        <form class="form-horizontal" role="form" action="<?= PAGE ?>" name="formContactform" method="post"
-            autocomplete="off">
+        <form class="form-horizontal needs-validation" role="form" action="<?= PAGE ?>" name="formContactform" method="post"
+            autocomplete="off" novalidate>
             <div class="row">
                 <div class="col-md-6">
                     <label for="address1" class="form-label">Address1</label>
@@ -64,18 +64,18 @@
             <div class="row m-t-lg">
                 <div class="col-md-6">
                     <label for="Phone1" class="form-label">Phone1</label>
-                    <input type="number" class="form-control" name="phone1" value="<?= $userPhone1; ?>">
+                    <input type="number" class="form-control" name="phone1" required value="<?= $userPhone1; ?>">
                 </div>
                 <div class="col-md-6">
                     <label for="Phone2" class="form-label">Phone2</label>
-                    <input type="number" class="form-control" name="phone2" value="<?= $userPhone2; ?>">
+                    <input type="number" class="form-control" name="phone2" required value="<?= $userPhone2; ?>">
 
                 </div>
             </div>
             <div class="row m-t-lg">
                 <div class="col-md-6">
                     <label for="settingsAbout" class="form-label">Fax</label>
-                    <input type="number" class="form-control" name="userfax" value="<?= $userFax; ?>">
+                    <input type="number" class="form-control" name="userfax" required value="<?= $userFax; ?>">
 
                 </div>
             </div>

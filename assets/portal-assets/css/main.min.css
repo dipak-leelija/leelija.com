@@ -49,6 +49,10 @@ text {
     font-family: Poppins, sans-serif
 }
 
+::-ms-reveal {
+    display: none !important;
+}
+
 a:active,
 a:focus,
 a:hover {
@@ -996,12 +1000,13 @@ h6 {
 }
 
 .app-menu>ul>li.active-page>a,
-.app-menu>ul>li.open>a{
+.app-menu>ul>li.open>a {
     /* color: #2269f5;
     background-color: #1f2433; */
     color: white;
     background-color: #9E4784;
 }
+
 /* .app-menu>ul>li>a:hover {
     color: rgb(12, 11, 11);
 } */
@@ -1062,14 +1067,15 @@ h6 {
     font-weight: 500
 }
 
-.app-menu .cutomer-switch{
+.app-menu .cutomer-switch {
     position: fixed;
     left: 0;
     bottom: 0;
-    width : auto!important;
-    z-index: 1000 !important ;
+    width: auto !important;
+    z-index: 1000 !important;
     padding-right: 110px;
 }
+
 .accordion-menu li.sidebar-title {
     padding: 20px 15px 10px 30px;
     font-weight: 700;
@@ -7079,53 +7085,64 @@ span.flatpickr-weekday {
 }
 
 /* add domain page css */
-    /*Image upload*/
-    .prvw-img-wrap{
-        border: 1px solid #e3e6ea;
-        border-radius: .25em;
-        display: flex;
-        justify-content: center;
-    }
-        #image-preview {
-            width: 200px;
-            height: 200px;
-            position: relative;
-            overflow: hidden;
-            background-color: #ffffff;
-            color: #ecf0f1;
-            border: 1px solid;
-            border-radius: 7px;
-        }
-    
-        #image-preview input {
-            /* line-height: 200px;
+/*Image upload*/
+.prvw-img-wrap {
+    border: 1px solid #e3e6ea;
+    border-radius: .25em;
+    display: flex;
+    justify-content: center;
+}
+
+#image-preview {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    color: #ecf0f1;
+    border: 1px solid;
+    border-radius: 7px;
+}
+
+#image-preview input {
+    /* line-height: 200px;
             font-size: 200px;
             position: absolute; */
-            opacity: 0;
-            /* z-index: 10; */
-        }
-    
-        #image-preview label {
-            position: absolute;
-            z-index: 5;
-            opacity: 0.8;
-            cursor: pointer;
-            /* background-color: #1F81C1; */
-            background-color: #c8d5dd87;
-            width: 100%;
-            height: 50px;
-            font-size: 20px;
-            line-height: 50px;
-            text-transform: uppercase;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-            text-align: center;
-            color:#0000006b;
-            font-size: 14px
-        }
-    
-    
-        /*//Image upload*/
+    opacity: 0;
+    /* z-index: 10; */
+}
+
+#image-preview label {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.8;
+    cursor: pointer;
+    /* background-color: #1F81C1; */
+    background-color: #c8d5dd87;
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-transform: uppercase;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    color: #0000006b;
+    font-size: 14px
+}
+
+
+/*//Image upload*/
+/* css change for password input field */
+.input-group .btn {
+    color: var(--black) !important;
+    border: 1px solid #e3e6ea !important;
+    border-top-right-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+    border-left: none !important;
+}
+
+/* css change for password input field */
