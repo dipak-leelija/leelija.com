@@ -3438,10 +3438,9 @@ table .btn-explore-banner {
     padding-top: 70px;
     background-color: var(--black);
     background-color: rgba(0, 0, 0, 0.4);
-    -webkit-transition: 0.5s;
+    /* -webkit-transition: 0.5s; */
     overflow: auto;
-    transition: all 0.3s linear;
-    font-weight: 500
+    font-weight: 500;
 }
 
 .job-apply-form label {

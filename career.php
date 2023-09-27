@@ -50,7 +50,7 @@ define('WP_USE_THEMES', false);
 
 ?>
 <!DOCTYPE HTML>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -66,12 +66,12 @@ define('WP_USE_THEMES', false);
 
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <div id="home">
+    <div id="home" class=" animate_only_for_scroll">
         <!-- header -->
         <?php require_once "partials/navbar.php" ?>
 
         <div class="main_service_page pt-4">
-            <div class="service_page_banner  text-center banner py-4">
+            <div class="service_page_banner reveal text-center banner py-4">
                 <h1 class="blue_color_class1 text-uppercase font-weight-bold ">Career</h1>
                 <h3 class="py-3 mons-font">Take a look to our Career Options. </h3>
                 <p>We are providing you a great opportunities to become a part of us.</p>
@@ -80,12 +80,11 @@ define('WP_USE_THEMES', false);
             </div>
             <!--Banner Dividor-->
             <!--/End of baneer Dividor-->
-            <div class="grow-career-skills">
+            <div class="grow-career-skills reveal">
                 <h2 class="">Why are you <span class="blue_color_class">waiting?</span></h2>
                 <div class="row">
                     <div class=" col-lg-6 col-sm-12 col-md-6  ">
-                        <img src="images/portfolio/why-are-you-waiting.jpg  " class="w-100" 
-                            alt="">
+                        <img src="images/portfolio/why-are-you-waiting.jpg  " class="w-100" alt="">
                     </div>
                     <div class="col-lg-6 col-sm-12  col-md-6 m-auto text-center">
                         <p class="">We need you by our side for developing high-end applications that will
@@ -102,7 +101,7 @@ define('WP_USE_THEMES', false);
 
 
             <section
-                class="bt_bb_section bt_bb_top_spacing_extra_large bt_bb_bottom_spacing_extra_large bt_bb_layout_boxed_1200 bt_bb_vertical_align_top bt_bb_section_allow_content_outside bt_bb_section_with_top_coverage_image bt_bb_section_with_bottom_coverage_image bodyconten"
+                class="bt_bb_section bt_bb_top_spacing_extra_large bt_bb_bottom_spacing_extra_large bt_bb_layout_boxed_1200 bt_bb_vertical_align_top bt_bb_section_allow_content_outside bt_bb_section_with_top_coverage_image bt_bb_section_with_bottom_coverage_image bodyconten reveal"
                 style="background-color:#f5f5f5; overflow: hidden;">
                 <div class="mainpage">
                     <div class="pagecell">
@@ -320,11 +319,9 @@ define('WP_USE_THEMES', false);
 
 
 
-            <!-- ==========================================
-                                    ---------m-card end---------
-                                ========================================== -->
+            <!-- =========================  ---------m-card end---------  ================== -->
 
-            <div class="join-our-team text-center">
+            <div class="join-our-team text-center reveal">
                 <div class="container">
                     <h2 class="mb-2">Join Our <span class="blue_color_class">Team</span> As A</h2>
                     <div class="row">
@@ -359,7 +356,7 @@ define('WP_USE_THEMES', false);
                     </div>
                 </div>
             </div>
-            <div class="grow-career-skills">
+            <div class="grow-career-skills reveal">
                 <div class="row">
                     <h2> Fast Grow <span>Your Skills and Career</span> </h2>
                     <div class="col-md-6 m-auto">
@@ -380,7 +377,7 @@ define('WP_USE_THEMES', false);
                     </div>
                 </div>
             </div>
-            <div class="carrier_positions">
+            <div class="carrier_positions reveal">
                 <div class="container">
                     <div class="text-center text-uppercase">
                         <h2>Current <span class="blue_color_class">Opportunities</span></h2>
@@ -404,7 +401,7 @@ define('WP_USE_THEMES', false);
                             </ul>
                         </div>
 
-                        <div class="job-apply-form">
+                        <div class="job-apply-form fade">
                             <div class="quote-form px-md-3">
                                 <span class="close">&times;</span>
 
@@ -538,7 +535,7 @@ define('WP_USE_THEMES', false);
                                     </div>
 
                                     <div class="uploadedCvName"> </div>
-                                    
+
 
                                     <div class="row m-0 w-100 mt-5">
                                         <div class="col-sm-6 text-center">
@@ -689,13 +686,13 @@ define('WP_USE_THEMES', false);
 
 
     $('.single_job_posts ul li .job-apply').click(function() {
-        $(".job-apply-form").css("display", "block");
+        $(".job-apply-form").css("display", "block").addClass("show");
         var post = $(this).parents().children('.left-side-job-type').children('.job-title').html();
         $(".jobPost").html('Application for the role of <span class="blue_color_class">' + post + '</span>');
     });
 
     $(".close").click(function() {
-        $(".job-apply-form").css("display", "none");
+        $(".job-apply-form").css("display", "none").removeClass("show");
     });
 
     $(".current-job-status li input").click(function() {
@@ -709,6 +706,23 @@ define('WP_USE_THEMES', false);
             $(this).prop("checked", true);
         }
     });
+    </script>
+    <script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
     </script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.js"></script>

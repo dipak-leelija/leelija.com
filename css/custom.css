@@ -1,208 +1,416 @@
-.services-icon{
-	width: 60px;
-	height: 60px;
-}
-
-.slideanim span{
-	padding-top: 10px;
-}
-
-/*Accordion Setting*/
-
-.accordion {
-    border:1px solid #06418d !important;
-    color: #06418d;
-		background: white;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 18px;
-    transition: 0.4s;
-		font-weight: 500
-}
-
-
-.panel {
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-    overflow: hidden;
-}
-
-.align-middle{
-	text-align: center;
-}
-/*Tab Information*/
-a:hover,a:focus{
-    outline: none;
-    text-decoration: none;
-}
-.tab .nav-tabs{
-    border: none;
-    margin-bottom: 20px;
-}
-.tab .nav-tabs li a{
-    margin-right: 15px;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    background: #5d001e;
-    border: 1px solid #5d001e;
-    border-radius: 0;
-    box-shadow: 5px 5px 0 0 #fcca89;
-    position: relative;
-    transition: all 0.5s ease 0s;
-}
-.tab .nav-tabs li a:hover,
-.tab .nav-tabs li.active a{
-    color: #5d001e;
-    background: #fff;
-    border: 1px solid #5d001e;
-    box-shadow: -5px -5px 0 0 #fcca89;
-}
-.tab .tab-content{
-    padding: 20px;
-    background: #fcca89;
-    box-shadow: 5px 5px 0 0 #5d001e;
-    border: 1px solid #5d001e;
-    font-size: 15px;
-    color: #5d001e;
-    line-height: 25px;
-    letter-spacing: 1px;
-}
-.tab .tab-content h3{
-    font-size: 24px;
-    margin-top: 0;
-}
-/*Cart section*/
-.cart-section {
-	border:1px solid #5d001e;
-}
-
-/*==== Checkout page ====*/
-.payment {
-	background:#f0f0f0;
-	width:100%;
-	height:auto;
-	margin:30px 0 0 0;
-	padding:15px 0;
-}
-.payment p {
-	margin:20px;
-}
-#btnSubmit {
-	margin-top:15px;
-	cursor:pointer;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-
-/* table===*/
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-a.add-icon {
-				width:15px !important;
-				height:15px !important;
-				background:url(../images/icons/add-icon.png) no-repeat;
-				display:none;
-				float:left;
-				margin:0 5px 0 5px;
-}
-
-/*Share button*/
-#share-buttons img {
-width: 55px;
-padding: 5px;
-border: 0;
-box-shadow: 0;
-display: inline;
-}
-
-.pbtncenter{
-	margin: auto;
-    width: 50%;
-   }
-/*Button*/
-input.proceed-btn {
-	font: normal 16px "ProximaNova-Bold", Arial, sans-serif;
-	display:block;
-	background:#189ba7;
-	width:auto/*175px*/
-	margin:20px auto;
-	text-transform:uppercase;
-	color:#fff;
-	text-align:center;
-	border-radius:3px;
-	-o-border-radius:3px;
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-bottom:2px solid #189ba7;
-	border-top:0;
-	border-left:0;
-	border-right:0;
-	outline:none;
-	padding:15px 60px;
-	text-align:center;
-}
-
-@media only screen and (max-width: 479px){
-    .tab .nav-tabs li{
-        width: 100%;
-        text-align: center;
-        margin-bottom: 15px;
-    }
-}
+.services-icon{
+
+	width: 60px;
+
+	height: 60px;
+
+}
+
+
+
+.slideanim span{
+
+	padding-top: 10px;
+
+}
+
+
+
+/*Accordion Setting*/
+
+
+
+.accordion {
+
+    border:1px solid #06418d !important;
+
+    color: #06418d;
+
+		background: white;
+
+    cursor: pointer;
+
+    padding: 18px;
+
+    width: 100%;
+
+    border: none;
+
+    text-align: left;
+
+    outline: none;
+
+    font-size: 18px;
+
+    transition: 0.4s;
+
+		font-weight: 500
+
+}
+
+
+
+
+
+.panel {
+
+    padding: 0 18px;
+
+    display: none;
+
+    background-color: white;
+
+    overflow: hidden;
+
+}
+
+
+
+.align-middle{
+
+	text-align: center;
+
+}
+
+/*Tab Information*/
+
+a:hover,a:focus{
+
+    outline: none;
+
+    text-decoration: none;
+
+}
+
+.tab .nav-tabs{
+
+    border: none;
+
+    margin-bottom: 20px;
+
+}
+
+.tab .nav-tabs li a{
+
+    margin-right: 15px;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #fff;
+
+    background: #5d001e;
+
+    border: 1px solid #5d001e;
+
+    border-radius: 0;
+
+    box-shadow: 5px 5px 0 0 #fcca89;
+
+    position: relative;
+
+    transition: all 0.5s ease 0s;
+
+}
+
+.tab .nav-tabs li a:hover,
+
+.tab .nav-tabs li.active a{
+
+    color: #5d001e;
+
+    background: #fff;
+
+    border: 1px solid #5d001e;
+
+    box-shadow: -5px -5px 0 0 #fcca89;
+
+}
+
+.tab .tab-content{
+
+    padding: 20px;
+
+    background: #fcca89;
+
+    box-shadow: 5px 5px 0 0 #5d001e;
+
+    border: 1px solid #5d001e;
+
+    font-size: 15px;
+
+    color: #5d001e;
+
+    line-height: 25px;
+
+    letter-spacing: 1px;
+
+}
+
+.tab .tab-content h3{
+
+    font-size: 24px;
+
+    margin-top: 0;
+
+}
+
+/*Cart section*/
+
+.cart-section {
+
+	border:1px solid #5d001e;
+
+}
+
+
+
+/*==== Checkout page ====*/
+
+.payment {
+
+	background:#f0f0f0;
+
+	width:100%;
+
+	height:auto;
+
+	margin:30px 0 0 0;
+
+	padding:15px 0;
+
+}
+
+.payment p {
+
+	margin:20px;
+
+}
+
+#btnSubmit {
+
+	margin-top:15px;
+
+	cursor:pointer;
+
+}
+
+
+
+/* The Modal (background) */
+
+.modal {
+
+  display: none; /* Hidden by default */
+
+  position: fixed; /* Stay in place */
+
+  z-index: 1; /* Sit on top */
+
+  padding-top: 100px; /* Location of the box */
+
+  left: 0;
+
+  top: 0;
+
+  width: 100%; /* Full width */
+
+  height: 100%; /* Full height */
+
+  overflow: auto; /* Enable scroll if needed */
+
+  background-color: rgb(0,0,0); /* Fallback color */
+
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+
+
+/* Modal Content */
+
+.modal-content {
+
+  background-color: #fefefe;
+
+  margin: auto;
+
+  padding: 20px;
+
+  border: 1px solid #888;
+
+  width: 50%;
+
+}
+
+
+
+/* The Close Button */
+
+.close {
+
+  color: #aaaaaa;
+
+  float: right;
+
+  font-size: 28px;
+
+  font-weight: bold;
+
+}
+
+
+
+.close:hover,
+
+.close:focus {
+
+  color: #000;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+}
+
+
+
+
+
+
+
+/* table===*/
+
+table {
+
+  border-collapse: collapse;
+
+  width: 100%;
+
+}
+
+
+
+td, th {
+
+  border: 1px solid #dddddd;
+
+  text-align: left;
+
+  padding: 8px;
+
+}
+
+
+
+tr:nth-child(even) {
+
+  background-color: #f9f9f9;
+
+}
+
+a.add-icon {
+
+				width:15px !important;
+
+				height:15px !important;
+
+				background:url(../images/icons/add-icon.png) no-repeat;
+
+				display:none;
+
+				float:left;
+
+				margin:0 5px 0 5px;
+
+}
+
+
+
+/*Share button*/
+
+#share-buttons img {
+
+width: 55px;
+
+padding: 5px;
+
+border: 0;
+
+box-shadow: 0;
+
+display: inline;
+
+}
+
+
+
+.pbtncenter{
+
+	margin: auto;
+
+    width: 50%;
+
+   }
+
+/*Button*/
+
+input.proceed-btn {
+
+	font: normal 16px "ProximaNova-Bold", Arial, sans-serif;
+
+	display:block;
+
+	background:#189ba7;
+
+	width:auto/*175px*/
+
+	margin:20px auto;
+
+	text-transform:uppercase;
+
+	color:#fff;
+
+	text-align:center;
+
+	border-radius:3px;
+
+	-o-border-radius:3px;
+
+	-moz-border-radius:3px;
+
+	-webkit-border-radius:3px;
+
+	border-bottom:2px solid #189ba7;
+
+	border-top:0;
+
+	border-left:0;
+
+	border-right:0;
+
+	outline:none;
+
+	padding:15px 60px;
+
+	text-align:center;
+
+}
+
+
+
+@media only screen and (max-width: 479px){
+
+    .tab .nav-tabs li{
+
+        width: 100%;
+
+        text-align: center;
+
+        margin-bottom: 15px;
+
+    }
+
+}
+
