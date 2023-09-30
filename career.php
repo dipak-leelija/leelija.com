@@ -54,14 +54,30 @@ define('WP_USE_THEMES', false);
 
 <head>
     <meta charset="utf-8">
-    <?php include('head-section.php');?>
+
     <title>Career opportunity for web developers, digital marketing experts and editors with Leelija</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Thanks for checking out our current opportunities, current job opening for web developers, SEO experts and content writers." />
     <meta name="keywords"
         content="job oppertunities, job opening, job oppertunities for web developers, web designer, SEO experts, SEO analyzer, content writers, social media experts and apps developers" />
+    <link rel="icon" href="<?php echo FAVCON_PATH; ?>" type="image/png">
 
+    <link rel="stylesheet" href="plugins/bootstrap-5.2.0/css/bootstrap.css">
+    <link rel="stylesheet" href="plugins/fontawesome-6.1.1/css/all.css">
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/leelija.css">
+    <!-- <link rel="stylesheet" href="css/testimonials.css"> -->
+    <!-- <link rel="stylesheet" href="css/partials.css"> -->
+    <style>
+    .custom-modal-dialog {
+        /* margin: auto; */
+    }
+
+    .modal {
+        z-index: 99999;
+    }
+    </style>
 </head>
 
 
@@ -71,7 +87,7 @@ define('WP_USE_THEMES', false);
         <?php require_once "partials/navbar.php" ?>
 
         <div class="main_service_page pt-4">
-            <div class="service_page_banner  text-center banner py-4">
+            <div class="service_page_banner  reveal text-center banner py-4">
                 <h1 class="blue_color_class1 text-uppercase font-weight-bold ">Career</h1>
                 <h3 class="py-3 mons-font">Take a look to our Career Options. </h3>
                 <p>We are providing you a great opportunities to become a part of us.</p>
@@ -80,12 +96,11 @@ define('WP_USE_THEMES', false);
             </div>
             <!--Banner Dividor-->
             <!--/End of baneer Dividor-->
-            <div class="grow-career-skills">
+            <div class="grow-career-skills reveal">
                 <h2 class="">Why are you <span class="blue_color_class">waiting?</span></h2>
                 <div class="row">
                     <div class=" col-lg-6 col-sm-12 col-md-6  ">
-                        <img src="images/portfolio/why-are-you-waiting.jpg  " class="w-100" 
-                            alt="">
+                        <img src="images/portfolio/why-are-you-waiting.jpg  " class="w-100" alt="">
                     </div>
                     <div class="col-lg-6 col-sm-12  col-md-6 m-auto text-center">
                         <p class="">We need you by our side for developing high-end applications that will
@@ -102,7 +117,7 @@ define('WP_USE_THEMES', false);
 
 
             <section
-                class="bt_bb_section bt_bb_top_spacing_extra_large bt_bb_bottom_spacing_extra_large bt_bb_layout_boxed_1200 bt_bb_vertical_align_top bt_bb_section_allow_content_outside bt_bb_section_with_top_coverage_image bt_bb_section_with_bottom_coverage_image bodyconten"
+                class="bt_bb_section bt_bb_top_spacing_extra_large bt_bb_bottom_spacing_extra_large bt_bb_layout_boxed_1200 bt_bb_vertical_align_top bt_bb_section_allow_content_outside bt_bb_section_with_top_coverage_image bt_bb_section_with_bottom_coverage_image bodyconten reveal"
                 style="background-color:#f5f5f5; overflow: hidden;">
                 <div class="mainpage">
                     <div class="pagecell">
@@ -324,7 +339,7 @@ define('WP_USE_THEMES', false);
                                     ---------m-card end---------
                                 ========================================== -->
 
-            <div class="join-our-team text-center">
+            <div class="join-our-team text-center reveal">
                 <div class="container">
                     <h2 class="mb-2">Join Our <span class="blue_color_class">Team</span> As A</h2>
                     <div class="row">
@@ -359,7 +374,7 @@ define('WP_USE_THEMES', false);
                     </div>
                 </div>
             </div>
-            <div class="grow-career-skills">
+            <div class="grow-career-skills reveal">
                 <div class="row">
                     <h2> Fast Grow <span>Your Skills and Career</span> </h2>
                     <div class="col-md-6 m-auto">
@@ -387,6 +402,7 @@ define('WP_USE_THEMES', false);
 
                     </div>
 
+
                     <div class="carrier_single_section">
                         <div class="single_job_posts">
                             <ul>
@@ -397,14 +413,164 @@ define('WP_USE_THEMES', false);
                                         <h4 class="job-title"><?php echo $value['job_name'];?></h4>
                                         <p><?php echo $value['details'];?></p>
                                     </div>
-                                    <button type="button" name="" class="job-apply btn apply-button">Apply Now</button>
+                                    <button type="button" class="job-apply btn  apply-button" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalCenteredScrollable">
+                                        Apply Now
+                                    </button>
                                 </li>
                                 <?php	}?>
 
                             </ul>
+                          
                         </div>
 
-                        <div class="job-apply-form">
+                        <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1"
+                                aria-labelledby="exampleModalCenteredScrollableTitle" aria-modal="true" role="dialog">
+                                <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="job-apply-form">
+                                                <div class="">
+                                                    <form class="w-100 m-0 p-3 careerform needs-validation"
+                                                        method="post" enctype="multipart/form-data" novalidate>
+                                                        <h2 class="text-center ">Job Application</h2>
+                                                        <div class="successApplication">
+
+                                                        </div>
+                                                        <div class="appliedPosts">
+                                                            <p class="jobPost "> </p>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group ">
+                                                                    <label for="">First Name</label>
+                                                                    <input type="text" id="jobFirstName"
+                                                                        class="form-control m-0"
+                                                                        placeholder="First name" minlength="3" required>
+                                                                    <div class="invalid-feedback">
+                                                                        Please enter your first name.
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group ">
+                                                                    <label for="">last Name</label>
+                                                                    <input type="text" id="jobScndName" minlength="4"
+                                                                        class="form-control m-0" placeholder="Last name"
+                                                                        required>
+
+                                                                    <div class="invalid-feedback">
+                                                                        Please enter your last name.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group ">
+                                                                    <label for="">Email</label>
+                                                                    <input type="email"
+                                                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                                                        name="jobEmail" id="jobEmail"
+                                                                        class="m-0 form-control"
+                                                                        placeholder="please enter your email" required>
+
+                                                                    <div class="invalid-feedback">
+                                                                        Please enter your email.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group ">
+                                                                    <label for="phone">Phone</label>
+                                                                    <input type="text"
+                                                                        onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                                        minlength="10" pattern="[0-9]+" maxlength="10"
+                                                                        name="jobPhone" id="jobPhone"
+                                                                        class="m-0 form-control"
+                                                                        placeholder="0123456789" required maxlength="10"
+                                                                        required>
+
+                                                                    <div class="invalid-feedback">
+                                                                        Please enter your phone number.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label for="">What is your current employment
+                                                                        status?</label>
+                                                                    <select class="form-select"
+                                                                        aria-label="Default select example">
+                                                                        <option selected disabled value="">Select
+                                                                        </option>
+                                                                        <option value="employed">Employed</option>
+                                                                        <option value="self-employed">Self-Employed
+                                                                        </option>
+                                                                        <option value="unemployed">Unemployed</option>
+                                                                        <option value="student">Student</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label for="">Expriences (if any, in Years)?</label>
+                                                                    <select class=" form-select" name="experinces"
+                                                                        required>
+                                                                        <option selected disabled value="">Select
+                                                                        </option>
+                                                                        <option value="0">Fresher</option>
+                                                                        <?php for($i=1;$i<=10;$i++){?>
+                                                                        <option value="<?php echo $i;?>">
+                                                                            <?php echo $i;?>
+                                                                        </option>
+                                                                        <?php	}?>
+                                                                    </select>
+                                                                    <div class="invalid-feedback">
+                                                                        Please select your exprience.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="uploadedCvName"> </div>
+
+
+                                                        <div class="row m-0 w-100 mt-3">
+                                                            <div class="col-sm-6 text-center">
+                                                                <div class="click_to_upload ">
+                                                                    <button class="upload-cv" id="upload-cv">Upload
+                                                                        CV</button>
+                                                                    <input type="file" name="cvUpload" id="cvUpload"
+                                                                        accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6 text-center"> <input type="button"
+                                                                    class="ml-auto mb-0 submit-apply-details "
+                                                                    name="submit-job-apply-details"
+                                                                    value="Submit Details">
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix">
+
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <!-- <div class="job-apply-form">
                             <div class="quote-form px-md-3">
                                 <span class="close">&times;</span>
 
@@ -427,9 +593,7 @@ define('WP_USE_THEMES', false);
                                                 <div class="invalid-feedback">
                                                     Please enter your first name.
                                                 </div>
-                                                <!-- <div class="alert-section pt-1" id="noFirstName">
 
-                                            </div> -->
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -437,9 +601,7 @@ define('WP_USE_THEMES', false);
                                                 <label for="">last Name</label>
                                                 <input type="text" id="jobScndName" minlength="4"
                                                     class="form-control m-0" placeholder="Last name" required>
-                                                <!-- <div class="alert-section pt-1" id="noSecondName">
 
-                                                </div> -->
                                                 <div class="invalid-feedback">
                                                     Please enter your last name.
                                                 </div>
@@ -452,9 +614,7 @@ define('WP_USE_THEMES', false);
                                         <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                             name="jobEmail" id="jobEmail" class="m-0 form-control"
                                             placeholder="please enter your email" required>
-                                        <!-- <div id="noJobEmail">
 
-                                        </div> -->
                                         <div class="invalid-feedback">
                                             Please enter your email.
                                         </div>
@@ -467,8 +627,7 @@ define('WP_USE_THEMES', false);
                                             minlength="10" pattern="[0-9]+" maxlength="10" name="jobPhone" id="jobPhone"
                                             class="m-0 form-control" placeholder="0123456789" required maxlength="10"
                                             required>
-                                        <!-- <div id="noJobPhone">
-                                        </div> -->
+
                                         <div class="invalid-feedback">
                                             Please enter your phone number.
                                         </div>
@@ -504,20 +663,7 @@ define('WP_USE_THEMES', false);
                                                 Student
                                             </label>
                                         </div>
-                                        <!-- <ul class="current-job-status" required>
-                                            <li><input type="checkbox" name="gender" value="employed" class=""><span>
-                                                    Employed</span></li>
-                                            <li><input type="checkbox" name="self-smployed" value="self-employed"
-                                                    class=""><span> Self-Employed</span></li>
-                                            <li><input type="checkbox" name="unemployed" value="unemployed"
-                                                    class=""><span> Unemployed</span></li>
-                                            <li class="mb-0"><input type="checkbox" name="student" value="student"
-                                                    class=""><span>
-                                                    Student</span></li>
-                                        </ul> -->
-                                        <!-- <div class="text-capitalize" id="ifHasExpriences">
 
-                                        </div> -->
                                         <div class="invalid-feedback">
                                             Please select your employment status.
                                         </div>
@@ -538,7 +684,7 @@ define('WP_USE_THEMES', false);
                                     </div>
 
                                     <div class="uploadedCvName"> </div>
-                                    
+
 
                                     <div class="row m-0 w-100 mt-5">
                                         <div class="col-sm-6 text-center">
@@ -558,7 +704,7 @@ define('WP_USE_THEMES', false);
 
                                 </form>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="afterApplied">
@@ -567,9 +713,6 @@ define('WP_USE_THEMES', false);
                             <p>we will back to you soon</p>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
@@ -689,14 +832,14 @@ define('WP_USE_THEMES', false);
 
 
     $('.single_job_posts ul li .job-apply').click(function() {
-        $(".job-apply-form").css("display", "block");
+        // $(".job-apply-form").css("display", "block").addClass("show");
         var post = $(this).parents().children('.left-side-job-type').children('.job-title').html();
         $(".jobPost").html('Application for the role of <span class="blue_color_class">' + post + '</span>');
     });
 
-    $(".close").click(function() {
-        $(".job-apply-form").css("display", "none");
-    });
+    // $(".close").click(function() {
+    //     // $(".job-apply-form").css("display", "none").removeClass("show");
+    // });
 
     $(".current-job-status li input").click(function() {
         var checkedOrNot = $(this).prop("checked");
@@ -710,8 +853,26 @@ define('WP_USE_THEMES', false);
         }
     });
     </script>
+    <script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
+    </script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.js"></script>
+    <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
+    <script src="plugins/jquery-3.6.0.min.js"></script>
     <!-- //Bootstrap Core JavaScript -->
 </body>
 

@@ -44,6 +44,7 @@ $allEmps = $Employee->allEmps();
 <!DOCTYPE HTML>
 <!-- <html lang="zxx"> -->
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>About Our Company :<?php echo COMPANY_S; ?></title>
@@ -59,16 +60,15 @@ $allEmps = $Employee->allEmps();
     <link rel="stylesheet" href="plugins/bootstrap-5.2.0/css/bootstrap.css">
     <link rel="stylesheet" href="plugins/fontawesome-6.1.1/css/all.css">
     <!-- Custom CSS -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' /> 
-    <link href="css/about.css" rel='stylesheet' type='text/css' />
     <link href="css/leelija.css" rel='stylesheet' type='text/css' />
+    <link href="css/about.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
 </head>
 
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <?php require_once "partials/navbar.php"; ?>
-
     <div class="about_us row m-0 w-100 animate_only_for_scroll">
+        <?php require_once "partials/navbar.php"; ?>
         <section class="about_banner-section projects-animation_on_text">
 
             <div class="row align-items-center">
@@ -226,7 +226,7 @@ $allEmps = $Employee->allEmps();
             </div>
         </div>
         <!-- =============================================================================================== -->
-        <div class="what_we_do reveal" >
+        <div class="what_we_do reveal">
             <div class="row m-0 w-100 align-items-center text-center text-md-start align-items-center">
                 <div class="col-md-6 order-md-1 order-2">
                     <img src="images/about-our-mission.png" class="w-100" alt="Our Mission">
@@ -299,20 +299,13 @@ $allEmps = $Employee->allEmps();
             </div>
         </div>
         <!-- ====================================================================================== -->
+
+        <div class="mt-4">
+            <?php include('seller-action.php') ?>
+        </div>
+        <?php require_once "partials/footer.php"; ?>
+        <!-- /Footer -->
     </div>
-    <div class="mt-4">
-        <?php include('seller-action.php') ?>
-    </div>
-
-    <!-- </div> -->
-    <!--  Single service page end //-->
-
-    <!-- </div> -->
-    <!--  Main service page end //-->
-
-    <?php require_once "partials/footer.php"; ?>
-    <!-- /Footer -->
-
     <!-- </div> -->
 
     <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
@@ -323,7 +316,7 @@ $allEmps = $Employee->allEmps();
     var Scrollbar = window.Scrollbar;
     Scrollbar.init(document.querySelector('body'));
     </script>
-      <script>
+    <script>
     function reveal() {
         var reveals = document.querySelectorAll(".reveal");
 

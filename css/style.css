@@ -143,15 +143,18 @@ textarea::disabled,
     --bs-btn-disabled-bg: #ed507d;
     --bs-btn-disabled-border-color: #ed507d;
 }
+
 ::-ms-reveal {
     display: none;
-  }
+}
+
 .input-group .btn {
     border-radius: 0 !important;
     background: aliceblue !important;
     color: var(--black) !important;
     border: 1px solid #3134355c !important;
 }
+
 /* header */
 
 header.main_header_section {
@@ -1564,6 +1567,7 @@ h5.blog-title {
     .doMain_page_maindiv {
         padding: 3rem 1rem 0 !important;
     }
+
     .header-top p {
         font-size: 15px;
     }
@@ -2948,6 +2952,7 @@ table .btn-explore-banner {
 
 .quote-form .close {
     z-index: 1111;
+    transition: all .5s ease-in-out;
 }
 
 .quote-section {
@@ -3077,7 +3082,7 @@ table .btn-explore-banner {
 
 @media screen and (min-width: 180px) {
     .nichdiv {
-        margin:0 1rem;
+        margin: 0 1rem;
     }
 
     .ui-widget.ui-widget-content {
@@ -3087,7 +3092,7 @@ table .btn-explore-banner {
 
 @media screen and (min-width: 280px) {
     .nichdiv {
-        margin:1rem 0;
+        margin: 1rem 0;
     }
 
     .ui-widget.ui-widget-content {
@@ -3351,13 +3356,15 @@ table .btn-explore-banner {
     align-items: center;
 }
 
-.apply-button {
+.apply-button,.apply-button:focus {
     margin-left: auto;
     width: auto;
     background: var(--aegean-blue);
     color: var(--pure-white);
     height: auto;
     padding: 10px 30px;
+    border: 1px solid var(--aegean-blue) !important;
+
 }
 
 .job-title {
@@ -3365,9 +3372,9 @@ table .btn-explore-banner {
 }
 
 .single_job_posts .apply-button:hover {
-    background: transparent;
-    color: var(--aegean-blue);
-    border: 1px solid var(--aegean-blue);
+    background: transparent !important;
+    color: var(--aegean-blue)  !important;
+    border: 1px solid var(--aegean-blue) !important;
 }
 
 .grow-career-skills {
@@ -3428,7 +3435,7 @@ table .btn-explore-banner {
 /*Apply Job Form*/
 
 .job-apply-form {
-    display: none;
+    /* display: none;
     position: fixed;
     left: 0;
     top: 0;
@@ -3438,18 +3445,26 @@ table .btn-explore-banner {
     padding-top: 70px;
     background-color: var(--black);
     background-color: rgba(0, 0, 0, 0.4);
-    -webkit-transition: 0.5s;
     overflow: auto;
-    transition: all 0.3s linear;
-    font-weight: 500
+    font-weight: 500;
+    transition-timing-function: ease-in;
+    transition: 2s ease-in; */
 }
+
+/* .carrier_single_section .fade {
+    transition: transform 3s ease-out;
+    transition-delay: 23s;
+       transition-timing-function: ease;
+       transition-duration: .35s;
+       transition-property: height, visibility;
+} */
 
 .job-apply-form label {
     /* font-size: 20px; */
     text-transform: initial !important
 }
 
-.job-apply-form .quote-form {
+/* .job-apply-form .quote-form {
     background: var(--pure-white);
     max-width: 700px;
     margin: auto;
@@ -3458,7 +3473,7 @@ table .btn-explore-banner {
     position: relative;
     margin: 1.5rem auto;
     border-radius: 6px;
-}
+} */
 
 .close {
     line-height: 1;
@@ -3598,6 +3613,7 @@ table .btn-explore-banner {
     overflow: auto;
     transition: all 0.3s linear;
     font-weight: 500;
+
 }
 
 .afterApplied .quote-form {
@@ -5944,7 +5960,7 @@ font-size: 25px
 .projects-animation_on_text h2,
 .projects-animation_on_text h4,
 .projects-animation_on_text h5,
- .projects-animation_on_text video{
+.projects-animation_on_text video {
     /* transform: translateY(0px); */
     animation: .9s slideIn cubic-bezier(0.27, 0.28, 1, 1.03) forwards 1s;
     z-index: 10;
@@ -5956,7 +5972,7 @@ font-size: 25px
 .projects-animation_on_text h3,
 .projects-animation_on_text h6,
 .projects-animation_on_text img,
-.projects-animation_on_text .ui-slider, 
+.projects-animation_on_text .ui-slider,
 .projects-animation_on_text hr,
 .projects-animation_on_text .card {
     transform: translateY(50px);

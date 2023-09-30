@@ -214,9 +214,11 @@ p {
     position: sticky;
     top: 0;
     background: var(--pure-white);
-    z-index: 10046;
+    /* z-index: 10046; */
     padding: 2rem 7.5rem 0;
     font-family: "Satoshi-Variable";
+    /* background: rgba(255,255,255,0.95); */
+    z-index: 1020;
 }
 
 /* .navbar:hover{
