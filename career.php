@@ -50,7 +50,7 @@ define('WP_USE_THEMES', false);
 
 ?>
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zxx">
 
 <head>
     <meta charset="utf-8">
@@ -82,7 +82,7 @@ define('WP_USE_THEMES', false);
 
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <div id="home" class=" animate_only_for_scroll">
+    <div id="home">
         <!-- header -->
         <?php require_once "partials/navbar.php" ?>
 
@@ -96,7 +96,7 @@ define('WP_USE_THEMES', false);
             </div>
             <!--Banner Dividor-->
             <!--/End of baneer Dividor-->
-            <div class="grow-career-skills reveal reveal">
+            <div class="grow-career-skills reveal">
                 <h2 class="">Why are you <span class="blue_color_class">waiting?</span></h2>
                 <div class="row">
                     <div class=" col-lg-6 col-sm-12 col-md-6  ">
@@ -335,7 +335,9 @@ define('WP_USE_THEMES', false);
 
 
 
-            <!-- =========================  ---------m-card end---------  ================== -->
+            <!-- ==========================================
+                                    ---------m-card end---------
+                                ========================================== -->
 
             <div class="join-our-team text-center reveal">
                 <div class="container">
@@ -393,7 +395,7 @@ define('WP_USE_THEMES', false);
                     </div>
                 </div>
             </div>
-            <div class="carrier_positions reveal">
+            <div class="carrier_positions">
                 <div class="container">
                     <div class="text-center text-uppercase">
                         <h2>Current <span class="blue_color_class">Opportunities</span></h2>
@@ -419,30 +421,153 @@ define('WP_USE_THEMES', false);
                                 <?php	}?>
 
                             </ul>
-                          
+
                         </div>
 
                         <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1"
-                                aria-labelledby="exampleModalCenteredScrollableTitle" aria-modal="true" role="dialog">
-                                <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
+                            aria-labelledby="exampleModalCenteredScrollableTitle" aria-modal="true" role="dialog">
+                            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
 
-                        <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1"
-                                aria-labelledby="exampleModalCenteredScrollableTitle" aria-modal="true" role="dialog">
-                                <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
+                                        <div class="job-apply-form">
+                                            <div class="">
+                                                <form class="w-100 m-0 p-3 careerform needs-validation" method="post"
+                                                    enctype="multipart/form-data" novalidate>
+                                                    <h2 class="text-center ">Job Application</h2>
+                                                    <div class="successApplication">
 
-                        <div class="job-apply-form">
+                                                    </div>
+                                                    <div class="appliedPosts">
+                                                        <p class="jobPost "> </p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group ">
+                                                                <label for="">First Name</label>
+                                                                <input type="text" id="jobFirstName"
+                                                                    class="form-control m-0" placeholder="First name"
+                                                                    minlength="3" required>
+                                                                <div class="invalid-feedback">
+                                                                    Please enter your first name.
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group ">
+                                                                <label for="">last Name</label>
+                                                                <input type="text" id="jobScndName" minlength="4"
+                                                                    class="form-control m-0" placeholder="Last name"
+                                                                    required>
+
+                                                                <div class="invalid-feedback">
+                                                                    Please enter your last name.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group ">
+                                                                <label for="">Email</label>
+                                                                <input type="email"
+                                                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                                                    name="jobEmail" id="jobEmail"
+                                                                    class="m-0 form-control"
+                                                                    placeholder="please enter your email" required>
+
+                                                                <div class="invalid-feedback">
+                                                                    Please enter your email.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group ">
+                                                                <label for="phone">Phone</label>
+                                                                <input type="text"
+                                                                    onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                                    minlength="10" pattern="[0-9]+" maxlength="10"
+                                                                    name="jobPhone" id="jobPhone"
+                                                                    class="m-0 form-control" placeholder="0123456789"
+                                                                    required maxlength="10" required>
+
+                                                                <div class="invalid-feedback">
+                                                                    Please enter your phone number.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label for="">What is your current employment
+                                                                    status?</label>
+                                                                <select class="form-select"
+                                                                    aria-label="Default select example">
+                                                                    <option selected disabled value="">Select
+                                                                    </option>
+                                                                    <option value="employed">Employed</option>
+                                                                    <option value="self-employed">Self-Employed
+                                                                    </option>
+                                                                    <option value="unemployed">Unemployed</option>
+                                                                    <option value="student">Student</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label for="">Expriences (if any, in Years)?</label>
+                                                                <select class=" form-select" name="experinces" required>
+                                                                    <option selected disabled value="">Select
+                                                                    </option>
+                                                                    <option value="0">Fresher</option>
+                                                                    <?php for($i=1;$i<=10;$i++){?>
+                                                                    <option value="<?php echo $i;?>">
+                                                                        <?php echo $i;?>
+                                                                    </option>
+                                                                    <?php	}?>
+                                                                </select>
+                                                                <div class="invalid-feedback">
+                                                                    Please select your exprience.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="uploadedCvName"> </div>
+
+
+                                                    <div class="row m-0 w-100 mt-3">
+                                                        <div class="col-sm-6 text-center">
+                                                            <div class="click_to_upload ">
+                                                                <button class="upload-cv" id="upload-cv">Upload
+                                                                    CV</button>
+                                                                <input type="file" name="cvUpload" id="cvUpload"
+                                                                    accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 text-center"> <input type="button"
+                                                                class="ml-auto mb-0 submit-apply-details "
+                                                                name="submit-job-apply-details" value="Submit Details">
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix">
+
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="job-apply-form">
                             <div class="quote-form px-md-3">
                                 <span class="close">&times;</span>
 
@@ -556,7 +681,6 @@ define('WP_USE_THEMES', false);
                                     </div>
 
                                     <div class="uploadedCvName"> </div>
-
 
 
                                     <div class="row m-0 w-100 mt-5">
@@ -725,23 +849,6 @@ define('WP_USE_THEMES', false);
             $(this).prop("checked", true);
         }
     });
-    </script>
-    <script>
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            }
-        }
-    }
-
-    window.addEventListener("scroll", reveal);
     </script>
     <script>
     function reveal() {
