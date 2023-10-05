@@ -1,5 +1,5 @@
 
-<section class="leelija_benifits-card">
+<section class="leelija_benifits-card reveal">
     <h2 class="">Benefits of <span>Choosing Leelija</span></h2>
     <div class="row ">
         <div class="col-lg-4 col-sm-6 mb-3 ">

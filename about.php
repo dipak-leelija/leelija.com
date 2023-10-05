@@ -73,7 +73,7 @@ $allEmps = $Employee->allEmps();
 
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <img src="images/about-us-bannerimg.jpg" class="w-100" alt="">
+                    <img src="images/main/about-us-banner.webp" class="w-100" alt="">
                 </div>
                 <div class="col-md-6">
                     <h3>Know More About Leelija</h3>
@@ -175,7 +175,7 @@ $allEmps = $Employee->allEmps();
 
                     <div class="col-6 col-md-3 col-lg-2 mt-2 mt-md-0 mb-sm-0 mb-2">
                         <div class="d-flex align-items-center justify-content-center">
-                            <span class="our_goals_img "><img class="p-1" src="images/training.png" width="45px" alt="">
+                            <span class="our_goals_img "><img class="p-1" src="images/icons/training.png" width="45px" alt="">
                             </span>
                             <span class=""><a href="seo-services.php" class="aegean-blue-color">Online<span
                                         class="br"></span>Reputation</a></span>
@@ -183,7 +183,7 @@ $allEmps = $Employee->allEmps();
                     </div>
                     <div class="col-6 col-md-3 col-lg-2 mt-2 mt-md-0 mb-sm-0 mb-2">
                         <div class="d-flex align-items-center justify-content-center">
-                            <span class="our_goals_img "><img class="p-1" src="images/income.png" width="45px" alt="">
+                            <span class="our_goals_img "><img class="p-1" src="images/icons/income.png" width="45px" alt="">
                             </span>
                             <span class=""><a href="content-marketing.php" class="aegean-blue-color">Content<span
                                         class="br"></span>Branding</a></span>
@@ -221,7 +221,7 @@ $allEmps = $Employee->allEmps();
                     </div>
                 </div>
                 <div class="col-md-6 ">
-                    <img src="images/what-we-do.png" class="w-100" alt="What We Do">
+                    <img src="images/main/what-we-do.webp" class="w-100" alt="What We Do">
                 </div>
             </div>
         </div>
@@ -229,7 +229,7 @@ $allEmps = $Employee->allEmps();
         <div class="what_we_do reveal">
             <div class="row m-0 w-100 align-items-center text-center text-md-start align-items-center">
                 <div class="col-md-6 order-md-1 order-2">
-                    <img src="images/about-our-mission.png" class="w-100" alt="Our Mission">
+                    <img src="images/main/our-mission-TYFRW.webp" class="w-100" alt="Our Mission">
                 </div>
                 <div class="col-md-6 order-md-2 order-1" style="overflow:hidden;">
                     <div class="">
@@ -310,28 +310,12 @@ $allEmps = $Employee->allEmps();
 
     <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
     <script src="plugins/jquery-3.6.0.min.js"></script>
+    <script src="assets/vendors/js/reveal-animation.js"></script>
     <!-- ==== js for smooth scrollbar ==== -->
     <!-- <script src="plugins/smooth-scrollbar.js"></script> -->
     <script>
     var Scrollbar = window.Scrollbar;
     Scrollbar.init(document.querySelector('body'));
-    </script>
-    <script>
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            }
-        }
-    }
-
-    window.addEventListener("scroll", reveal);
     </script>
 </body>
 

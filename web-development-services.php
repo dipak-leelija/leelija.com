@@ -98,7 +98,7 @@ query_posts('showposts=3');
 
 
         <?php require_once "partials/navbar.php"; ?>
-        <div class="blogger-banner  banner">
+        <div class="blogger-banner projects-animation_on_text  banner">
             <h1 class="blogbanner-heading">Best Web Design And Development Company</h1>
 
             <div class="wd_heading_details_2">
@@ -124,15 +124,14 @@ query_posts('showposts=3');
                 </p>
 
             </div>
-
+            <div class="overlay"></div>
         </div>
 
-        <section class="blogger-fourth-section">
+        <section class="blogger-fourth-section reveal">
             <div class="container">
-                <div class="row align-items-center m-0">
-
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Custom_Web_Design.png" alt="Custom Web Design" class="w-100">
+                        <img src="images/main/Custom_Web_Design.webp" alt="Custom Web Design" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -144,18 +143,15 @@ query_posts('showposts=3');
                                 websites, we need the website designers. People often want to know what is web
                                 designing?
                             </p>
-
                             <p>The skills, processes and experiences that web designers use to design a website that
                                 called
                                 web designing. To give perfect touch of your business website you must select top web
                                 design
                                 companies with good reputation and Leelija is perfect among them. </p>
-
-
                         </div>
                     </div>
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">What Is Web Development?</h3>
@@ -166,26 +162,21 @@ query_posts('showposts=3');
                                 website and decorate the website using consumer side languages and server side
                                 languages.
                             </p>
-
                             <p>Web development can be defined in different ways. All the work that needs to be done,
                                 from
                                 making a website to making it visible on the Internet, is called web development. Or the
                                 development of software that makes the information stored on the web server viewable
                                 over an
                                 Internet connection is called web development. </p>
-
-
                         </div>
                     </div>
-
                     <div class="col-lg-6 pl-0">
-                        <img src="images/eCommerce_Solution.png" alt="Ecommerce Solution" class="w-100">
+                        <img src="images/main/eCommerce_Solution.webp" alt="Ecommerce Solution" class="w-100">
                     </div>
-
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6 pl-0">
-                        <img src="images/web_development_company.png" alt="Web Development Company" class="w-100">
+                        <img src="images/main/web_development_company.webp" alt="Web Development Company" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -197,19 +188,16 @@ query_posts('showposts=3');
                                 has good reputation. Leelija Web Solution is one of the best among those service
                                 providers.
                             </p>
-
                             <p>If you are searching web design company in USA, India, UK, Australia and other countries
                                 then
                                 must pick Leelija as it provide worldwide service.
                                 Professional designers from Leelija Web Solution can deliver amazing design, SEO, SEO
                                 strategies, well communication service with affordable price.
                             </p>
-
-
                         </div>
                     </div>
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">You Are The Boss Of Your Website:</h3>
@@ -219,160 +207,84 @@ query_posts('showposts=3');
                                 website and make any change of it. </p>
                         </div>
                     </div>
-
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Landing_Page_Builder.png" alt=" Landing Page Builder " class="w-100">
+                        <img src="images/main/Landing_Page_Builder.webp" alt=" Landing Page Builder " class="w-100">
                     </div>
-
-
-
                 </div>
 
             </div>
         </section>
 
         <!-- extra details -->
-        <div class="features-sec">
-
+        <div class="features-sec reveal">
             <div class="features">
-
                 <div class="container">
-
                     <div class="row">
-
                         <div class="col-sm-3">
-
                             <p class="features-sec-head-icon">
-
                                 <i class="fas fa-chart-line"></i>
-
                             </p>
-
                             <div class="features-sec-all-details">
-
                                 <p class="features-sec-head">
                                     Real Ranking Sites
                                 </p>
-
                                 <p class="features-sec-details">
                                     Manual outreach on 100% real sites ranking in Google
                                 </p>
-
-
                             </div>
                         </div>
-
                         <div class="col-sm-3">
                             <p class="features-sec-head-icon">
                                 <i class="fas fa-th"></i>
                             </p>
                             <div class="features-sec-all-details">
-
                                 <p class="features-sec-head">
                                     Customize Your Criteria
                                 </p>
-
                                 <p class="features-sec-details">
                                     Choose between Domain Authority or Publisher Traffic
                                 </p>
-
-
                             </div>
-
                         </div>
-
                         <div class="col-sm-3">
                             <p class="features-sec-head-icon">
                                 <i class="fas fa-truck"></i>
                             </p>
-
                             <div class="features-sec-all-details">
-
                                 <p class="features-sec-head">
                                     Fast Deliverables
                                 </p>
-
                                 <p class="features-sec-details">
                                     7-day turnaround time guaranteed for your Guest Post
                                 </p>
-
-
                             </div>
                         </div>
-
                         <div class="col-sm-3">
                             <p class="features-sec-head-icon">
                                 <i class="fas fa-users"></i>
                             </p>
                             <div class="features-sec-all-details">
-
                                 <p class="features-sec-head">
                                     Reseller Friendly
                                 </p>
-
                                 <p class="features-sec-details">
                                     Reseller friendly white-label reports to share with your clients
                                 </p>
-
-
                             </div>
-
                         </div>
-
-
-
-
                     </div>
-
-
                 </div>
-
-
             </div>
-
-
         </div>
 
-
-
-
-
-
-        <!-- extra details -->
-
-
-
-        <!-- <div class="blogger-third-section">
-<div class="container ">
-<h2 class="text-center">The Idea about Our Offering Services</h2>
-<div class="row">
-<div class="col-md-6">
-<div class="build-relationship-text">
-<p>Having thousands of databases of real bloggers, Leelija is the ultimate hub for guest posting. Outreaching any type of blog is our duty, owing to the list of blog sites that we have in our database. For the same, we have fifteen outreach specialists who work manually for blog outreach, of any given blog. Our main goal is to build strong relationships with the bloggers blog or bloggers websites, by cooperating with each other. The main tasks are analysing followers and traffics, presence of social media, domain authority analysis, and metrics of Moz.
-Our company works for big brands, top blogs, outreach agencies, partners, and also for digital media. Our outreach bloggers always stand efficient in pitching, finding, engaging, and following the relevant bloggers or admins.
-</p>
-</div>
-</div>
-<div class="col-md-6">
-
-<img src="images/blogging.png" alt="blogging" class="w-100">
-
-
-
-</div>
-
-</div> 
-</div>
-</div> -->
-
-        <section class="blogger-fourth-section">
+        <section class="blogger-fourth-section reveal">
             <div class="container">
                 <h2 class="text-center mb-3">The Idea about Our Offering Services</h2>
 
                 <div class="row align-items-center m-0">
 
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Custom_Web_Design.png" alt="Blogging Outreach" class="w-100">
+                        <img src="images/main/Custom_Web_Design.webp" alt="Blogging Outreach" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -382,7 +294,6 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                                 consumers always look towards the site. With the help of cookie cutter templates
                                 lunching a
                                 website is very easy but for that custom web design is very important.</p>
-
                             <p>It shows the business brands of your site. Custom web design is very beneficial for
                                 business.
                                 Custom web design shows professionalism towards your business, make better rank on
@@ -390,12 +301,10 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                                 engine, stand out from your competitors, and make flexibility changes. The expert
                                 designers
                                 from Leelija assure to provide custom web design. </p>
-
-
                         </div>
                     </div>
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">eCommerce Solution:</h3>
@@ -409,19 +318,16 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                                 service is
                                 also mobile-friendly. Leelija also provide digital transformation, global expansion,
                                 retailer solution, business to business commerce. </p>
-
-
                         </div>
                     </div>
 
                     <div class="col-lg-6 pl-0">
-                        <img src="images/eCommerce_Solution.png" alt="eCommerce_Solution" class="w-100">
+                        <img src="images/main/E_Commerce_SEO.webp" alt="eCommerce_Solution" class="w-100">
                     </div>
-
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Mobile_Version_Website.png" alt="Mobile Version Website" class="w-100">
+                        <img src="images/main/Mobile_Version_Website.webp" alt="Mobile Version Website" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -433,12 +339,10 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
 
                             <p>Our team offer innovative designs that are base on the user behavior, orientation, screen
                                 size, and platform according to the device.</p>
-
-
                         </div>
                     </div>
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">Landing Page Builder:</h3>
@@ -446,23 +350,19 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                                 advertising
                                 or marketing campaign. It is the place where readers land and click on the email link.
                             </p>
-
                             <p> If you have the problem like page development is slow, wasting money, page isn’t
                                 practical,
                                 etc then you must pick Leelija Web Solution as landing page builder. </p>
-
-
                         </div>
                     </div>
 
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Landing_Page_Builder.png" alt="Landing Page Builder" class="w-100">
+                        <img src="images/main/Landing_Page_Builder.webp" alt="Landing Page Builder" class="w-100">
                     </div>
-
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Progressive_WebApp.png" alt="Progressive Web App" class="w-100">
+                        <img src="images/main/Progressive_WebApp.webp" alt="Progressive Web App" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -470,35 +370,30 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                             <p class="mb-5">We all know that web app is an incredible platform and various companies
                                 make
                                 this platform unique to develop software.</p>
-
                             <p>With the help of web app you can reach with any person,any place,on the any device with
                                 single codebase.Leelija web app provides effective and faster work offline.</p>
-
-
                         </div>
                     </div>
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">SEO Optimization:</h3>
                             <p class="mb-5"> Leelija helps small business web Design Company to increase their business
                                 website through SEO. It improves your business with digital marketing strategy. </p>
-
                             <p> With the best design visibility it targets audience and your website can earn more
                                 clicks.
                             </p>
-
-
                         </div>
                     </div>
-
-                    <div class="col-lg-6 pl-0">
-                        <img src="images/SEO_Optimization.png" alt="SEO Optimization" class="w-100">
+                    <div class="col-lg-6 pb-4 pl-0">
+                        <img src="images/main/SEO_Optimization.webp" alt="SEO Optimization" class="w-100">
                     </div>
-
-
-                    <div class="col-lg-6 pl-0">
-                        <img src="images/Content_ManagementSystem.png" alt="Content Management System" class="w-100">
+                </div>
+                <div class="row align-items-center reveal m-0">
+                    <div class="col-lg-6 mt-3 pl-0">
+                        <img src="images/main/Content_ManagementSystem.webp" alt="Content Management System"
+                            class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -507,15 +402,13 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                                 provides. If you have informational or ecommerce website then our content marketing
                                 strategy
                                 improve your business website. </p>
-
                             <p>Depending on your business reputation and size we offer three types of service like
                                 advance,
                                 standard and enterprise.</p>
-
-
                         </div>
                     </div>
-
+                </div>
+                <div class="row align-items-center reveal m-0">
 
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -523,73 +416,31 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                             <p class="mb-5">The expertise technical of our Leelija team creates compelling copy to
                                 engage
                                 website visitors. We offer page variation with 5 to 10, 10 to 25 and 25 to 50.</p>
-
                             <p>For above 50 pages you need to change your design plan. Our specialists also research
                                 valuable and relevant keywords to improve your WebPages. </p>
-
-
                         </div>
                     </div>
-
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Website_Copywriting.png" alt="Website Copywriting" class="w-100">
+                        <img src="images/main/Website_Copywriting.webp" alt="Website Copywriting" class="w-100">
                     </div>
-
-
-
-
-
                 </div>
 
             </div>
         </section>
-        <!-- 
-<section class="blogger-fifth-section">
-<div class="container">
-<h3 class="blogger-fifth-section-main-head">Why Choose Us For Web Design And Development?</h3>
-<div class="row align-items-center m-0">
-<div class="col-lg-6">
-<div class="right-ul-section">
-<ul>
-<li>	We, at Leelija, have already reached and researched 10,0000 genuine high-authority blogs, with different themes. </li>
-<li>	Our outreach specialists are well trained and have immense experience.</li>
-<li>	We render your post promotions through social media remarks and mentions.</li>
-<li>	We provide Manual outreach service and daily research available. </li>
-<li>	We give quality outbound links from high authority websites of your post, that will further gain credibility.</li>
-<li>	Our specialists have the ability to provide you with precious links, within viewpoints. </li>
-<li>	We have the Online reporting panel accessible. </li>
-<li>Online reporting panel accessible.</li>
-<li>Our experts examine overall the blogs to give you better links. </li>
-<li>We update bloggers database regularly to maintain SEO metrics. </li>
-</ul>
-</div>
-</div>
-<div class="col-lg-6 pl-0">
-<img src="images/outreach.png" alt="Blogger Outreach Service" class="w-100">
-</div>
-</div>
-
-
-</div>
-</section> -->
-
 
         <!-- ================ Regester Now Section Start ================ -->
         <?php require_once "partials/reg-now.php"; ?>
         <!------------------- Regester Now Section End ------------------->
 
 
-
-        <section class="native-content-section">
-
+        <section class="native-content-section reveal">
             <div class="leelija-gp-service-head">
                 <h3>Why Choose Us For Web Design And Development?</h3>
             </div>
             <div class="container">
                 <div class="row align-items-center m-0">
-
                     <div class="col-lg-6">
-                        <img src="images/solution.png" alt="Guest Posts Services" class="w-100">
+                        <img src="images/main/solution.webp" alt="Guest Posts Services" class="w-100">
                     </div>
 
                     <div class="col-lg-6">
@@ -600,31 +451,14 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                             our
                             best services. </p>
                     </div>
-
-
-
                 </div>
-
             </div>
         </section>
-
-
-
-
-
-
-
-        <section class="native-content-section">
-
-            <div class="leelija-gp-service-head">
-            </div>
+        <section class="native-content-section reveal">
+            <!-- <div class="leelija-gp-service-head">
+            </div> -->
             <div class="container">
                 <div class="row align-items-center m-0">
-
-                    <div class="col-lg-6">
-                        <img src="images/Approche.png" alt="guest post approach" class="w-100">
-                    </div>
-
                     <div class="col-lg-6">
                         <h3 class="native-content text-center">Best Web Solution:</h3>
                         <p class="native-content-p">Leelija Web Solution is the brand name that offers best services of
@@ -632,35 +466,20 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                             design and development worldwide. We help to improve your business name and reputation
                             drawing
                             new customers. </p> <br>
-
-                        <!-- 
-<ul>
-<li><i class="far fa-check-circle"></i> Relevance of Blogs</li>
-<li><i class="far fa-check-circle"></i> Related Niche Websites for Guest posting</li>
-<li> <i class="far fa-check-circle"></i>Quality of the content</li>
-<li> <i class="far fa-check-circle"></i>Traffic of the website</li>
-<li> <i class="far fa-check-circle"></i>Relevant suggestions </li>
-</ul> -->
-
-
-
                     </div>
-
-
-
+                    <div class="col-lg-6">
+                        <img src="images/main/Approche.webp" alt="guest post approach" class="w-100">
+                    </div>
                 </div>
-
             </div>
         </section>
 
-
-
-        <section class="native-content-section">
-
-
+        <section class="native-content-section reveal">
             <div class="container">
                 <div class="row align-items-center m-0">
-
+                    <div class="col-lg-6">
+                        <img src="images/main/content.webp" alt="Native Content" class="w-100">
+                    </div>
                     <div class="col-lg-6">
                         <h3 class="native-content text-center ">Have Experience And Professional Experts:</h3>
                         <p class="native-content-p">We have experienced and professional thirty members on different
@@ -668,28 +487,15 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                             communicated
                             with clients. Our experts use their passion and skill to grow your business. </p>
                     </div>
-
-                    <div class="col-lg-6">
-                        <img src="images/content.jpg" alt="Native Content" class="w-100">
-                    </div>
-
                 </div>
-
             </div>
         </section>
 
-
-        <section class="native-content-section">
-
-            <div class="leelija-gp-service-head">
-            </div>
+        <section class="native-content-section reveal">
+            <!-- <div class="leelija-gp-service-head">
+            </div> -->
             <div class="container">
                 <div class="row align-items-center m-0">
-
-                    <div class="col-lg-6">
-                        <img src="images/Solutions.png" alt=" Guest Linking solution" class="w-100">
-                    </div>
-
                     <div class="col-lg-6">
                         <h3 class="native-content text-center">Satisfied Clients:</h3>
                         <p class="native-content-p">We are always looking forward to satisfy our clients. We have
@@ -698,52 +504,21 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                             industries.
                         </p>
                     </div>
-
-
-
+                    <div class="col-lg-6">
+                        <img src="images/main/Solutions.webp" alt=" Guest Linking solution" class="w-100">
+                    </div>
                 </div>
-
             </div>
         </section>
 
-
-        <section class="native-content-section">
-
-
+        <section class="native-content-section reveal">
+            <!-- <div class="leelija-gp-service-head">
+            </div> -->
             <div class="container">
                 <div class="row align-items-center m-0">
-
                     <div class="col-lg-6">
-                        <h3 class="native-content text-center">User- Friendly Design:</h3>
-                        <p class="native-content-p">Our designers provide user-friendly very attractive design of your
-                            website. For that clients can easily drag more and more clients. It also beneficial for
-                            product
-                            website as more customers mean more sells. </p>
+                        <img src="images/main/NO.webp" alt="PBNs sites" class="w-100">
                     </div>
-
-                    <div class="col-lg-6">
-                        <img src="images/Real-Sites.png" alt="Real Sites" class="w-100">
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-
-
-        <section class="native-content-section">
-
-            <div class="leelija-gp-service-head">
-            </div>
-            <div class="container">
-                <div class="row align-items-center m-0">
-
-                    <div class="col-lg-6">
-                        <img src="images/NO.png" alt="PBNs sites" class="w-100">
-                    </div>
-
                     <div class="col-lg-6">
                         <h3 class="native-content text-center">Business Strategy:</h3>
                         <p class="native-content-p">
@@ -753,23 +528,33 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                             your business or product can achieve the pick of popularity and gain onsite supports.
                         </p>
                     </div>
-
-
-
                 </div>
-
             </div>
         </section>
 
-
-
-
-        <section class="native-content-section">
-
-
+        <section class="native-content-section reveal">
             <div class="container">
                 <div class="row align-items-center m-0">
+                    <div class="col-lg-6">
+                        <h3 class="native-content text-center">User- Friendly Design:</h3>
+                        <p class="native-content-p">Our designers provide user-friendly very attractive design of your
+                            website. For that clients can easily drag more and more clients. It also beneficial for
+                            product
+                            website as more customers mean more sells. </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="images/main/Real-Sites.webp" alt="Real Sites" class="w-100">
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section class="native-content-section reveal">
+            <div class="container">
+                <div class="row align-items-center m-0">
+                    <div class="col-lg-6">
+                        <img src="images/main/eCommerce_Solution.webp" alt="Real Sites" class="w-100">
+                    </div>
                     <div class="col-lg-6">
                         <h3 class="native-content text-center">Budget-Friendly service provider:</h3>
                         <p class="native-content-p">Leelija is one of the best budget-friendly web design company that
@@ -777,64 +562,14 @@ Our company works for big brands, top blogs, outreach agencies, partners, and al
                             about clients’ problems. We demand affordable budget from Start-up Company. </p>
                     </div>
 
-                    <div class="col-lg-6">
-                        <img src="images/Real-Sites.png" alt="Real Sites" class="w-100">
-                    </div>
-
                 </div>
-
             </div>
         </section>
-
-        <!-- 
-<section class="risk-free-sec">
-
-<div class="risk-free">
-<div class="container">
-<div class="row">
-<div class="col-sm-6">
-
-<div class="risk-free-img">
-<img src="images/payment.png" alt="Risk-Free SEO Service" class="w-100">
-</div>
-
-
-</div>
-<div class="col-sm-6">
-
-<h4 class="risk-free-head">
-
-100% Risk-Free SEO Service
-
-</h4>
-
-<div class="risk-free-content">
-
-<p>We make promises to give the best SEO services to our client. Don’t worry, your valuable money is safe with us until we make you happy.</p>
-<p>Buying an SEO service from Leelija, remember you are covered under safe hands.  </p>
-<p>		If you are not satisfied with our work, no worry we assure 100% money-back guarantee.</p>
-<p>We understand the value of your hard-earned money.</p>
-<p>As a responsible organization, we are committed to give you 100% money-back if we fail to make our deal fulfill as promised.</p>
-<p>
-Sincerely,<br>
-<span class="cEo">
-<span> Safikul Islam </span><br>
-CEO,
-Leelija Web Solution Private Limited
-</span>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section> -->
-
 
         <!-- ============= Benefits of choosing sec start ============= -->
         <?php require_once "partials/benefits-of-choosing.php"; ?>
         <!---------------- Benefits of choosing sec End ------------------>
-        <div class="blogger-third-section">
+        <div class="blogger-third-section reveal">
             <div class="container text-center">
                 <h2>Drive Good Results for Your Website</h2>
                 <div class="row">
@@ -851,7 +586,7 @@ Leelija Web Solution Private Limited
             </div>
         </div>
 
-        <div class="blogger-faq">
+        <div class="blogger-faq reveal">
             <div class="faq-head-section text-center">
                 <h3>Frequently Asked Questions On Web Design And Development:</h3>
                 <p>Submit your requirement or query, We will process it within 24 hours.</p>
@@ -980,6 +715,7 @@ Leelija Web Solution Private Limited
         <?php require_once "partials/footer.php"; ?>
     </div>
     <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="assets/vendors/js/reveal-animation.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         $("select").change(function() {

@@ -768,7 +768,7 @@ p {
     .bg-img {
         padding-left: 4rem !important;
         padding-right: 6rem !important;
-        background-image: url("../images/site-img/footer.png");
+        background-image: url("../images/site-img/footer.webp");
     }
 }
 
@@ -827,7 +827,7 @@ p {
     border-bottom: 0.01rem solid rgb(54 59 135);
     font-family: open sans, Arial, Helvetica, sans-serif;
     line-height: 2.8rem;
-    font-size: 1rem;
+    font-size: .95rem;
     color: var(--pure-white);
     cursor: pointer;
     /* padding-left: 1.5rem; */

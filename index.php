@@ -134,7 +134,7 @@ $cusId		= $utility->returnSess('userid', 0);
                     </div>
                 </div>
                 <div class="col-md-4 m-auto">
-                    <img src="images/mvm-bhopal-1-contact.png" class="w-75" alt="">
+                    <img src="images/main/how-can-we-help.webp" class="w-75" alt="">
                 </div>
             </div>
         </section>
@@ -152,7 +152,7 @@ $cusId		= $utility->returnSess('userid', 0);
 
     <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
     <script src="plugins/jquery-3.6.0.min.js"></script>
-
+    <script src="assets/vendors/js/reveal-animation.js"></script>
     <script>
     var Scrollbar = window.Scrollbar;
     Scrollbar.init(document.querySelector('body'));
@@ -182,23 +182,7 @@ $cusId		= $utility->returnSess('userid', 0);
     // });
     </script>
     <!-- /* CUSTOM ANIMATION FOR ALL SECTIONS IN PAGES */ -->
-    <script>
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
 
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            }
-        }
-    }
-
-    window.addEventListener("scroll", reveal);
-    </script>
 </body>
 
 </html>

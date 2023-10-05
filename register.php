@@ -224,7 +224,7 @@ Ready website for business, High Quality website sales, High quality blogs sales
                                 <div class="row m-0 w-100 no-gutters ">
                                     <div class="col-lg-5 p-0 d-none d-lg-inline-block m-auto text-center">
                                         <div class=" m-auto text-center">
-                                            <img class="w-100 " src="./images/register-leftside.jpg">
+                                            <img class="w-100 " src="./images/main/register-image.webp">
                                         </div>
                                     </div>
                                     <div class="col-lg-7 m-auto p-0">

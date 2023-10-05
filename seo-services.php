@@ -87,7 +87,7 @@ if(isset($_GET['seo_url'])){
 <body>
     <div>
         <?php require_once "partials/navbar.php"; ?>
-        <div class="blogger-banner  banner">
+        <div class="blogger-banner projects-animation_on_text  banner">
             <h1 class="blogbanner-heading"> SEO Services </h1>
             <div class="wd_heading_details_2">
                 <p class="mt-4">
@@ -123,14 +123,15 @@ if(isset($_GET['seo_url'])){
                 You will get all kinds of services to establish a digital presence such as off-page and on-page SEO,
                 e-commerce SEO, content marketing, guest posting, SEO consulting, and others.
             </p>
+            <div class="overlay"></div>
         </div>
-        <section class="blogger-fourth-section">
+        <section class="blogger-fourth-section reveal">
             <div class="container">
                 <h2 class="text-center first_title  mb-4">How can Leelija’s SEO Services Help You?</h2>
-                <div class="row align-items-center m-0">
+                <div class="row align-items-center reveal m-0">
 
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Revenue_Increase.png" alt="Revenue Increase" class="w-100">
+                        <img src="images/main/Revenue_Increase.webp" alt="Revenue Increase" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -139,6 +140,8 @@ if(isset($_GET['seo_url'])){
                                 definitely see a significant level up in revenue.</p>
                         </div>
                     </div>
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">Brand Image</h3>
@@ -150,10 +153,12 @@ if(isset($_GET['seo_url'])){
                     </div>
 
                     <div class="col-lg-6 pl-0">
-                        <img src="images/eCommerce_Solution.png" alt="Blogging Outreach" class="w-100">
+                        <img src="images/main/eCommerce_Solution.webp" alt="Blogging Outreach" class="w-100">
                     </div>
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Have_more_Sales.png" alt="More sales" class="w-100">
+                        <img src="images/main/Have_more_Sales.webp" alt="More sales" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -167,6 +172,8 @@ if(isset($_GET['seo_url'])){
                             </p>
                         </div>
                     </div>
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">Faster Growth</h3>
@@ -176,7 +183,7 @@ if(isset($_GET['seo_url'])){
                     </div>
 
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Faster_Growth.png" alt="Faster Growth" class="w-100">
+                        <img src="images/main/Faster_Growth.webp" alt="Faster Growth" class="w-100">
                     </div>
                 </div>
 
@@ -184,7 +191,7 @@ if(isset($_GET['seo_url'])){
         </section>
 
         <!-- extra details -->
-        <div class="features-sec">
+        <div class="features-sec reveal">
             <div class="features">
                 <div class="container">
                     <div class="row">
@@ -247,9 +254,9 @@ if(isset($_GET['seo_url'])){
         <section class="blogger-fourth-section">
             <div class="container">
                 <h2 class="text-center mb-3 first_title ">Different kinds of SEO Services</h2>
-                <div class="row align-items-center m-0">
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Custom_Web_Design.png" alt="Enterprise SEO" class="w-100">
+                        <img src="images/main/Custom_Web_Design.webp" alt="Enterprise SEO" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -259,6 +266,8 @@ if(isset($_GET['seo_url'])){
                             </p>
                         </div>
                     </div>
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">E- Commerce SEO</h3>
@@ -267,10 +276,12 @@ if(isset($_GET['seo_url'])){
                         </div>
                     </div>
                     <div class="col-lg-6 pl-0">
-                        <img src="images/E_Commerce_SEO.png" alt="E- Commerce SEO" class="w-100">
+                        <img src="images/main/E_Commerce_SEO.webp" alt="E- Commerce SEO" class="w-100">
                     </div>
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6 pl-0">
-                        <img src="images/SEO_Audit.png" alt="SEO Audit" class="w-100">
+                        <img src="images/main/SEO_Audit.webp" alt="SEO Audit" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -280,6 +291,8 @@ if(isset($_GET['seo_url'])){
                             </p>
                         </div>
                     </div>
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">Local SEO</h3>
@@ -288,10 +301,12 @@ if(isset($_GET['seo_url'])){
                         </div>
                     </div>
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Local_SEO.png" alt="Local_SEO" class="w-100">
+                        <img src="images/main/Local_SEO.webp" alt="Local_SEO" class="w-100">
                     </div>
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6 pl-0">
-                        <img src="images/Recovery_of_SEO_Penalty.png" alt="Recovery_of_SEO_Penalty" class="w-100">
+                        <img src="images/main/Recovery_of_SEO_Penalty.webp" alt="Recovery_of_SEO_Penalty" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -301,6 +316,8 @@ if(isset($_GET['seo_url'])){
                                 services. Through a focused strategy, we recover it from Google's penalty.</p>
                         </div>
                     </div>
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">SEO Contract Staffing</h3>
@@ -308,7 +325,7 @@ if(isset($_GET['seo_url'])){
                         </div>
                     </div>
                     <div class="col-lg-6 pl-0">
-                        <img src="images/SEO _Contract Staffing.png" alt="SEO _Contract Staffing" class="w-100">
+                        <img src="images/main/SEO-Contract-Staffing.webp" alt="SEO _Contract Staffing" class="w-100">
                     </div>
                 </div>
             </div>
@@ -317,7 +334,7 @@ if(isset($_GET['seo_url'])){
         <?php require_once "partials/reg-now.php"; ?>
         <!------------------- Regester Now Section End ------------------->
 
-        <section class="native-content-section">
+        <section class="native-content-section reveal">
             <div class="leelija-gp-service-head">
                 <h3 class="text-center">Why Leelija best as SEO Service Provider?</h3>
                 <p class="heading_details_p  mt-3">Being one of the best seo service company, our aim to fulfill our
@@ -326,10 +343,11 @@ if(isset($_GET['seo_url'])){
                     strategies that increase your digital revenue. Our dedicated team helps us to lead the industry:</p>
             </div>
             <div class="container">
-                <div class="row align-items-center m-0">
+                <div class="row reveal align-items-center m-0">
 
                     <div class="col-lg-6">
-                        <img src="images/Efficient_Project_Manager.png" alt="Efficient Project Manager" class="w-100">
+                        <img src="images/main/Efficient_Project_Manager.webp" alt="Efficient Project Manager"
+                            class="w-100">
                     </div>
 
                     <div class="col-lg-6">
@@ -344,11 +362,11 @@ if(isset($_GET['seo_url'])){
             </div>
         </section>
 
-        <section class="native-content-section">
+        <section class="native-content-section reveal">
             <div class="leelija-gp-service-head">
             </div>
             <div class="container">
-                <div class="row align-items-center m-0">
+                <div class="row reveal align-items-center m-0">
                     <div class="col-lg-6">
                         <h3 class="native-content">Team of 30+ SEO Specialist</h3>
                         <p class="native-content-p">In a short time, we have made a strong team of 30+ SEO Specialists.
@@ -369,16 +387,17 @@ if(isset($_GET['seo_url'])){
 
                     </div>
                     <div class="col-lg-6">
-                        <img src="images/Teamof_SEO_Specialist.png" alt="Team of 30+ SEO Specialist" class="w-100">
+                        <img src="images/main/Team_of_SEO_Specialist.webp" alt="Team of 30+ SEO Specialist"
+                            class="w-100">
                     </div>
                 </div>
             </div>
         </section>
-        <section class="native-content-section">
+        <section class="native-content-section reveal">
             <div class="container">
                 <div class="row align-items-center m-0">
                     <div class="col-lg-6">
-                        <img src="images/content.jpg" alt="Award Winners" class="w-100">
+                        <img src="images/main/content.webp" alt="Award Winners" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <h3 class="native-content">Award Winners</h3>
@@ -391,24 +410,8 @@ if(isset($_GET['seo_url'])){
                 </div>
             </div>
         </section>
-        <section class="native-content-section">
-            <div class="leelija-gp-service-head">
-            </div>
-            <div class="container">
-                <div class="row align-items-center m-0">
-                    <div class="col-lg-6">
-                        <img src="images/Analyzing_Data.png" alt=">Analyzing Data" class="w-100">
-                    </div>
-                    <div class="col-lg-6">
-                        <h3 class="native-content">Analyzing Data</h3>
-                        <p class="native-content-p">Before starting on a new project we always analyze past data of that
-                            site. It helps us to plan and do it to perfection.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="native-content-section">
+
+        <section class="native-content-section reveal">
             <div class="container">
                 <div class="row align-items-center m-0">
                     <div class="col-lg-6">
@@ -418,18 +421,18 @@ if(isset($_GET['seo_url'])){
                             less experience. Our team has experience of 10-12 years in the SEO industry. </p>
                     </div>
                     <div class="col-lg-6">
-                        <img src="images/Real-Sites.png" alt="Experience" class="w-100">
+                        <img src="images/main/Real-Sites.webp" alt="Experience" class="w-100">
                     </div>
                 </div>
             </div>
         </section>
-        <section class="native-content-section">
+        <section class="native-content-section reveal">
             <div class="leelija-gp-service-head">
             </div>
             <div class="container">
                 <div class="row align-items-center m-0">
                     <div class="col-lg-6">
-                        <img src="images/Constant_monitoring.png" alt="Constant monitoring" class="w-100">
+                        <img src="images/main/Constant_monitoring.webp" alt="Constant monitoring" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <h3 class="native-content">Constant monitoring</h3>
@@ -444,8 +447,25 @@ if(isset($_GET['seo_url'])){
 
             </div>
         </section>
+        <section class="native-content-section reveal">
+            <div class="leelija-gp-service-head">
+            </div>
+            <div class="container">
+                <div class="row align-items-center m-0">
 
-        <section class="native-content-section">
+                    <div class="col-lg-6">
+                        <h3 class="native-content">Analyzing Data</h3>
+                        <p class="native-content-p">Before starting on a new project we always analyze past data of that
+                            site. It helps us to plan and do it to perfection.
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="images/main/Analyzing_Data.webp" alt=">Analyzing Data" class="w-100">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="native-content-section reveal">
             <div class="leelija-gp-service-head">
                 <h3>What Our SEO Services Includes?</h3>
                 <p class="heading_details_p">Leelija is one of the best seo service provider in the SEO industry. With
@@ -457,7 +477,7 @@ if(isset($_GET['seo_url'])){
             <div class="container">
                 <div class="row align-items-center m-0">
                     <div class="col-lg-6">
-                        <img src="images/Approche.png" alt="Competitor Analysis" class="w-100">
+                        <img src="images/main/Approche.webp" alt="Competitor Analysis" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <h3 class="native-content">Competitor Analysis</h3>
@@ -478,7 +498,7 @@ if(isset($_GET['seo_url'])){
             </div>
         </section>
 
-        <section class="native-content-section">
+        <section class="native-content-section reveal">
             <div class="leelija-gp-service-head">
             </div>
             <div class="container">
@@ -498,19 +518,19 @@ if(isset($_GET['seo_url'])){
                         </ul>
                     </div>
                     <div class="col-lg-6">
-                        <img src="images/SEO_Audit.png" alt="SEO Audit" class="w-100">
+                        <img src="images/main/SEO_Audit.webp" alt="SEO Audit" class="w-100">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="native-content-section">
+        <section class="native-content-section reveal">
             <div class="leelija-gp-service-head">
             </div>
             <div class="container">
                 <div class="row align-items-center m-0">
                     <div class="col-lg-6">
-                        <img src="images/Keyword_Research.png" alt="Keyword Research" class="w-100">
+                        <img src="images/main/Keyword_Research.webp" alt="Keyword Research" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <h3 class="native-content">Keyword Research</h3>
@@ -534,7 +554,7 @@ if(isset($_GET['seo_url'])){
             </div>
         </section>
 
-        <section class="native-content-section">
+        <section class="native-content-section reveal">
             <div class="leelija-gp-service-head">
             </div>
             <div class="container">
@@ -553,19 +573,19 @@ if(isset($_GET['seo_url'])){
                         </ul>
                     </div>
                     <div class="col-lg-6">
-                        <img src="images/OnPage _SEO_Services.png" alt="On Page SEO Services" class="w-100">
+                        <img src="images/main/OnPage_SEO_Services.webp" alt="On Page SEO Services" class="w-100">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="native-content-section">
+        <section class="native-content-section reveal">
             <div class="leelija-gp-service-head">
             </div>
             <div class="container">
                 <div class="row align-items-center m-0">
                     <div class="col-lg-6">
-                        <img src="images/Approche.png" alt="Content Optimization" class="w-100">
+                        <img src="images/main/our-mission-TYFRW.webp" alt="Content Optimization" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <h3 class="native-content">Content Optimization</h3>
@@ -584,7 +604,7 @@ if(isset($_GET['seo_url'])){
                 </div>
             </div>
         </section>
-        <section class="native-content-section">
+        <section class="native-content-section reveal">
             <div class="leelija-gp-service-head">
             </div>
             <div class="container">
@@ -602,20 +622,20 @@ if(isset($_GET['seo_url'])){
                         </ul>
                     </div>
                     <div class="col-lg-6">
-                        <img src="images/Contextual_InternalLink_Building.png" alt="Contextual Internal Link Building"
-                            class="w-100">
+                        <img src="images/main/Contextual_InternalLink_Building.webp"
+                            alt="Contextual Internal Link Building" class="w-100">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="native-content-section">
+        <section class="native-content-section reveal">
             <div class="leelija-gp-service-head">
             </div>
             <div class="container">
                 <div class="row align-items-center m-0">
                     <div class="col-lg-6">
-                        <img src="images/OffPageSEO_Services.png" alt="Off Page SEO Services" class="w-100">
+                        <img src="images/main/OffPageSEO_Services.webp" alt="Off Page SEO Services" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <h3 class="native-content">Off Page SEO Services</h3>
@@ -636,7 +656,7 @@ if(isset($_GET['seo_url'])){
             </div>
         </section>
 
-        <section class="native-content-section">
+        <section class="native-content-section reveal">
             <div class="leelija-gp-service-head">
             </div>
             <div class="container">
@@ -661,7 +681,7 @@ if(isset($_GET['seo_url'])){
                         </ul>
                     </div>
                     <div class="col-lg-6">
-                        <img src="images/Approche.png" alt="Regular Reporting" class="w-100">
+                        <img src="images/main/Approche.webp" alt="Regular Reporting" class="w-100">
                     </div>
                 </div>
             </div>
@@ -669,7 +689,7 @@ if(isset($_GET['seo_url'])){
 
         <?php require_once "partials/benefits-of-choosing.php"; ?>
 
-        <div class="blogger-faq">
+        <div class="blogger-faq reveal">
             <div class="faq-head-section text-center">
                 <h3 class="text-center">Frequently Asked Questions On SEO Services:</h3>
                 <p>Submit your requirement or query, We will process it within 24 hours.</p>
@@ -811,6 +831,7 @@ if(isset($_GET['seo_url'])){
         <?php require_once "partials/footer.php"; ?>
     </div>
     <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="assets/vendors/js/reveal-animation.js"></script>
     <!-- <script type="text/javascript">
     $(document).ready(function() {
         $("select").change(function() {

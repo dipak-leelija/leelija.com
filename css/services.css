@@ -25,7 +25,7 @@
 .service_page_banner1 {
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: linear-gradient(to bottom, #0000009e, rgb(0 0 0 / 47%)), url(../images/portfolio/our_servicess.jpg);
+    background-image: linear-gradient(to bottom, #0000009e, rgb(0 0 0 / 47%)), url(../images/services/our_servicess.webp);
     color: var(--pure-white);
     object-fit: cover;
 

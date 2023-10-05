@@ -91,7 +91,7 @@ query_posts('showposts=3');
 <body>
     <div>
         <?php require_once "partials/navbar.php"; ?>
-        <div class="blogger-banner  banner">
+        <div class="blogger-banner projects-animation_on_text banner">
             <h1 class="blogbanner-heading">CONTENT MARKETING </h1>
             <div class="wd_heading_details_2">
                 <p class="mt-4">
@@ -112,17 +112,19 @@ query_posts('showposts=3');
                 marketing
                 :
             </p>
+            <div class="overlay"></div>
         </div>
 
         <section class="Social_Media_Marketing">
             <!-- <h2 class="text-center first_title">Examples of content marketing</h2> -->
-            <section class="native-content-section">
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
                         <div class="col-lg-6">
-                            <img src="images/blogging2.png" alt="Blogging content marketing" class="w-100">
+                            <img src="images/main/blogging-content-marketing.webp" alt="Blogging content marketing"
+                                class="w-100">
                         </div>
 
                         <div class="col-lg-6">
@@ -138,7 +140,7 @@ query_posts('showposts=3');
                     </div>
                 </div>
             </section>
-            <section class="native-content-section">
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
@@ -159,19 +161,19 @@ query_posts('showposts=3');
                                 readers who reach them by email, and social media. </p>
                         </div>
                         <div class="col-lg-6">
-                            <img src="images/social-media.png" alt="Social media content marketing" class="w-100">
+                            <img src="images/main/social-media.webp" alt="Social media content marketing" class="w-100">
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="native-content-section">
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
                         <div class="col-lg-6">
-                            <img src="images/visual.png" alt="Visual content marketing" class="w-100">
+                            <img src="images/main/visual.webp" alt="Visual content marketing" class="w-100">
                         </div>
                         <div class="col-lg-6">
                             <h3 class="native-content">Visual content marketing</h3>
@@ -192,7 +194,7 @@ query_posts('showposts=3');
 
         </section>
 
-        <section class="blogger-fourth-section">
+        <section class="blogger-fourth-section reveal">
             <div class="container">
                 <h2 class="text-center mb-3 first_title ">How to make your content marketing more effective?</h2>
                 <div class="wd_heading_details_2">
@@ -221,10 +223,10 @@ query_posts('showposts=3');
                         of many companies. Here we discuss about the importance of content marketing:
                     </p>
                 </div>
-                <div class="row align-items-center m-0">
+                <div class="row align-items-center reveal m-0">
 
                     <div class="col-lg-6 pl-0">
-                        <img src="images/brand-reputation.png" alt="Improve brand reputation" class="w-100">
+                        <img src="images/main/brand-reputation.webp" alt="Improve brand reputation" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -241,7 +243,9 @@ query_posts('showposts=3');
 
                         </div>
                     </div>
+                </div>
 
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">Help to influence conversation</h3>
@@ -258,11 +262,12 @@ query_posts('showposts=3');
                     </div>
 
                     <div class="col-lg-6 pl-0">
-                        <img src="images/setup_fees.png" alt="Help to influence conversation" class="w-100">
+                        <img src="images/main/setup_fees.webp" alt="Help to influence conversation" class="w-100">
                     </div>
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6 pl-0">
-                        <img src="images/efforts.png" alt="Improve SEO efforts" class="w-100">
+                        <img src="images/main/efforts.webp" alt="Improve SEO efforts" class="w-100">
                     </div>
 
                     <div class="col-lg-6">
@@ -280,6 +285,8 @@ query_posts('showposts=3');
 
                         </div>
                     </div>
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">Effective way to bring in new leads</h3>
@@ -292,11 +299,13 @@ query_posts('showposts=3');
                         </div>
                     </div>
                     <div class="col-lg-6 pl-0">
-                        <img src="images/OffPageSEO_Services.png" alt="Effective way to bring in new leads"
+                        <img src="images/main/OffPageSEO_Services.webp" alt="Effective way to bring in new leads"
                             class="w-100">
                     </div>
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6 pl-0">
-                        <img src="images/relationship-customer.png" alt="Build relationship with customers"
+                        <img src="images/main/relationship-customer.webp" alt="Build relationship with customers"
                             class="w-100">
                     </div>
                     <div class="col-lg-6">
@@ -317,20 +326,11 @@ query_posts('showposts=3');
 
             </div>
         </section>
-        <section class="go-to-regiser-sec mt-3">
-            <div class=" go-to-regiser orienta-font">
-                <div class="container">
-                    <div class="go-to-regiser-head">
-                        <h4 class="text-center"> For best outreach services </h4>
-                    </div>
-                    <div class="registerBtn text-center">
-                        <a href="login.php" class="btn btn-primary">register now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- ================ Regester Now Section Start ================ -->
+        <?php require_once "partials/reg-now.php"; ?>
+        <!------------------- Regester Now Section End ------------------->
 
-        <div class="blogger-faq">
+        <div class="blogger-faq reveal">
             <div class="faq-head-section text-center">
                 <h3>Frequently Asked Questions On Content Marketing</h3>
                 <p>Submit your requirement or query, We will process it within 24 hours.</p>
@@ -428,6 +428,7 @@ query_posts('showposts=3');
         <?php require_once "partials/footer.php"; ?>
     </div>
     <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="assets/vendors/js/reveal-animation.js"></script>
     <!-- <script type="text/javascript">
     $(document).ready(function() {
         $("select").change(function() {

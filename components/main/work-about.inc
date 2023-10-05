@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="divvcs col-lg-3 col-md-12 col-sm-12 ">
-            <img src="images/pplgroup.jpg" class="imggy" width="500px" height="350px" alt="">
+            <img src="images/main/group-of-peoples.webp" class="imggy" width="500px" height="350px" alt="">
             <div class="textinpicture">
             </div>
         </div>

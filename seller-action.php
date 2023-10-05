@@ -22,7 +22,7 @@
 
       <div class="col-lg-4 my-lg-auto mt-3 mt-lg-0 text-center ">
 
-        <img src="images/start-up.png" alt="Domains & Blogs" class="seller_action_img"/>
+        <img src="images/main/start-up.webp" alt="Domains & Blogs" class="seller_action_img"/>
 
       </div>
 
