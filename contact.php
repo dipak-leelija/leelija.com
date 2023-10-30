@@ -278,6 +278,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <script src="plugins/bootstrap-5.2.0/js/bootstrap.bundle.min.js"></script>
     <script src="<?= URL ?>js/ajax.js" type="text/javascript"></script>
     <script src="<?= URL ?>js/contact_form.js" type="text/javascript"></script>
+    <script src="assets/vendors/js/reveal-animation.js"></script>
     <script>
     (function() {
         'use strict'
@@ -296,23 +297,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     })()
     </script>
 
-    <script>
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            }
-        }
-    }
-
-    window.addEventListener("scroll", reveal);
-    </script>
 </body>
 
 </html>

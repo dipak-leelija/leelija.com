@@ -87,20 +87,21 @@ define('WP_USE_THEMES', false);
         <?php require_once "partials/navbar.php" ?>
 
         <div class="main_service_page pt-4">
-            <div class="service_page_banner  reveal text-center banner py-4">
+            <div class="service_page_banner  projects-animation_on_text text-center banner py-4">
                 <h1 class="blue_color_class1 text-uppercase font-weight-bold ">Career</h1>
                 <h3 class="py-3 mons-font">Take a look to our Career Options. </h3>
                 <p>We are providing you a great opportunities to become a part of us.</p>
                 <p>We are welcoming new Talented people like you.</p>
                 <p>Apply Now to Join Our Team</p>
+                <div class="overlay"></div>
             </div>
             <!--Banner Dividor-->
             <!--/End of baneer Dividor-->
-            <div class="grow-career-skills reveal">
+            <div class="grow-career-skills projects-animation_on_text">
                 <h2 class="">Why are you <span class="blue_color_class">waiting?</span></h2>
                 <div class="row">
                     <div class=" col-lg-6 col-sm-12 col-md-6  ">
-                        <img src="images/portfolio/why-are-you-waiting.jpg  " class="w-100" alt="">
+                        <img src="images/career/why-are-you-waiting.webp" class="w-100" alt="">
                     </div>
                     <div class="col-lg-6 col-sm-12  col-md-6 m-auto text-center">
                         <p class="">We need you by our side for developing high-end applications that will
@@ -111,6 +112,7 @@ define('WP_USE_THEMES', false);
                         </p>
                     </div>
                 </div>
+                <div class="overlay"></div>
             </div>
 
             <!-- =================== m-card start ================= -->
@@ -332,9 +334,6 @@ define('WP_USE_THEMES', false);
                     </div>
                 </div>
             </section>
-
-
-
             <!-- ==========================================
                                     ---------m-card end---------
                                 ========================================== -->
@@ -345,28 +344,28 @@ define('WP_USE_THEMES', false);
                     <div class="row">
                         <div class="col-lg-3 my-2 col-md-6">
                             <div class="our-team-needs">
-                                <img src="images/web-design.png" alt="">
+                                <img src="images/career/web-design.png" alt="">
                                 <h3>Frontend</h3>
                                 <p>HTML5 / CSS3 / Sass / jQuery / Bootstrap </p>
                             </div>
                         </div>
                         <div class="col-lg-3 my-2 col-md-6">
                             <div class="our-team-needs">
-                                <img src="images/api.png" alt="">
+                                <img src="images/career/api.png" alt="">
                                 <h3>Backend</h3>
                                 <p>PHP / mySql / Python / Ruby /.Net</p>
                             </div>
                         </div>
                         <div class="col-lg-3 my-2 col-md-6">
                             <div class="our-team-needs">
-                                <img src="images/android.png" alt="">
+                                <img src="images/career/android.png" alt="">
                                 <h3>Mobile App</h3>
                                 <p>Android Developer / IOS Developer</p>
                             </div>
                         </div>
                         <div class="col-lg-3 my-2 col-md-6">
                             <div class="our-team-needs">
-                                <img src="images/speaker.png" alt="">
+                                <img src="images/career/speaker.png" alt="">
                                 <h3>Marketing</h3>
                                 <p>SEO / SMM / SEM / Email Marketing</p>
                             </div>
@@ -391,7 +390,7 @@ define('WP_USE_THEMES', false);
                             hands.</p>
                     </div>
                     <div class="col-md-6">
-                        <img src="images/portfolio/skills-grow.jpg" class="w-100" class="whyareyouwaiting" alt="">
+                        <img src="images/career/skills-grow.webp" class="w-100" class="whyareyouwaiting" alt="">
                     </div>
                 </div>
             </div>
@@ -719,6 +718,7 @@ define('WP_USE_THEMES', false);
     </div>
     <!-- js-->
     <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="assets/vendors/js/reveal-animation.js"></script>
     <!-- js-->
     <script>
     (() => {
@@ -850,23 +850,7 @@ define('WP_USE_THEMES', false);
         }
     });
     </script>
-    <script>
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            }
-        }
-    }
-
-    window.addEventListener("scroll", reveal);
-    </script>
+ 
     <!-- Bootstrap Core JavaScript -->
     <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
     <script src="plugins/jquery-3.6.0.min.js"></script>

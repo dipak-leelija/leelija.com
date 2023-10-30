@@ -136,6 +136,7 @@ website for small business, blogs making, blogs sales, expired domain sales" />
     </div>
     <!-- //home end-->
     <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
+    <script src="assets/vendors/js/reveal-animation.js"></script>
     <!-- ==== js for smooth scrollbar ==== -->
     <!-- <script src="plugins/smooth-scrollbar.js"></script> -->
     <!-- <script>
@@ -143,23 +144,7 @@ website for small business, blogs making, blogs sales, expired domain sales" />
         Scrollbar.init(document.querySelector('body'));
     </script> -->
     <!-- ==== js for smooth scrollbar End ==== -->
-    <script>
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
 
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            }
-        }
-    }
-
-    window.addEventListener("scroll", reveal);
-    </script>
 </body>
 <!--// end body -->
 

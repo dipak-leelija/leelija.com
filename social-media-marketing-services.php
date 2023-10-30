@@ -95,11 +95,9 @@ query_posts('showposts=3');
 </head>
 
 <body>
-    <div>
-
-
+    <div class="animate_only_for_scroll">
         <?php require_once "partials/navbar.php"; ?>
-        <div class="blogger-banner  banner">
+        <div class="blogger-banner projects-animation_on_text  banner ">
             <h1 class="blogbanner-heading"> Social Media Marketing Strategy </h1>
             <div class="wd_heading_details_2">
                 <p class="mt-4">
@@ -139,17 +137,18 @@ query_posts('showposts=3');
 
                 </p>
             </div>
+            <div class="overlay"></div>
         </div>
 
-        <section class="Social_Media_Marketing">
+        <section class="Social_Media_Marketing reveal">
             <h2 class="text-center first_title">How Social Media Networks Benefit Your Business?</h2>
             <section class="native-content-section">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
-                    <div class="row align-items-center m-0">
+                    <div class="row align-items-center reveal m-0">
                         <div class="col-lg-6">
-                            <img src="images/facebook.png" alt="Facebook" class="w-100">
+                            <img src="images/main/facebook.webp" alt="Facebook" class="w-100">
                         </div>
                         <div class="col-lg-6">
                             <h3 class="native-content">Facebook</h3>
@@ -188,7 +187,7 @@ query_posts('showposts=3');
                     </div>
                 </div>
             </section>
-            <section class="native-content-section">
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
@@ -229,18 +228,18 @@ query_posts('showposts=3');
                         </div>
 
                         <div class="col-lg-6">
-                            <img src="images/twitter.png" alt="Twitter" class="w-100">
+                            <img src="images/main/twitter.webp" alt="Twitter" class="w-100">
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="native-content-section">
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
                         <div class="col-lg-6">
-                            <img src="images/instagram.png" alt="Instagram" class="w-100">
+                            <img src="images/main/instagram.webp" alt="Instagram" class="w-100">
                         </div>
                         <div class="col-lg-6">
                             <h3 class="native-content">Instagram</h3>
@@ -283,7 +282,7 @@ query_posts('showposts=3');
 
 
 
-            <section class="native-content-section">
+            <section class="native-content-section reveal">
 
                 <div class="leelija-gp-service-head">
                 </div>
@@ -325,21 +324,21 @@ query_posts('showposts=3');
                         </div>
 
                         <div class="col-lg-6">
-                            <img src="images/linkedin.png" alt="LinkedIn" class="w-100">
+                            <img src="images/main/linkedin.webp" alt="LinkedIn" class="w-100">
                         </div>
                     </div>
                 </div>
             </section>
 
 
-            <section class="native-content-section">
+            <section class="native-content-section reveal">
 
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
                         <div class="col-lg-6">
-                            <img src="images/pinterest.png" alt="Pinterest" class="w-100">
+                            <img src="images/main/pinterest.webp" alt="Pinterest" class="w-100">
                         </div>
 
                         <div class="col-lg-6">
@@ -376,26 +375,10 @@ query_posts('showposts=3');
                 </div>
             </section>
 
-
-
         </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <section class="blogger-fourth-section">
+        <section class="blogger-fourth-section reveal">
 
             <div class="container">
                 <h2 class="text-center mb-3 first_title ">Our Social Media Marketing Management Plans</h2>
@@ -414,15 +397,12 @@ query_posts('showposts=3');
 
                     </p>
 
-
-
-
                 </div>
 
-                <div class="row align-items-center m-0">
+                <div class="row align-items-center reveal m-0">
 
                     <div class="col-lg-6 pl-0">
-                        <img src="images/management_fees.png" alt="Management Fees" class="w-100">
+                        <img src="images/main/management_fees.webp" alt="Management Fees" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -459,7 +439,7 @@ query_posts('showposts=3');
                     </div>
 
                     <div class="col-lg-6 pl-0">
-                        <img src="images/setup_fees.png" alt="Setup Fees" class="w-100">
+                        <img src="images/main/setup_fees.webp" alt="Setup Fees" class="w-100">
                     </div>
 
                 </div>
@@ -470,7 +450,7 @@ query_posts('showposts=3');
 
         <!-- Social Media Management Services  -->
 
-        <section class="features-sec-main">
+        <section class="features-sec-main reveal">
             <h2 class="text-center first_title pt-2 ">Our Social Media Management Services Include</h2>
             <div class="features-sec">
 
@@ -579,7 +559,7 @@ query_posts('showposts=3');
         <!---------------- Benefits of choosing sec End ------------------>
 
 
-        <div class="blogger-faq">
+        <div class="blogger-faq reveal">
             <div class="faq-head-section text-center">
                 <h3>Frequently Asked Questions On SEO Services:</h3>
                 <p>Submit your requirement or query, We will process it within 24 hours.</p>
@@ -688,6 +668,7 @@ query_posts('showposts=3');
         <?php require_once "partials/footer.php" ?>
     </div>
     <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="assets/vendors/js/reveal-animation.js"></script>
     <!-- <script type="text/javascript">
     $(document).ready(function() {
         $("select").change(function() {

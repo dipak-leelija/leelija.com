@@ -95,10 +95,8 @@ query_posts('showposts=3');
 
 <body>
     <div>
-
-
         <?php require_once "partials/navbar.php"; ?>
-        <div class="blogger-banner  banner ">
+        <div class="blogger-banner projects-animation_on_text  banner ">
             <h1 class="blogbanner-heading"> WordPress Development Services </h1>
             <div class="wd_heading_details_2">
                 <p class="mt-4">
@@ -113,10 +111,8 @@ query_posts('showposts=3');
                     WordPress website builder develops your business websites with fully responsible.
                 </p>
             </div>
-
             <h2 class="text-center  mt-5 mb-4 first_title  ">How To Build A Wordpress Website?</h2>
             <div class="wd_heading_details_2">
-
                 <p class="mt-4">
                     There is an unclear vision about how to build a WordPress website. Our Leelija team will help you to
                     start a WordPress blog and WordPress website design. Opening a WordPress account you can easily
@@ -128,49 +124,38 @@ query_posts('showposts=3');
                     easily.
                     Our WordPress web design company is always looking forward to help you with their professional
                     experience and we try to make our clients happy with our service.
-
                 </p>
-
             </div>
+            <div class="overlay"></div>
         </div>
 
-        <section class="Social_Media_Marketing">
-
-            <h2 class="text-center first_title mt-4">WordPress Development Services We Offer</h2>
-
+        <section class="Social_Media_Marketing reveal">
+            <h2 class="text-center first_title mb-5 mt-4">WordPress Development Services We Offer</h2>
             <section class="native-content-section">
-
-                <div class="leelija-gp-service-head">
-                </div>
+                <!-- <div class="leelija-gp-service-head">
+                </div> -->
                 <div class="container">
                     <div class="row align-items-center m-0">
                         <div class="col-lg-6">
-                            <img src="images/How_To_Build A_Wordpress_Website.png" alt="Website Development"
+                            <img src="images/main/How_To_Build A_Wordpress_Website.webp" alt="Website Development"
                                 title=">Website Development" class="w-100">
                         </div>
-
                         <div class="col-lg-6">
                             <h3 class="native-content">Website Development</h3>
                             <p class="social-media-point">Our Leelija Web Solution is one of the best leading WordPress
                                 development company. We have professional and experienced in-house WordPress experts.
                                 The
                                 experts will help you the best wordpress development services</p>
-
                         </div>
                     </div>
                 </div>
             </section>
 
-
-
-            <section class="native-content-section">
-
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
-
-
                         <div class="col-lg-6">
                             <h3 class="native-content">Configuration & Installation</h3>
                             <p class="social-media-point">If you are searching the best wordpress best website builder
@@ -181,31 +166,25 @@ query_posts('showposts=3');
                                 functional systems. Providing CMS Installation & Configuration, the dedicated team set
                                 up
                                 your WordPress blog and website</p>
-
-
                         </div>
 
                         <div class="col-lg-6">
-                            <img src="images/Configuration__Installation.png" alt="Configuration & Installation"
+                            <img src="images/main/Configuration__Installation.webp" alt="Configuration & Installation"
                                 class="w-100">
                         </div>
                     </div>
                 </div>
             </section>
 
-
-
-            <section class="native-content-section">
-
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
                         <div class="col-lg-6">
-                            <img src="images/Wordpress_Them_Development.jpg" alt="Wordpress Theme Development"
+                            <img src="images/main/Wordpress_Them_Development.webp" alt="Wordpress Theme Development"
                                 class="w-100">
                         </div>
-
                         <div class="col-lg-6">
                             <h3 class="native-content">Wordpress Theme Development</h3>
                             <p class="social-media-point">At the present time, building a responsive website is the main
@@ -216,24 +195,16 @@ query_posts('showposts=3');
                                 WordPress
                                 theme conversion service, custom theme development, making mobile first orientation
                                 development. </p>
-
-
                         </div>
                     </div>
                 </div>
             </section>
 
-
-
-
-            <section class="native-content-section">
-
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
-
-
                         <div class="col-lg-6">
                             <h3 class="native-content">WordPress Plugin Development</h3>
                             <p class="social-media-point">Plugins are the main center of WordPress CMS development. If
@@ -244,30 +215,24 @@ query_posts('showposts=3');
                                 business need. Leelija offers plugins documentation and installations, upgrade,
                                 modification
                                 and enchantment of plugins.</p>
-
-
                         </div>
-
                         <div class="col-lg-6">
-                            <img src="images/WordPress_Plugin_Development.png" alt="WordPress Plugin Development"
+                            <img src="images/main/wordpress-plugin.webp" alt="WordPress Plugin Development"
                                 class="w-100">
                         </div>
                     </div>
                 </div>
             </section>
 
-
-            <section class="native-content-section">
-
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
                         <div class="col-lg-6">
-                            <img src="images/Migration_And Maintenance_Services.png"
+                            <img src="images/main/Migration_And Maintenance_Services.webp"
                                 alt="Migration And Maintenance Services" class="w-100">
                         </div>
-
                         <div class="col-lg-6">
                             <h3 class="native-content">Migration And Maintenance Services</h3>
                             <p class="social-media-point">Our freelance wordpress developer always gives their best
@@ -279,22 +244,15 @@ query_posts('showposts=3');
                                 monitoring the performance of websit, notify the error and find out the effective
                                 solution
                                 of this error, first response rate of website, an malware protection. </p>
-
-
                         </div>
                     </div>
                 </div>
             </section>
-
-
-            <section class="native-content-section">
-
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
-
-
                         <div class="col-lg-6">
                             <h3 class="native-content">Wordpress Template Design Services</h3>
                             <p class="social-media-point">Leelija is the best in leading WordPress theme development
@@ -302,26 +260,22 @@ query_posts('showposts=3');
                                 has great knowledgeable experts of designers who are handle all responsibilities in
                                 effective manners. Make creative and beautiful designing brands, use latest WordPress
                                 functionalities features with best solutions. </p>
-
-
                         </div>
 
                         <div class="col-lg-6">
-                            <img src="images/template.png" alt="Wordpress Template Design Services" class="w-100">
+                            <img src="images/main/template.webp" alt="Wordpress Template Design Services" class="w-100">
                         </div>
                     </div>
                 </div>
             </section>
 
-
-            <section class="native-content-section">
-
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
                         <div class="col-lg-6">
-                            <img src="images/BlogPost.png" alt="Blog Development" class="w-100">
+                            <img src="images/main/BlogPost.webp" alt="Blog Development" class="w-100">
                         </div>
 
                         <div class="col-lg-6">
@@ -330,22 +284,16 @@ query_posts('showposts=3');
                                 provide
                                 SEO friendly services to grow your blog and make place on Google rank, and engaging
                                 audience. </p>
-
-
                         </div>
                     </div>
                 </div>
             </section>
 
-
-            <section class="native-content-section">
-
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
-
-
                         <div class="col-lg-6">
                             <h3 class="native-content">API Integration & Customization</h3>
                             <p class="social-media-point">Do you want to hire dedicated wordpress developer to develop
@@ -355,26 +303,23 @@ query_posts('showposts=3');
                                 offer mobile app integration and data sync service for your wordpress site. We also
                                 provide
                                 management service for your website. </p>
-
-
                         </div>
 
                         <div class="col-lg-6">
-                            <img src="images/api_intrigation.png" alt="API Integration & Customization" class="w-100">
+                            <img src="images/main/api_intrigation.webp" alt="API Integration & Customization"
+                                class="w-100">
                         </div>
                     </div>
                 </div>
             </section>
 
-
-            <section class="native-content-section">
-
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
                         <div class="col-lg-6">
-                            <img src="images/woocommrece.png" alt="WooCommerce Development" class="w-100">
+                            <img src="images/main/woocommrece.webp" alt="WooCommerce Development" class="w-100">
                         </div>
 
                         <div class="col-lg-6">
@@ -392,16 +337,11 @@ query_posts('showposts=3');
                     </div>
                 </div>
             </section>
-
-
-            <section class="native-content-section">
-
+            <section class="native-content-section reveal">
                 <div class="leelija-gp-service-head">
                 </div>
                 <div class="container">
                     <div class="row align-items-center m-0">
-
-
                         <div class="col-lg-6">
                             <h3 class="native-content">WordPress Upgrading</h3>
                             <p class="social-media-point">The upgrading process of your website may harmful and cause
@@ -412,41 +352,26 @@ query_posts('showposts=3');
                                 team with experience skills. Our developers follow latest technologies to complete
                                 upgrading
                                 method. They also can provide manually WordPress upgrading method. </p>
-
-
                         </div>
-
                         <div class="col-lg-6">
-                            <img src="images/upgrading.png" alt="WordPress Upgrading" class="w-100">
+                            <img src="images/main/upgrading.webp" alt="WordPress Upgrading" class="w-100">
                         </div>
                     </div>
                 </div>
             </section>
 
-
-
-
-
         </section>
-
 
         <!-- ================ Regester Now Section Start ================ -->
         <?php require_once "partials/reg-now.php"; ?>
         <!------------------- Regester Now Section End ------------------->
 
-
-
-        <section class="blogger-fourth-section">
-
+        <section class="blogger-fourth-section reveal">
             <div class="container">
                 <h2 class="text-center mb-3 first_title mt-5">Why Our Consumers Love Us</h2>
-
-
-
-                <div class="row align-items-center m-0">
-
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
-                        <img src="images/Custom_Web_Design.png" alt="Blogging Outreach" class="w-100">
+                        <img src="images/main/Custom_Web_Design.webp" alt="Blogging Outreach" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -459,8 +384,8 @@ query_posts('showposts=3');
                                 connected with partner team to resolve any WordPress problems. </p>
                         </div>
                     </div>
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">Providing Speed & Performance</h3>
@@ -472,13 +397,12 @@ query_posts('showposts=3');
                         </div>
                     </div>
                     <div class="col-lg-6 ">
-                        <img src="images/SEO_Audit.png" alt="SEO_Audit" class="w-100">
+                        <img src="images/main/SEO_Audit.webp" alt="SEO_Audit" class="w-100">
                     </div>
-
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6 mt-4">
-                        <img src="images/consulting.png" alt="Free WordPress Consulting" class="w-100">
+                        <img src="images/main/consulting.webp" alt="Free WordPress Consulting" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -493,8 +417,8 @@ query_posts('showposts=3');
                             </p>
                         </div>
                     </div>
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">Full Standards Compliance</h3>
@@ -507,13 +431,12 @@ query_posts('showposts=3');
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <img src="images/compliance.png" alt="Full Standards Compliance" class="w-100">
+                        <img src="images/main/compliance.webp" alt="Full Standards Compliance" class="w-100">
                     </div>
-
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
-                        <img src="images/smart.png" alt="SEO-Smart Web Solutions" class="w-100">
+                        <img src="images/main/smart.webp" alt="SEO-Smart Web Solutions" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -525,7 +448,8 @@ query_posts('showposts=3');
                                 implementation. For our clients our teams give their additional efforts. </p>
                         </div>
                     </div>
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">Reporting & Quality Assurance</h3>
@@ -538,12 +462,12 @@ query_posts('showposts=3');
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <img src="images/repoting.png" alt="Reporting & Quality Assurance" class="w-100">
+                        <img src="images/main/repoting.webp" alt="Reporting & Quality Assurance" class="w-100">
                     </div>
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
-                        <img src="images/Content_ManagementSystem.png" alt="Blogging Outreach" class="w-100">
+                        <img src="images/main/Content_ManagementSystem.webp" alt="Blogging Outreach" class="w-100">
                     </div>
                     <div class="col-lg-6">
                         <div class="right-ul-section">
@@ -554,14 +478,10 @@ query_posts('showposts=3');
                                 file
                                 permission, setting of configuration, and validation to make website is safe and secure.
                             </p>
-
-
-
-
                         </div>
                     </div>
-
-
+                </div>
+                <div class="row align-items-center reveal m-0">
                     <div class="col-lg-6">
                         <div class="right-ul-section">
                             <h3 class="text-center">Simple, Clean & Functional Websites</h3>
@@ -575,132 +495,88 @@ query_posts('showposts=3');
 
                         </div>
                     </div>
-
                     <div class="col-lg-6">
-                        <img src="images/clean.png" alt="Simple, Clean & Functional Websites" class="w-100">
+                        <img src="images/main/clean.webp" alt="Simple, Clean & Functional Websites" class="w-100">
                     </div>
-
-
-
-
-
                 </div>
-
             </div>
         </section>
 
-
         <!-- Social Media Management Services  -->
-
-        <section class="features-sec-main">
+        <section class="features-sec-main reveal">
             <h2 class="text-center first_title pt-2 ">Our Social Media Management Services Include</h2>
             <div class="features-sec">
-
                 <div class="features">
-
                     <div class="container">
-
                         <div class="row">
-
                             <div class="col-sm-3">
-
                                 <p class="features-sec-head-icon">
-
                                     <i class="fas fa-chart-line"></i>
-
                                 </p>
-
                                 <div class="features-sec-all-details">
-
                                     <p class="features-sec-head">
                                         Social Media Management Expert
                                     </p>
-
                                     <p class="features-sec-details">
                                         Manual outreach on 100% real sites ranking in Google
                                     </p>
-
-
                                 </div>
                             </div>
-
                             <div class="col-sm-3">
                                 <p class="features-sec-head-icon">
                                     <i class="fas fa-th"></i>
                                 </p>
                                 <div class="features-sec-all-details">
-
                                     <p class="features-sec-head">
                                         Ad Maintenance Manager
                                     </p>
-
                                     <p class="features-sec-details">
                                         Choose between Domain Authority or Publisher Traffic
                                     </p>
-
-
                                 </div>
-
                             </div>
-
                             <div class="col-sm-3">
                                 <p class="features-sec-head-icon">
                                     <i class="fas fa-truck"></i>
                                 </p>
-
                                 <div class="features-sec-all-details">
-
                                     <p class="features-sec-head">
                                         Short term Agreements
                                     </p>
-
                                     <p class="features-sec-details">
                                         7-day turnaround time guaranteed for your Guest Post
                                     </p>
-
-
                                 </div>
                             </div>
-
                             <div class="col-sm-3">
                                 <p class="features-sec-head-icon">
                                     <i class="fas fa-users"></i>
                                 </p>
                                 <div class="features-sec-all-details">
-
                                     <p class="features-sec-head">
                                         24/7 Monitoring
                                     </p>
-
                                     <p class="features-sec-details">
                                         Reseller friendly white-label reports to share with your clients
                                     </p>
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
-
-
 
         </section>
         <!-- ============= Benefits of choosing sec start ============= -->
         <?php require_once "partials/benefits-of-choosing.php"; ?>
         <!---------------- Benefits of choosing sec End ------------------>
-        <div class="blogger-faq">
+        <div class="blogger-faq reveal">
             <div class="faq-head-section text-center">
                 <h3>FAQ for WordPress Development Service:</h3>
                 <p>Submit your requirement or query, We will process it within 24 hours.</p>
             </div>
             <div class="container">
-
                 <ul class="faq-body">
-
                     <li class="faq-li">
                         <i class="fas fa-plus" id="first_id"></i>
                         <h4 class="faq-title">Why social media is so important?</h4>
@@ -715,7 +591,6 @@ query_posts('showposts=3');
                                 solve all things. </p>
                         </div>
                     </li>
-
                     <li class="faq-li">
                         <i class="fas fa-plus"></i>
                         <h4 class="faq-title">What types of task can you do for me?</h4>
@@ -726,7 +601,6 @@ query_posts('showposts=3');
                                 For more information with contact us. </p>
                         </div>
                     </li>
-
                     <li class="faq-li">
                         <i class="fas fa-plus"></i>
                         <h4 class="faq-title"> How long does a task take to complete?</h4>
@@ -740,7 +614,6 @@ query_posts('showposts=3');
                                 within 24 hours. We will give you give you the updates during our discussions. </p>
                         </div>
                     </li>
-
                     <li class="faq-li">
                         <i class="fas fa-plus"></i>
                         <h4 class="faq-title">How do you manage the project once hired?</h4>
@@ -752,7 +625,6 @@ query_posts('showposts=3');
                                 project but during this time if got any problem then will connect with you. </p>
                         </div>
                     </li>
-
                     <li class="faq-li">
                         <i class="fas fa-plus"></i>
                         <h4 class="faq-title">How would I know the updates on my project?</h4>
@@ -764,9 +636,6 @@ query_posts('showposts=3');
                                 success.</p>
                         </div>
                     </li>
-
-
-
                     <li class="faq-li">
                         <i class="fas fa-plus"></i>
                         <h4 class="faq-title">What experience do you have?</h4>
@@ -776,7 +645,6 @@ query_posts('showposts=3');
                                 anything. They also solve your any queries or difficulties.</p>
                         </div>
                     </li>
-
                     <li class="faq-li">
                         <i class="fas fa-plus"></i>
                         <h4 class="faq-title">How do I pay?</h4>
@@ -785,7 +653,6 @@ query_posts('showposts=3');
                                 Phone Pay. We prefer PayPal as it is easy method and highly secure.</p>
                         </div>
                     </li>
-
                     <li class="faq-li">
                         <i class="fas fa-plus"></i>
                         <h4 class="faq-title">How does the money back guarantee work?</h4>
@@ -797,8 +664,6 @@ query_posts('showposts=3');
                             </p>
                         </div>
                     </li>
-
-
                 </ul>
             </div>
         </div>
@@ -806,12 +671,11 @@ query_posts('showposts=3');
             <?php include('seller-action.php') ?>
         </div>
 
-
-
         <!-- Footer -->
         <?php require_once "partials/footer.php"; ?>
     </div>
     <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="assets/vendors/js/reveal-animation.js"></script>
     <!-- <script type="text/javascript">
     $(document).ready(function() {
         $("select").change(function() {

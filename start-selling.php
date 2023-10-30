@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once("includes/constant.inc.php");
@@ -60,35 +59,50 @@ Ready website for business, High Quality website sales, High quality blogs sales
         </div>
         <div class="start-selling-banner text-center">
             <!-- Start Selling Banner sec-->
-            <div class="content-contact-top">
+            <div class="content-contact-top ">
                 <br />
-                <div class="grid_1">
-                    <div class="container-fluid">
-                        <h1 class="">The biggest marketplace to sell your blog, website, online business, domain or
-                            digital marketing services.</h1><br>
-                        <p class="w-75 mx-auto">Sales Your Products And Earning Easy</p>
+                <div class="projects-animation_on_text">
+                    <div class="grid_1">
+                        <div class="container-fluid">
+                            <h1 class="">The biggest marketplace to sell your blog, website, online business, domain or
+                                digital marketing services.</h1><br>
+                            <p class="w-75 mx-auto">Sales Your Products And Earning Easy</p>
+                        </div>
                     </div>
-                </div>
-                <?php
+                    <?php
 					if($cusId == 0)
 						{
-				?>
-                <a href="login.php" class="text-capitalize serv_link btn my-sm-5 my-3 become-a-seller-btn">Become a
-                    Seller</a>
-                <?php
-					}else{
-				?>
-                <a href="<?= SELLER_AREA ?>" class="text-capitalize serv_link btn my-sm-5 my-3 become-a-seller-btn">Become a
-                    Seller</a>
-                <?php
-				}
-				?>
+				     ?>
+                    <button style="border: none; background: white;">
+                        <a href="login.php"
+                            class="text-capitalize serv_link btn my-sm-5 my-3 become-a-seller-btn">Become a
+                            Seller</a>
+                    </button>
 
-                <div class="grid_1">
+                    <?php
+					}else{
+				      ?>
+                    <button style="border: none; background: white;">
+                        <a href="<?= SELLER_AREA ?> "
+                            class="text-capitalize serv_link btn my-sm-5 my-3 become-a-seller-btn">
+                            Become a
+                            Seller
+
+                        </a>
+                    </button>
+
+                    <?php
+				    }
+				     ?>
+                    <div class="overlay"></div>
+                </div>
+
+
+                <div class="grid_1 reveal">
                     <div class="container-fluid">
                         <h2>What are you selling?</h2>
                         <div class="row">
-                            <div class="col-md-3 startsellingdiv">
+                            <div class="col-md-3  startsellingdiv">
                                 <div class="box h-100">
                                     <div class="box-head">
                                         <div class="left-icon first-left-section">
@@ -156,7 +170,7 @@ Ready website for business, High Quality website sales, High quality blogs sales
 
         <!-- //banner -->
         <!-- branches -->
-        <section class="py-5 branches position-relative" id="explore">
+        <section class="py-5 branches position-relative reveal" id="explore">
             <div class="container py-md-5 container-fluid text-center">
                 <h2 class="stat-title text-center pb-lg-5 color-blue font-weight-bold">How It Works
                 </h2>
@@ -189,7 +203,7 @@ Ready website for business, High Quality website sales, High quality blogs sales
         </section>
         <!-- //branches -->
         <!-- Q&A Section -->
-        <section class="qasection position-relative" id="qasection">
+        <section class="qasection position-relative reveal" id="qasection">
             <div class="container pb-md-5 container-fluid text-center">
                 <h2 class="stat-title text-center pb-lg-5 color-blue font-weight-bold">Q&amp;A
                 </h2>
@@ -252,6 +266,7 @@ Ready website for business, High Quality website sales, High quality blogs sales
     </div><!-- home end //-->
     <!-- js-->
     <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="assets/vendors/js/reveal-animation.js"></script>
     <!-- js-->
     <!-- Scrolling Nav JavaScript -->
     <!-- <script src="js/scrolling-nav.js"></script> -->

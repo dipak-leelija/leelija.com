@@ -23,7 +23,7 @@
                     <div class="carousel-item active slider">
                         <h4 class="what-others-say-bo-ci-h4">"Honestly, they are the best in the digital marketing world. Very much committed and punctual towards their delivery. Definitely, we will use the services of  Leelija in the upcoming years."</h4>
                         <div class="containerslider">
-                            <img src="images/icons/male-user.png" class="imageslider" alt="...">
+                            <img src="images/icons/male-user.webp" class="imageslider" alt="...">
                             <div class="sliderbox1">
 
                                 <h5 class="paraname">Kishu Setia</h5>
@@ -42,7 +42,7 @@
                     <div class="carousel-item slider">
                         <h4 class="what-others-say-bo-ci-h4">"Leelija did a fantastic job with our online marketing strategy.We have to say they have a great reporting process and are always touched with our manager and  outreach team."</h4>
                         <div class="containerslider">
-                            <img src="images/icons/female-user.png" class="imageslider" alt="...">
+                            <img src="images/icons/female-user.webp" class="imageslider" alt="...">
                             <div class="sliderbox1">
 
                                 <h5 class="paraname">Gemma Bell</h5>
@@ -62,7 +62,7 @@
                     <div class="carousel-item slider">
                         <h4 class="what-others-say-bo-ci-h4">"I really appreciate the business relationship we have had with Leelija Team for the last 1 year. They have helped us in website development and design for our organic growth."</h4>
                         <div class="containerslider">
-                            <img src="images/icons/female-user.png" class="imageslider" alt="...">
+                            <img src="images/icons/female-user.webp" class="imageslider" alt="...">
                             <div class="sliderbox1">
 
                                 <h5 class="paraname">Stewart</h5>
@@ -80,7 +80,7 @@
                     <div class="carousel-item slider">
                         <h4 class="what-others-say-bo-ci-h4">"From a digital marketing point of view, I am highly impressed with the hard work of the Leelija Team. They are amazing and so has been their support and  contribution."</h4>
                         <div class="containerslider">
-                            <img src="images/icons/male-user.png" class="imageslider" alt="...">
+                            <img src="images/icons/male-user.webp" class="imageslider" alt="...">
                             <div class="sliderbox1">
 
                                 <h5 class="paraname">Louie Arim</h5>

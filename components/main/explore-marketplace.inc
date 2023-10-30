@@ -10,7 +10,7 @@
         <div class="col-md-6">
             <div class="cube "></div>
             <div class="cube "></div>
-            <img src="images/banner-new.png" class="w-75" alt="">
+            <img src="images/main/explore-the-marketplace.webp" class="w-75" alt="">
         </div>
         <div class="col-md-6 text-start m-auto">
             <p>Discover a world of unique treasures and unbeatable deals at our one-stop marketplace. Explore a wide

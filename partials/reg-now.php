@@ -1,4 +1,4 @@
-<section class="go-to-regiser-sec mt-3">
+<section class="go-to-regiser-sec reveal mt-3">
 
 <div class=" go-to-regiser orienta-font">
     <div class="container">

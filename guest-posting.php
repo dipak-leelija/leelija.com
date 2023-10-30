@@ -16,8 +16,8 @@ require_once("classes/utility.class.php");
 require_once("classes/utilityMesg.class.php");
 require_once("classes/utilityImage.class.php");
 require_once("classes/utilityNum.class.php");
-require_once("classes/gp-order.class.php");
-require_once("classes/gp-package.class.php");
+// require_once("classes/gp-order.class.php");
+// require_once("classes/gp-package.class.php");
 /* INSTANTIATING CLASSES */
 $dateUtil   = new DateUtil();
 $error 			= new Error();
@@ -30,8 +30,8 @@ $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
 $uNum 			= new NumUtility();
-$gp				= new Gporder();
-$GPPackage      = new GuestPostpackage();
+// $gp				= new Gporder();
+// $GPPackage      = new GuestPostpackage();
 ######################################################################################################################
 $typeM		= $utility->returnGetVar('typeM','');
 //user id

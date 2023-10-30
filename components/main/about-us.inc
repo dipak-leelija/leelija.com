@@ -2,7 +2,7 @@
     <div class="row aBout_us-banner-section reveal pt-md-2">
         <h1>About Us</h1>
         <div class="col-md-6 text-center text-md-start ps-md-0 ">
-            <img src="images/aboutus_banner-home2.jpg" alt="">
+            <img src="images/main/about-us-HDHF.webp" alt="">
         </div>
         <div class="col-md-6 m-auto">
 

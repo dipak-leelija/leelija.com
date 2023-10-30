@@ -107,7 +107,7 @@ Ready website for business, High Quality website sales, High quality blogs sales
 
                                         <div class="account-block rounded-right">
 
-                                            <img src="./images/loginmainbanner.png" class="w-100">
+                                            <img src="./images/main/welcome-back-login-banner.webp" class="w-100">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 p-0">
@@ -184,6 +184,7 @@ Ready website for business, High Quality website sales, High quality blogs sales
     <!-- js-->
     <script src="plugins/bootstrap-5.2.0/js/bootstrap.js"></script>
     <script src="assets/vendors/custom-passwordview/c_password-view.js"></script>
+    <script src="assets/vendors/js/reveal-animation.js"></script>
     <script>
     (function() {
         'use strict'
@@ -200,23 +201,6 @@ Ready website for business, High Quality website sales, High quality blogs sales
                 }, false)
             })
     })()
-    </script>
-    <script>
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            }
-        }
-    }
-
-    window.addEventListener("scroll", reveal);
     </script>
 </body>
 

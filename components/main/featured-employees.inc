@@ -14,7 +14,7 @@ $feature4 = $featuredEmps[3];
             <!-- display only for lg-screen -->
             <div class="r-div-h1_wrap d-md-block d-none">
                 <div>
-                    <img src="images/r-team-small-icon-triangle.png" class="d-md-block d-none" width="50px"
+                    <img src="images/main/meet-our-team-triangle-icon.webp" class="d-md-block d-none" width="50px"
                         class=" mb-3 img-fluid">
                 </div>
                 <h1><span> Meet </span></h1>
