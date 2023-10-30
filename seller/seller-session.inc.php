@@ -1,4 +1,9 @@
 <?php
+$typeM		= $utility->returnGetVar('typeM','');
+//user id
+$cusId		= $utility->returnSess('userid', 0);
+$cusDtl		= $customer->getCustomerData($cusId);
+
 // $reqURL     = URL."api/".$cusId;
 // $response   = $utility->callApi($reqURL);
 // $user = $response->data;
@@ -44,12 +49,22 @@
 //     $userDOB                = $user->dob;
 //     $userBillingName        = $user->billing_name;
 
-$cusDtl		= $customer->getCustomerData($cusId);
 
 // print_r($cusDtl);
 // exit;
 
 $userType               = $cusDtl[0][0];
+
+if($userType == 0){
+	header("Location: ".URL);
+    exit;
+}
+if($userType == 1){ 
+	header("Location: ".USER_AREA);
+    exit;
+}
+
+
 $userMemberId           = $cusDtl[0][1];
 $userName               = $cusDtl[0][2];
 $userEmail              = $cusDtl[0][3];
@@ -87,5 +102,9 @@ $userMobile            = $cusDtl[0][34];
 $userAccVerified       = $cusDtl[0][35];
 $userDob               = $cusDtl[0][36];
 $userBillingName       = $cusDtl[0][37];
+
+
+
+
 
 ?>

@@ -16,18 +16,7 @@ $customer		= new Customer();
 $domain			= new Domain();
 $utility		= new Utility();
 ######################################################################################################################
-$typeM		= $utility->returnGetVar('typeM','');
-//user id
-$cusId		= $utility->returnSess('userid', 0);
-$cusDtl		= $customer->getCustomerData($cusId);
-
-if($cusDtl[0][0] == 0){
-	header("Location: ".URL);
-}
-if($cusDtl[0][0] == 1){ 
-	header("Location: ".USER_AREA);
-}
-
+require_once './seller-session.inc.php';
 $domainDtls	= $domain->ShowUserDomainData($cusDtl[0][2]);
 
 

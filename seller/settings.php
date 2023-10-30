@@ -33,14 +33,8 @@ $uImg 			= new ImageUtility();
 
 $currentURL = $utility->currentUrl();
 
-$typeM		= $utility->returnGetVar('typeM','');
-//user id
-$cusId		= $utility->returnSess('userid', 0);
-require_once "getSellerdata.php";
-// exit;
-if($cusId == 0){
-    header("Location: index.php");
-}
+require_once 'seller-session.inc.php';
+
 
 //Edit Profile
 if(isset($_POST['btnSubmit'])){

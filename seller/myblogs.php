@@ -31,15 +31,11 @@ $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
 $uNum 			= new NumUtility();
-######################################################################################################################
-$typeM		= $utility->returnGetVar('typeM','');
-//user id
-$cusId		= $utility->returnSess('userid', 0);
-$cusDtl		= $customer->getCustomerData($cusId);
-if($cusId == 0)
-	{
-		header("Location: index.php");
-	}
+#########################################################################################
+$currentURL = $utility->currentUrl();
+
+require_once 'seller-session.inc.php';
+
 $domainDtls		= $domain->ShowUserDomainData($cusDtl[0][2]);
 ?>
 <!DOCTYPE html>

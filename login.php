@@ -50,14 +50,16 @@ if(isset($_POST['btnLogin'])){
         header("Location: ".$_SERVER['PHP_SELF']."?msg=invalid username or password");
 	
     }else{
-
-        if($_SESSION['return_url'] == ''){
-	        if(isset($_SESSION['orderNow'])){
-		     $_SESSION['return_url'] 	= "blogDetailsShare.php?id=".$_SESSION['orderNowId'];
-	        }else{
-		        $_SESSION['return_url'] 	= "dashboard.php"; 
-	        }
+        if(isset($_GET['return_url'])){
+            if($_SESSION['return_url'] == ''){
+                if(isset($_SESSION['orderNow'])){
+                $_SESSION['return_url'] 	= "blogDetailsShare.php?id=".$_SESSION['orderNowId'];
+                }else{
+                    $_SESSION['return_url'] 	= "dashboard.php"; 
+                }
+            }
         }
+
         //echo $_SESSION['return_url'];exit;
         $logIn->validate($login, $password, 'email', 'password', 'customer', $_SESSION['return_url']);
     }

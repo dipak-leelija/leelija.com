@@ -34,20 +34,10 @@ $OrderStatus    = new OrderStatus();
 $utility		= new Utility();
 $Order          = new Order();
 ######################################################################################################################
-$typeM		= $utility->returnGetVar('typeM','');
-//user id
-$cusId		= $utility->returnSess('userid', 0);
-$cusDtl		= $customer->getCustomerData($cusId);
+$currentURL = $utility->currentUrl();
 
-// print_r($cusDtl);exit;
+require_once 'seller-session.inc.php';
 
-if($cusId == 0){
-	header("Location: index.php");
-}
-
-if($cusDtl[0][0] == 1){
-	header("Location: app.client.php");
-}
 if (!isset($_GET['data']) || !isset($_GET['pdata'])) {
     // header("")
     echo 'Get Request Failed';

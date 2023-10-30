@@ -1,7 +1,11 @@
-<?php 
-session_start();
-header("Cache-control: private");
-
-session_destroy(); 
-header("Location: index.php");
+<?php 
+session_start();
+header("Cache-control: private");
+require_once("includes/constant.inc.php");
+
+
+session_destroy(); 
+
+header("Location: ".URL);
+
 ?>

@@ -111,7 +111,7 @@
                         <ul class="dropdown-menu dropdown-menu-end language-dropdown"
                             aria-labelledby="languageDropDown">
                             <li><a class="dropdown-item" href="settings.php"><i class="fa fa-cog me-3" aria-hidden="true"></i>Settings</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-power-off me-3"></i>Logout</a></li>
+                            <li><a class="dropdown-item" href="<?= URL.'logout.php'?>"><i class="fa-solid fa-power-off me-3"></i>Logout</a></li>
                         </ul>
                     </li>
                 </ul>
