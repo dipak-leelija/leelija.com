@@ -171,7 +171,7 @@ $prodId =  url_dec($_GET['pdata']) ;
                                                 $paymentStatusname = $OrderStatus->getOrdStatName($orderedData['payment_status']);
                                         
                                     ?>
-                                                <div class="row">
+                                                <div class="row mb-3">
                                                     <div class="col-md-8">
 
                                                         <!-- Details section Start  -->
