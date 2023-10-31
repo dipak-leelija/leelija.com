@@ -1,4 +1,12 @@
 <?php 
+
+# AUTHOR 		 	: Dipak majumdar
+# ORGANIZATION 		: leelija.com
+# DATE   		 	: Apr 01, 2023
+# VERSION		 	: 2.0
+# COPYRIGHT	 		: leelija.com
+# EMAIL		 		: dipakmajumdar.leelija@gmail.com
+
 class Location extends DatabaseConnection{
 	
 	
@@ -116,7 +124,29 @@ class Location extends DatabaseConnection{
 	//																					//
 	//////////////////////////////////////////////////////////////////////////////////////
 	
+
 		/**
+	*	Retrieve all country names
+	*	@return array
+	*	@param	
+	*
+	*/
+	function getCountriesList(){
+
+		$data	= array();
+		$sql	= 	"SELECT * FROM countries";
+		$query	= $this->conn->query($sql);
+		
+		if($query->num_rows > 0){
+			while ($result = $query->fetch_object()) {
+				$data[] = $result;
+			}
+			
+		} 
+		return $data;
+	}//eof
+
+	/**
 	*	Retrieve all town data and county data
 	*	@return array
 	*	@param	
