@@ -58,7 +58,7 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                             <div class="d-flex justify-content-center align-items-center rounded"
                                                 style="height: 130px; background-color: rgb(233, 236, 239);">
                                                 <img class="img-uv-view"
-                                                    src="<?= IMG_PATH ?>default-icons/default-emp.png">
+                                                    src="<?= IMG_PATH ?>emps/default-emp.png">
                                             </div>
                                         </div>
                                     </div>

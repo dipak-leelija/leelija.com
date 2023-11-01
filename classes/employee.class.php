@@ -218,7 +218,7 @@ class Employee extends DatabaseConnection{
             $idNumsArry[] = $numsOfId;
             sort($idNumsArry);
         }
-        $lastIdNum = end($idNumsArry);
+        $idNumsArry == null ? $lastIdNum = 0 : $lastIdNum = end($idNumsArry);
         $newEmpId = $idPrefex.$lastIdNum+1;
         return $newEmpId;
     }

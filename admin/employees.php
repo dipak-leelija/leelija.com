@@ -79,7 +79,9 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($allEmps as $eachEmp) {
+                                        <?php 
+                                        if ($allEmps != null) {
+                                        foreach ($allEmps as $eachEmp) {
                                             // print_r($eachEmp);
                                         $empId = url_enc($eachEmp->emp_id);
 
@@ -97,7 +99,8 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm"><?= $eachEmp->name ?></h6>
-                                                        <p class="text-xs text-secondary mb-0"><?= $eachEmp->email ?></p>
+                                                        <p class="text-xs text-secondary mb-0"><?= $eachEmp->email ?>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -114,15 +117,21 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                                                     class="text-secondary text-xs font-weight-bold"><?= $eachEmp->doj?></span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <a href="employee-details.php?data=<?= $empId; ?>" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                <a href="employee-details.php?data=<?= $empId; ?>"
+                                                    class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
                                                     <i class="fa-solid fa-eye pe-4"></i>
                                                 </a>
-                                                <span class="text-secondary font-weight-bold cursor-pointer text-xs" id="<?= $Utility->getLatersOnly($empId); ?>" data-id="<?= $empId; ?>" onclick="deleteRow(this, event)" data-toggle="tooltip" data-original-title="Edit user">
+                                                <span class="text-secondary font-weight-bold cursor-pointer text-xs"
+                                                    id="<?= $Utility->getLatersOnly($empId); ?>"
+                                                    data-id="<?= $empId; ?>" onclick="deleteRow(this, event)"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
                                                     <i class="fa-solid fa-trash"></i>
-                                                </a>
+                                                    </a>
                                             </td>
                                         </tr>
-                                        <?php }?>
+                                        <?php }
+                                        }?>
                                     </tbody>
                                 </table>
                             </div>
@@ -173,7 +182,7 @@ if(isset($_GET['action']) && isset($_GET['msg'])){
                     // console.log(response);
                     if (response.trim() == 'SU001') {
                         $(`#${fadeTarget}`).closest("tr").fadeOut();
-                        
+
                         // t.closest("tr").fadeOut();
                     } else {
                         alert(response)
