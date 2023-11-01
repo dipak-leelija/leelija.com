@@ -77,6 +77,9 @@
                             style="display: none; width: 100%" multiple="multiple" id="designation" name="designation[]"
                             required>
                             <!-- <optgroup label="Alaskan/Hawaiian Time Zone"> -->
+                            <option value="Managing Director"
+                                <?= $empDesignation == 'Managing Director' ? 'selected' : ''; ?>>
+                                Managing Director</option>
                             <option value="Content Writer"
                                 <?= $empDesignation == 'Content Writer' ? 'selected' : ''; ?>>
                                 Content Writer</option>

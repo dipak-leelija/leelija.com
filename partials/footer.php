@@ -31,8 +31,7 @@
                         <li class='lidesign'><a href="<?= URL; ?>seo-services.php">SEO Services</a></li>
                         <li class='lidesign'><a href="<?= URL; ?>web-development-services.php">Web Design</a>
                         </li>
-                        <!-- <li class='lidesign'><a href="<?= URL; ?>web-development-services.php">Web
-                                Development</a></li> -->
+                      
 
                         <!-- <li class='lidesign'><a href="<?= URL; ?>social-media-marketing-services.php">Social
                                 Media Marketing</a> -->
@@ -51,7 +50,9 @@
                         <li class='lidesign'><a href="<?= URL; ?>career.php">Career</a></li>
                         <li class='lidesign'><a href="<?= URL; ?>contact.php">Clients Query</a></li>
                         <li class='lidesign'><a href="<?= URL; ?>domains.php">Marketplace</a></li>
-                        <li class='lidesign'><a href="<?= URL; ?>portfolio.php">Portfolio</a></li>
+                          <li class='lidesign'><a href="<?= URL; ?>web-development-services.php">Web
+                                Development</a></li>
+                        <!-- <li class='lidesign'><a href="<?= URL; ?>portfolio.php">Portfolio</a></li> -->
                         <li class='lidesign'><a href="<?= URL; ?>start-selling.php">Start Selling</a></li>
 
                     </div>

@@ -95,7 +95,7 @@
                         </li>
                         <li class="submenu-item">
                             <a class="submenu-link  <?php if($page == "Admin_add-new-employees"  ){echo "active";} ?>"
-                                href="add-employees.php">Add New Employee</a>
+                                href="add-employees.php">Add New Blogs</a>
                         </li>
                     </ul>
                 </div>
