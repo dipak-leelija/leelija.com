@@ -1,0 +1,238 @@
+ @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+ body {
+     margin: 0;
+     padding: 0;
+     word-spacing: normal;
+ }
+ 
+ .maindivofpage {
+     text-size-adjust: 100%;
+     -webkit-text-size-adjust: 100%;
+     -ms-text-size-adjust: 100%;
+ }
+ 
+ .table-first {
+     width: 100%;
+     border: none;
+     border-spacing: 0;
+ }
+ 
+ .table-second {
+     width: 94%;
+     max-width: 600px;
+     /* border: 1px solid #c9c6c6; */
+     border-spacing: 0;
+     text-align: left;
+     font-family: Arial, sans-serif;
+     font-size: 16px;
+     line-height: 22px;
+     color: #363636;
+ }
+ 
+ .ts-td1-img-div {
+     padding: 15px 30px 0px 30px;
+     text-align: center;
+     font-size: 24px;
+     font-weight: bold;
+     background: aliceblue;
+ }
+ 
+ .ts-td-image {
+     width: 270px;
+     max-width: 100%;
+     height: auto;
+     border: none;
+     text-decoration: none;
+     color: #ffffff;
+ }
+ /* =================== */
+ 
+ .ts-td2-text-div {
+     padding-bottom: 0px !important;
+     padding: 30px;
+ }
+ 
+ .ts-td2-text-div-p {
+     margin: 0;
+ }
+ /* ============== */
+ 
+ .ts-td2-text-div-h1 {
+     margin-top: 0;
+     margin-bottom: 16px;
+     font-size: 26px;
+     line-height: 32px;
+     font-weight: bold;
+     letter-spacing: -0.02em;
+     font-family: 'Satoshi-Variable';
+ }
+ 
+ .ts-td2-a-tag {
+     color: #e50d70;
+     text-decoration: underline;
+ }
+ 
+ .ts-td3-img-div {
+     padding: 0;
+     font-size: 24px;
+     line-height: 28px;
+     font-weight: bold;
+ }
+ 
+ .ts-td3-image {
+     background-color: aliceblue;
+     width: 100%;
+     height: auto;
+     display: block;
+     border: none;
+     text-decoration: none;
+     color: #363636;
+ }
+ 
+ .ts-td4-img-section {
+     padding: 35px 30px 11px 30px;
+     font-size: 0;
+     border-bottom: 1px solid #f0f0f5;
+     border-color: rgba(201, 201, 207, .35);
+ }
+ 
+ .col-sml {
+     display: inline-block;
+     width: 100%;
+     max-width: 145px;
+     vertical-align: top;
+     text-align: left;
+     font-family: Arial, sans-serif;
+     font-size: 14px;
+     color: #363636;
+ }
+ 
+ .col-sml-img {
+     width: 115px;
+     max-width: 80%;
+     margin-bottom: 20px;
+ }
+ 
+ .col-lge {
+     display: inline-block;
+     width: 100%;
+     max-width: 395px;
+     vertical-align: top;
+     padding-bottom: 20px;
+     font-family: Arial, sans-serif;
+     font-size: 16px;
+     line-height: 22px;
+     color: #363636;
+ }
+ 
+ .col-lge-p1 {
+     margin-top: 0;
+     margin-bottom: 12px;
+ }
+ 
+ .col-lge-p2 {
+     margin-top: 0;
+     margin-bottom: 18px;
+ }
+ 
+ .col-lge-p3 {
+     margin: 0;
+     text-align: center;
+ }
+ 
+ .col-lge-p3-atag {
+     background: #ff3884;
+     text-decoration: none;
+     padding: 10px 25px;
+     color: #ffffff;
+     border-radius: 4px;
+     display: inline-block;
+     mso-padding-alt: 0;
+     text-underline-color: #ff3884;
+ }
+ 
+ .col-lge-p3-span {
+     mso-text-raise: 10pt;
+     font-weight: bold;
+ }
+ 
+ .ts-td6-text-div {
+     padding: 30px;
+     background-color: aliceblue;
+ }
+ 
+ table,
+ td,
+ div,
+ h1,
+ p {
+     font-family: Arial, sans-serif;
+ }
+ 
+ @media screen and (max-width: 530px) {
+     .col-lge {
+         max-width: 100% !important;
+         text-align: center;
+     }
+     .ts-td2-text-div-h1 {
+         text-align: center;
+     }
+     .ts-td2-text-div-p {
+         margin: 0;
+         text-align: center;
+     }
+     .col-sml {
+         max-width: 100%;
+         text-align: center;
+     }
+ }
+ 
+ @media screen and (min-width: 531px) {
+     .col-sml {
+         max-width: 27% !important;
+     }
+     .col-lge {
+         max-width: 73% !important;
+     }
+ }
+ /* FOOTER DIVISION CSS STARTS */
+ /* footer */
+ 
+ .ts-td7-footer-div {
+     padding: 0px;
+     text-align: center;
+     font-size: 12px;
+     background-color: #f3b165;
+ }
+ 
+ .footer-text-address {
+     margin-bottom: 2rem;
+     margin-top: 2rem;
+ }
+ 
+ .footer-text-address h1 {
+     font-size: 2rem;
+     color: darkblue;
+ }
+ 
+ .footer-text-address p {
+     margin: 0;
+     font-size: 14px;
+     line-height: 1.4;
+ }
+ 
+ .social-icons-div {
+     background: darkblue;
+     padding: 12px;
+     margin: 0px;
+ }
+ 
+ .social-icons-div a {
+     text-decoration: none;
+ }
+ 
+ .social-icons-div img {
+     display: inline-block;
+     padding: 4px;
+     vertical-align: sub !important;
+ }

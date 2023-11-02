@@ -1,0 +1,182 @@
+ @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); 
+
+body {
+    margin: 0;
+    padding: 0;
+    word-spacing: normal;
+}
+
+.maindivofpage {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+.table-first {
+    width: 100%;
+    border: none;
+    border-spacing: 0;
+}
+
+.table-second {
+    width: 94%;
+    max-width: 500px;
+    border: 1px solid #c9c6c6;
+    border-spacing: 0;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    color: #363636;
+}
+/* text-body */
+.ts-td1-img-div {
+    padding: 25px 30px 0px 30px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background: #f3b165;
+}
+.ts-td1-img-div h1{
+    margin: 0px;
+    color: #843fa1;
+    line-height: 140%;
+    text-align: center;
+    word-wrap: break-word;
+    font-weight: normal;
+    font-size: 25px;
+}
+.ts-td1-img-div p{
+    color: #3598db;
+    font-size: 22px;
+    line-height: 1;
+    margin: 5px 0px 38px;
+}
+.ts-td-image {
+    width: 270px;
+    max-width: 100%;
+    height: auto;
+    border: none;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.ts-td2-text-div {
+    padding-bottom: 0px !important;
+    padding: 20px 10px;
+    background-color: #e7e7e74a;
+}
+.ts-td2-text-div-p{
+    color: #000000;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+}
+.ts-td2-text-div strong{
+    font-size: 12px;
+}
+
+.ts-td2-a-tag {
+    text-decoration: none;
+}
+
+.ts-td3-img-div {
+    padding: 0;
+}
+
+.ts-td3-image {
+    background-color: #f3b165;
+    height: auto;
+    display: block;
+    border: none;
+    text-decoration: none;
+    color: #363636;
+    margin: auto;
+}
+
+.ts-td4-img-section {
+    background-color: #e7e7e74a;
+    padding:10px;
+}
+
+.ts-td4-img-section a{
+    box-sizing: border-box;
+    display: inline-block;
+    font-family: arial,helvetica,sans-serif;
+    text-decoration: none;
+    -webkit-text-size-adjust: none;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #843fa1;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    width: auto;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+.ts-td4-img-section strong{
+    display: block;
+    padding: 6px 20px;
+}
+
+table,
+td,
+div,
+h1 {
+    font-family: Arial, sans-serif;
+}
+
+@media screen and (max-width: 530px) {
+ 
+    .ts-td2-text-div-h1 {
+        text-align: center;
+    }
+    .ts-td2-text-div-p{
+        margin: 0;
+        /* text-align: center; */
+    }
+   
+}
+
+/* FOOTER DIVISION CSS STARTS */
+/* footer */
+.ts-td7-footer-div {
+    padding: 0px;
+    text-align: center;
+    font-size: 12px;
+    background-color: #f3b165;
+}
+.footer-text-address{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+.footer-text-address h1{
+    font-size: 2rem;
+    color: darkblue;
+    border-bottom: 3px solid #003399;
+    padding-bottom: 5px;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.footer-text-address p{
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.social-icons-div{
+    background: darkblue;
+     padding: 12px;
+     margin: 0px;
+}
+.social-icons-div a{
+    text-decoration:none;
+}
+.social-icons-div img{
+    display:inline-block;
+    padding: 4px;
+    vertical-align: sub !important;
+}
