@@ -9,10 +9,10 @@ require_once("_config/dbconnect.php");
 
 require_once("classes/date.class.php");
 require_once("classes/error.class.php");
-require_once("classes/search.class.php");
 require_once("classes/customer.class.php");
+require_once("classes/location.class.php");
+require_once("classes/api.class.php");
 
-require_once("classes/blog_mst.class.php");
 require_once("classes/utility.class.php");
 require_once("classes/utilityMesg.class.php");
 require_once("classes/utilityImage.class.php");
@@ -23,11 +23,9 @@ require_once("classes/utilityNum.class.php");
 /* INSTANTIATING CLASSES */
 $dateUtil      	= new DateUtil();
 $myError 		= new MyError();
-$search_obj		= new Search();
 $customer		= new Customer();
-
-//$ff				= new FrontPhoto();
-$blogMst		= new BlogMst();
+$Location       = new Location();
+$API            = new API;
 $utility		= new Utility();
 $uMesg 			= new MesgUtility();
 $uImg 			= new ImageUtility();
@@ -38,122 +36,64 @@ $typeM		= $utility->returnGetVar('typeM','');
 $cusId			= $utility->returnSess('userid', 0);
 //$cusDtl			= $client->getClientData($cusId);
 
-if(isset($_POST['btnSubmit']))
-{
-//post vars
-$firstName 		= $_POST['firstName'];
-// $fullname= explode(" ",$firstName );
-// $firstName= $fullname[0];
-// $lastName= $fullname[1];
-$lastName 		= $_POST['lastName'];
-$txtemail  		= $_POST['txtemail'];
-$txtUserName 	= $_POST['txtemail'];
-$txtPassword	= $_POST['txtPassword'];
-$txtPasswordConfirm	= $_POST['txtPasswordConfirm'];
-$txtCountry		= $_POST['txtCountry'];
-$txtGender		= '';
-$txtProfession  = $_POST['txtProfession'];
-//$selUType  	= $_POST['selUType'];
+$allCountries = $Location->getCountriesList();
 
 
+if(isset($_POST['btnSubmit'])){
 
-// echo $firstName.'<br>';
-// echo $lastName.'<br>';
-// echo $txtemail.'<br>';
-// echo $txtUserName.'<br>';
-// echo $txtPassword.'<br>';
-// echo $txtPasswordConfirm.'<br>';
-// echo $txtCountry.'<br>';
-// echo $txtGender.'<br>';
-// echo $txtProfession.'<br>';
+    // URL of the API endpoint
+    $apiUrl = 'http://localhost/api/api/customer.php/';
 
+     // Data to be sent in the POST request
+     $postData = array(
+        'firstName'     => $_POST['firstName'],
+        'lastName'      => $_POST['lastName'],
+        'email'         => $_POST['txtemail'],
+        'password'      => $_POST['txtPassword'],
+        'password_cnf'  => $_POST['txtPasswordConfirm'],
+        'country'       => $_POST['txtCountry'],
+        'profession'    => $_POST['txtProfession'],
+        'added_on'      => '',
+    );
+   
 
+    // Initialize cURL session
+    $ch = curl_init($apiUrl);
 
-//registering the post session variables
-$sess_arr	= array('firstName','lastName','txtemail','txtPassword','txtGender', 'txtProfession');
-// $utility->addPostSessArr($sess_arr);
+    // Set cURL options
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
 
+    // Execute the cURL request
+    $response = curl_exec($ch);
 
-//defining error variables
-$action		= 'add_user';
-$url		= $_SERVER['PHP_SELF'];
-$id			= 0;
-$id_var		= '';
-$anchor		= 'addUser';
-$typeM		= 'ERROR';
+    // Check for cURL errors
+    if (curl_errno($ch)) {
+        echo 'cURL error: ' . curl_error($ch);
+    }
 
+    // Close cURL session
+    curl_close($ch);
 
-//check for errors
-$duplicate = $myError->duplicateUser($txtemail, 'user_name', 'customer');
-$email_id  = $myError->invalidEmail($txtemail);
+    // Output the response from the API
+    $response =  json_decode($response);
+    // print_r($response);
+    if ($response->status == 201) {
+        $_SESSION['newCustomerSess']    = $response->customer_id;
+        $_SESSION['vkey']               = $response->verification_key;
+        $_SESSION['email']              = $response->email;
+        $_SESSION['fisrt-name']         = $response->fname;
+        $_SESSION['last-name']          = $response->lname;
 
-if($firstName == '' ){
-	$myError->showErrorTA($action, $id, $id_var, $url, ERREG001, $typeM, $anchor);
-}elseif($lastName == '' ){
-	$myError->showErrorTA($action, $id, $id_var, $url, ERREG002, $typeM, $anchor);
-}
-elseif(strlen($txtPassword) < 6){
-	
-	$myError->showErrorTA($action, $id, $id_var, $url, ERU117, $typeM, $anchor);
-}elseif( $txtPassword!=$txtPasswordConfirm){
+        header('location: register-email-inc.php');
+        exit;
+    }else {
+        $error = $response->error;
+    }
 
-	$myError->showErrorTA($action, $id, $id_var, $url, conp0001, $typeM, $anchor);	
-}elseif(preg_match("^ER",$duplicate)){
-	$error->showErrorTA($action, $id, $id_var, $url, ERREG006, $typeM, $anchor);
-}elseif(preg_match("^ER",$email_id)){
-	$error->showErrorTA($action, $id, $id_var, $url, ERREG005, $typeM, $anchor);
-}else{
-	$uniqueId= time().' '.mt_rand();
-	$uniqueId = md5($uniqueId);
-	$_SESSION['vkey']=$uniqueId ;
-		
-//Add New User
-$custId 	= $customer->addCustomer(1, 1, $txtUserName, $txtemail, $txtPassword, $firstName, $lastName, $txtGender,'', 'a',
-'', '', '', 'Y', $txtProfession, 0, $uniqueId,
-'N', 0);
-
-
-$_SESSION['newCustomerSess'] = $custId ;
-
-
-
-
-
-$customer->addCusAddress($custId, '', '', '', '', '', '', $txtCountry, '', '', '', '');
-
-//delete the session
-$utility->delSessArr($sess_arr);
-
-//forward
-$uMesg->showSuccessT('success', 0, '', $_SERVER['PHP_SELF'], SUREG001, 'SUCCESS');
-}
-
-//send email by samuel
-
-// var url= "contact-inc.php?txtName=" + escape(txtName) + "&txtEmail=" + escape(txtEmail) + "&txtPhone=" + escape(txtPhone) + "&txtMessage=" + escape(txtMessage);
-
-$fullname= $firstName.' '.$lastName;
-$usertxtphone = '123456789';
-$usertxtMessage = 'Welcome to Leelija ';
-// $uniqueId= time().mt_rand();
-// // echo strrev($uniqueId);
-
-$mailurl= 'register-email-inc.php?txtName='.$fullname.'&txtEmail='.$txtemail.'&txtPhone='.$usertxtphone.'&txtMessage='.$usertxtMessage;
-
-header('location:'.$mailurl);
-
-// if($_SESSION['return_url'] == '')
-// {
-// 	if(isset($_SESSION['orderNow'])){
-// 		$_SESSION['return_url'] 	= "blogDetailsShare.php?id=".$_SESSION['orderNowId'];
-// 	}else{
-// 		$_SESSION['return_url'] 	= "dashboard.php";
-// 	}
-
-// }
 
 }//Register
-
 ?>
 <!DOCTYPE HTML>
 <html lang="zxx">
@@ -167,15 +107,6 @@ header('location:'.$mailurl);
         content="Client register for buy ready web products or guest post services Or Reseller can register for sell his/her web products or guest post services">
     <meta name="keywords" content="Web Design, Web Development, Apps Development, SEO Services, Guest Post Services, Domain name with Ready Website,
 Ready website for business, High Quality website sales, High quality blogs sales, expired domain sales" />
-    <script>
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-    </script>
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
@@ -233,6 +164,17 @@ Ready website for business, High Quality website sales, High quality blogs sales
                                                 <h3 class="h4 font-weight-bold text-theme reg-heading">
                                                     Join With Leelija</h3>
                                             </div>
+                                            <?php if (isset($error)): ?>
+                                            <div class="alert alert-warning d-flex align-items-center" role="alert">
+                                                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
+                                                    aria-label="Warning:">
+                                                    <use xlink:href="#exclamation-triangle-fill" />
+                                                </svg>
+                                                <div>
+                                                    <?= $error ?>
+                                                </div>
+                                            </div>
+                                            <?php endif; ?>
                                             <div class="section group">
                                                 <div class="bfrom">
                                                     <form class="form-horizontal-login needs-validation" role="form"
@@ -327,7 +269,11 @@ Ready website for business, High Quality website sales, High quality blogs sales
                                                                         name="txtCountry" required>
                                                                         <option value="" selected="selected">Select
                                                                             Country</option>
-                                                                        <option value="101">India</option>
+                                                                        <?php
+                                                                        foreach ($allCountries as $country) {
+                                                                            echo "<option value='$country->id'>$country->name</option>";
+                                                                        }
+                                                                        ?>
                                                                     </select>
                                                                     <div class="invalid-feedback">
                                                                         Please choose a country!
@@ -394,10 +340,8 @@ Ready website for business, High Quality website sales, High quality blogs sales
                                                                     Register</button></a>
                                                         </div>
                                                         <div class=" sign-up-btn pr-3 text-right">
-                                                            <span>Already have an account?</span> <a href="login.php"
-                                                                class="">
-                                                                Sign in
-                                                                Now</a>
+                                                            <span>Already have an account?</span>
+                                                            <a href="login.php"> Sign in Now</a>
                                                         </div>
 
                                                     </form>
