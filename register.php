@@ -41,6 +41,10 @@ $allCountries = $Location->getCountriesList();
 
 if(isset($_POST['btnSubmit'])){
 
+	// $invalidEmail 	= $error->invalidEmail($txtEmail);
+
+	// if(preg_match("/^ER/",$invalidEmail)){}
+
     // URL of the API endpoint
     $apiUrl = 'http://localhost/api/api/customer.php/';
 
