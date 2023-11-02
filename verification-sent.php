@@ -41,8 +41,8 @@ if (!isset($_SESSION['email'])) {
     exit;
 }
 $email = $_SESSION['email'];
-session_unset();
-session_destroy();
+// session_unset();
+// session_destroy();
 ?>
 <!DOCTYPE HTML>
 <html lang="zxx">
@@ -56,12 +56,12 @@ session_destroy();
     <link rel="apple-touch-icon" href="<?php echo FAVCON_PATH?>" />
 
     <!-- Plugins Files -->
-    <link href="<?= URL ?>/plugins/bootstrap-5.2.0/css/bootstrap.css" rel="stylesheet">
-    <?php require_once ROOT_DIR.'/plugins/font-awesome/fontawesome.php'?>
+    <link href="<?= URL ?>/plugins/bootstrap-5.2.0/css/bootstrap.css" rel="stylesheet" type='text/css' />
+    <link href="<?= URL ?>/plugins/fontawesome-6.1.1/css/all.css" rel="stylesheet" type='text/css' />
 
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link href="css/form.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="css/verification-email-sent.css">
+    <link href="<?= URL ?>/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>/css/form.css" rel='stylesheet' type='text/css' />
+    <link href="<?= URL ?>/css/verification-email-sent.css" rel="stylesheet" type='text/css' />
 
     <!--webfonts-->
     <link href="//fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">    

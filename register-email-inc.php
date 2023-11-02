@@ -1,6 +1,6 @@
 <?php
 include_once __DIR__ . "/includes/constant.inc.php";
-include_once __DIR__ . "/includes/content.inc.php";
+include_once __DIR__ . "/includes/order-constant.inc.php";
 include_once __DIR__ . "/includes/contact-us-email.inc.php";
 require_once __DIR__ . "/classes/encrypt.inc.php";
 
@@ -12,7 +12,6 @@ require_once __DIR__ . "/classes/class.phpmailer.php";
 require_once __DIR__ . "/mail-templates/welcome-mail-template.php";
 
 require_once __DIR__ . "/classes/contact.class.php";
-require_once __DIR__ . "/classes/emails.class.php"; 
 include_once __DIR__ . "/classes/customer.class.php";
 include_once __DIR__ . "/classes/subscriber.class.php";
 include_once __DIR__ . "/classes/encrypt.inc.php";
@@ -25,7 +24,6 @@ $contact 		= new Contact();
 $Customer		= new Customer();
 $subscriber 	= new EmailSubscriber();
 $error			= new MyError();
-$emailObj		= new Emails();
 $uMesg			= new MesgUtility();
 $utility		= new Utility();
 
@@ -41,7 +39,6 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 	$firstName 		= strip_tags(trim($_SESSION['fisrt-name']));
 	$lastName 		= strip_tags(trim($_SESSION['last-name']));
 	$txtEmail 		= strip_tags(trim($_SESSION['email']));
-	$profession 	= strip_tags(trim($_SESSION['profession']));
 
 	//checking for error
 	$invalidEmail 	= $error->invalidEmail($txtEmail);
@@ -69,11 +66,7 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 			
 		$sess_arr	= array('vkey', 'newCustomerSess', 'fisrt-name', 'last-name', 'profession');
 		$utility->delSessArr($sess_arr);			
-		//$uMesg->dispMesgWithMesgVal(SUCONTACT001,"SUCCESS","images/icon/",'','error-block','success-block');
 			
-
-
-
 
 		/*===========================================================================================================
 		|																											|
@@ -121,8 +114,8 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 		|																											|
 		============================================================================================================*/
 			
-		$data 		= array('Name', 'Email', 'Profession');
-		$data_val 	= array($firstName.' '.$lastName, $txtEmail, $profession);
+		$data 		= array('Name', 'Email');
+		$data_val 	= array($firstName.' '.$lastName, $txtEmail);
 
 		$adminMailBody =  welcomeMailToAdmin($data, $data_val);
 
@@ -153,7 +146,7 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 	
 }
 
-header("location: verification-sent.php");
-exit;
+// header("location: verification-sent.php");
+// exit;
 
 ?>
