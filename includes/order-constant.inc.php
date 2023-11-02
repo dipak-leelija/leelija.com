@@ -83,6 +83,53 @@ define("SUMMARYSITECOST",                   'SUMMARYSITECOST');
 define("ORDERSITECOST",                     'ORDERSITECOST');
 define("ORDERID",                           'ORDERID');
 
+
+	define('ORD_UPDATE', 		'Order Update');
+	define('PRFL_UPDATE', 		'Profile Update');
+	define('OFFER', 			'Offer Update');
+	define('OTHERS', 			'Others Update');
+
+
+	//Constant for Advertiser
+	define('ERSTCON001', ' No static has created so far');
+	define('ERSTCON002', ' Static content title can not be empty');
+	define('ERSTCON003', ' Invalid number of sub section or sub description selected or you have not selected any option from the drop down selection box');
+	define('ERSTCON004', ' No category for this content is selected.');
+	define('ERSTCON005', ' Title can not be empty');
+	define('ERSTCON006', ' File can not be empty');
+	
+	
+	
+	
+	define('SUSTCON001', ' Static content has been added successfully');
+	define('SUSTCON002', ' Static content has been edited');
+	define('SUSTCON003', ' Static content has been deleted');
+	define('SUSTCON004', ' Additional section(s) is(are) added successfuly');
+	
+	define('SUSTCON101', ' File has been added successfully');
+	
+
+
+	// Order Messages
+	define('ORDS001', 					'Order Placed');
+	define('ORD_SUC', 					'Article Published Successfully');
+	define('ORD_ACPT', 					'Order Accepted');
+	define('ORD_DEL', 					'Order has been delivered!');
+	define('ORD_COMP', 					'Order has been completed!');
+	define('ORD_CNG_REQ', 				'Requested for changes!');
+	define('CONT_UPDT', 				'Content file is successfully updated!');
+
+	define('LVURL_UPDT', 				'Live URL is Updated!');
+
+
+	define('ERR_LINK', 					'Something is error with the provided link');
+	define('ERR', 						'Something is error');
+
+	define('PACK_ORD',					'package');
+	define('ORDPY001', 					'Payment Completed!');
+	define('ORDPY006', 					'Payment Failed!');
+
+
 define("ORD_PLCD_M",                          "Thank you for placing your order! We have successfully received it and will begin processing it promptly. Stay tuned!");
 
 define("ORD_ACPT_M",                          "Congratulations! Your order has been accepted and is now being processed. Thank you  for choosing our services!");
