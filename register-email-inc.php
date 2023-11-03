@@ -101,7 +101,9 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 		} catch (Exception $e) {
 			echo "Message could not be sent. Mailer Error:-> {$PHPMailer->ErrorInfo}";
 		}
-
+		var_dump($PHPMailer->send());
+		print_r($PHPMailer);
+		print_r($PHPMailer->send());
 
 
 		/*===========================================================================================================
