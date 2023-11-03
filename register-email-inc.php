@@ -1,10 +1,10 @@
 <?php
+session_start();
 include_once __DIR__ . "/includes/constant.inc.php";
 include_once __DIR__ . "/includes/order-constant.inc.php";
 include_once __DIR__ . "/includes/contact-us-email.inc.php";
 require_once __DIR__ . "/classes/encrypt.inc.php";
 
-session_start();
 
 require_once __DIR__ . "/_config/dbconnect.php";
 
@@ -64,15 +64,13 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 
 		$cusId			= $utility->returnSess('userid', 0);
 			
-		$sess_arr	= array('vkey', 'newCustomerSess', 'fisrt-name', 'last-name', 'profession');
-		$utility->delSessArr($sess_arr);			
+		// $sess_arr	= array('vkey', 'newCustomerSess', 'fisrt-name', 'last-name', 'profession');
+		// $utility->delSessArr($sess_arr);			
 			
 
 		/*===========================================================================================================
 		|																											|
-		|																											|
 		|										send mail to new customer											|
-		|																											|
 		|																											|
 		============================================================================================================*/
 
@@ -108,9 +106,7 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 
 		/*===========================================================================================================
 		|																											|
-		|																											|
 		|												send mail to admin											|
-		|																											|
 		|																											|
 		============================================================================================================*/
 			
