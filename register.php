@@ -41,61 +41,35 @@ $allCountries = $Location->getCountriesList();
 
 if(isset($_POST['btnSubmit'])){
 
-	// $invalidEmail 	= $error->invalidEmail($txtEmail);
+    // $invalidEmail 	= $error->invalidEmail($txtEmail);
 
 	// if(preg_match("/^ER/",$invalidEmail)){}
 
-    // URL of the API endpoint
-    $apiUrl = 'http://localhost/api/api/customer.php/';
+    $firstName     = $_POST['firstName'];
+    $lastName      = $_POST['lastName'];
+    $email         = $_POST['txtemail'];
+    $password      = $_POST['txtPassword'];
+    $password_cnf  = $_POST['txtPasswordConfirm'];
+    $country       = $_POST['txtCountry'];
+    $profession    = $_POST['txtProfession'];
 
-     // Data to be sent in the POST request
-     $postData = array(
-        'firstName'     => $_POST['firstName'],
-        'lastName'      => $_POST['lastName'],
-        'email'         => $_POST['txtemail'],
-        'password'      => $_POST['txtPassword'],
-        'password_cnf'  => $_POST['txtPasswordConfirm'],
-        'country'       => $_POST['txtCountry'],
-        'profession'    => $_POST['txtProfession'],
-        'added_on'      => '',
-    );
-   
-
-    // Initialize cURL session
-    $ch = curl_init($apiUrl);
-
-    // Set cURL options
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
-
-    // Execute the cURL request
-    $response = curl_exec($ch);
-
-    // Check for cURL errors
-    if (curl_errno($ch)) {
-        echo 'cURL error: ' . curl_error($ch);
-    }
-
-    // Close cURL session
-    curl_close($ch);
-
-    // Output the response from the API
+    $response = $API->addCustomer($firstName, $lastName, $email, $password, $password_cnf, $country, $profession, NOW);
+    // echo $response;
     $response =  json_decode($response);
-    print_r($response);exit;
-    // if ($response->status == 201) {
-    //     $_SESSION['newCustomerSess']    = $response->customer_id;
-    //     $_SESSION['vkey']               = $response->verification_key;
-    //     $_SESSION['email']              = $response->email;
-    //     $_SESSION['fisrt-name']         = $response->fname;
-    //     $_SESSION['last-name']          = $response->lname;
+    // print_r($response);
+    // exit;
+    if ($response->status == 201) {
+        $_SESSION['newCustomerSess']    = $response->customer_id;
+        $_SESSION['vkey']               = $response->verification_key;
+        $_SESSION['email']              = $response->email;
+        $_SESSION['fisrt-name']         = $response->fname;
+        $_SESSION['last-name']          = $response->lname;
 
-    //     header('location: register-email-inc.php');
-    //     exit;
-    // }else {
-    //     $error = $response->error;
-    // }
-
+        header('location: register-email-inc.php');
+        exit;
+    }else {
+        $error = $response->error;
+    }
 
 }//Register
 ?>
