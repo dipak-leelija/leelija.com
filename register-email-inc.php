@@ -90,7 +90,6 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 			$PHPMailer->From        = SITE_EMAIL;
 			$PHPMailer->FromName    = COMPANY_FULL_NAME;
 			$PHPMailer->Sender      = SITE_EMAIL;
-		echo "-".$txtEmail."-";
 			$PHPMailer->addAddress($txtEmail, $fullName);
 			$PHPMailer->Subject     = "Verification Link of ". COMPANY_FULL_NAME;
 			$PHPMailer->Body        = $userMailBody;
@@ -105,7 +104,6 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 			echo "Message could not be sent. Mailer Error:-> {$PHPMailer->ErrorInfo}";
 		}
 		print_r($PHPMailer);
-		print_r($PHPMailer->send());
 
 
 		/*===========================================================================================================
@@ -132,6 +130,7 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 			$PHPMailer->addAddress(SITE_EMAIL, COMPANY_S.' Admin');
 			$PHPMailer->Subject     = "New User Resgisterd to -". COMPANY_FULL_NAME;
 			$PHPMailer->Body        = $adminMailBody;
+
 			if (!$PHPMailer->send()) {
 				echo "Message could not be sent to admin. Mailer Error:-> {$PHPMailer->ErrorInfo}<br>";
 				exit;
@@ -140,6 +139,7 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 		} catch (Exception $e) {
 			echo "Message could not be sent. Mailer Error:-> {$PHPMailer->ErrorInfo}";
 		}
+		print_r($PHPMailer);
 		
 		echo "<span style='color:green;'>".SUCONTACT001."</span>";	
 	}
