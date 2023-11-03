@@ -112,34 +112,34 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 		|																											|
 		============================================================================================================*/
 			
-		$data 		= array('Name', 'Email');
-		$data_val 	= array($firstName.' '.$lastName, $txtEmail);
+		// $data 		= array('Name', 'Email');
+		// $data_val 	= array($firstName.' '.$lastName, $txtEmail);
 
-		$adminMailBody =  welcomeMailToAdmin($data, $data_val);
+		// $adminMailBody =  welcomeMailToAdmin($data, $data_val);
 
-		try {
-			$PHPMailer->IsSendmail();
-			$PHPMailer->IsHTML(true);
-			$PHPMailer->Host        = gethostname();
-			$PHPMailer->SMTPAuth    = true;
-			$PHPMailer->Username    = SITE_EMAIL;
-			$PHPMailer->Password    = SITE_EMAIL_P;
-			$PHPMailer->From        = SITE_EMAIL;
-			$PHPMailer->FromName    = COMPANY_FULL_NAME;
-			$PHPMailer->Sender      = SITE_EMAIL;
-			$PHPMailer->addAddress(SITE_EMAIL, COMPANY_S.' Admin');
-			$PHPMailer->Subject     = "New User Resgisterd to -". COMPANY_FULL_NAME;
-			$PHPMailer->Body        = $adminMailBody;
+		// try {
+		// 	$PHPMailer->IsSendmail();
+		// 	$PHPMailer->IsHTML(true);
+		// 	$PHPMailer->Host        = gethostname();
+		// 	$PHPMailer->SMTPAuth    = true;
+		// 	$PHPMailer->Username    = SITE_EMAIL;
+		// 	$PHPMailer->Password    = SITE_EMAIL_P;
+		// 	$PHPMailer->From        = SITE_EMAIL;
+		// 	$PHPMailer->FromName    = COMPANY_FULL_NAME;
+		// 	$PHPMailer->Sender      = SITE_EMAIL;
+		// 	$PHPMailer->addAddress(SITE_EMAIL, COMPANY_S.' Admin');
+		// 	$PHPMailer->Subject     = "New User Resgisterd to -". COMPANY_FULL_NAME;
+		// 	$PHPMailer->Body        = $adminMailBody;
 
-			if (!$PHPMailer->send()) {
-				echo "Message could not be sent to admin. Mailer Error:-> {$PHPMailer->ErrorInfo}<br>";
-				exit;
-			}
-			$PHPMailer->clearAllRecipients();
-		} catch (Exception $e) {
-			echo "Message could not be sent. Mailer Error:-> {$PHPMailer->ErrorInfo}";
-		}
-		print_r($PHPMailer);
+		// 	if (!$PHPMailer->send()) {
+		// 		echo "Message could not be sent to admin. Mailer Error:-> {$PHPMailer->ErrorInfo}<br>";
+		// 		exit;
+		// 	}
+		// 	$PHPMailer->clearAllRecipients();
+		// } catch (Exception $e) {
+		// 	echo "Message could not be sent. Mailer Error:-> {$PHPMailer->ErrorInfo}";
+		// }
+		// print_r($PHPMailer);
 		
 		echo "<span style='color:green;'>".SUCONTACT001."</span>";	
 	}
