@@ -83,18 +83,18 @@ if(isset($_POST['btnSubmit'])){
     // Output the response from the API
     $response =  json_decode($response);
     print_r($response);
-    if ($response->status == 201) {
-        $_SESSION['newCustomerSess']    = $response->customer_id;
-        $_SESSION['vkey']               = $response->verification_key;
-        $_SESSION['email']              = $response->email;
-        $_SESSION['fisrt-name']         = $response->fname;
-        $_SESSION['last-name']          = $response->lname;
+    // if ($response->status == 201) {
+    //     $_SESSION['newCustomerSess']    = $response->customer_id;
+    //     $_SESSION['vkey']               = $response->verification_key;
+    //     $_SESSION['email']              = $response->email;
+    //     $_SESSION['fisrt-name']         = $response->fname;
+    //     $_SESSION['last-name']          = $response->lname;
 
-        header('location: register-email-inc.php');
-        exit;
-    }else {
-        $error = $response->error;
-    }
+    //     header('location: register-email-inc.php');
+    //     exit;
+    // }else {
+    //     $error = $response->error;
+    // }
 
 
 }//Register
