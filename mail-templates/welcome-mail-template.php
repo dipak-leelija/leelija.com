@@ -750,9 +750,7 @@ function welcomeMailToAdmin($data, $data_val){
                                                         <tr>
                                                             <td class="v-container-padding-padding" style="color: #ffffff;overflow-wrap:break-word;word-break:break-word;padding:8px;font-family:arial,helvetica,sans-serif;font-weight: 600; font-size: 14ps;" align="left">
     
-                                                                <div align="center">
-                                                                    Fastlinky.com
-                                                                </div>
+                                                                <div align="center">'.COMPANY_FULL_NAME.'</div>
     
                                                             </td>
                                                         </tr>
