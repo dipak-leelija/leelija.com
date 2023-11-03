@@ -76,14 +76,14 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 
 		// echo $encLink =  URL.'/verify-account.php?verify='.$vkey;
 
-		echo $txtEmail;
-		
+		echo "-".$txtEmail."-";
+
 		$userMailBody =  welcomeMailToUser($firstName, $verificationUrl);
 		$fullName = $firstName.' '.$lastName; 
 		try {
 			$PHPMailer->IsSendmail();
 			$PHPMailer->IsHTML(true);
-			$phpmailer->setLanguage('en');
+			$PHPMailer->setLanguage('en');
 			$PHPMailer->Host        = gethostname();
 			$PHPMailer->SMTPAuth    = true;
 			$PHPMailer->Username    = SITE_EMAIL;
