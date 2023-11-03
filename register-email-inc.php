@@ -144,9 +144,12 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 		echo "<span style='color:green;'>".SUCONTACT001."</span>";	
 	}
 	
+	// header("location: verification-sent.php");
+	// exit;
+
+}else {
+	echo 'Session Expired';
 }
 
-// header("location: verification-sent.php");
-// exit;
 
 ?>
