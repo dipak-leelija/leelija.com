@@ -76,7 +76,6 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 
 		// echo $encLink =  URL.'/verify-account.php?verify='.$vkey;
 
-		echo "-".$txtEmail."-";
 
 		$userMailBody =  welcomeMailToUser($firstName, $verificationUrl);
 		$fullName = $firstName.' '.$lastName; 
@@ -91,6 +90,7 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 			$PHPMailer->From        = SITE_EMAIL;
 			$PHPMailer->FromName    = COMPANY_FULL_NAME;
 			$PHPMailer->Sender      = SITE_EMAIL;
+		echo "-".$txtEmail."-";
 			$PHPMailer->addAddress($txtEmail, $fullName);
 			$PHPMailer->Subject     = "Verification Link of ". COMPANY_FULL_NAME;
 			$PHPMailer->Body        = $userMailBody;
