@@ -83,7 +83,7 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 		try {
 			$PHPMailer->IsSendmail();
 			$PHPMailer->IsHTML(true);
-			$PHPMailer->setLanguage('en');
+			// $PHPMailer->setLanguage('en');
 			$PHPMailer->Host        = gethostname();
 			$PHPMailer->SMTPAuth    = true;
 			$PHPMailer->Username    = SITE_EMAIL;

@@ -372,6 +372,7 @@ class PHPMailer{
         $cur = count($this->to);
         $this->to[$cur][0] = trim($address);
         $this->to[$cur][1] = $name;
+        echo "the mail is=>$address<br>";
 
     }
 
