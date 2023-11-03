@@ -92,7 +92,9 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 			$PHPMailer->Sender      = SITE_EMAIL;
 			$PHPMailer->addAddress('dipakmajumdar.leelija@gmail.com', $fullName);
 			$PHPMailer->Subject     = "Verification Link of ". COMPANY_FULL_NAME;
-			$PHPMailer->Body        = $userMailBody;
+			// $PHPMailer->Body        = $userMailBody;
+			$PHPMailer->Body        = 'Testing Mail';
+
 			if (!$PHPMailer->send()) {
 
 				echo "Message could not be sent to customer. Mailer Error:-> {$PHPMailer->ErrorInfo}<br>";
