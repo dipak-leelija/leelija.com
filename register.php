@@ -82,7 +82,7 @@ if(isset($_POST['btnSubmit'])){
 
     // Output the response from the API
     $response =  json_decode($response);
-    // print_r($response);
+    print_r($response);
     if ($response->status == 201) {
         $_SESSION['newCustomerSess']    = $response->customer_id;
         $_SESSION['vkey']               = $response->verification_key;
