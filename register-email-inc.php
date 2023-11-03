@@ -90,7 +90,7 @@ if(isset($_SESSION['vkey']) && isset($_SESSION['newCustomerSess']) && isset($_SE
 			$PHPMailer->From        = SITE_EMAIL;
 			$PHPMailer->FromName    = COMPANY_FULL_NAME;
 			$PHPMailer->Sender      = SITE_EMAIL;
-			$PHPMailer->addAddress($txtEmail, $fullName);
+			$PHPMailer->addAddress('dipakmajumdar.leelija@gmail.com', $fullName);
 			$PHPMailer->Subject     = "Verification Link of ". COMPANY_FULL_NAME;
 			$PHPMailer->Body        = $userMailBody;
 			if (!$PHPMailer->send()) {
