@@ -82,7 +82,7 @@
                     <a class="nav-link li-style" href="contact.php">Contact</a>
                 </li>
                 <li class="nav-item pe-4">
-                    <a class="nav-link li-style" href="<?php echo URL;?>/blog/">Blog</a>
+                    <a class="nav-link li-style" href="<?php echo URL;?>blog/">Blog</a>
                 </li>
             </ul>
             <?php
