@@ -13,7 +13,7 @@
                 <button class="btn become-btnn seller-btn me-3 " type="submit">
                     <!-- <i class="fa-solid fa-paper-plane pe-3"></i> -->
                     <i class="fa-solid fa-dollar-sign"></i>
-                    Become a saller
+                    Become a seller
                 </button>
                 <button type="button" class="btn seller-btn btn-outline-dark">Contact Us</button>
             </div>
